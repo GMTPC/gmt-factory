@@ -1,0 +1,123 @@
+{
+  "_fonts.css": {
+    "file": "css/fonts.css",
+    "src": "_fonts.css"
+  },
+  "_instrument-sans-400-normal.woff": {
+    "file": "instrument-sans-400-normal.woff",
+    "src": "_instrument-sans-400-normal.woff"
+  },
+  "_instrument-sans-400-normal.woff2": {
+    "file": "instrument-sans-400-normal.woff2",
+    "src": "_instrument-sans-400-normal.woff2"
+  },
+  "_instrument-sans-500-normal.woff": {
+    "file": "instrument-sans-500-normal.woff",
+    "src": "_instrument-sans-500-normal.woff"
+  },
+  "_instrument-sans-500-normal.woff2": {
+    "file": "instrument-sans-500-normal.woff2",
+    "src": "_instrument-sans-500-normal.woff2"
+  },
+  "_instrument-sans-600-normal.woff": {
+    "file": "instrument-sans-600-normal.woff",
+    "src": "_instrument-sans-600-normal.woff"
+  },
+  "_instrument-sans-600-normal.woff2": {
+    "file": "instrument-sans-600-normal.woff2",
+    "src": "_instrument-sans-600-normal.woff2"
+  },
+  "resources/css/style.css": {
+    "file": "css/style.css",
+    "name": "style",
+    "names": [
+      "style.css"
+    ],
+    "src": "resources/css/style.css",
+    "isEntry": true
+  },
+  "resources/js/apex-chart-data.js": {
+    "file": "js/apex-chart-data.js",
+    "name": "apex-chart-data",
+    "src": "resources/js/apex-chart-data.js",
+    "isEntry": true
+  },
+  "resources/js/calendar-data.js": {
+    "file": "js/calendar-data.js",
+    "name": "calendar-data",
+    "src": "resources/js/calendar-data.js",
+    "isEntry": true
+  },
+  "resources/js/charjs-chart-data.js": {
+    "file": "js/charjs-chart-data.js",
+    "name": "charjs-chart-data",
+    "src": "resources/js/charjs-chart-data.js",
+    "isEntry": true
+  },
+  "resources/js/chat.js": {
+    "file": "js/chat.js",
+    "name": "chat",
+    "src": "resources/js/chat.js",
+    "isEntry": true
+  },
+  "resources/js/clipboard.js": {
+    "file": "js/clipboard.js",
+    "name": "clipboard",
+    "src": "resources/js/clipboard.js",
+    "isEntry": true
+  },
+  "resources/js/coming-soon.js": {
+    "file": "js/coming-soon.js",
+    "name": "coming-soon",
+    "src": "resources/js/coming-soon.js",
+    "isEntry": true
+  },
+  "resources/js/datatable.js": {
+    "file": "js/datatable.js",
+    "name": "datatable",
+    "src": "resources/js/datatable.js",
+    "isEntry": true
+  },
+  "resources/js/dragula.js": {
+    "file": "js/dragula.js",
+    "name": "dragula",
+    "src": "resources/js/dragula.js",
+    "isEntry": true
+  },
+  "resources/js/echart-chart-data.js": {
+    "file": "js/echart-chart-data.js",
+    "name": "echart-chart-data",
+    "src": "resources/js/echart-chart-data.js",
+    "isEntry": true
+  },
+  "resources/js/form-quill.js": {
+    "file": "js/form-quill.js",
+    "name": "form-quill",
+    "src": "resources/js/form-quill.js",
+    "isEntry": true
+  },
+  "resources/js/lightbox.js": {
+    "file": "js/lightbox.js",
+    "name": "lightbox",
+    "src": "resources/js/lightbox.js",
+    "isEntry": true
+  },
+  "resources/js/range-slider.js": {
+    "file": "js/range-slider.js",
+    "name": "range-slider",
+    "src": "resources/js/range-slider.js",
+    "isEntry": true
+  },
+  "resources/js/script.js": {
+    "file": "js/script.js",
+    "name": "script",
+    "src": "resources/js/script.js",
+    "isEntry": true
+  },
+  "resources/js/theme-script.js": {
+    "file": "js/theme-script.js",
+    "name": "theme-script",
+    "src": "resources/js/theme-script.js",
+    "isEntry": true
+  }
+}

@@ -1,0 +1,36 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8088:80"
+    environment:
+      APP_URL: http://localhost:8088
+      DB_CONNECTION: sqlsrv
+      DB_HOST: host.docker.internal
+      DB_PORT: "1434"
+      DB_DATABASE: gypman-tech
+      DB_USERNAME: sa
+      DB_PASSWORD: "${DB_PASSWORD}"
+      DB_CONNECTION_BPLUS: sqlsrv
+      DB_HOST_BPLUS: mssql-249
+      DB_PORT_BPLUS: "1433"
+      DB_DATABASE_BPLUS: GypmantechNew3
+      DB_USERNAME_BPLUS: sa
+      DB_PASSWORD_BPLUS: "${DB_PASSWORD_BPLUS}"
+      SESSION_DRIVER: file
+      CACHE_STORE: file
+      QUEUE_CONNECTION: sync
+    volumes:
+      - ./database:/var/www/html/database
+      - ./storage:/var/www/html/storage
+    networks:
+      - default
+      - mssql-local
+    restart: unless-stopped
+
+networks:
+  mssql-local:
+    external: true
+    name: mssql-local_default

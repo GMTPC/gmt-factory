@@ -1,0 +1,378 @@
+@extends('layouts.mainlayout')
+@section('content')
+
+    <!-- Start Content -->
+    <div class="p-3 lg:py-6 lg:px-0">
+        <div class="flex flex-wrap items-center justify-between gap-3 mb-3 lg:mb-6">
+            <h1 class="text-gray-900 text-xl font-bold mb-0">Dragula</h1>
+        </div>
+
+        <!-- Start grid -->
+        <div class="grid grid-cols-1 gap-6">
+            <div class="preview-card bg-white rounded-md border border-border-color p-5">
+                <div class="pb-5 mb-5 flex items-center xxl:gap-0 gap-3 justify-between flex-wrap border-b border-border-color">
+                    <h2 class="text-gray-900 text-lg font-bold mb-0"> Simple Drag and Drop Example</h2>
+                    <button type="button" data-toggle="code" class="flex items-center gap-2 border py-1.5 px-2.5 text-xs border-border-color font-semibold rounded-md bg-light-200 dark:bg-gray-100 focus:bg-primary focus:border-primary focus:text-white text-gray-900 dark:text-dark dark:focus:text-dark">
+                        <i class="icon icon-eye"></i>
+                        <span class="code-btn">Show Code</span>
+                    </button>
+                </div>
+                <div class="preview-content grid grid-cols-1 xl:grid-cols-3 gap-6" id="simple-dragula" data-plugin="dragula">
+                    <div class="p-5 bg-primary rounded-lg text-white">
+                        <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                        <p>Someone famous in <em>Source Title</em></p>
+                    </div>
+                    <div class="p-5 bg-success rounded-lg text-white">
+                        <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                        <p>Someone famous in <em>Source Title</em></p>
+                    </div>
+                    <div class="p-5 bg-warning rounded-lg text-white">
+                        <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                        <p>Someone famous in <em>Source Title</em></p>
+                    </div>
+                    <div class="p-5 bg-danger rounded-lg text-white">
+                        <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                        <p>Someone famous in <em>Source Title</em></p>
+                    </div>
+                    <div class="p-5 bg-info rounded-lg text-white">
+                        <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                        <p>Someone famous in <em>Source Title</em></p>
+                    </div>
+                    <div class="p-5 bg-dark rounded-lg text-white">
+                        <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                        <p>Someone famous in <em>Source Title</em></p>
+                    </div>
+                </div>
+    <pre class="code hidden relative mt-4 p-0! bg-dark text-gray-100 text-sm  overflow-hidden">
+    <button type="button" data-copy class="sticky float-end top-3 right-3 z-10 bg-gray-800 text-white text-xs px-2.5 py-1.5 rounded-md hover:bg-gray-700 flex items-center gap-1"><i class="icon icon-copy"></i><span>Copy</span></button>
+    <code class="language-html block w-full max-h-[400px] mb-[-42px] mt-[-10px]! overflow-auto p-4 pr-16">
+    &lt;div class="preview-content grid grid-cols-1 xl:grid-cols-3 gap-6" id="simple-dragula" data-plugin="dragula"&gt;
+        &lt;div class="p-5 bg-primary rounded-lg text-white"&gt;
+            &lt;p class="mb-4"&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.&lt;/p&gt;
+            &lt;p&gt;Someone famous in &lt;em&gt;Source Title&lt;/em&gt;&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="p-5 bg-success rounded-lg text-white"&gt;
+            &lt;p class="mb-4"&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.&lt;/p&gt;
+            &lt;p&gt;Someone famous in &lt;em&gt;Source Title&lt;/em&gt;&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="p-5 bg-warning rounded-lg text-white"&gt;
+            &lt;p class="mb-4"&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.&lt;/p&gt;
+            &lt;p&gt;Someone famous in &lt;em&gt;Source Title&lt;/em&gt;&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="p-5 bg-danger rounded-lg text-white"&gt;
+            &lt;p class="mb-4"&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.&lt;/p&gt;
+            &lt;p&gt;Someone famous in &lt;em&gt;Source Title&lt;/em&gt;&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="p-5 bg-info rounded-lg text-white"&gt;
+            &lt;p class="mb-4"&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.&lt;/p&gt;
+            &lt;p&gt;Someone famous in &lt;em&gt;Source Title&lt;/em&gt;&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="p-5 bg-dark rounded-lg text-white"&gt;
+            &lt;p class="mb-4"&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.&lt;/p&gt;
+            &lt;p&gt;Someone famous in &lt;em&gt;Source Title&lt;/em&gt;&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    </code>
+    </pre>
+            </div> <!-- end card -->
+
+            <div class="preview-card bg-white rounded-md border border-border-color p-5">
+                <div class="pb-5 mb-5 flex items-center xxl:gap-0 gap-3 justify-between flex-wrap border-b border-border-color">
+                    <h3 class="text-gray-900 text-lg font-bold mb-0">Move stuff between containers</h3>
+                    <button type="button" data-toggle="code" class="flex items-center gap-2 border py-1.5 px-2.5 text-xs border-border-color font-semibold rounded-md bg-light-200 dark:bg-gray-100 focus:bg-primary focus:border-primary focus:text-white text-gray-900 dark:text-dark dark:focus:text-dark">
+                        <i class="icon icon-eye"></i>
+                        <span class="code-btn">Show Code</span>
+                    </button>
+                </div>
+                <div class="preview-content grid grid-cols-1 xl:grid-cols-2 gap-6" data-plugin="dragula" data-containers='["company-list-left", "company-list-right"]'>
+                    <div class="col-span-1 p-5 bg-light rounded-lg">
+                        <h4 class="text-gray-900 text-lg font-bold mb-0">Part 1</h4>
+                        <div class="flex flex-col gap-4 mt-8" id="company-list-left">
+                            <div class="flex sm:flex-row flex-col items-start gap-3 p-4 border border-border-color rounded-lg bg-white">
+                                <img src="{{URL::asset('/build/img/avatar/avatar-01.jpg')}}" class="size-10 rounded-full border border-border-color" alt="user-image">
+                                <div>
+                                    <h5 class="text-[16px] mb-1">Luoise K. Bond</h5>
+                                    <p class="text-xs mb-3">Founder & CEO</p>
+                                    <em class="text-xs">Disrupt pork belly poutine, asymmetrical tousled succulents selfies. You probably haven't heard of them tattooed master cleanse live-edge keffiyeh.</em>
+                                </div>
+                            </div>
+                            <div class="flex sm:flex-row flex-col items-start gap-3 p-4 border border-border-color rounded-lg bg-white">
+                                <img src="{{URL::asset('/build/img/avatar/avatar-02.jpg')}}" class="size-10 rounded-full border border-border-color" alt="user-image">
+                                <div>
+                                    <h5 class="text-[16px] mb-1">James M. Short</h5>
+                                    <p class="text-xs mb-3">Software Engineer</p>
+                                    <em class="text-xs">Disrupt pork belly poutine, asymmetrical tousled succulents selfies. You probably haven't heard of them tattooed master cleanse live-edge keffiyeh.</em>
+                                </div>
+                            </div>
+                            <div class="flex sm:flex-row flex-col items-start gap-3 p-4 border border-border-color rounded-lg bg-white">
+                                <img src="{{URL::asset('/build/img/avatar/avatar-03.jpg')}}" class="size-10 rounded-full border border-border-color" alt="user-image">
+                                <div>
+                                    <h5 class="text-[16px] mb-1">Susan J. Sander</h5>
+                                    <p class="text-xs mb-3">Web Designer</p>
+                                    <em class="text-xs">Disrupt pork belly poutine, asymmetrical tousled succulents selfies. You probably haven't heard of them tattooed master cleanse live-edge keffiyeh.</em>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-span-1 p-5 bg-light rounded-lg">
+                        <h5>Part 2</h5>
+                        <div class="flex flex-col gap-4 mt-8" id="company-list-right">
+                            <div class="flex sm:flex-row flex-col items-start gap-3 p-4 border border-border-color rounded-lg bg-white">
+                                <img src="{{URL::asset('/build/img/avatar/avatar-04.jpg')}}" class="size-10 rounded-full border border-border-color" alt="user-image">
+                                <div>
+                                    <h5 class="text-[16px] mb-1">Dennis N. Cloutier</h5>
+                                    <p class="text-xs mb-3">Web Developer</p>
+                                    <em class="text-xs">Disrupt pork belly poutine, asymmetrical tousled succulents selfies. You probably haven't heard of them tattooed master cleanse live-edge keffiyeh.</em>
+                                </div>
+                            </div>
+                            <div class="flex sm:flex-row flex-col items-start gap-3 p-4 border border-border-color rounded-lg bg-white">
+                                <img src="{{URL::asset('/build/img/avatar/avatar-05.jpg')}}" class="size-10 rounded-full border border-border-color" alt="user-image">
+                                <div>
+                                    <h5 class="text-[16px] mb-1">Gabriel J. Snyder</h5>
+                                    <p class="text-xs mb-3">Business Analyst</p>
+                                    <em class="text-xs">Disrupt pork belly poutine, asymmetrical tousled succulents selfies. You probably haven't heard of them tattooed master cleanse live-edge keffiyeh.</em>
+                                </div>
+                            </div>
+                            <div class="flex sm:flex-row flex-col items-start gap-3 p-4 border border-border-color rounded-lg bg-white">
+                                <img src="{{URL::asset('/build/img/avatar/avatar-06.jpg')}}" class="size-10 rounded-full border border-border-color" alt="user-image">
+                                <div>
+                                    <h5 class="text-[16px] mb-1">Louie C. Mason</h5>
+                                    <p class="text-xs mb-3">Human Resources</p>
+                                    <em class="text-xs">Disrupt pork belly poutine, asymmetrical tousled succulents selfies. You probably haven't heard of them tattooed master cleanse live-edge keffiyeh.</em>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    <pre class="code hidden relative mt-4 p-0! bg-dark text-gray-100 text-sm  overflow-hidden">
+    <button type="button" data-copy class="sticky float-end top-3 right-3 z-10 bg-gray-800 text-white text-xs px-2.5 py-1.5 rounded-md hover:bg-gray-700 flex items-center gap-1"><i class="icon icon-copy"></i><span>Copy</span></button>
+    <code class="language-html block w-full max-h-[400px] mb-[-42px] mt-[-10px]! overflow-auto p-4 pr-16">
+    &lt;div class="preview-content grid grid-cols-1 xl:grid-cols-2 gap-6" data-plugin="dragula" data-containers='["company-list-left", "company-list-right"]'&gt;
+        &lt;div class="col-span-1 p-5 bg-light rounded-lg"&gt;
+            &lt;h5&gt;Part 1&lt;/h5&gt;
+            &lt;div class="flex flex-col gap-4 mt-8" id="company-list-left"&gt;
+                &lt;div class="flex sm:flex-row flex-col items-start gap-3 p-4 border border-border-color rounded-lg bg-white"&gt;
+                    &lt;img src="{{URL::asset('build/img/avatar/avatar-01.jpg')}}" class="size-10 rounded-full border border-border-color" alt="user-image"&gt;
+                    &lt;div&gt;
+                        &lt;h5 class="text-[16px] mb-1"&gt;Luoise K. Bond&lt;/h5&gt;
+                        &lt;p class="text-xs mb-3"&gt;Founder &amp; CEO&lt;/p&gt;
+                        &lt;em class="text-xs"&gt;Disrupt pork belly poutine, asymmetrical tousled succulents selfies. You probably haven't heard of them tattooed master cleanse live-edge keffiyeh.&lt;/em&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="flex sm:flex-row flex-col items-start gap-3 p-4 border border-border-color rounded-lg bg-white"&gt;
+                    &lt;img src="{{URL::asset('build/img/avatar/avatar-02.jpg')}}" class="size-10 rounded-full border border-border-color" alt="user-image"&gt;
+                    &lt;div&gt;
+                        &lt;h5 class="text-[16px] mb-1"&gt;James M. Short&lt;/h5&gt;
+                        &lt;p class="text-xs mb-3"&gt;Software Engineer&lt;/p&gt;
+                        &lt;em class="text-xs"&gt;Disrupt pork belly poutine, asymmetrical tousled succulents selfies. You probably haven't heard of them tattooed master cleanse live-edge keffiyeh.&lt;/em&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="flex sm:flex-row flex-col items-start gap-3 p-4 border border-border-color rounded-lg bg-white"&gt;
+                    &lt;img src="{{URL::asset('build/img/avatar/avatar-03.jpg')}}" class="size-10 rounded-full border border-border-color" alt="user-image"&gt;
+                    &lt;div&gt;
+                        &lt;h5 class="text-[16px] mb-1"&gt;Susan J. Sander&lt;/h5&gt;
+                        &lt;p class="text-xs mb-3"&gt;Web Designer&lt;/p&gt;
+                        &lt;em class="text-xs"&gt;Disrupt pork belly poutine, asymmetrical tousled succulents selfies. You probably haven't heard of them tattooed master cleanse live-edge keffiyeh.&lt;/em&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="col-span-1 p-5 bg-light rounded-lg"&gt;
+            &lt;h5&gt;Part 2&lt;/h5&gt;
+            &lt;div class="flex flex-col gap-4 mt-8" id="company-list-right"&gt;
+                &lt;div class="flex sm:flex-row flex-col items-start gap-3 p-4 border border-border-color rounded-lg bg-white"&gt;
+                    &lt;img src="{{URL::asset('build/img/avatar/avatar-04.jpg')}}" class="size-10 rounded-full border border-border-color" alt="user-image"&gt;
+                    &lt;div&gt;
+                        &lt;h5 class="text-[16px] mb-1"&gt;Dennis N. Cloutier&lt;/h5&gt;
+                        &lt;p class="text-xs mb-3"&gt;Web Developer&lt;/p&gt;
+                        &lt;em class="text-xs"&gt;Disrupt pork belly poutine, asymmetrical tousled succulents selfies. You probably haven't heard of them tattooed master cleanse live-edge keffiyeh.&lt;/em&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="flex sm:flex-row flex-col items-start gap-3 p-4 border border-border-color rounded-lg bg-white"&gt;
+                    &lt;img src="{{URL::asset('build/img/avatar/avatar-05.jpg')}}" class="size-10 rounded-full border border-border-color" alt="user-image"&gt;
+                    &lt;div&gt;
+                        &lt;h5 class="text-[16px] mb-1"&gt;Gabriel J. Snyder&lt;/h5&gt;
+                        &lt;p class="text-xs mb-3"&gt;Business Analyst&lt;/p&gt;
+                        &lt;em class="text-xs"&gt;Disrupt pork belly poutine, asymmetrical tousled succulents selfies. You probably haven't heard of them tattooed master cleanse live-edge keffiyeh.&lt;/em&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="flex sm:flex-row flex-col items-start gap-3 p-4 border border-border-color rounded-lg bg-white"&gt;
+                    &lt;img src="{{URL::asset('build/img/avatar/avatar-06.jpg')}}" class="size-10 rounded-full border border-border-color" alt="user-image"&gt;
+                    &lt;div&gt;
+                        &lt;h5 class="text-[16px] mb-1"&gt;Louie C. Mason&lt;/h5&gt;
+                        &lt;p class="text-xs mb-3"&gt;Human Resources&lt;/p&gt;
+                        &lt;em class="text-xs"&gt;Disrupt pork belly poutine, asymmetrical tousled succulents selfies. You probably haven't heard of them tattooed master cleanse live-edge keffiyeh.&lt;/em&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    </code>
+    </pre>
+            </div> <!-- end card -->
+
+            <div class="preview-card bg-white rounded-md border border-border-color p-5">
+                <div class="pb-5 mb-5 flex items-center xxl:gap-0 gap-3 justify-between flex-wrap border-b border-border-color">
+                    <h5>Move stuff between containers using handle</h5>
+                    <button type="button" data-toggle="code" class="flex items-center gap-2 border py-1.5 px-2.5 text-xs border-border-color font-semibold rounded-md bg-light-200 dark:bg-gray-100 focus:bg-primary focus:border-primary focus:text-white text-gray-900 dark:text-dark dark:focus:text-dark">
+                        <i class="icon icon-eye"></i>
+                        <span class="code-btn">Show Code</span>
+                    </button>
+                </div>
+                <div class="preview-content grid grid-cols-1 xl:grid-cols-2 gap-6" data-plugin="dragula" data-containers='["handle-dragula-left", "handle-dragula-right"]' data-handleClass="dragula-handle">
+                    <div class="col-span-1 p-5 bg-light rounded-lg">
+                        <h5>Part 1</h5>
+                        <div class="flex flex-col gap-4 mt-8" id="handle-dragula-left">
+                            <div class="flex items-center justify-between p-4 border border-border-color rounded-lg bg-white">
+                                <div class="flex flex-wrap items-center gap-2">
+                                    <img src="{{URL::asset('/build/img/avatar/avatar-07.jpg')}}" class="size-10 rounded-full border border-border-color" alt="user-image">
+                                    <div>
+                                        <h5 class="text-[16px]">Luoise K. Bond</h5>
+                                        <p class="text-xs">Founder & CEO</p>
+                                    </div>
+                                </div>
+                                <i class="icon icon-move cursor-move dragula-handle"></i>
+                            </div>
+                            <div class="flex items-center justify-between p-4 border border-border-color rounded-lg bg-white">
+                                <div class="flex flex-wrap items-center gap-2">
+                                    <img src="{{URL::asset('/build/img/avatar/avatar-08.jpg')}}" class="size-10 rounded-full border border-border-color" alt="user-image">
+                                    <div>
+                                        <h5 class="text-[16px]">Dennis N. Cloutier</h5>
+                                        <p class="text-xs">Software Engineer</p>
+                                    </div>
+                                </div>
+                                <i class="icon icon-move cursor-move dragula-handle"></i>
+                            </div>
+                            <div class="flex items-center justify-between p-4 border border-border-color rounded-lg bg-white">
+                                <div class="flex flex-wrap items-center gap-2">
+                                    <img src="{{URL::asset('/build/img/avatar/avatar-09.jpg')}}" class="size-10 rounded-full border border-border-color" alt="user-image">
+                                    <div>
+                                        <h5 class="text-[16px]">Susan J. Sander</h5>
+                                        <p class="text-xs">Web Designer</p>
+                                    </div>
+                                </div>
+                                <i class="icon icon-move cursor-move dragula-handle"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-span-1 p-5 bg-light rounded-lg">
+                        <h5>Part 2</h5>
+                        <div class="flex flex-col gap-4 mt-8" id="handle-dragula-right">
+                            <div class="flex items-center justify-between p-4 border border-border-color rounded-lg bg-white">
+                                <div class="flex flex-wrap items-center gap-2">
+                                    <img src="{{URL::asset('/build/img/avatar/avatar-10.jpg')}}" class="size-10 rounded-full border border-border-color" alt="user-image">
+                                    <div>
+                                        <h5 class="text-[16px]">Gabriel J. Snyder</h5>
+                                        <p class="text-xs">Web Developer</p>
+                                    </div>
+                                </div>
+                                <i class="icon icon-move cursor-move dragula-handle"></i>
+                            </div>
+                            <div class="flex items-center justify-between p-4 border border-border-color rounded-lg bg-white">
+                                <div class="flex flex-wrap items-center gap-2">
+                                    <img src="{{URL::asset('/build/img/avatar/avatar-12.jpg')}}" class="size-10 rounded-full border border-border-color" alt="user-image">
+                                    <div>
+                                        <h5 class="text-[16px]">James M. Short</h5>
+                                        <p class="text-xs">Business Analyst</p>
+                                    </div>
+                                </div>
+                                <i class="icon icon-move cursor-move dragula-handle"></i>
+                            </div>
+                            <div class="flex items-center justify-between p-4 border border-border-color rounded-lg bg-white">
+                                <div class="flex flex-wrap items-center gap-2">
+                                    <img src="{{URL::asset('/build/img/avatar/avatar-13.jpg')}}" class="size-10 rounded-full border border-border-color" alt="user-image">
+                                    <div>
+                                        <h5 class="text-[16px]">Louie C. Mason</h5>
+                                        <p class="text-xs">Human Resources</p>
+                                    </div>
+                                </div>
+                                <i class="icon icon-move cursor-move dragula-handle"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    <pre class="code hidden relative mt-4 p-0! bg-dark text-gray-100 text-sm  overflow-hidden">
+    <button type="button" data-copy class="sticky float-end top-3 right-3 z-10 bg-gray-800 text-white text-xs px-2.5 py-1.5 rounded-md hover:bg-gray-700 flex items-center gap-1"><i class="icon icon-copy"></i><span>Copy</span></button>
+    <code class="language-html block w-full max-h-[400px] mb-[-42px] mt-[-10px]! overflow-auto p-4 pr-16">
+    &lt;div class="preview-content grid grid-cols-1 xl:grid-cols-2 gap-6" data-plugin="dragula" data-containers='["handle-dragula-left", "handle-dragula-right"]' data-handleClass="dragula-handle"&gt;
+        &lt;div class="col-span-1 p-5 bg-light rounded-lg"&gt;
+            &lt;h5&gt;Part 1&lt;/h5&gt;
+            &lt;div class="flex flex-col gap-4 mt-8" id="handle-dragula-left"&gt;
+                &lt;div class="flex items-center justify-between p-4 border border-border-color rounded-lg bg-white"&gt;
+                    &lt;div class="flex items-center gap-2"&gt;
+                        &lt;img src="{{URL::asset('build/img/avatar/avatar-07.jpg')}}" class="size-10 rounded-full border border-border-color" alt="user-image"&gt;
+                        &lt;div&gt;
+                            &lt;h5 class="text-[16px]"&gt;Luoise K. Bond&lt;/h5&gt;
+                            &lt;p class="text-xs"&gt;Founder &amp; CEO&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;i class="icon icon-move cursor-move dragula-handle"&gt;&lt;/i&gt;
+                &lt;/div&gt;
+                &lt;div class="flex items-center justify-between p-4 border border-border-color rounded-lg bg-white"&gt;
+                    &lt;div class="flex items-center gap-2"&gt;
+                        &lt;img src="{{URL::asset('build/img/avatar/avatar-08.jpg')}}" class="size-10 rounded-full border border-border-color" alt="user-image"&gt;
+                        &lt;div&gt;
+                            &lt;h5 class="text-[16px]"&gt;Dennis N. Cloutier&lt;/h5&gt;
+                            &lt;p class="text-xs"&gt;Software Engineer&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;i class="icon icon-move cursor-move dragula-handle"&gt;&lt;/i&gt;
+                &lt;/div&gt;
+                &lt;div class="flex items-center justify-between p-4 border border-border-color rounded-lg bg-white"&gt;
+                    &lt;div class="flex items-center gap-2"&gt;
+                        &lt;img src="{{URL::asset('build/img/avatar/avatar-09.jpg')}}" class="size-10 rounded-full border border-border-color" alt="user-image"&gt;
+                        &lt;div&gt;
+                            &lt;h5 class="text-[16px]"&gt;Susan J. Sander&lt;/h5&gt;
+                            &lt;p class="text-xs"&gt;Web Designer&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;i class="icon icon-move cursor-move dragula-handle"&gt;&lt;/i&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="col-span-1 p-5 bg-light rounded-lg"&gt;
+            &lt;h5&gt;Part 2&lt;/h5&gt;
+            &lt;div class="flex flex-col gap-4 mt-8" id="handle-dragula-right"&gt;
+                &lt;div class="flex items-center justify-between p-4 border border-border-color rounded-lg bg-white"&gt;
+                    &lt;div class="flex items-center gap-2"&gt;
+                        &lt;img src="{{URL::asset('build/img/avatar/avatar-10.jpg')}}" class="size-10 rounded-full border border-border-color" alt="user-image"&gt;
+                        &lt;div&gt;
+                            &lt;h5 class="text-[16px]"&gt;Gabriel J. Snyder&lt;/h5&gt;
+                            &lt;p class="text-xs"&gt;Web Developer&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;i class="icon icon-move cursor-move dragula-handle"&gt;&lt;/i&gt;
+                &lt;/div&gt;
+                &lt;div class="flex items-center justify-between p-4 border border-border-color rounded-lg bg-white"&gt;
+                    &lt;div class="flex items-center gap-2"&gt;
+                        &lt;img src="{{URL::asset('build/img/avatar/avatar-12.jpg')}}" class="size-10 rounded-full border border-border-color" alt="user-image"&gt;
+                        &lt;div&gt;
+                            &lt;h5 class="text-[16px]"&gt;James M. Short&lt;/h5&gt;
+                            &lt;p class="text-xs"&gt;Business Analyst&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;i class="icon icon-move cursor-move dragula-handle"&gt;&lt;/i&gt;
+                &lt;/div&gt;
+                &lt;div class="flex items-center justify-between p-4 border border-border-color rounded-lg bg-white"&gt;
+                    &lt;div class="flex items-center gap-2"&gt;
+                        &lt;img src="{{URL::asset('build/img/avatar/avatar-13.jpg')}}" class="size-10 rounded-full border border-border-color" alt="user-image"&gt;
+                        &lt;div&gt;
+                            &lt;h5 class="text-[16px]"&gt;Louie C. Mason&lt;/h5&gt;
+                            &lt;p class="text-xs"&gt;Human Resources&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;i class="icon icon-move cursor-move dragula-handle"&gt;&lt;/i&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    </code>
+    </pre>
+            </div> <!-- end card -->
+
+        </div>
+        <!-- End grid -->
+    </div>
+    <!-- End Content -->
+
+@endsection
