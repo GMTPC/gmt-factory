@@ -1,15 +1,13 @@
 /**
- * @license lucide v1.24.0 - ISC
+ * @license lucide v1.68.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
 
 const PoundSterling = [
-  ["path", { d: "M18 7c0-5.333-8-5.333-8 0" }],
-  ["path", { d: "M10 7v14" }],
-  ["path", { d: "M6 21h12" }],
-  ["path", { d: "M6 13h10" }]
+  ["path", { d: "M17 18a2 2 0 01-2 2H5a3 3 0 003-3V8a4 4 0 018 0" }],
+  ["path", { d: "M6 12h7" }]
 ];
 
 export { PoundSterling as default };

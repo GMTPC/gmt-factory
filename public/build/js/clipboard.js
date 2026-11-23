@@ -1,1 +1,0 @@
-(function(){document.querySelector(`.clipboard`)&&new ClipboardJS(`.btn`)})();

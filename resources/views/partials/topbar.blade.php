@@ -188,7 +188,11 @@
 
         <!-- User Dropdown -->
         <div class="profile-dropdown hs-dropdown [--placement:bottom-right] [--auto-close:inside] relative">
-            <a href="#" class="hs-dropdown-toggle relative flex items-center justify-center rounded-full lg:ms-2" aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
+            <a href="#" class="hs-dropdown-toggle relative flex items-center gap-2 justify-center rounded-full lg:ms-2" aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
+                <span class="hidden sm:block text-end">
+                    <span class="block text-sm font-semibold text-title leading-tight">{{ auth()->user()->username }}</span>
+                    <span class="block text-[11px] text-default leading-tight">{{ auth()->user()->department }}</span>
+                </span>
                 <div class="size-8 rounded-full overflow-hidden border border-border-color">
                     <img src="{{URL::asset('build/img/avatar/avatar-01.jpg')}}" class="size-full object-cover" alt="user-image">
                 </div>
@@ -199,8 +203,8 @@
                         <img src="{{URL::asset('build/img/avatar/avatar-01.jpg')}}" class="rounded-full border border-border-color" alt="user-image">
                     </div>
                     <div>
-                        <p class="font-semibold text-title mb-1">Jamie Anderson</p>
-                        <p class="text-[13px] mb-0">Administrator</p>
+                        <p class="font-semibold text-title mb-1">{{ auth()->user()->username }}</p>
+                        <p class="text-[13px] mb-0">Department: {{ auth()->user()->department }}</p>
                     </div>
                 </div>
                 <div class="py-3 space-y-1">
@@ -221,9 +225,12 @@
                     <a href="{{url('lock-screen')}}" class="flex items-center px-2 py-[6px] rounded-md text-gray-900 hover:bg-light focus:outline-hidden focus:bg-white">
                         <i class="icon icon-user-cog text-base me-2"></i>Lock Screen
                     </a>
-                    <a href="{{url('login')}}" class="flex items-center px-2 py-[6px] rounded-md text-danger hover:bg-light focus:outline-hidden focus:bg-white">
-                        <i class="icon icon-log-out text-base me-2"></i>Log Out
-                    </a>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit" class="w-full text-start flex items-center px-2 py-[6px] rounded-md text-danger hover:bg-light focus:outline-hidden focus:bg-white">
+                            <i class="icon icon-log-out text-base me-2"></i>Log Out
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -264,75 +271,14 @@
 
         <div class="flex items-center gap-2 lg:w-full">
 
-            <!-- Company Dropdown -->
-            <div class="header-item hs-dropdown [--placement:bottom-left] [--auto-close:inside] hidden lg:flex relative company-dropdown me-auto">
-                <div class="hs-dropdown-toggle bg-white border border-border-color rounded-md py-[6px] px-2 flex items-center justify-between gap-2 cursor-pointer">
-                    <div class="flex items-center gap-2">
-                        <div class="bg-dark size-5 rounded-md flex items-center justify-center">
-                            <img src="{{URL::asset('build/img/icons/company.svg')}}" alt="company">
-                        </div>
-                        <p class="text-[13px] text-title">Falcon LLP</p>
-                    </div>
-                    <p><i class="icon icon-ellipsis"></i></p>
-                </div>
-                <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-47 p-3 bg-white border border-border-color shadow rounded-md mt-0 z-1 space-y-1" role="menu" aria-orientation="vertical">
-                    <a href="#" class="flex items-center gap-2 px-2 py-[6px] rounded-md text-gray-900 hover:bg-light focus:outline-hidden focus:bg-white">
-                        <div class="bg-dark size-5 rounded-md flex items-center justify-center">
-                            <img src="{{URL::asset('build/img/icons/company-02.svg')}}" alt="CloneMind AI">
-                        </div>
-                        <p class="text-[13px] text-title">CloneMind AI</p>
-                    </a>
-                    <a href="#" class="flex items-center gap-2 px-2 py-[6px] rounded-md text-gray-900 hover:bg-light focus:outline-hidden focus:bg-white">
-                        <div class="bg-dark size-5 rounded-md flex items-center justify-center">
-                            <img src="{{URL::asset('build/img/icons/company.svg')}}" alt="Falcon LLP">
-                        </div>
-                        <p class="text-[13px] text-title">Falcon LLP</p>
-                    </a>
-                    <a href="#" class="flex items-center gap-2 px-2 py-[6px] rounded-md text-gray-900 hover:bg-light focus:outline-hidden focus:bg-white">
-                        <div class="bg-dark size-5 rounded-md flex items-center justify-center">
-                            <img src="{{URL::asset('build/img/icons/company-03.svg')}}" alt="Replicon Labs">
-                        </div>
-                        <p class="text-[13px] text-title">Replicon Labs</p>
-                    </a>
-                    <a href="#" class="flex items-center gap-2 px-2 py-[6px] rounded-md text-gray-900 hover:bg-light focus:outline-hidden focus:bg-white">
-                        <div class="bg-dark size-5 rounded-md flex items-center justify-center">
-                            <img src="{{URL::asset('build/img/icons/company-04.svg')}}" alt="CloneSphere">
-                        </div>
-                        <p class="text-[13px] text-title">CloneSphere</p>
-                    </a>
-                </div>
-            </div>
+            <!-- ป้ายบอกไลน์ปัจจุบัน — เติมโดย resources/js/layouts/AppLayout.vue (Vue Teleport) -->
+            <div id="topbar-line-slot" class="flex min-w-0 items-center me-auto"></div>
 
             <!-- Light/Dark Mode Button -->
             <div class="header-item">
                 <button class="topbar-link items-center justify-center light-dark-mode" type="button">
                     <i class="ph-duotone ph-moon"></i>
                 </button>
-            </div>
-
-            <!-- Search (icon button — opens modal) -->
-            <div class="header-item">
-                <button type="button" class="topbar-link items-center justify-center" data-hs-overlay="#search_modal" aria-label="Search">
-                    <i class="ph-duotone ph-magnifying-glass"></i>
-                </button>
-            </div>
-
-            <!-- Language Dropdown -->
-            <div class="header-item hs-dropdown [--placement:bottom-right] [--auto-close:inside] hidden lg:flex">
-                <button type="button" class="topbar-link items-center justify-center">
-                    <i class="ph-duotone ph-translate"></i>
-                </button>
-                <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-30 p-3 bg-white border border-border-color shadow rounded-md mt-[-8px]! z-1 space-y-1" role="menu" aria-orientation="vertical">
-                    <a href="#" class="flex items-center gap-2 px-2 py-[6px] rounded-md text-gray-900 hover:bg-light focus:outline-hidden focus:bg-white">
-                        <img src="{{URL::asset('build/img/icons/us.svg')}}" class="size-4 rounded-full" alt="flag">ENG
-                    </a>
-                    <a href="#" class="flex items-center gap-2 px-2 py-[6px] rounded-md text-gray-900 hover:bg-light focus:outline-hidden focus:bg-white">
-                        <img src="{{URL::asset('build/img/icons/arab.svg')}}" class="size-4 rounded-full" alt="flag">ARB
-                    </a>
-                    <a href="#" class="flex items-center gap-2 px-2 py-[6px] rounded-md text-gray-900 hover:bg-light focus:outline-hidden focus:bg-white">
-                        <img src="{{URL::asset('build/img/icons/germany.svg')}}" class="size-4 rounded-full" alt="flag">GER
-                    </a>
-                </div>
             </div>
 
             <!-- Notification Dropdown -->
@@ -498,7 +444,11 @@
 
             <!-- User Dropdown -->
             <div class="profile-dropdown hs-dropdown [--placement:bottom-right] [--auto-close:inside] relative">
-                <a href="#" class="hs-dropdown-toggle relative flex items-center justify-center rounded-full lg:ms-2" aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
+                <a href="#" class="hs-dropdown-toggle relative flex items-center gap-2 justify-center rounded-full lg:ms-2" aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
+                    <span class="hidden sm:block text-end">
+                        <span class="block text-sm font-semibold text-title leading-tight">{{ auth()->user()->username }}</span>
+                        <span class="block text-[11px] text-default leading-tight">{{ auth()->user()->department }}</span>
+                    </span>
                     <div class="size-8 rounded-full overflow-hidden border border-border-color">
                         <img src="{{URL::asset('build/img/avatar/avatar-01.jpg')}}" class="size-full object-cover" alt="user-image">
                     </div>
@@ -509,8 +459,8 @@
                             <img src="{{URL::asset('build/img/avatar/avatar-01.jpg')}}" class="rounded-full border border-border-color" alt="user-image">
                         </div>
                         <div>
-                            <p class="font-semibold text-title mb-1">Jamie Anderson</p>
-                            <p class="text-[13px] mb-0">Administrator</p>
+                            <p class="font-semibold text-title mb-1">{{ auth()->user()->username }}</p>
+                            <p class="text-[13px] mb-0">Department: {{ auth()->user()->department }}</p>
                         </div>
                     </div>
                     <div class="py-3 space-y-1">
@@ -531,9 +481,12 @@
                         <a href="{{url('lock-screen')}}" class="flex items-center px-2 py-[6px] rounded-md text-gray-900 hover:bg-light focus:outline-hidden focus:bg-white">
                             <i class="icon icon-user-cog text-base me-2"></i>Lock Screen
                         </a>
-                        <a href="{{url('login')}}" class="flex items-center px-2 py-[6px] rounded-md text-danger hover:bg-light focus:outline-hidden focus:bg-white">
-                            <i class="icon icon-log-out text-base me-2"></i>Log Out
-                        </a>
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button type="submit" class="w-full text-start flex items-center px-2 py-[6px] rounded-md text-danger hover:bg-light focus:outline-hidden focus:bg-white">
+                                <i class="icon icon-log-out text-base me-2"></i>Log Out
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>

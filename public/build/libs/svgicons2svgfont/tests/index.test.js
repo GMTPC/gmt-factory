@@ -3,6 +3,7 @@ import assert from 'assert';
 import fs from 'node:fs';
 import { mkdir } from 'node:fs/promises';
 import { join } from 'node:path';
+import punycode from 'punycode/punycode.js';
 import { SVGIcons2SVGFontStream } from '../index.js';
 import { SVGIconsDirStream } from '../iconsdir.js';
 import streamtest from 'streamtest';
@@ -273,11 +274,6 @@ describe('Generating fonts to files', () => {
             round: 1e3,
         });
     });
-    test('should work with skew', async () => {
-        await generateFontToFile({
-            fontName: 'skew',
-        });
-    });
     test('should work when only rx is present', async () => {
         await generateFontToFile({
             fontName: 'onlywithrx',
@@ -414,7 +410,7 @@ describe('Passing code points', () => {
         const svgIconStream = fs.createReadStream(join('fixtures', 'icons', 'cleanicons', 'account.svg'));
         svgIconStream.metadata = {
             name: 'account',
-            unicode: ['\u{1f63a}'],
+            unicode: [punycode.ucs2.encode([0x1f63a])],
         };
         const promise = bufferStream(svgFontStream);
         svgFontStream.write(svgIconStream);

@@ -1,5 +1,5 @@
 /**
- * @license lucide v1.24.0 - ISC
+ * @license lucide v1.68.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
@@ -7,7 +7,7 @@
 
 const CircleCheck = [
   ["circle", { cx: "12", cy: "12", r: "10" }],
-  ["path", { d: "m9 12 2 2 4-4" }]
+  ["path", { d: "m16 9-5.5 5.5L8 12" }]
 ];
 
 export { CircleCheck as default };

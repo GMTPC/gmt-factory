@@ -302,6 +302,8 @@ type EventInstanceHash = {
 };
 declare function createEventInstance(defId: string, range: DateRange, forcedStartTzo?: number, forcedEndTzo?: number): EventInstance;
 
+declare const MAJOR_VERSION_ERROR = "This plugin is from FullCalendar v6, but your calendar is v7 (the current version). Fix: import plugins from your v7 package, e.g. import dayGridPlugin from '@fullcalendar/react/daygrid', then uninstall @fullcalendar/core, @fullcalendar/daygrid and the other v6 packages. Don't downgrade to v6.";
+
 interface PointerDragEvent {
     origEvent: UIEvent;
     isTouch: boolean;
@@ -925,7 +927,7 @@ declare function mapHash<InputItem, OutputItem>(hash: {
 }, func: (input: InputItem, key: string) => OutputItem): {
     [key: string]: OutputItem;
 };
-declare function isPropsEqual(obj0: any, obj1: any): boolean;
+declare function isPropsEqual(obj0: any, obj1: any, valuesEqual?: (val0: any, val1: any) => boolean): boolean;
 type EqualityFunc<T> = (a: T, b: T) => boolean;
 type EqualityThing<T> = EqualityFunc<T> | true;
 type EqualityFuncs<ObjType> = {
@@ -1062,7 +1064,7 @@ interface CalendarContentProps extends CalendarData {
 }
 
 type eventDragMutationMassager = (mutation: EventMutation, hit0: Hit, hit1: Hit) => void;
-type EventDropTransformers = (mutation: EventMutation, context: CalendarContext) => Dictionary;
+type EventDropTransformers = (mutation: EventMutation, context: CalendarContext, eventDef: EventDef) => Dictionary;
 type eventIsDraggableTransformer = (val: boolean, eventDef: EventDef, eventUi: EventUi, context: CalendarContext) => boolean;
 
 type dateSelectionJoinTransformer = (hit0: Hit, hit1: Hit) => any;
@@ -1314,6 +1316,7 @@ interface PluginHooks {
     };
 }
 interface PluginDef extends PluginHooks {
+    majorVersionError: typeof MAJOR_VERSION_ERROR;
     id: string;
     name: string;
     deps: PluginDef[];
@@ -1954,6 +1957,7 @@ interface EventApi {
 interface CalendarApi {
     view: ViewApi;
     updateSize(): void;
+    batchRendering(callback: () => void): void;
     setOption<OptionName extends keyof CalendarOptions>(name: OptionName, val: CalendarOptions[OptionName]): void;
     getOption<OptionName extends keyof CalendarOptions>(name: OptionName): CalendarOptions[OptionName];
     getAvailableLocaleCodes(): string[];

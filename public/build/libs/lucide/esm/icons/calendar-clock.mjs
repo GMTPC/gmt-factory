@@ -1,5 +1,5 @@
 /**
- * @license lucide v1.24.0 - ISC
+ * @license lucide v1.68.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
@@ -7,10 +7,10 @@
 
 const CalendarClock = [
   ["path", { d: "M16 14v2.2l1.6 1" }],
-  ["path", { d: "M16 2v4" }],
-  ["path", { d: "M21 7.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3.5" }],
-  ["path", { d: "M3 10h5" }],
-  ["path", { d: "M8 2v4" }],
+  ["path", { d: "M16 2v3" }],
+  ["path", { d: "M21 7.338V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2h2.338" }],
+  ["path", { d: "M3 9h5.859" }],
+  ["path", { d: "M8 2v3" }],
   ["circle", { cx: "16", cy: "16", r: "6" }]
 ];
 

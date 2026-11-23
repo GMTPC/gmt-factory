@@ -1,5 +1,5 @@
 /**
- * @license lucide-static v1.24.0 - ISC
+ * @license lucide-static v1.68.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
@@ -18,9 +18,9 @@ const SwissFranc = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M10 21V3h8" />
+  <path d="M10 10h7" />
+  <path d="M10 20V5a1 1 0 011-1h7" />
   <path d="M6 16h9" />
-  <path d="M10 9.5h7" />
 </svg>
 `;
 

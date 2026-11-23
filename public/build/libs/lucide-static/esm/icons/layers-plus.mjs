@@ -1,5 +1,5 @@
 /**
- * @license lucide-static v1.24.0 - ISC
+ * @license lucide-static v1.68.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
@@ -23,7 +23,8 @@ const LayersPlus = `
   <path d="M19 14v6" />
   <path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 .825.178" />
   <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l2.116-.962" />
-</svg>`;
+</svg>
+`;
 
 export { LayersPlus as default };
 //# sourceMappingURL=layers-plus.mjs.map

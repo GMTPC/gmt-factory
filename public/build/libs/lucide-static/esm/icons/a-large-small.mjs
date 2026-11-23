@@ -1,5 +1,5 @@
 /**
- * @license lucide-static v1.24.0 - ISC
+ * @license lucide-static v1.68.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
@@ -22,7 +22,8 @@ const ALargeSmall = `
   <path d="M15.697 14h5.606" />
   <path d="m2 16 4.039-9.69a.5.5 0 0 1 .923 0L11 16" />
   <path d="M3.304 13h6.392" />
-</svg>`;
+</svg>
+`;
 
 export { ALargeSmall as default };
 //# sourceMappingURL=a-large-small.mjs.map

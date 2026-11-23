@@ -1,5 +1,5 @@
 /**
- * @license lucide-static v1.24.0 - ISC
+ * @license lucide-static v1.68.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
@@ -23,7 +23,8 @@ const Van = `
   <path d="M9 18h5" />
   <circle cx="16" cy="18" r="2" />
   <circle cx="7" cy="18" r="2" />
-</svg>`;
+</svg>
+`;
 
 export { Van as default };
 //# sourceMappingURL=van.mjs.map

@@ -1,4 +1,4 @@
-import { Splitter, hasBgRendering, createFormatter, ViewContextType, ContentContainer, BaseComponent, DateComponent, diffDays, buildNavLinkAttrs, WeekNumberContainer, getStickyHeaderDates, ViewContainer, SimpleScrollGrid, getStickyFooterScrollbar, NowTimer, NowIndicatorContainer, renderScrollShim, rangeContainsMarker, startOfDay, asRoughMs, createDuration, RefMap, PositionCache, MoreLinkContainer, SegHierarchy, groupIntersectingEntries, binarySearch, getEntrySpanEnd, buildEntryKey, StandardEvent, memoize, sortEventSegs, DayCellContainer, hasCustomDayCellContent, getSegMeta, buildIsoString, computeEarliestSegStart, buildEventRangeKey, BgEvent, renderFill, addDurations, multiplyDuration, wholeDivideDurations, Slicer, intersectRanges, formatIsoTimeString, DayHeader, DaySeriesModel, DayTableModel, injectStyles } from '@fullcalendar/core/internal.js';
+import { Splitter, hasBgRendering, createFormatter, ViewContextType, ContentContainer, BaseComponent, DateComponent, diffDays, buildNavLinkAttrs, WeekNumberContainer, getStickyHeaderDates, ViewContainer, SimpleScrollGrid, getStickyFooterScrollbar, NowTimer, NowIndicatorContainer, renderScrollShim, startOfDay, addDays, rangeContainsMarker, asRoughMs, createDuration, RefMap, PositionCache, MoreLinkContainer, SegHierarchy, groupIntersectingEntries, binarySearch, getEntrySpanEnd, buildEntryKey, StandardEvent, memoize, sortEventSegs, DayCellContainer, hasCustomDayCellContent, getSegMeta, buildIsoString, computeEarliestSegStart, buildEventRangeKey, BgEvent, renderFill, addDurations, multiplyDuration, wholeDivideDurations, Slicer, intersectRanges, formatIsoTimeString, DayHeader, DaySeriesModel, DayTableModel, injectStyles } from '@fullcalendar/core/internal.js';
 import { createElement, createRef, Fragment } from '@fullcalendar/core/preact.js';
 import { DayTable } from '@fullcalendar/daygrid/internal.js';
 
@@ -331,14 +331,21 @@ class TimeColsSlatsCoords {
         this.dateProfile = dateProfile;
         this.slotDuration = slotDuration;
     }
+    /*
+    Tries the date's own day first. When slotMaxTime extends past midnight, or slotMinTime is negative,
+    the date might only be visible within the previous or next day's column (#6394)
+    */
     safeComputeTop(date) {
         let { dateProfile } = this;
-        if (rangeContainsMarker(dateProfile.currentRange, date)) {
-            let startOfDayDate = startOfDay(date);
-            let timeMs = date.valueOf() - startOfDayDate.valueOf();
-            if (timeMs >= asRoughMs(dateProfile.slotMinTime) &&
-                timeMs < asRoughMs(dateProfile.slotMaxTime)) {
-                return this.computeTimeTop(createDuration(timeMs));
+        let ownDayDate = startOfDay(date);
+        let dayDates = [ownDayDate, addDays(ownDayDate, -1), addDays(ownDayDate, 1)];
+        for (let dayDate of dayDates) {
+            if (rangeContainsMarker(dateProfile.currentRange, dayDate)) {
+                let timeMs = date.valueOf() - dayDate.valueOf();
+                if (timeMs >= asRoughMs(dateProfile.slotMinTime) &&
+                    timeMs < asRoughMs(dateProfile.slotMaxTime)) {
+                    return this.computeTimeTop(createDuration(timeMs));
+                }
             }
         }
         return null;

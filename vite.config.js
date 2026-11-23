@@ -1,11 +1,13 @@
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
-import { bunny } from 'laravel-vite-plugin/fonts';
+import inertia from '@inertiajs/vite';
+import vue from '@vitejs/plugin-vue';
 import tailwindcss from '@tailwindcss/vite';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
 import { resolve, dirname } from 'path';
 import { readdirSync, existsSync, statSync, cpSync } from 'fs';
 import { fileURLToPath } from 'url';
+import { templateAssets } from './vite.template-assets.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -128,8 +130,11 @@ function autoCopyLibsPlugin() {
     }
 }
 
-export default defineConfig({
+export default defineConfig(({ command }) => ({
     plugins: [
+        inertia({ ssr: false }),
+        vue(),
+        templateAssets(__dirname),
         laravel({
             input: [
                 'resources/css/style.css',
@@ -146,18 +151,16 @@ export default defineConfig({
                 'resources/js/lightbox.js',
                 'resources/js/range-slider.js',
                 'resources/js/script.js',
-                'resources/js/theme-script.js'
+                'resources/js/theme-script.js',
+                'resources/js/app.ts',
             ],
+            hotFile: resolve(__dirname, 'public/hot'),
             refresh: true,
-            fonts: [
-                bunny('Instrument Sans', {
-                    weights: [400, 500, 600],
-                }),
-            ],
         }),
-        autoCopyLibsPlugin(),
         tailwindcss(),
-        viteStaticCopy({
+        ...(command === 'build' ? [
+            autoCopyLibsPlugin(),
+            viteStaticCopy({
             targets: [
                 { src: 'node_modules/lucide-static/font', dest: 'libs/lucide-static/font', rename: { stripBase: true } },
                 { src: 'node_modules/@fortawesome/fontawesome-free/webfonts', dest: 'libs/@fortawesome/fontawesome-free/webfonts', rename: { stripBase: true } },
@@ -178,11 +181,33 @@ export default defineConfig({
                 // Copy resources images to public/build/img
                 { src: 'resources/img/**/*', dest: 'img', rename: { stripBase: 2 } },
             ],
-        }),
+            }),
+        ] : []),
     ],
+    resolve: {
+        alias: {
+            '@': resolve(__dirname, 'resources/js'),
+        },
+    },
     server: {
+        host: '0.0.0.0',
+        port: 5173,
+        strictPort: true,
+        origin: 'http://localhost:5173',
+        cors: {
+            origin: 'http://localhost:8088',
+        },
+        hmr: {
+            host: process.env.VITE_HMR_HOST || 'localhost',
+        },
         watch: {
-            ignored: ['**/storage/framework/views/**'],
+            interval: 1000,
+            binaryInterval: 2000,
+            ignored: [
+                /[/\\]public[/\\]build(?:[/\\]|$)/,
+                /[/\\]storage(?:[/\\]|$)/,
+                /[/\\]vendor(?:[/\\]|$)/,
+            ],
         },
     },
     build: {
@@ -191,16 +216,16 @@ export default defineConfig({
             output: {
                 assetFileNames: (assetInfo) => {
                     if (assetInfo.name && assetInfo.name.endsWith('.css')) {
-                        return 'css/[name][extname]';
+                        return 'css/[name]-[hash][extname]';
                     }
                     if (assetInfo.name && assetInfo.name.match(/\.(png|jpe?g|gif|svg)$/)) {
                         return 'img/[name][extname]';
                     }
                     return '[name][extname]';
                 },
-                entryFileNames: 'js/[name].js',
-                chunkFileNames: 'js/[name].js',
+                entryFileNames: 'js/[name]-[hash].js',
+                chunkFileNames: 'js/[name]-[hash].js',
             },
         },
     },
-});
+}));

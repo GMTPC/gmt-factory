@@ -7,12 +7,15 @@ if [ ! -f .env ]; then
     cp .env.example .env
 fi
 
-if ! grep -q '^APP_KEY=base64:' .env; then
+# APP_KEY จาก environment (docker-compose) มีผลเหนือ .env — generate เฉพาะตอนไม่มี key จริง ๆ
+if [ -z "${APP_KEY:-}" ] && ! grep -q '^APP_KEY=base64:' .env; then
     php artisan key:generate --force
 fi
 
 touch database/database.sqlite
-php artisan storage:link 2>/dev/null || true
+if [ ! -L public/storage ] && [ ! -e public/storage ]; then
+    php artisan storage:link
+fi
 php artisan config:clear
 
 chown -R www-data:www-data storage bootstrap/cache database

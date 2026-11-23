@@ -1,14 +1,14 @@
 /**
- * @license lucide v1.24.0 - ISC
+ * @license lucide v1.68.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
 
 const Asterisk = [
-  ["path", { d: "M12 6v12" }],
-  ["path", { d: "M17.196 9 6.804 15" }],
-  ["path", { d: "m6.804 9 10.392 6" }]
+  ["path", { d: "M12 5v14" }],
+  ["path", { d: "m18.065 8.496-12.125 7" }],
+  ["path", { d: "m5.94 8.504 12.125 7" }]
 ];
 
 export { Asterisk as default };

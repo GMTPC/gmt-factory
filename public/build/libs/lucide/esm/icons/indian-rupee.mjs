@@ -1,16 +1,14 @@
 /**
- * @license lucide v1.24.0 - ISC
+ * @license lucide v1.68.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
 
 const IndianRupee = [
-  ["path", { d: "M6 3h12" }],
-  ["path", { d: "M6 8h12" }],
-  ["path", { d: "m6 13 8.5 8" }],
-  ["path", { d: "M6 13h3" }],
-  ["path", { d: "M9 13c6.667 0 6.667-10 0-10" }]
+  ["path", { d: "m14 20-8-8h4c5.333 0 5.333-8 0-8" }],
+  ["path", { d: "M6 4h12" }],
+  ["path", { d: "M6 8h12" }]
 ];
 
 export { IndianRupee as default };

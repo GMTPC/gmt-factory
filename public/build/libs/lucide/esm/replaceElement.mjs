@@ -1,5 +1,5 @@
 /**
- * @license lucide v1.24.0 - ISC
+ * @license lucide v1.68.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
@@ -7,8 +7,8 @@
 
 import createElement from './createElement.mjs';
 import defaultAttributes from './defaultAttributes.mjs';
-import { hasA11yProp } from './shared/src/utils/hasA11yProp.mjs';
 import { mergeClasses } from './shared/src/utils/mergeClasses.mjs';
+import { hasA11yProp } from './shared/src/utils/hasA11yProp.mjs';
 import { toPascalCase } from './shared/src/utils/toPascalCase.mjs';
 
 const getAttrs = (element) => Array.from(element.attributes).reduce((attrs, attr) => {

@@ -1,5 +1,5 @@
 /**
- * @license lucide-static v1.24.0 - ISC
+ * @license lucide-static v1.68.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
@@ -18,10 +18,11 @@ const Computer = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <rect width="14" height="8" x="5" y="2" rx="2" />
-  <rect width="20" height="8" x="2" y="14" rx="2" />
-  <path d="M6 18h2" />
   <path d="M12 18h6" />
+  <path d="M6 18h.01" />
+  <path d="M8 6h1" />
+  <rect x="2" y="14" width="20" height="8" rx="2" />
+  <rect x="4" y="2" width="16" height="12" rx="2" />
 </svg>
 `;
 

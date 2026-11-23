@@ -1,5 +1,5 @@
 /**
- * @license lucide v1.24.0 - ISC
+ * @license lucide v1.68.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
@@ -14,7 +14,7 @@ const CardSim = [
     }
   ],
   ["path", { d: "M8 14h8" }],
-  ["rect", { x: "8", y: "10", width: "8", height: "8", rx: "1" }]
+  ["rect", { x: "8", y: "10", width: "8", height: "8", rx: "2" }]
 ];
 
 export { CardSim as default };

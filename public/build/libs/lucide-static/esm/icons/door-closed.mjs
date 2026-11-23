@@ -1,5 +1,5 @@
 /**
- * @license lucide-static v1.24.0 - ISC
+ * @license lucide-static v1.68.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
@@ -18,9 +18,9 @@ const DoorClosed = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M10 12h.01" />
-  <path d="M18 20V6a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v14" />
-  <path d="M2 20h20" />
+  <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16" />
+  <path d="M2 21h20" />
+  <path d="M9 12h.01" />
 </svg>
 `;
 

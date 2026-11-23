@@ -25,6 +25,23 @@ Template Name: Dreams ERP - Tailwind Admin Dashboard
 		sidebar.querySelectorAll('a.active, a.subdrop').forEach(function(a) {
 			a.classList.remove('active', 'subdrop');
 		});
+		sidebar.querySelectorAll('.cb-line-menu').forEach(function(menu) {
+			menu.classList.remove('open');
+			var parentLink = menu.querySelector(':scope > a');
+			var submenu = menu.querySelector(':scope > ul');
+			if (parentLink) parentLink.setAttribute('aria-expanded', 'false');
+			if (submenu) submenu.style.display = 'none';
+		});
+
+		var normalizedPath = path.replace(/\/$/, '') || '/';
+		function findLinkByPath() {
+			var matches = Array.prototype.filter.call(sidebar.querySelectorAll('a[href]'), function(a) {
+				var href = a.getAttribute('href');
+				if (!href || href.charAt(0) === '#') return false;
+				return a.pathname.replace(/\/$/, '') === normalizedPath;
+			});
+			return matches.length ? matches[matches.length - 1] : null;
+		}
 
 		// Sidebar hrefs are absolute urls ({{url('page')}}), so compare the last path segment
 		function findLinkByPage(name) {
@@ -35,7 +52,7 @@ Template Name: Dreams ERP - Tailwind Admin Dashboard
 			});
 		}
 
-		var link = findLinkByPage(page);
+		var link = findLinkByPath() || findLinkByPage(page);
 		var pageGroups = {
 			'sales-orders': ['sales-orders', 'add-sales', 'edit-sales', 'sales-details'],
 			'sales-quotes': ['sales-quotes', 'add-sales-quotes', 'edit-sales-quotes', 'sales-quotes-details'],
@@ -79,8 +96,12 @@ Template Name: Dreams ERP - Tailwind Admin Dashboard
 		var node = link.parentElement;
 		while (node && node !== sidebar) {
 			if (node.tagName === 'LI' && node.classList.contains('submenu')) {
+				node.classList.add('open');
 				var parentA = node.querySelector(':scope > a');
-				if (parentA) parentA.classList.add('subdrop');
+				if (parentA) {
+					parentA.classList.add('subdrop');
+					parentA.setAttribute('aria-expanded', 'true');
+				}
 				var parentUl = node.querySelector(':scope > ul');
 				// In mini-sidebar, let the hover handler control display; in normal mode, show the parent
 				if (parentUl && !isMini) parentUl.style.display = 'block';
@@ -96,6 +117,8 @@ Template Name: Dreams ERP - Tailwind Admin Dashboard
 				var parent = this.parentElement;
 
 				if (parent.classList.contains("submenu")) {
+					if (this.dataset.navigateSubmenu === "true") return;
+
 					e.preventDefault();
 
 					if (!this.classList.contains("subdrop")) {
@@ -137,6 +160,7 @@ Template Name: Dreams ERP - Tailwind Admin Dashboard
 	// Initialize Sidebar
 	initSidebarMenu();
 	setSidebarActiveByUrl();
+	document.addEventListener('inertia:navigate', setSidebarActiveByUrl);
 
 	// Mouse Over
 	document.addEventListener("mouseover", function(e) {

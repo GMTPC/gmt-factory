@@ -1,13 +1,13 @@
 /**
- * @license lucide v1.24.0 - ISC
+ * @license lucide v1.68.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
 
 const RussianRuble = [
-  ["path", { d: "M6 11h8a4 4 0 0 0 0-8H9v18" }],
-  ["path", { d: "M6 15h8" }]
+  ["path", { d: "M4 16h6" }],
+  ["path", { d: "M7 20V5a1 1 0 011-1h6a4 4 0 010 8H4" }]
 ];
 
 export { RussianRuble as default };

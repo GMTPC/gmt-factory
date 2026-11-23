@@ -6,6 +6,8 @@ services:
     ports:
       - "8088:80"
     environment:
+      # ใช้ key เดียวกับ .env บนเครื่อง เพื่อไม่ให้ session/cookie หลุดทุกครั้งที่ recreate container
+      APP_KEY: "${APP_KEY:?APP_KEY must be set in .env}"
       APP_URL: http://localhost:8088
       DB_CONNECTION: sqlsrv
       DB_HOST: host.docker.internal

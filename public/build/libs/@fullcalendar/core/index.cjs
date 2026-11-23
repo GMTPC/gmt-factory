@@ -104,6 +104,7 @@ function parseLocale(codeArg, codes, raw) {
 // TODO: easier way to add new hooks? need to update a million things
 function createPlugin(input) {
     return {
+        majorVersionError: internalCommon.MAJOR_VERSION_ERROR,
         id: internalCommon.guid(),
         name: input.name,
         premiumReleaseDate: input.premiumReleaseDate ? new Date(input.premiumReleaseDate) : undefined,
@@ -784,10 +785,11 @@ theme, viewSpecs, calendarApi) {
                     customButtonProps.click.call(ev.target, ev, ev.target); // TODO: use Calendar this context?
                 }
             };
+            let customText = sanitizeButtonText(customButtonProps.text, buttonName);
             (buttonIcon = theme.getCustomButtonIconClass(customButtonProps)) ||
                 (buttonIcon = theme.getIconClass(buttonName, isRtl)) ||
-                (buttonText = customButtonProps.text);
-            buttonHint = customButtonProps.hint || customButtonProps.text;
+                (buttonText = customText);
+            buttonHint = customButtonProps.hint || customText;
         }
         else if ((viewSpec = viewSpecs[buttonName])) {
             viewsWithButtons.push(buttonName);
@@ -827,9 +829,24 @@ theme, viewSpecs, calendarApi) {
                 ], calendarButtonText[buttonName]);
             }
         }
+        buttonText = sanitizeButtonText(buttonText, buttonName);
         return { buttonName, buttonClick, buttonIcon, buttonText, buttonHint };
     })));
     return { widgets, viewsWithButtons, hasTitle };
+}
+/*
+Guards against non-string button text, like JSX, which would otherwise crash rendering (#7120)
+*/
+function sanitizeButtonText(buttonText, buttonName) {
+    if (buttonText == null || typeof buttonText === 'string') {
+        return buttonText;
+    }
+    if (typeof buttonText === 'number') {
+        return String(buttonText);
+    }
+    internalCommon.warnOnce(`Button text must be a string (button '${buttonName}'). ` +
+        'For custom button content, v7 supports the `iconContent` setting.');
+    return buttonName;
 }
 
 // always represents the current view. otherwise, it'd need to change value every time date changes
@@ -1850,7 +1867,12 @@ class EventClicking extends internalCommon.Interaction {
                 // our way to simulate a link click for elements that can't be <a> tags
                 // grab before trigger fired in case trigger trashes DOM thru rerendering
                 let hasUrlContainer = internalCommon.elementClosest(ev.target, '.fc-event-forced-url');
-                let url = hasUrlContainer ? hasUrlContainer.querySelector('a[href]').href : '';
+                let url = '';
+                if (hasUrlContainer) {
+                    let anchorEl = hasUrlContainer.querySelector('a[href]');
+                    // custom eventContent might not render an <a> (#6133)
+                    url = anchorEl ? anchorEl.href : seg.eventRange.def.url;
+                }
                 context.emitter.trigger('eventClick', {
                     el: segEl,
                     event: new internalCommon.EventImpl(component.context, seg.eventRange.def, seg.eventRange.instance),
@@ -2220,7 +2242,7 @@ function sliceEvents(props, allDay) {
     return internalCommon.sliceEventStore(props.eventStore, props.eventUiBases, props.dateProfile.activeRange, allDay ? props.nextDayThreshold : null).fg;
 }
 
-const version = '6.1.21';
+const version = '6.1.22';
 
 exports.JsonRequestError = internalCommon.JsonRequestError;
 exports.Calendar = Calendar;

@@ -1,5 +1,5 @@
 /**
- * @license lucide-static v1.24.0 - ISC
+ * @license lucide-static v1.68.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
@@ -23,7 +23,8 @@ const MirrorRound = `
   <path d="M15 7.5 9.5 13" />
   <path d="M7 22h10" />
   <circle cx="12" cy="10" r="8" />
-</svg>`;
+</svg>
+`;
 
 export { MirrorRound as default };
 //# sourceMappingURL=mirror-round.mjs.map

@@ -1,31 +1,11 @@
 /**
- * @license lucide-static v1.24.0 - ISC
+ * @license lucide-static v1.68.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
 
 'use strict';
-
-const AArrowDown = `
-<svg
-  class="lucide lucide-a-arrow-down"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="m14 12 4 4 4-4" />
-  <path d="M18 16V7" />
-  <path d="m2 16 4.039-9.69a.5.5 0 0 1 .923 0L11 16" />
-  <path d="M3.304 13h6.392" />
-</svg>
-`;
 
 const AArrowUp = `
 <svg
@@ -41,6 +21,26 @@ const AArrowUp = `
   stroke-linejoin="round"
 >
   <path d="m14 11 4-4 4 4" />
+  <path d="M18 16V7" />
+  <path d="m2 16 4.039-9.69a.5.5 0 0 1 .923 0L11 16" />
+  <path d="M3.304 13h6.392" />
+</svg>
+`;
+
+const AArrowDown = `
+<svg
+  class="lucide lucide-a-arrow-down"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m14 12 4 4 4-4" />
   <path d="M18 16V7" />
   <path d="m2 16 4.039-9.69a.5.5 0 0 1 .923 0L11 16" />
   <path d="M3.304 13h6.392" />
@@ -64,7 +64,8 @@ const ALargeSmall = `
   <path d="M15.697 14h5.606" />
   <path d="m2 16 4.039-9.69a.5.5 0 0 1 .923 0L11 16" />
   <path d="M3.304 13h6.392" />
-</svg>`;
+</svg>
+`;
 
 const Accessibility = `
 <svg
@@ -294,24 +295,6 @@ const AlarmSmoke = `
 </svg>
 `;
 
-const Album = `
-<svg
-  class="lucide lucide-album"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <rect width="18" height="18" x="3" y="3" rx="2" ry="2" />
-  <polyline points="11 3 11 11 14 8 17 11 17 3" />
-</svg>
-`;
-
 const AlignCenterHorizontal = `
 <svg
   class="lucide lucide-align-center-horizontal"
@@ -354,25 +337,6 @@ const AlignCenterVertical = `
 </svg>
 `;
 
-const AlignEndVertical = `
-<svg
-  class="lucide lucide-align-end-vertical"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <rect width="16" height="6" x="2" y="4" rx="2" />
-  <rect width="9" height="6" x="9" y="14" rx="2" />
-  <path d="M22 22V2" />
-</svg>
-`;
-
 const AlignEndHorizontal = `
 <svg
   class="lucide lucide-align-end-horizontal"
@@ -389,6 +353,25 @@ const AlignEndHorizontal = `
   <rect width="6" height="16" x="4" y="2" rx="2" />
   <rect width="6" height="9" x="14" y="9" rx="2" />
   <path d="M22 22H2" />
+</svg>
+`;
+
+const AlignEndVertical = `
+<svg
+  class="lucide lucide-align-end-vertical"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <rect width="16" height="6" x="2" y="4" rx="2" />
+  <rect width="9" height="6" x="9" y="14" rx="2" />
+  <path d="M22 22V2" />
 </svg>
 `;
 
@@ -414,26 +397,6 @@ const AlignHorizontalDistributeCenter = `
 </svg>
 `;
 
-const AlignHorizontalDistributeEnd = `
-<svg
-  class="lucide lucide-align-horizontal-distribute-end"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <rect width="6" height="14" x="4" y="5" rx="2" />
-  <rect width="6" height="10" x="14" y="7" rx="2" />
-  <path d="M10 2v20" />
-  <path d="M20 2v20" />
-</svg>
-`;
-
 const AlignHorizontalDistributeStart = `
 <svg
   class="lucide lucide-align-horizontal-distribute-start"
@@ -451,6 +414,26 @@ const AlignHorizontalDistributeStart = `
   <rect width="6" height="10" x="14" y="7" rx="2" />
   <path d="M4 2v20" />
   <path d="M14 2v20" />
+</svg>
+`;
+
+const AlignHorizontalDistributeEnd = `
+<svg
+  class="lucide lucide-align-horizontal-distribute-end"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <rect width="6" height="14" x="4" y="5" rx="2" />
+  <rect width="6" height="10" x="14" y="7" rx="2" />
+  <path d="M10 2v20" />
+  <path d="M20 2v20" />
 </svg>
 `;
 
@@ -761,13 +744,13 @@ const Ambulance = `
 >
   <path d="M10 10H6" />
   <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" />
-  <path
-    d="M19 18h2a1 1 0 0 0 1-1v-3.28a1 1 0 0 0-.684-.948l-1.923-.641a1 1 0 0 1-.578-.502l-1.539-3.076A1 1 0 0 0 16.382 8H14" />
+  <path d="M19 18h2a1 1 0 0 0 1-1v-3.28a1 1 0 0 0-.684-.948l-1.923-.641a1 1 0 0 1-.578-.502l-1.539-3.076A1 1 0 0 0 16.382 8H14" />
   <path d="M8 8v4" />
   <path d="M9 18h6" />
   <circle cx="17" cy="18" r="2" />
   <circle cx="7" cy="18" r="2" />
-</svg>`;
+</svg>
+`;
 
 const Ampersand = `
 <svg
@@ -847,9 +830,9 @@ const Anchor = `
 </svg>
 `;
 
-const Angry = `
+const Angle = `
 <svg
-  class="lucide lucide-angry"
+  class="lucide lucide-angle"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -860,18 +843,14 @@ const Angry = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <circle cx="12" cy="12" r="10" />
-  <path d="M16 16s-1.5-2-4-2-4 2-4 2" />
-  <path d="M7.5 8 10 9" />
-  <path d="m14 9 2.5-1" />
-  <path d="M9 10h.01" />
-  <path d="M15 10h.01" />
+  <path d="M3 3v16a2 2 0 0 0 2 2h16" />
+  <path d="M3 11a10 10 0 0 1 10 10" />
 </svg>
 `;
 
-const Annoyed = `
+const Anvil = `
 <svg
-  class="lucide lucide-annoyed"
+  class="lucide lucide-anvil"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -882,10 +861,11 @@ const Annoyed = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <circle cx="12" cy="12" r="10" />
-  <path d="M8 15h8" />
-  <path d="M8 9h2" />
-  <path d="M14 9h2" />
+  <path d="M7 10H6a4 4 0 0 1-4-4 1 1 0 0 1 1-1h4" />
+  <path d="M7 5a1 1 0 0 1 1-1h13a1 1 0 0 1 1 1 7 7 0 0 1-7 7H8a1 1 0 0 1-1-1z" />
+  <path d="M9 12v5" />
+  <path d="M15 12v5" />
+  <path d="M5 20a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3 1 1 0 0 1-1 1H6a1 1 0 0 1-1-1" />
 </svg>
 `;
 
@@ -931,27 +911,6 @@ const Aperture = `
   <path d="M9.69 16 3.95 6.06" />
   <path d="M14.31 16H2.83" />
   <path d="m16.62 12-5.74 9.94" />
-</svg>
-`;
-
-const Anvil = `
-<svg
-  class="lucide lucide-anvil"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M7 10H6a4 4 0 0 1-4-4 1 1 0 0 1 1-1h4" />
-  <path d="M7 5a1 1 0 0 1 1-1h13a1 1 0 0 1 1 1 7 7 0 0 1-7 7H8a1 1 0 0 1-1-1z" />
-  <path d="M9 12v5" />
-  <path d="M15 12v5" />
-  <path d="M5 20a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3 1 1 0 0 1-1 1H6a1 1 0 0 1-1-1" />
 </svg>
 `;
 
@@ -1013,9 +972,9 @@ const Apple = `
 </svg>
 `;
 
-const ArchiveRestore = `
+const ArchiveArrowUp = `
 <svg
-  class="lucide lucide-archive-restore"
+  class="lucide lucide-archive-arrow-up"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -1030,6 +989,27 @@ const ArchiveRestore = `
   <path d="M4 8v11a2 2 0 0 0 2 2h2" />
   <path d="M20 8v11a2 2 0 0 1-2 2h-2" />
   <path d="m9 15 3-3 3 3" />
+  <path d="M12 12v9" />
+</svg>
+`;
+
+const ArchiveArrowDown = `
+<svg
+  class="lucide lucide-archive-arrow-down"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <rect width="20" height="5" x="2" y="3" rx="1" />
+  <path d="M4 8v11a2 2 0 0 0 2 2h.343" />
+  <path d="M20 8v11a2 2 0 0 1-2 2h-.343" />
+  <path d="m9 18 3 3 3-3" />
   <path d="M12 12v9" />
 </svg>
 `;
@@ -1108,6 +1088,25 @@ const ArrowBigDownDash = `
 >
   <path d="M14 8a1 1 0 0 1 1 1v2a1 1 0 0 0 1 1h3.293a.707.707 0 0 1 .5 1.207l-6.939 6.939a1.207 1.207 0 0 1-1.708 0l-6.94-6.94a.707.707 0 0 1 .5-1.206H8a1 1 0 0 0 1-1V9a1 1 0 0 1 1-1z" />
   <path d="M9 4h6" />
+</svg>
+`;
+
+const ArmenianDram = `
+<svg
+  class="lucide lucide-armenian-dram"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M11 10h8" />
+  <path d="M11 14h8" />
+  <path d="M17 20V10a6 6 0 0 0-12 0" />
 </svg>
 `;
 
@@ -1198,24 +1197,6 @@ const ArrowBigRight = `
 </svg>
 `;
 
-const ArrowBigUpDash = `
-<svg
-  class="lucide lucide-arrow-big-up-dash"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M14 16a1 1 0 0 0 1-1v-2a1 1 0 0 1 1-1h3.293a.707.707 0 0 0 .5-1.207l-6.939-6.939a1.207 1.207 0 0 0-1.708 0l-6.94 6.94a.707.707 0 0 0 .5 1.206H8a1 1 0 0 1 1 1v2a1 1 0 0 0 1 1z" />
-  <path d="M9 20h6" />
-</svg>
-`;
-
 const ArrowBigUp = `
 <svg
   class="lucide lucide-arrow-big-up"
@@ -1272,6 +1253,24 @@ const ArrowDown10 = `
   <path d="M17 10V4h-2" />
   <path d="M15 10h4" />
   <rect x="15" y="14" width="4" height="6" ry="2" />
+</svg>
+`;
+
+const ArrowBigUpDash = `
+<svg
+  class="lucide lucide-arrow-big-up-dash"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M14 16a1 1 0 0 0 1-1v-2a1 1 0 0 1 1-1h3.293a.707.707 0 0 0 .5-1.207l-6.939-6.939a1.207 1.207 0 0 0-1.708 0l-6.94 6.94a.707.707 0 0 0 .5 1.206H8a1 1 0 0 1 1 1v2a1 1 0 0 0 1 1z" />
+  <path d="M9 20h6" />
 </svg>
 `;
 
@@ -1391,25 +1390,6 @@ const ArrowDownToDot = `
 </svg>
 `;
 
-const ArrowDownToLine = `
-<svg
-  class="lucide lucide-arrow-down-to-line"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M12 17V3" />
-  <path d="m6 11 6 6 6-6" />
-  <path d="M19 21H5" />
-</svg>
-`;
-
 const ArrowDownUp = `
 <svg
   class="lucide lucide-arrow-down-up"
@@ -1427,6 +1407,25 @@ const ArrowDownUp = `
   <path d="M7 20V4" />
   <path d="m21 8-4-4-4 4" />
   <path d="M17 4v16" />
+</svg>
+`;
+
+const ArrowDownToLine = `
+<svg
+  class="lucide lucide-arrow-down-to-line"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 17V3" />
+  <path d="m6 11 6 6 6-6" />
+  <path d="M19 21H5" />
 </svg>
 `;
 
@@ -1509,25 +1508,6 @@ const ArrowLeftFromLine = `
 </svg>
 `;
 
-const ArrowLeftToLine = `
-<svg
-  class="lucide lucide-arrow-left-to-line"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M3 19V5" />
-  <path d="m13 6-6 6 6 6" />
-  <path d="M7 12h14" />
-</svg>
-`;
-
 const ArrowLeftRight = `
 <svg
   class="lucide lucide-arrow-left-right"
@@ -1545,6 +1525,25 @@ const ArrowLeftRight = `
   <path d="M4 7h16" />
   <path d="m16 21 4-4-4-4" />
   <path d="M20 17H4" />
+</svg>
+`;
+
+const ArrowLeftToLine = `
+<svg
+  class="lucide lucide-arrow-left-to-line"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M3 19V5" />
+  <path d="m13 6-6 6 6 6" />
+  <path d="M7 12h14" />
 </svg>
 `;
 
@@ -1566,25 +1565,6 @@ const ArrowLeft = `
 </svg>
 `;
 
-const ArrowRightFromLine = `
-<svg
-  class="lucide lucide-arrow-right-from-line"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M3 5v14" />
-  <path d="M21 12H7" />
-  <path d="m15 18 6-6-6-6" />
-</svg>
-`;
-
 const ArrowRightLeft = `
 <svg
   class="lucide lucide-arrow-right-left"
@@ -1602,6 +1582,25 @@ const ArrowRightLeft = `
   <path d="M20 7H4" />
   <path d="m8 21-4-4 4-4" />
   <path d="M4 17h16" />
+</svg>
+`;
+
+const ArrowRightFromLine = `
+<svg
+  class="lucide lucide-arrow-right-from-line"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M3 5v14" />
+  <path d="M21 12H7" />
+  <path d="m15 18 6-6-6-6" />
 </svg>
 `;
 
@@ -1933,9 +1932,9 @@ const Asterisk = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M12 6v12" />
-  <path d="M17.196 9 6.804 15" />
-  <path d="m6.804 9 10.392 6" />
+  <path d="M12 5v14" />
+  <path d="m18.065 8.496-12.125 7" />
+  <path d="m5.94 8.504 12.125 7" />
 </svg>
 `;
 
@@ -1993,6 +1992,55 @@ const Atom = `
 </svg>
 `;
 
+const AudioLinesOff = `
+<svg
+  class="lucide lucide-audio-lines-off"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M10 10v11" />
+  <path d="M10 3v1.35" />
+  <path d="M14 14v1" />
+  <path d="M14 8v.35" />
+  <path d="M18 5v7.35" />
+  <path d="M2 10v3" />
+  <path d="m2 2 20 20" />
+  <path d="M22 10v3" />
+  <path d="M6 6v11" />
+</svg>
+`;
+
+const AudioLinesX = `
+<svg
+  class="lucide lucide-audio-lines-x"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M10 3v18" />
+  <path d="M14 8v6.35" />
+  <path d="m17 17 5 5" />
+  <path d="M18 5v8.1" />
+  <path d="M2 10v3" />
+  <path d="M22 10v3" />
+  <path d="m22 17-5 5" />
+  <path d="M6 6v11" />
+</svg>
+`;
+
 const AudioLines = `
 <svg
   class="lucide lucide-audio-lines"
@@ -2029,6 +2077,24 @@ const AudioWaveform = `
   stroke-linejoin="round"
 >
   <path d="M2 13a2 2 0 0 0 2-2V7a2 2 0 0 1 4 0v13a2 2 0 0 0 4 0V4a2 2 0 0 1 4 0v13a2 2 0 0 0 4 0v-4a2 2 0 0 1 2-2" />
+</svg>
+`;
+
+const Avocado = `
+<svg
+  class="lucide lucide-avocado"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M13.465 3.464a5 5 0 017.07 0 5 5 0 010 7.072c-1.204 1.203-2.38 2.89-2.614 4.577A8 8 0 118.886 6.08c1.687-.235 3.375-1.41 4.579-2.615" />
+  <circle cx="10" cy="14" r="3" />
 </svg>
 `;
 
@@ -2088,6 +2154,24 @@ const Axis3d = `
 </svg>
 `;
 
+const AzerbaijaniManat = `
+<svg
+  class="lucide lucide-azerbaijani-manat"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 4v16" />
+  <path d="M18 20v-8a6 6 0 00-12 0v8" />
+</svg>
+`;
+
 const Baby = `
 <svg
   class="lucide lucide-baby"
@@ -2129,9 +2213,9 @@ const Backpack = `
 </svg>
 `;
 
-const BadgeAlert = `
+const Bacon = `
 <svg
-  class="lucide lucide-badge-alert"
+  class="lucide lucide-bacon"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -2142,9 +2226,8 @@ const BadgeAlert = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" />
-  <line x1="12" x2="12" y1="8" y2="12" />
-  <line x1="12" x2="12.01" y1="16" y2="16" />
+  <path d="M2.795 16.804c-.789-.79-1.09-2.018-.442-2.928 1.933-2.713 4.414-1.05 6.145-5.378 1.868-4.67 4.608-2.366 6.592-6.107.218-.412.78-.53 1.11-.2l5.005 5.005c.789.79 1.09 2.018.442 2.928-1.933 2.713-4.414 1.05-6.145 5.378-1.868 4.67-4.608 2.366-6.591 6.107-.22.412-.78.53-1.11.2z" />
+  <path d="M4.5 18.5c2-5 5-2 7-7s5-2 7-7" />
 </svg>
 `;
 
@@ -2181,7 +2264,7 @@ const BadgeCheck = `
   stroke-linejoin="round"
 >
   <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" />
-  <path d="m9 12 2 2 4-4" />
+  <path d="m16 9-5.5 5.5L8 12" />
 </svg>
 `;
 
@@ -2220,6 +2303,25 @@ const BadgeEuro = `
   <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" />
   <path d="M7 12h5" />
   <path d="M15 9.4a4 4 0 1 0 0 5.2" />
+</svg>
+`;
+
+const BadgeExclamationPoint = `
+<svg
+  class="lucide lucide-badge-exclamation-point"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" />
+  <line x1="12" x2="12" y1="8" y2="12" />
+  <line x1="12" x2="12.01" y1="16" y2="16" />
 </svg>
 `;
 
@@ -2283,6 +2385,24 @@ const BadgeJapaneseYen = `
 </svg>
 `;
 
+const BadgeMinus = `
+<svg
+  class="lucide lucide-badge-minus"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" />
+  <line x1="8" x2="16" y1="12" y2="12" />
+</svg>
+`;
+
 const BadgePercent = `
 <svg
   class="lucide lucide-badge-percent"
@@ -2300,24 +2420,6 @@ const BadgePercent = `
   <path d="m15 9-6 6" />
   <path d="M9 9h.01" />
   <path d="M15 15h.01" />
-</svg>
-`;
-
-const BadgeMinus = `
-<svg
-  class="lucide lucide-badge-minus"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" />
-  <line x1="8" x2="16" y1="12" y2="12" />
 </svg>
 `;
 
@@ -2340,25 +2442,6 @@ const BadgePlus = `
 </svg>
 `;
 
-const BadgeQuestionMark = `
-<svg
-  class="lucide lucide-badge-question-mark"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" />
-  <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
-  <line x1="12" x2="12.01" y1="17" y2="17" />
-</svg>
-`;
-
 const BadgePoundSterling = `
 <svg
   class="lucide lucide-badge-pound-sterling"
@@ -2376,6 +2459,25 @@ const BadgePoundSterling = `
   <path d="M8 12h4" />
   <path d="M10 16V9.5a2.5 2.5 0 0 1 5 0" />
   <path d="M8 16h7" />
+</svg>
+`;
+
+const BadgeQuestionMark = `
+<svg
+  class="lucide lucide-badge-question-mark"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" />
+  <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+  <line x1="12" x2="12.01" y1="17" y2="17" />
 </svg>
 `;
 
@@ -2437,23 +2539,6 @@ const BadgeTurkishLira = `
 </svg>
 `;
 
-const Badge = `
-<svg
-  class="lucide lucide-badge"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" />
-</svg>
-`;
-
 const BadgeX = `
 <svg
   class="lucide lucide-badge-x"
@@ -2470,6 +2555,23 @@ const BadgeX = `
   <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" />
   <line x1="15" x2="9" y1="9" y2="15" />
   <line x1="9" x2="15" y1="9" y2="15" />
+</svg>
+`;
+
+const Badge = `
+<svg
+  class="lucide lucide-badge"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" />
 </svg>
 `;
 
@@ -2494,9 +2596,9 @@ const BaggageClaim = `
 </svg>
 `;
 
-const Balloon = `
+const BallWave = `
 <svg
-  class="lucide lucide-balloon"
+  class="lucide lucide-ball-wave"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -2507,9 +2609,9 @@ const Balloon = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M12 16v1a2 2 0 0 0 2 2h1a2 2 0 0 1 2 2v1" />
-  <path d="M12 6a2 2 0 0 1 2 2" />
-  <path d="M18 8c0 4-3.5 8-6 8s-6-4-6-8a6 6 0 0 1 12 0" />
+  <path d="M2 20c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1" />
+  <path d="M7.757 13.243a2 6 45 1 0 8.486-8.486 2 6 45 1 0-8.486 8.486" />
+  <circle cx="12" cy="9" r="6" />
 </svg>
 `;
 
@@ -2528,6 +2630,25 @@ const Ban = `
 >
   <circle cx="12" cy="12" r="10" />
   <path d="M4.929 4.929 19.07 19.071" />
+</svg>
+`;
+
+const Balloon = `
+<svg
+  class="lucide lucide-balloon"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 16v1a2 2 0 0 0 2 2h1a2 2 0 0 1 2 2v1" />
+  <path d="M12 6a2 2 0 0 1 2 2" />
+  <path d="M18 8c0 4-3.5 8-6 8s-6-4-6-8a6 6 0 0 1 12 0" />
 </svg>
 `;
 
@@ -2572,6 +2693,24 @@ const Bandage = `
 </svg>
 `;
 
+const BangladeshiTaka = `
+<svg
+  class="lucide lucide-bangladeshi-taka"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M6 5a2 2 0 0 1 4 0v12a4 4 0 0 0 8 0 2 2 0 0 0-4 0" />
+  <path d="M6 9h12" />
+</svg>
+`;
+
 const BanknoteArrowDown = `
 <svg
   class="lucide lucide-banknote-arrow-down"
@@ -2594,6 +2733,27 @@ const BanknoteArrowDown = `
 </svg>
 `;
 
+const BanknoteCheck = `
+<svg
+  class="lucide lucide-banknote-check"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M11.748 18H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v4.875" />
+  <path d="m16 19 2 2 4-4" />
+  <path d="M18 12h.01" />
+  <path d="M6 12h.01" />
+  <circle cx="12" cy="12" r="2" />
+</svg>
+`;
+
 const BanknoteArrowUp = `
 <svg
   class="lucide lucide-banknote-arrow-up"
@@ -2611,27 +2771,6 @@ const BanknoteArrowUp = `
   <path d="M18 12h.01" />
   <path d="M19 22v-6" />
   <path d="m22 19-3-3-3 3" />
-  <path d="M6 12h.01" />
-  <circle cx="12" cy="12" r="2" />
-</svg>
-`;
-
-const BanknoteCheck = `
-<svg
-  class="lucide lucide-banknote-check"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M11.748 18H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v4.875" />
-  <path d="m16 19 2 2 4-4" />
-  <path d="M18 12h.01" />
   <path d="M6 12h.01" />
   <circle cx="12" cy="12" r="2" />
 </svg>
@@ -2712,11 +2851,11 @@ const Barrel = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M10 3a41 41 0 0 0 0 18" />
-  <path d="M14 3a41 41 0 0 1 0 18" />
-  <path d="M17 3a2 2 0 0 1 1.68.92 15.25 15.25 0 0 1 0 16.16A2 2 0 0 1 17 21H7a2 2 0 0 1-1.68-.92 15.25 15.25 0 0 1 0-16.16A2 2 0 0 1 7 3z" />
-  <path d="M3.84 17h16.32" />
-  <path d="M3.84 7h16.32" />
+  <path d="M10.5 2a34.5 34.5 0 000 20" />
+  <path d="M13.5 2a34.5 34.5 0 010 20" />
+  <path d="M4.67 17h14.67" />
+  <path d="M4.67 7h14.67" />
+  <path d="M6.23 3.06a19 19 0 000 17.88A2 2 0 008 22h8a2 2 0 001.77-1.06 19 19 0 000-17.88A2 2 0 0016 2H8a2 2 0 00-1.77 1.06" />
 </svg>
 `;
 
@@ -2780,6 +2919,27 @@ const BatteryCharging = `
 </svg>
 `;
 
+const BatteryExclamationPoint = `
+<svg
+  class="lucide lucide-battery-exclamation-point"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M10 17h.01" />
+  <path d="M10 7v6" />
+  <path d="M14 6h2a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2" />
+  <path d="M22 14v-4" />
+  <path d="M6 18H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h2" />
+</svg>
+`;
+
 const BatteryFull = `
 <svg
   class="lucide lucide-battery-full"
@@ -2797,6 +2957,26 @@ const BatteryFull = `
   <path d="M14 10v4" />
   <path d="M22 14v-4" />
   <path d="M6 10v4" />
+  <rect x="2" y="6" width="16" height="12" rx="2" />
+</svg>
+`;
+
+const BatteryMedium = `
+<svg
+  class="lucide lucide-battery-medium"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M10 14v-4" />
+  <path d="M22 14v-4" />
+  <path d="M6 14v-4" />
   <rect x="2" y="6" width="16" height="12" rx="2" />
 </svg>
 `;
@@ -2841,47 +3021,6 @@ const BatteryPlus = `
 </svg>
 `;
 
-const BatteryMedium = `
-<svg
-  class="lucide lucide-battery-medium"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M10 14v-4" />
-  <path d="M22 14v-4" />
-  <path d="M6 14v-4" />
-  <rect x="2" y="6" width="16" height="12" rx="2" />
-</svg>
-`;
-
-const BatteryWarning = `
-<svg
-  class="lucide lucide-battery-warning"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M10 17h.01" />
-  <path d="M10 7v6" />
-  <path d="M14 6h2a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2" />
-  <path d="M22 14v-4" />
-  <path d="M6 18H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h2" />
-</svg>
-`;
-
 const Battery = `
 <svg
   class="lucide lucide-battery"
@@ -2919,6 +3058,24 @@ const Beaker = `
 </svg>
 `;
 
+const Bean = `
+<svg
+  class="lucide lucide-bean"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M10.165 6.598C9.954 7.478 9.64 8.36 9 9c-.64.64-1.521.954-2.402 1.165A6 6 0 0 0 8 22c7.732 0 14-6.268 14-14a6 6 0 0 0-11.835-1.402Z" />
+  <path d="M5.341 10.62a4 4 0 1 0 5.279-5.28" />
+</svg>
+`;
+
 const BeanOff = `
 <svg
   class="lucide lucide-bean-off"
@@ -2936,24 +3093,6 @@ const BeanOff = `
   <path d="M10.75 5.093A6 6 0 0 1 22 8c0 2.411-.61 4.68-1.683 6.66" />
   <path d="M5.341 10.62a4 4 0 0 0 6.487 1.208M10.62 5.341a4.015 4.015 0 0 1 2.039 2.04" />
   <line x1="2" x2="22" y1="2" y2="22" />
-</svg>
-`;
-
-const Bean = `
-<svg
-  class="lucide lucide-bean"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M10.165 6.598C9.954 7.478 9.64 8.36 9 9c-.64.64-1.521.954-2.402 1.165A6 6 0 0 0 8 22c7.732 0 14-6.268 14-14a6 6 0 0 0-11.835-1.402Z" />
-  <path d="M5.341 10.62a4 4 0 1 0 5.279-5.28" />
 </svg>
 `;
 
@@ -3052,7 +3191,7 @@ const Beef = `
   stroke-linejoin="round"
 >
   <path d="M16.4 13.7A6.5 6.5 0 1 0 6.28 6.6c-1.1 3.13-.78 3.9-3.18 6.08A3 3 0 0 0 5 18c4 0 8.4-1.8 11.4-4.3" />
-  <path d="m18.5 6 2.19 4.5a6.48 6.48 0 0 1-2.29 7.2C15.4 20.2 11 22 7 22a3 3 0 0 1-2.68-1.66L2.4 16.5" />
+  <path d="m18.5 6 1.754 3.5a6.48 6.48 0 0 1-1.854 8.2C15.4 20.2 11 22 7 22a3 3 0 0 1-2.68-1.66L2.4 16.5" />
   <circle cx="12.5" cy="8.5" r="2.5" />
 </svg>
 `;
@@ -3081,26 +3220,6 @@ const BeerOff = `
 </svg>
 `;
 
-const BellCheck = `
-<svg
-  class="lucide lucide-bell-check"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M10.268 21a2 2 0 0 0 3.464 0" />
-  <path d="m15 8 2 2 4-4" />
-  <path d="M16.8607 4.4824A6 6 0 0 0 6 8C6 12.499 4.589 13.956 3.262 15.326" />
-  <path d="M3.262 15.326A1 1 0 0 0 4 17H20A1 1 0 0 0 20.74 15.327C20.209 14.779 19.665 14.218 19.203 13.454" />
-</svg>
-`;
-
 const Beer = `
 <svg
   class="lucide lucide-beer"
@@ -3119,6 +3238,44 @@ const Beer = `
   <path d="M13 12v6" />
   <path d="M14 7.5c-1 0-1.44.5-3 .5s-2-.5-3-.5-1.72.5-2.5.5a2.5 2.5 0 0 1 0-5c.78 0 1.57.5 2.5.5S9.44 2 11 2s2 1.5 3 1.5 1.72-.5 2.5-.5a2.5 2.5 0 0 1 0 5c-.78 0-1.5-.5-2.5-.5Z" />
   <path d="M5 8v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V8" />
+</svg>
+`;
+
+const BelarusianRuble = `
+<svg
+  class="lucide lucide-belarusian-ruble"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M3 16 L13 16" />
+  <path d="M6 12h9a4 4 0 0 1 0 8H7a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h7" />
+</svg>
+`;
+
+const BellCheck = `
+<svg
+  class="lucide lucide-bell-check"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M10.268 21a2 2 0 0 0 3.464 0" />
+  <path d="m15 8 2 2 4-4" />
+  <path d="M16.8607 4.4824A6 6 0 0 0 6 8C6 12.499 4.589 13.956 3.262 15.326" />
+  <path d="M3.262 15.326A1 1 0 0 0 4 17H20A1 1 0 0 0 20.74 15.327C20.209 14.779 19.665 14.218 19.203 13.454" />
 </svg>
 `;
 
@@ -3506,28 +3663,6 @@ const Bitcoin = `
 </svg>
 `;
 
-const Blender = `
-<svg
-  class="lucide lucide-blender"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M8 14a2 2 0 0 0-1.963 1.615l-1.018 5.193A1 1 0 0 0 6 22h12a1 1 0 0 0 .981-1.192l-1.018-5.193A2 2 0 0 0 16 14z" />
-  <path d="m17 2-1 12" />
-  <path d="M8.006 14 7 2" />
-  <path d="M7.565 8.787A5 5 0 0 0 12 8a5 5 0 0 1 4.56-.75" />
-  <path d="M19 2H5a2 2 0 0 0-2 2v5a2 2 0 0 0 .688 1.5" />
-  <path d="M12 18h.01" />
-</svg>
-`;
-
 const Blend = `
 <svg
   class="lucide lucide-blend"
@@ -3541,8 +3676,8 @@ const Blend = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <circle cx="9" cy="9" r="7" />
-  <circle cx="15" cy="15" r="7" />
+  <circle cx="15" cy="9" r="7" />
+  <circle cx="9" cy="15" r="7" />
 </svg>
 `;
 
@@ -3566,6 +3701,28 @@ const Blinds = `
   <path d="M8 15h12" />
   <path d="M4 3v14" />
   <circle cx="4" cy="19" r="2" />
+</svg>
+`;
+
+const Blender = `
+<svg
+  class="lucide lucide-blender"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M8 14a2 2 0 0 0-1.963 1.615l-1.018 5.193A1 1 0 0 0 6 22h12a1 1 0 0 0 .981-1.192l-1.018-5.193A2 2 0 0 0 16 14z" />
+  <path d="m17 2-1 12" />
+  <path d="M8.006 14 7 2" />
+  <path d="M7.565 8.787A5 5 0 0 0 12 8a5 5 0 0 1 4.56-.75" />
+  <path d="M19 2H5a2 2 0 0 0-2 2v5a2 2 0 0 0 .688 1.5" />
+  <path d="M12 18h.01" />
 </svg>
 `;
 
@@ -3679,23 +3836,6 @@ const Bolt = `
 </svg>
 `;
 
-const Bold = `
-<svg
-  class="lucide lucide-bold"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M6 12h9a4 4 0 0 1 0 8H7a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h7a4 4 0 0 1 0 8" />
-</svg>
-`;
-
 const Bomb = `
 <svg
   class="lucide lucide-bomb"
@@ -3734,7 +3874,8 @@ const BoneFracture = `
   <path d="m4 8 2 1" />
   <path d="m8 4 1 2" />
   <path d="M9.698 14.19a.15.15 0 0 0 .112.112l2.074.489a.15.15 0 0 1 .072.252L10 17c-.7.7 0 1.69 0 2.5a1 1 0 0 1-5 0 .495.495 0 0 0-.5-.5 1 1 0 0 1 0-5c.81 0 1.8.7 2.5 0l1.956-1.957a.15.15 0 0 1 .252.072z" />
-</svg>`;
+</svg>
+`;
 
 const Bone = `
 <svg
@@ -3772,25 +3913,6 @@ const BookA = `
 </svg>
 `;
 
-const BookAlert = `
-<svg
-  class="lucide lucide-book-alert"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M12 13h.01" />
-  <path d="M12 6v3" />
-  <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20" />
-</svg>
-`;
-
 const BookAudio = `
 <svg
   class="lucide lucide-book-audio"
@@ -3808,6 +3930,24 @@ const BookAudio = `
   <path d="M16 8v3" />
   <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20" />
   <path d="M8 8v3" />
+</svg>
+`;
+
+const BookBookmark = `
+<svg
+  class="lucide lucide-book-bookmark"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M10 2v7.751a.25.25 0 00.407.195l2.28-1.834a.5.5 0 01.627 0l2.28 1.834A.25.25 0 0016 9.751V2" />
+  <path d="M4 19.5v-15A2.5 2.5 0 016.5 2H19a1 1 0 011 1v18a1 1 0 01-1 1H6.5a1 1 0 010-5H20" />
 </svg>
 `;
 
@@ -3891,6 +4031,25 @@ const BookDown = `
   <path d="M12 13V7" />
   <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20" />
   <path d="m9 10 3 3 3-3" />
+</svg>
+`;
+
+const BookExclamationPoint = `
+<svg
+  class="lucide lucide-book-exclamation-point"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 13h.01" />
+  <path d="M12 6v3" />
+  <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20" />
 </svg>
 `;
 
@@ -3992,24 +4151,6 @@ const BookLock = `
 </svg>
 `;
 
-const BookMarked = `
-<svg
-  class="lucide lucide-book-marked"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M10 2v8l3-3 3 3V2" />
-  <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20" />
-</svg>
-`;
-
 const BookMinus = `
 <svg
   class="lucide lucide-book-minus"
@@ -4041,9 +4182,9 @@ const BookOpenCheck = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M12 21V7" />
+  <path d="M12 5v16" />
   <path d="m16 12 2 2 4-4" />
-  <path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3" />
+  <path d="M22 6V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2h4.001A2 2 0 0022 17v-1.344" />
 </svg>
 `;
 
@@ -4060,12 +4201,12 @@ const BookOpenText = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M12 7v14" />
-  <path d="M16 12h2" />
-  <path d="M16 8h2" />
-  <path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" />
-  <path d="M6 12h2" />
-  <path d="M6 8h2" />
+  <path d="M12 5v16" />
+  <path d="M16 13h2" />
+  <path d="M16 9h2" />
+  <path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z" />
+  <path d="M6 13h2" />
+  <path d="M6 9h2" />
 </svg>
 `;
 
@@ -4082,8 +4223,8 @@ const BookOpen = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M12 7v14" />
-  <path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" />
+  <path d="M12 5v16" />
+  <path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z" />
 </svg>
 `;
 
@@ -4237,9 +4378,9 @@ const BookX = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="m14.5 7-5 5" />
+  <path d="m14.5 7.5-5 5" />
   <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20" />
-  <path d="m9.5 7 5 5" />
+  <path d="m9.5 7.5 5 5" />
 </svg>
 `;
 
@@ -4278,24 +4419,6 @@ const BookmarkCheck = `
 </svg>
 `;
 
-const BookmarkMinus = `
-<svg
-  class="lucide lucide-bookmark-minus"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M15 10H9" />
-  <path d="M17 3a2 2 0 0 1 2 2v15a1 1 0 0 1-1.496.868l-4.512-2.578a2 2 0 0 0-1.984 0l-4.512 2.578A1 1 0 0 1 5 20V5a2 2 0 0 1 2-2z" />
-</svg>
-`;
-
 const BookmarkOff = `
 <svg
   class="lucide lucide-bookmark-off"
@@ -4312,6 +4435,24 @@ const BookmarkOff = `
   <path d="M19 19v1a1 1 0 0 1-1.496.868l-4.512-2.578a2 2 0 0 0-1.984 0l-4.512 2.578A1 1 0 0 1 5 20V5" />
   <path d="m2 2 20 20" />
   <path d="M8.656 3H17a2 2 0 0 1 2 2v8.344" />
+</svg>
+`;
+
+const BookmarkMinus = `
+<svg
+  class="lucide lucide-bookmark-minus"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M15 10H9" />
+  <path d="M17 3a2 2 0 0 1 2 2v15a1 1 0 0 1-1.496.868l-4.512-2.578a2 2 0 0 0-1.984 0l-4.512 2.578A1 1 0 0 1 5 20V5a2 2 0 0 1 2-2z" />
 </svg>
 `;
 
@@ -4370,28 +4511,6 @@ const Bookmark = `
 </svg>
 `;
 
-const BotMessageSquare = `
-<svg
-  class="lucide lucide-bot-message-square"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M12 6V2H8" />
-  <path d="M15 11v2" />
-  <path d="M2 12h2" />
-  <path d="M20 12h2" />
-  <path d="M20 16a2 2 0 0 1-2 2H8.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 4 20.286V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2z" />
-  <path d="M9 11v2" />
-</svg>
-`;
-
 const BoomBox = `
 <svg
   class="lucide lucide-boom-box"
@@ -4415,6 +4534,28 @@ const BoomBox = `
 </svg>
 `;
 
+const BotMessageSquare = `
+<svg
+  class="lucide lucide-bot-message-square"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 6V2H8" />
+  <path d="M15 11v2" />
+  <path d="M2 12h2" />
+  <path d="M20 12h2" />
+  <path d="M20 16a2 2 0 0 1-2 2H8.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 4 20.286V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2z" />
+  <path d="M9 11v2" />
+</svg>
+`;
+
 const BotOff = `
 <svg
   class="lucide lucide-bot-off"
@@ -4435,7 +4576,8 @@ const BotOff = `
   <path d="M8 8H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 1.414-.586" />
   <path d="M9 13v2" />
   <path d="M9.67 4H12v2.33" />
-</svg>`;
+</svg>
+`;
 
 const Bot = `
 <svg
@@ -4517,6 +4659,29 @@ const Box = `
 </svg>
 `;
 
+const BoxesLinked = `
+<svg
+  class="lucide lucide-boxes-linked"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M14 6h2a2 2 0 0 1 2 2v5" />
+  <path d="M14.21 15.202 18 17.4V22" />
+  <path d="M14.796 14.611A1.6 1.6 0 0 0 14 15.995v3.013a1.6 1.6 0 0 0 .797 1.384l2.4 1.392a1.6 1.6 0 0 0 1.606 0l2.4-1.392A1.6 1.6 0 0 0 22 19.008v-3.013a1.6 1.6 0 0 0-.796-1.384l-2.4-1.394a1.6 1.6 0 0 0-1.514-.051z" />
+  <path d="m18 17.4 3.79-2.198" />
+  <path d="M2.21 4.202 6 6.4V16a2 2 0 0 0 2 2h2" />
+  <path d="M2.796 3.611A1.6 1.6 0 0 0 2 4.995v3.013a1.6 1.6 0 0 0 .797 1.384l2.4 1.392a1.6 1.6 0 0 0 1.606 0l2.4-1.392A1.6 1.6 0 0 0 10 8.008V4.995a1.6 1.6 0 0 0-.796-1.384l-2.4-1.394a1.6 1.6 0 0 0-1.514-.052z" />
+  <path d="m6 6.4 3.79-2.198" />
+</svg>
+`;
+
 const Boxes = `
 <svg
   class="lucide lucide-boxes"
@@ -4581,6 +4746,34 @@ const Brackets = `
 </svg>
 `;
 
+const BrainCircuit = `
+<svg
+  class="lucide lucide-brain-circuit"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 13h4" />
+  <path d="M12 18h6a2 2 0 012 2v1" />
+  <path d="M12 8h8" />
+  <path d="M12 9a4.17 4.17 0 01-3 4" />
+  <path d="M16 8V5a2 2 0 012-2" />
+  <path d="M6 18a4 4 0 01-2-7.465" />
+  <path d="M6.004 5.125a4 4 0 00-2.526 5.77" />
+  <path d="M6.294 6.294A3 3 0 1112 5v13a4 4 0 11-7.967-.518" />
+  <circle cx="16" cy="13" r="0.5" fill="currentColor" />
+  <circle cx="18" cy="3" r="0.5" fill="currentColor" />
+  <circle cx="20" cy="21" r="0.5" fill="currentColor" />
+  <circle cx="20" cy="8" r="0.5" fill="currentColor" />
+</svg>
+`;
+
 const BrainCog = `
 <svg
   class="lucide lucide-brain-cog"
@@ -4597,24 +4790,24 @@ const BrainCog = `
   <path d="m10.852 14.772-.383.923" />
   <path d="m10.852 9.228-.383-.923" />
   <path d="m13.148 14.772.382.924" />
-  <path d="m13.531 8.305-.383.923" />
+  <path d="m13.53 8.305-.382.923" />
   <path d="m14.772 10.852.923-.383" />
   <path d="m14.772 13.148.923.383" />
-  <path d="M17.598 6.5A3 3 0 1 0 12 5a3 3 0 0 0-5.63-1.446 3 3 0 0 0-.368 1.571 4 4 0 0 0-2.525 5.771" />
-  <path d="M17.998 5.125a4 4 0 0 1 2.525 5.771" />
-  <path d="M19.505 10.294a4 4 0 0 1-1.5 7.706" />
-  <path d="M4.032 17.483A4 4 0 0 0 11.464 20c.18-.311.892-.311 1.072 0a4 4 0 0 0 7.432-2.516" />
-  <path d="M4.5 10.291A4 4 0 0 0 6 18" />
-  <path d="M6.002 5.125a3 3 0 0 0 .4 1.375" />
+  <path d="M17.997 5.125a4 4 0 012.526 5.77" />
+  <path d="M18 18a4 4 0 002-7.464" />
+  <path d="M4.033 17.483A4 4 0 0011.46 20c.184-.31.896-.31 1.076 0a4 4 0 007.43-2.517" />
+  <path d="M6 18a4 4 0 01-2-7.464" />
+  <path d="M6.002 5.125a4 4 0 00-2.525 5.77" />
+  <path d="M6.293 6.294a3 3 0 01-.287-1.098l-.004-.07a3 3 0 015.968-.543c.05.02.057.01.059 0a3 3 0 015.968.542l-.004.071a3 3 0 01-.287 1.098" />
   <path d="m9.228 10.852-.923-.383" />
   <path d="m9.228 13.148-.923.383" />
   <circle cx="12" cy="12" r="3" />
 </svg>
 `;
 
-const BrainCircuit = `
+const BrainOff = `
 <svg
-  class="lucide lucide-brain-circuit"
+  class="lucide lucide-brain-off"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -4625,19 +4818,16 @@ const BrainCircuit = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z" />
-  <path d="M9 13a4.5 4.5 0 0 0 3-4" />
-  <path d="M6.003 5.125A3 3 0 0 0 6.401 6.5" />
-  <path d="M3.477 10.896a4 4 0 0 1 .585-.396" />
-  <path d="M6 18a4 4 0 0 1-1.967-.516" />
-  <path d="M12 13h4" />
-  <path d="M12 18h6a2 2 0 0 1 2 2v1" />
-  <path d="M12 8h8" />
-  <path d="M16 8V5a2 2 0 0 1 2-2" />
-  <circle cx="16" cy="13" r=".5" />
-  <circle cx="18" cy="3" r=".5" />
-  <circle cx="20" cy="21" r=".5" />
-  <circle cx="20" cy="8" r=".5" />
+  <path d="M12 18v-6" />
+  <path d="M12 5v1.344" />
+  <path d="M17.707 6.293A3 3 0 1012 5a3 3 0 00-4.124-2.781" />
+  <path d="M17.997 5.125a4 4 0 012.526 5.77" />
+  <path d="M19.644 19.644A4 4 0 0112 18a4 4 0 11-7.967-.517" />
+  <path d="m2 2 20 20" />
+  <path d="M20 10.536a4 4 0 011.533 5.34" />
+  <path d="M3.477 10.895a4 4 0 011.876-5.542" />
+  <path d="M6 18a4 4 0 01-2-7.464" />
+  <path d="M9 13a4.17 4.17 0 002.166-1.5 4 4 0 00.138-.196" />
 </svg>
 `;
 
@@ -4655,13 +4845,13 @@ const Brain = `
   stroke-linejoin="round"
 >
   <path d="M12 18V5" />
-  <path d="M15 13a4.17 4.17 0 0 1-3-4 4.17 4.17 0 0 1-3 4" />
-  <path d="M17.598 6.5A3 3 0 1 0 12 5a3 3 0 1 0-5.598 1.5" />
-  <path d="M17.997 5.125a4 4 0 0 1 2.526 5.77" />
-  <path d="M18 18a4 4 0 0 0 2-7.464" />
-  <path d="M19.967 17.483A4 4 0 1 1 12 18a4 4 0 1 1-7.967-.517" />
-  <path d="M6 18a4 4 0 0 1-2-7.464" />
-  <path d="M6.003 5.125a4 4 0 0 0-2.526 5.77" />
+  <path d="M15 13a4.17 4.17 0 01-3-4 4.17 4.17 0 01-3 4" />
+  <path d="M17.707 6.294A3 3 0 1012 5a3 3 0 10-5.707 1.294" />
+  <path d="M17.996 5.125a4 4 0 012.526 5.77" />
+  <path d="M18 18a4 4 0 002-7.465" />
+  <path d="M19.967 17.482a4 4 0 11-7.967.517 4 4 0 11-7.967-.517" />
+  <path d="M6 18a4 4 0 01-2-7.465" />
+  <path d="M6.004 5.125a4 4 0 00-2.526 5.77" />
 </svg>
 `;
 
@@ -4736,6 +4926,28 @@ const BrickWall = `
 </svg>
 `;
 
+const Bridge = `
+<svg
+  class="lucide lucide-bridge"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M10 9.728V16" />
+  <path d="M14 9.728V16" />
+  <path d="M18 20V4" />
+  <path d="m22 11-4-4A7.5 7.5 0 0 1 6 7l-4 4" />
+  <path d="M22 16H2" />
+  <path d="M6 20V4" />
+</svg>
+`;
+
 const BriefcaseBusiness = `
 <svg
   class="lucide lucide-briefcase-business"
@@ -4801,6 +5013,26 @@ const BriefcaseMedical = `
 </svg>
 `;
 
+const BriefcasePlus = `
+<svg
+  class="lucide lucide-briefcase-plus"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M13.354 20H4a2 2 0 01-2-2V8a2 2 0 012-2h16a2 2 0 012 2v3.354" />
+  <path d="M16 11.354V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" />
+  <path d="M16 17h6" />
+  <path d="M19 14v6" />
+</svg>
+`;
+
 const Briefcase = `
 <svg
   class="lucide lucide-briefcase"
@@ -4851,10 +5083,56 @@ const Broccoli = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M10 13a3 3 0 0 1-2.121-5.121" />
-  <path d="M15.606 14.204c-3.5 1.5-5.899 4.503-8.899 7.503A1 1 0 0 1 6 22c-2 0-4-2-4-4a1 1 0 0 1 .293-.707c1.911-1.911 3.823-3.578 5.347-5.441" />
-  <path d="M16.573 14.737A4 4 0 0 1 14 11" />
-  <path d="M7.14 10.907a4 4 0 1 1 2.756-7.43A4 4 0 0 1 16.7 4.48a2 2 0 0 1 2.82 2.82 4 4 0 0 1 1.002 6.805A4 4 0 1 1 13 16" />
+  <path d="M10 13a3 3 0 01-2.121-5.121" />
+  <path d="M15.606 14.204c-3.5 1.5-5.899 4.503-8.899 7.503A1 1 0 016 22c-2 0-4-2-4-4a1 1 0 01.293-.707c1.911-1.911 3.823-3.578 5.347-5.441" />
+  <path d="M16.573 14.737A4 4 0 0114 11" />
+  <path d="M7.14 10.907a4 4 0 112.756-7.43A4 4 0 0116.7 4.48a2 2 0 012.82 2.82 4 4 0 011.002 6.805 4 4 0 11-7.51 1.59" />
+</svg>
+`;
+
+const BroomSparkles = `
+<svg
+  class="lucide lucide-broom-sparkles"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M11 2v2" />
+  <path d="M12 3h-2" />
+  <path d="M13.5 10.5 22 2" />
+  <path d="M14.734 13.841a2 2 0 00-.314-2.42L12.58 9.58a2 2 0 00-2.421-.314l-7.657 4.461A1 1 0 002.3 15.3l6.403 6.403a1 1 0 001.571-.204z" />
+  <path d="M20 15v4" />
+  <path d="M22 17h-4" />
+  <path d="M4 4v4" />
+  <path d="m5 18 2-2" />
+  <path d="M6 6H2" />
+  <path d="m7.699 10.7 5.602 5.601" />
+</svg>
+`;
+
+const Broom = `
+<svg
+  class="lucide lucide-broom"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M13.5 10.5 22 2" />
+  <path d="M14.734 13.841a2 2 0 00-.314-2.42L12.58 9.58a2 2 0 00-2.421-.314l-7.657 4.461A1 1 0 002.3 15.3l6.403 6.403a1 1 0 001.571-.204z" />
+  <path d="m5 18 2-2" />
+  <path d="m7.699 10.7 5.602 5.601" />
 </svg>
 `;
 
@@ -4997,9 +5275,33 @@ const Bug = `
 </svg>
 `;
 
-const Building2 = `
+const BuildingComplexPlus = `
 <svg
-  class="lucide lucide-building-2"
+  class="lucide lucide-building-complex-plus"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M10 12h4" />
+  <path d="M10 21v-3a2 2 0 013.05-1.702" />
+  <path d="M10 8h4" />
+  <path d="M16 19h6" />
+  <path d="M18 7h2a2 2 0 012 2v4.355" />
+  <path d="M19 16v6" />
+  <path d="M6 10H4a2 2 0 00-2 2v7a2 2 0 002 2h8.535" />
+  <path d="M6 21V5a2 2 0 012-2h8a2 2 0 012 2v7.126" />
+</svg>
+`;
+
+const BuildingComplex = `
+<svg
+  class="lucide lucide-building-complex"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -5224,11 +5526,11 @@ const Calendar1 = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M11 14h1v4" />
-  <path d="M16 2v4" />
-  <path d="M3 10h18" />
-  <path d="M8 2v4" />
-  <rect x="3" y="4" width="18" height="18" rx="2" />
+  <path d="M11 13h1v4" />
+  <path d="M16 2v3" />
+  <path d="M3 9h18" />
+  <path d="M8 2v3" />
+  <rect x="3" y="3" width="18" height="18" rx="2" />
 </svg>
 `;
 
@@ -5245,12 +5547,56 @@ const CalendarArrowDown = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="m14 18 4 4 4-4" />
-  <path d="M16 2v4" />
-  <path d="M18 14v8" />
-  <path d="M21 11.354V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h7.343" />
-  <path d="M3 10h18" />
-  <path d="M8 2v4" />
+  <path d="m14 17 4 4 4-4" />
+  <path d="M16 2v3" />
+  <path d="M18 13v8" />
+  <path d="M21 10.354V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2h7.343" />
+  <path d="M3 9h18" />
+  <path d="M8 2v3" />
+</svg>
+`;
+
+const CalendarArrowLeft = `
+<svg
+  class="lucide lucide-calendar-arrow-left"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M16 2v3" />
+  <path d="M21 9H3" />
+  <path d="M3 12.34V5a2 2 0 012-2h14a2 2 0 012 2v14a2 2 0 01-2 2h-7.35" />
+  <path d="M3 18h6" />
+  <path d="m6 21-3-3 3-3" />
+  <path d="M8 2v3" />
+</svg>
+`;
+
+const CalendarArrowRight = `
+<svg
+  class="lucide lucide-calendar-arrow-right"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M16 2v3" />
+  <path d="m18 21 3-3h-6" />
+  <path d="M21 12.34V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2h7.35" />
+  <path d="m21 18-3-3" />
+  <path d="M3 9h18" />
+  <path d="M8 2v3" />
 </svg>
 `;
 
@@ -5267,12 +5613,12 @@ const CalendarArrowUp = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="m14 18 4-4 4 4" />
-  <path d="M16 2v4" />
-  <path d="M18 22v-8" />
-  <path d="M21 11.343V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h9" />
-  <path d="M3 10h18" />
-  <path d="M8 2v4" />
+  <path d="m14 17 4-4 4 4" />
+  <path d="M16 2v3" />
+  <path d="M18 21v-8" />
+  <path d="M21 10.343V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2h9" />
+  <path d="M3 9h18" />
+  <path d="M8 2v3" />
 </svg>
 `;
 
@@ -5289,11 +5635,17 @@ const CalendarCheck2 = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M8 2v4" />
-  <path d="M16 2v4" />
-  <path d="M21 14V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8" />
-  <path d="M3 10h18" />
-  <path d="m16 20 2 2 4-4" />
+  <path d="M 19 3 L 5 3" />
+  <path d="M 21 13 L 21 5" />
+  <path d="M 21 5 A2 2 0 0 0 19 3" />
+  <path d="M 3 19 A2 2 0 0 0 5 21" />
+  <path d="M 3 5 L 3 19" />
+  <path d="M 5 3 A2 2 0 0 0 3 5" />
+  <path d="m16 19 2 2 4-4" />
+  <path d="M16 2v3" />
+  <path d="M3 9h18" />
+  <path d="M5 21 L12.5 21" />
+  <path d="M8 2v3" />
 </svg>
 `;
 
@@ -5310,11 +5662,55 @@ const CalendarCheck = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M8 2v4" />
-  <path d="M16 2v4" />
-  <rect width="18" height="18" x="3" y="4" rx="2" />
-  <path d="M3 10h18" />
-  <path d="m9 16 2 2 4-4" />
+  <path d="M8 2v3" />
+  <path d="M16 2v3" />
+  <rect x="3" y="3" width="18" height="18" rx="2" />
+  <path d="M3 9h18" />
+  <path d="m9 15 2 2 4-4" />
+</svg>
+`;
+
+const CalendarChevronsLeft = `
+<svg
+  class="lucide lucide-calendar-chevrons-left"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m11 21-3-3 3-3" />
+  <path d="M16 2v3" />
+  <path d="M21 9H3" />
+  <path d="M3 11.5V5a2 2 0 012-2h14a2 2 0 012 2v14a2 2 0 01-2 2h-4" />
+  <path d="m5 21-3-3 3-3" />
+  <path d="M8 2v3" />
+</svg>
+`;
+
+const CalendarChevronsRight = `
+<svg
+  class="lucide lucide-calendar-chevrons-right"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m13 21 3-3-3-3" />
+  <path d="M16 2v3" />
+  <path d="m19 21 3-3-3-3" />
+  <path d="M21 11.5V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2h4" />
+  <path d="M3 9h18" />
+  <path d="M8 2v3" />
 </svg>
 `;
 
@@ -5332,10 +5728,10 @@ const CalendarClock = `
   stroke-linejoin="round"
 >
   <path d="M16 14v2.2l1.6 1" />
-  <path d="M16 2v4" />
-  <path d="M21 7.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3.5" />
-  <path d="M3 10h5" />
-  <path d="M8 2v4" />
+  <path d="M16 2v3" />
+  <path d="M21 7.338V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2h2.338" />
+  <path d="M3 9h5.859" />
+  <path d="M8 2v3" />
   <circle cx="16" cy="16" r="6" />
 </svg>
 `;
@@ -5355,16 +5751,16 @@ const CalendarCog = `
 >
   <path d="m15.228 16.852-.923-.383" />
   <path d="m15.228 19.148-.923.383" />
-  <path d="M16 2v4" />
+  <path d="M16 2v3" />
   <path d="m16.47 14.305.382.923" />
   <path d="m16.852 20.772-.383.924" />
   <path d="m19.148 15.228.383-.923" />
   <path d="m19.53 21.696-.382-.924" />
-  <path d="m20.772 16.852.924-.383" />
-  <path d="m20.772 19.148.924.383" />
-  <path d="M21 10.592V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h6" />
-  <path d="M3 10h18" />
-  <path d="M8 2v4" />
+  <path d="m20.773 16.852.924-.383" />
+  <path d="m20.773 19.148.924.383" />
+  <path d="M21 10.5V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2h5.5" />
+  <path d="M3 9h18" />
+  <path d="M8 2v3" />
   <circle cx="18" cy="18" r="3" />
 </svg>
 `;
@@ -5382,16 +5778,16 @@ const CalendarDays = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M8 2v4" />
-  <path d="M16 2v4" />
-  <rect width="18" height="18" x="3" y="4" rx="2" />
-  <path d="M3 10h18" />
-  <path d="M8 14h.01" />
-  <path d="M12 14h.01" />
-  <path d="M16 14h.01" />
-  <path d="M8 18h.01" />
-  <path d="M12 18h.01" />
-  <path d="M16 18h.01" />
+  <path d="M8 2v3" />
+  <path d="M16 2v3" />
+  <rect x="3" y="3" width="18" height="18" rx="2" />
+  <path d="M3 9h18" />
+  <path d="M8 13h.01" />
+  <path d="M12 13h.01" />
+  <path d="M16 13h.01" />
+  <path d="M8 17h.01" />
+  <path d="M12 17h.01" />
+  <path d="M16 17h.01" />
 </svg>
 `;
 
@@ -5408,11 +5804,10 @@ const CalendarFold = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M3 20a2 2 0 0 0 2 2h10a2.4 2.4 0 0 0 1.706-.706l3.588-3.588A2.4 2.4 0 0 0 21 16V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2z" />
-  <path d="M15 22v-5a1 1 0 0 1 1-1h5" />
-  <path d="M8 2v4" />
-  <path d="M16 2v4" />
-  <path d="M3 10h18" />
+  <path d="M16 2v3" />
+  <path d="M21 15V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2h10v-5a1 1 0 011-1za2.4 2.4 0 01-.706 1.706l-3.588 3.588A2.4 2.4 0 0115 21" />
+  <path d="M3 9h18" />
+  <path d="M8 2v3" />
 </svg>
 `;
 
@@ -5429,11 +5824,11 @@ const CalendarHeart = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M12.127 22H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v5.125" />
-  <path d="M14.62 18.8A2.25 2.25 0 1 1 18 15.836a2.25 2.25 0 1 1 3.38 2.966l-2.626 2.856a.998.998 0 0 1-1.507 0z" />
-  <path d="M16 2v4" />
-  <path d="M3 10h18" />
-  <path d="M8 2v4" />
+  <path d="M12.127 21H5a2 2 0 01-2-2V5a2 2 0 012-2h14a2 2 0 012 2v5.125" />
+  <path d="M14.62 17.8A2.25 2.25 0 1118 14.836a2.25 2.25 0 113.38 2.966l-2.626 2.856a.998.998 0 01-1.507 0z" />
+  <path d="M16 2v3" />
+  <path d="M3 9h18" />
+  <path d="M8 2v3" />
 </svg>
 `;
 
@@ -5450,11 +5845,11 @@ const CalendarMinus2 = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M8 2v4" />
-  <path d="M16 2v4" />
-  <rect width="18" height="18" x="3" y="4" rx="2" />
-  <path d="M3 10h18" />
-  <path d="M10 16h4" />
+  <path d="M8 2v3" />
+  <path d="M16 2v3" />
+  <rect x="3" y="3" width="18" height="18" rx="2" />
+  <path d="M3 9h18" />
+  <path d="M10 15h4" />
 </svg>
 `;
 
@@ -5471,11 +5866,11 @@ const CalendarMinus = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M16 19h6" />
-  <path d="M16 2v4" />
-  <path d="M21 15V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8.5" />
-  <path d="M3 10h18" />
-  <path d="M8 2v4" />
+  <path d="M16 18h6" />
+  <path d="M16 2v3" />
+  <path d="M21 14V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2h8.3" />
+  <path d="M3 9h18" />
+  <path d="M8 2v3" />
 </svg>
 `;
 
@@ -5492,12 +5887,12 @@ const CalendarOff = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M4.2 4.2A2 2 0 0 0 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 1.82-1.18" />
-  <path d="M21 15.5V6a2 2 0 0 0-2-2H9.5" />
-  <path d="M16 2v4" />
-  <path d="M3 10h7" />
-  <path d="M21 10h-5.5" />
+  <path d="M16 2v3" />
   <path d="m2 2 20 20" />
+  <path d="M21 9h-5.5" />
+  <path d="M3 9h6" />
+  <path d="M3.586 3.586A2 2 0 003 5v14a2 2 0 002 2h14a2 2 0 001.414-.586" />
+  <path d="M8.656 3H19a2 2 0 012 2v10.344" />
 </svg>
 `;
 
@@ -5514,12 +5909,12 @@ const CalendarPlus2 = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M8 2v4" />
-  <path d="M16 2v4" />
-  <rect width="18" height="18" x="3" y="4" rx="2" />
-  <path d="M3 10h18" />
-  <path d="M10 16h4" />
-  <path d="M12 14v4" />
+  <path d="M8 2v3" />
+  <path d="M16 2v3" />
+  <rect x="3" y="3" width="18" height="18" rx="2" />
+  <path d="M3 9h18" />
+  <path d="M10 15h4" />
+  <path d="M12 13v4" />
 </svg>
 `;
 
@@ -5536,12 +5931,12 @@ const CalendarPlus = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M16 19h6" />
-  <path d="M16 2v4" />
-  <path d="M19 16v6" />
-  <path d="M21 12.598V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8.5" />
-  <path d="M3 10h18" />
-  <path d="M8 2v4" />
+  <path d="M16 18h6" />
+  <path d="M16 2v3" />
+  <path d="M19 15v6" />
+  <path d="M21 11.5V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2h8.3" />
+  <path d="M3 9h18" />
+  <path d="M8 2v3" />
 </svg>
 `;
 
@@ -5558,14 +5953,14 @@ const CalendarRange = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <rect width="18" height="18" x="3" y="4" rx="2" />
-  <path d="M16 2v4" />
-  <path d="M3 10h18" />
-  <path d="M8 2v4" />
-  <path d="M17 14h-6" />
-  <path d="M13 18H7" />
-  <path d="M7 14h.01" />
-  <path d="M17 18h.01" />
+  <rect x="3" y="3" width="18" height="18" rx="2" />
+  <path d="M16 2v3" />
+  <path d="M3 9h18" />
+  <path d="M8 2v3" />
+  <path d="M17 13h-6" />
+  <path d="M13 17H7" />
+  <path d="M7 13h.01" />
+  <path d="M17 17h.01" />
 </svg>
 `;
 
@@ -5582,12 +5977,12 @@ const CalendarSearch = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M16 2v4" />
-  <path d="M21 11.75V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h7.25" />
-  <path d="m22 22-1.875-1.875" />
-  <path d="M3 10h18" />
-  <path d="M8 2v4" />
-  <circle cx="18" cy="18" r="3" />
+  <path d="M16 2v3" />
+  <path d="M21 10.69V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2h7.25" />
+  <path d="m22 21-1.875-1.875" />
+  <path d="M3 9h18" />
+  <path d="M8 2v3" />
+  <circle cx="18" cy="17" r="3" />
 </svg>
 `;
 
@@ -5605,13 +6000,13 @@ const CalendarSync = `
   stroke-linejoin="round"
 >
   <path d="M11 10v4h4" />
-  <path d="m11 14 1.535-1.605a5 5 0 0 1 8 1.5" />
-  <path d="M16 2v4" />
-  <path d="m21 18-1.535 1.605a5 5 0 0 1-8-1.5" />
+  <path d="m11 14 1.535-1.605a5 5 0 018 1.5" />
+  <path d="M16 2v3" />
+  <path d="m21 18-1.535 1.605a5 5 0 01-8-1.5" />
   <path d="M21 22v-4h-4" />
-  <path d="M21 8.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h4.3" />
-  <path d="M3 10h4" />
-  <path d="M8 2v4" />
+  <path d="M21 8.517V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2h3.517" />
+  <path d="M3 9h4" />
+  <path d="M8 2v3" />
 </svg>
 `;
 
@@ -5628,12 +6023,12 @@ const CalendarX2 = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M8 2v4" />
-  <path d="M16 2v4" />
-  <path d="M21 13V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8" />
-  <path d="M3 10h18" />
-  <path d="m17 22 5-5" />
-  <path d="m17 17 5 5" />
+  <path d="M16 2v3" />
+  <path d="m17 16 5 5" />
+  <path d="m17 21 5-5" />
+  <path d="M21 12V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2h8" />
+  <path d="M3 9h18" />
+  <path d="M8 2v3" />
 </svg>
 `;
 
@@ -5650,12 +6045,12 @@ const CalendarX = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M8 2v4" />
-  <path d="M16 2v4" />
-  <rect width="18" height="18" x="3" y="4" rx="2" />
-  <path d="M3 10h18" />
-  <path d="m14 14-4 4" />
-  <path d="m10 14 4 4" />
+  <path d="M8 2v3" />
+  <path d="M16 2v3" />
+  <rect x="3" y="3" width="18" height="18" rx="2" />
+  <path d="M3 9h18" />
+  <path d="m14 13-4 4" />
+  <path d="m10 13 4 4" />
 </svg>
 `;
 
@@ -5672,10 +6067,10 @@ const Calendar = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M8 2v4" />
-  <path d="M16 2v4" />
-  <rect width="18" height="18" x="3" y="4" rx="2" />
-  <path d="M3 10h18" />
+  <path d="M8 2v3" />
+  <path d="M16 2v3" />
+  <rect x="3" y="3" width="18" height="18" rx="2" />
+  <path d="M3 9h18" />
 </svg>
 `;
 
@@ -5736,6 +6131,48 @@ const Camera = `
 >
   <path d="M13.997 4a2 2 0 0 1 1.76 1.05l.486.9A2 2 0 0 0 18.003 7H20a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1.997a2 2 0 0 0 1.759-1.048l.489-.904A2 2 0 0 1 10.004 4z" />
   <circle cx="12" cy="13" r="3" />
+</svg>
+`;
+
+const CanSoda = `
+<svg
+  class="lucide lucide-can-soda"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m17 22 1.664-2.496a2 2 0 00.336-1.11V5.606a2 2 0 00-.336-1.11L17 2" />
+  <path d="M18 22H6" />
+  <path d="M18 2H6" />
+  <path d="M5 17h14" />
+  <path d="M5 7h14" />
+  <path d="m7 22-1.664-2.496A2 2 0 015 18.394V5.606a2 2 0 01.336-1.11L7 2" />
+</svg>
+`;
+
+const Can = `
+<svg
+  class="lucide lucide-can"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M21 10.5a9 2.5 0 01-18 0v8a9 2.5 0 0018 0z" />
+  <path d="M21 10.5A9 2.5 25.32 004.59 3.47 9 2.5 25.32 0021 10.5" />
+  <path d="M3 10.5a9 2.5 0 016.527-2.405" />
+  <path d="M9 16.858a31 31 0 006 0" />
 </svg>
 `;
 
@@ -5881,7 +6318,30 @@ const Captions = `
 >
   <rect width="18" height="14" x="3" y="5" rx="2" ry="2" />
   <path d="M7 15h4M15 15h2M7 11h2M13 11h4" />
-</svg>`;
+</svg>
+`;
+
+const CarBattery = `
+<svg
+  class="lucide lucide-car-battery"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M14 13h4" />
+  <path d="M16 15v-4" />
+  <path d="M18 5v2" />
+  <path d="M6 13h4" />
+  <path d="M6 5v2" />
+  <rect x="2" y="7" width="20" height="12" rx="2" />
+</svg>
+`;
 
 const CarFront = `
 <svg
@@ -5984,7 +6444,7 @@ const CardSim = `
   <path d="M12 14v4" />
   <path d="M14.172 2a2 2 0 0 1 1.414.586l3.828 3.828A2 2 0 0 1 20 7.828V20a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z" />
   <path d="M8 14h8" />
-  <rect x="8" y="10" width="8" height="8" rx="1" />
+  <rect x="8" y="10" width="8" height="8" rx="2" />
 </svg>
 `;
 
@@ -6004,6 +6464,46 @@ const Carrot = `
   <path d="M15 16a1 1 0 0 0-7-7q-4 4-5.987 12.385a.5.5 0 0 0 .602.602Q11 20 15 16l-3-3" />
   <path d="M15 9q4 4 7 0-3-4-7 0 4-4 0-7-4 3 0 7" />
   <path d="m8 15-2.58-2.58" />
+</svg>
+`;
+
+const CartonOff = `
+<svg
+  class="lucide lucide-carton-off"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M10 10H5v10a2 2 0 002 2h10a2 2 0 002-2v-1" />
+  <path d="M13 22v-9" />
+  <path d="M13.902 8.245 16 6h-4.343" />
+  <path d="M19 13.343V10a2 2 0 00-.539-1.367L16 6V3a1 1 0 00-1-1H9a1 1 0 00-.857.486" />
+  <path d="m2 2 20 20" />
+  <path d="M7.034 7.034 5.539 8.633A2 2 0 005 10" />
+</svg>
+`;
+
+const Carton = `
+<svg
+  class="lucide lucide-carton"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M13 22V10a2 2 0 01.539-1.367L16 6H8L5.539 8.633A2 2 0 005 10v10a2 2 0 002 2h10a2 2 0 002-2V10a2 2 0 00-.539-1.367L16 6V3a1 1 0 00-1-1H9a1 1 0 00-1 1v3" />
+  <path d="M5 10h8" />
 </svg>
 `;
 
@@ -6194,6 +6694,27 @@ const Cctv = `
 </svg>
 `;
 
+const Certificate = `
+<svg
+  class="lucide lucide-certificate"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 10H6" />
+  <path d="m20.69 15.479 1.29 4.88a.5.5 0 01-.698.591l-1.843-.849a1 1 0 00-.879.001l-1.846.85a.5.5 0 01-.692-.593l1.29-4.88" />
+  <path d="M22 6.675V6a2 2 0 00-2-2H4a2 2 0 00-2 2v12a2 2 0 002 2h8" />
+  <path d="M6 14h4" />
+  <circle cx="19" cy="13" r="3" />
+</svg>
+`;
+
 const ChartArea = `
 <svg
   class="lucide lucide-chart-area"
@@ -6231,26 +6752,6 @@ const ChartBarBig = `
 </svg>
 `;
 
-const ChartBarDecreasing = `
-<svg
-  class="lucide lucide-chart-bar-decreasing"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M3 3v16a2 2 0 0 0 2 2h16" />
-  <path d="M7 11h8" />
-  <path d="M7 16h3" />
-  <path d="M7 6h12" />
-</svg>
-`;
-
 const ChartBarIncreasing = `
 <svg
   class="lucide lucide-chart-bar-increasing"
@@ -6268,6 +6769,26 @@ const ChartBarIncreasing = `
   <path d="M7 11h8" />
   <path d="M7 16h12" />
   <path d="M7 6h3" />
+</svg>
+`;
+
+const ChartBarDecreasing = `
+<svg
+  class="lucide lucide-chart-bar-decreasing"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M3 3v16a2 2 0 0 0 2 2h16" />
+  <path d="M7 11h8" />
+  <path d="M7 16h3" />
+  <path d="M7 6h12" />
 </svg>
 `;
 
@@ -6309,6 +6830,24 @@ const ChartBar = `
   <path d="M7 16h8" />
   <path d="M7 11h12" />
   <path d="M7 6h3" />
+</svg>
+`;
+
+const ChartBellCurve = `
+<svg
+  class="lucide lucide-chart-bell-curve"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M3 3v16a2 2 0 0 0 2 2h16" />
+  <path d="M7 16c3.5 0 2.5-10 6-10s2.5 10 6 10" />
 </svg>
 `;
 
@@ -6354,26 +6893,6 @@ const ChartColumnBig = `
 </svg>
 `;
 
-const ChartColumnDecreasing = `
-<svg
-  class="lucide lucide-chart-column-decreasing"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M13 17V9" />
-  <path d="M18 17v-3" />
-  <path d="M3 3v16a2 2 0 0 0 2 2h16" />
-  <path d="M8 17V5" />
-</svg>
-`;
-
 const ChartColumnIncreasing = `
 <svg
   class="lucide lucide-chart-column-increasing"
@@ -6391,6 +6910,26 @@ const ChartColumnIncreasing = `
   <path d="M18 17V5" />
   <path d="M3 3v16a2 2 0 0 0 2 2h16" />
   <path d="M8 17v-3" />
+</svg>
+`;
+
+const ChartColumnDecreasing = `
+<svg
+  class="lucide lucide-chart-column-decreasing"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M13 17V9" />
+  <path d="M18 17v-3" />
+  <path d="M3 3v16a2 2 0 0 0 2 2h16" />
+  <path d="M8 17V5" />
 </svg>
 `;
 
@@ -6412,6 +6951,26 @@ const ChartColumnStacked = `
   <path d="M3 3v16a2 2 0 0 0 2 2h16" />
   <rect x="15" y="5" width="4" height="12" rx="1" />
   <rect x="7" y="8" width="4" height="9" rx="1" />
+</svg>
+`;
+
+const ChartColumn = `
+<svg
+  class="lucide lucide-chart-column"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M3 3v16a2 2 0 0 0 2 2h16" />
+  <path d="M18 17V9" />
+  <path d="M13 17V5" />
+  <path d="M8 17v-3" />
 </svg>
 `;
 
@@ -6450,26 +7009,6 @@ const ChartLine = `
 >
   <path d="M3 3v16a2 2 0 0 0 2 2h16" />
   <path d="m19 9-5 5-4-4-3 3" />
-</svg>
-`;
-
-const ChartColumn = `
-<svg
-  class="lucide lucide-chart-column"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M3 3v16a2 2 0 0 0 2 2h16" />
-  <path d="M18 17V9" />
-  <path d="M13 17V5" />
-  <path d="M8 17v-3" />
 </svg>
 `;
 
@@ -6612,6 +7151,67 @@ const ChartPie = `
 </svg>
 `;
 
+const ChartQuadrant = `
+<svg
+  class="lucide lucide-chart-quadrant"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M13 3v18" />
+  <path d="M3 12h18" />
+  <path d="M3 3v16a2 2 0 002 2h16" />
+  <circle cx="17.5" cy="5.5" r="0.5" fill="currentColor" />
+  <circle cx="19.5" cy="16.5" r="0.5" fill="currentColor" />
+  <circle cx="7.5" cy="16.5" r="0.5" fill="currentColor" />
+  <circle cx="7.5" cy="7.5" r="0.5" fill="currentColor" />
+</svg>
+`;
+
+const ChartRadar = `
+<svg
+  class="lucide lucide-chart-radar"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 2v10" />
+  <path d="m16 18 3.085-8.125L12 4.103 3.473 9.442l3.196 10.554z" />
+  <path d="m2 9 10 3 6 9" />
+  <path d="m6 21 6-9 10-3" />
+</svg>
+`;
+
+const ChartSpline = `
+<svg
+  class="lucide lucide-chart-spline"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M3 3v16a2 2 0 0 0 2 2h16" />
+  <path d="M7 16c.5-2 1.5-7 4-7 2 0 2 3 4 3 2.5 0 4.5-5 5-7" />
+</svg>
+`;
+
 const ChartScatter = `
 <svg
   class="lucide lucide-chart-scatter"
@@ -6631,24 +7231,6 @@ const ChartScatter = `
   <circle cx="7.5" cy="16.5" r=".5" fill="currentColor" />
   <circle cx="17.5" cy="14.5" r=".5" fill="currentColor" />
   <path d="M3 3v16a2 2 0 0 0 2 2h16" />
-</svg>
-`;
-
-const ChartSpline = `
-<svg
-  class="lucide lucide-chart-spline"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M3 3v16a2 2 0 0 0 2 2h16" />
-  <path d="M7 16c.5-2 1.5-7 4-7 2 0 2 3 4 3 2.5 0 4.5-5 5-7" />
 </svg>
 `;
 
@@ -6719,8 +7301,10 @@ const ChefHat = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M17 21a1 1 0 0 0 1-1v-5.35c0-.457.316-.844.727-1.041a4 4 0 0 0-2.134-7.589 5 5 0 0 0-9.186 0 4 4 0 0 0-2.134 7.588c.411.198.727.585.727 1.041V20a1 1 0 0 0 1 1Z" />
-  <path d="M6 17h12" />
+  <path d="M10 11v5" />
+  <path d="M14 11v5" />
+  <path d="M6 12.65c0-.457-.316-.844-.727-1.041A4 4 0 017.52 4.034a1.53 1.53 0 001.367-.547 4 4 0 016.225 0 1.53 1.53 0 001.367.547 4 4 0 012.248 7.575c-.411.197-.727.584-.727 1.04V19a2 2 0 01-2 2H8a2 2 0 01-2-2z" />
+  <path d="M6 16h12" />
 </svg>
 `;
 
@@ -6744,26 +7328,6 @@ const Cherry = `
 </svg>
 `;
 
-const ChessKing = `
-<svg
-  class="lucide lucide-chess-king"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M4 20a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z" />
-  <path d="m6.7 18-1-1C4.35 15.682 3 14.09 3 12a5 5 0 0 1 4.95-5c1.584 0 2.7.455 4.05 1.818C13.35 7.455 14.466 7 16.05 7A5 5 0 0 1 21 12c0 2.082-1.359 3.673-2.7 5l-1 1" />
-  <path d="M10 4h4" />
-  <path d="M12 2v6.818" />
-</svg>
-`;
-
 const ChessBishop = `
 <svg
   class="lucide lucide-chess-bishop"
@@ -6781,6 +7345,26 @@ const ChessBishop = `
   <path d="M15 18c1.5-.615 3-2.461 3-4.923C18 8.769 14.5 4.462 12 2 9.5 4.462 6 8.77 6 13.077 6 15.539 7.5 17.385 9 18" />
   <path d="m16 7-2.5 2.5" />
   <path d="M9 2h6" />
+</svg>
+`;
+
+const ChessKing = `
+<svg
+  class="lucide lucide-chess-king"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M4 20a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z" />
+  <path d="m6.7 18-1-1C4.35 15.682 3 14.09 3 12a5 5 0 0 1 4.95-5c1.584 0 2.7.455 4.05 1.818C13.35 7.455 14.466 7 16.05 7A5 5 0 0 1 21 12c0 2.082-1.359 3.673-2.7 5l-1 1" />
+  <path d="M10 4h4" />
+  <path d="M12 2v6.818" />
 </svg>
 `;
 
@@ -6839,11 +7423,11 @@ const ChessQueen = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M4 20a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z" />
-  <path d="m12.474 5.943 1.567 5.34a1 1 0 0 0 1.75.328l2.616-3.402" />
-  <path d="m20 9-3 9" />
-  <path d="m5.594 8.209 2.615 3.403a1 1 0 0 0 1.75-.329l1.567-5.34" />
-  <path d="M7 18 4 9" />
+  <path d="m10.68 5.499-.996 4.982a.65.65 0 01-1.131.295L5.885 7.663" />
+  <path d="m13.32 5.5.995 4.98a.65.65 0 001.131.296l2.668-3.113" />
+  <path d="M20.428 8.952 17.5 18" />
+  <path d="M4 20a2 2 0 012-2h12a2 2 0 012 2v1a1 1 0 01-1 1H5a1 1 0 01-1-1z" />
+  <path d="M6.5 18 3.571 8.952" />
   <circle cx="12" cy="4" r="2" />
   <circle cx="20" cy="7" r="2" />
   <circle cx="4" cy="7" r="2" />
@@ -6943,23 +7527,6 @@ const ChevronLeft = `
 </svg>
 `;
 
-const ChevronRight = `
-<svg
-  class="lucide lucide-chevron-right"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="m9 18 6-6-6-6" />
-</svg>
-`;
-
 const ChevronUp = `
 <svg
   class="lucide lucide-chevron-up"
@@ -6974,6 +7541,23 @@ const ChevronUp = `
   stroke-linejoin="round"
 >
   <path d="m18 15-6-6-6 6" />
+</svg>
+`;
+
+const ChevronRight = `
+<svg
+  class="lucide lucide-chevron-right"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m9 18 6-6-6-6" />
 </svg>
 `;
 
@@ -7052,24 +7636,6 @@ const ChevronsLeftRight = `
 </svg>
 `;
 
-const ChevronsLeft = `
-<svg
-  class="lucide lucide-chevrons-left"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="m11 17-5-5 5-5" />
-  <path d="m18 17-5-5 5-5" />
-</svg>
-`;
-
 const ChevronsRightLeft = `
 <svg
   class="lucide lucide-chevrons-right-left"
@@ -7085,6 +7651,24 @@ const ChevronsRightLeft = `
 >
   <path d="m20 17-5-5 5-5" />
   <path d="m4 17 5-5-5-5" />
+</svg>
+`;
+
+const ChevronsLeft = `
+<svg
+  class="lucide lucide-chevrons-left"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m11 17-5-5 5-5" />
+  <path d="m18 17-5-5 5-5" />
 </svg>
 `;
 
@@ -7206,9 +7790,9 @@ const Cigarette = `
 </svg>
 `;
 
-const CircleAlert = `
+const CircleArrowLeft = `
 <svg
-  class="lucide lucide-circle-alert"
+  class="lucide lucide-circle-arrow-left"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -7220,8 +7804,8 @@ const CircleAlert = `
   stroke-linejoin="round"
 >
   <circle cx="12" cy="12" r="10" />
-  <line x1="12" x2="12" y1="8" y2="12" />
-  <line x1="12" x2="12.01" y1="16" y2="16" />
+  <path d="m12 8-4 4 4 4" />
+  <path d="M16 12H8" />
 </svg>
 `;
 
@@ -7241,25 +7825,6 @@ const CircleArrowDown = `
   <circle cx="12" cy="12" r="10" />
   <path d="M12 8v8" />
   <path d="m8 12 4 4 4-4" />
-</svg>
-`;
-
-const CircleArrowLeft = `
-<svg
-  class="lucide lucide-circle-arrow-left"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <circle cx="12" cy="12" r="10" />
-  <path d="m12 8-4 4 4 4" />
-  <path d="M16 12H8" />
 </svg>
 `;
 
@@ -7320,25 +7885,6 @@ const CircleArrowOutUpLeft = `
 </svg>
 `;
 
-const CircleArrowOutUpRight = `
-<svg
-  class="lucide lucide-circle-arrow-out-up-right"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M22 12A10 10 0 1 1 12 2" />
-  <path d="M22 2 12 12" />
-  <path d="M16 2h6v6" />
-</svg>
-`;
-
 const CircleArrowRight = `
 <svg
   class="lucide lucide-circle-arrow-right"
@@ -7355,6 +7901,25 @@ const CircleArrowRight = `
   <circle cx="12" cy="12" r="10" />
   <path d="m12 16 4-4-4-4" />
   <path d="M8 12h8" />
+</svg>
+`;
+
+const CircleArrowOutUpRight = `
+<svg
+  class="lucide lucide-circle-arrow-out-up-right"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M22 12A10 10 0 1 1 12 2" />
+  <path d="M22 2 12 12" />
+  <path d="M16 2h6v6" />
 </svg>
 `;
 
@@ -7409,7 +7974,7 @@ const CircleCheck = `
   stroke-linejoin="round"
 >
   <circle cx="12" cy="12" r="10" />
-  <path d="m9 12 2 2 4-4" />
+  <path d="m16 9-5.5 5.5L8 12" />
 </svg>
 `;
 
@@ -7485,6 +8050,107 @@ const CircleChevronUp = `
 </svg>
 `;
 
+const CircleChevronsDown = `
+<svg
+  class="lucide lucide-circle-chevrons-down"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M9 14L12 17L15 14" />
+  <path d="M9 8L12 11L15 8" />
+  <circle cx="12" cy="12" r="10" />
+</svg>
+`;
+
+const CircleChevronsLeft = `
+<svg
+  class="lucide lucide-circle-chevrons-left"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M10 9L7 12L10 15" />
+  <path d="M16 9L13 12L16 15" />
+  <circle cx="12" cy="12" r="10" />
+</svg>
+`;
+
+const CircleChevronsRight = `
+<svg
+  class="lucide lucide-circle-chevrons-right"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M14 15L17 12L14 9" />
+  <path d="M8 15L11 12L8 9" />
+  <circle cx="12" cy="12" r="10" />
+</svg>
+`;
+
+const CircleChevronsUp = `
+<svg
+  class="lucide lucide-circle-chevrons-up"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M15 10L12 7L9 10" />
+  <path d="M15 16L12 13L9 16" />
+  <circle cx="12" cy="12" r="10" />
+</svg>
+`;
+
+const CircleDashedCheck = `
+<svg
+  class="lucide lucide-circle-dashed-check"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M10.1 2.182a10 10 0 013.8 0" />
+  <path d="M13.9 21.818a10 10 0 01-3.8 0" />
+  <path d="m16 9-5.5 5.5L8 12" />
+  <path d="M17.609 3.721a10 10 0 012.69 2.7" />
+  <path d="M2.182 13.9a10 10 0 010-3.8" />
+  <path d="M20.279 17.609a10 10 0 01-2.7 2.69" />
+  <path d="M21.818 10.1a10 10 0 010 3.8" />
+  <path d="M3.721 6.391a10 10 0 012.7-2.69" />
+  <path d="M6.391 20.279a10 10 0 01-2.69-2.7" />
+</svg>
+`;
+
 const CircleDashed = `
 <svg
   class="lucide lucide-circle-dashed"
@@ -7529,6 +8195,31 @@ const CircleDivide = `
 </svg>
 `;
 
+const CircleDotDashed = `
+<svg
+  class="lucide lucide-circle-dot-dashed"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M10.1 2.18a9.93 9.93 0 0 1 3.8 0" />
+  <path d="M17.6 3.71a9.95 9.95 0 0 1 2.69 2.7" />
+  <path d="M21.82 10.1a9.93 9.93 0 0 1 0 3.8" />
+  <path d="M20.29 17.6a9.95 9.95 0 0 1-2.7 2.69" />
+  <path d="M13.9 21.82a9.94 9.94 0 0 1-3.8 0" />
+  <path d="M6.4 20.29a9.95 9.95 0 0 1-2.69-2.7" />
+  <path d="M2.18 13.9a9.93 9.93 0 0 1 0-3.8" />
+  <path d="M3.71 6.4a9.95 9.95 0 0 1 2.7-2.69" />
+  <circle cx="12" cy="12" r="1" />
+</svg>
+`;
+
 const CircleDollarSign = `
 <svg
   class="lucide lucide-circle-dollar-sign"
@@ -7561,52 +8252,8 @@ const CircleDot = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <circle cx="12" cy="12" r="10" />
   <circle cx="12" cy="12" r="1" />
-</svg>
-`;
-
-const CircleDotDashed = `
-<svg
-  class="lucide lucide-circle-dot-dashed"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M10.1 2.18a9.93 9.93 0 0 1 3.8 0" />
-  <path d="M17.6 3.71a9.95 9.95 0 0 1 2.69 2.7" />
-  <path d="M21.82 10.1a9.93 9.93 0 0 1 0 3.8" />
-  <path d="M20.29 17.6a9.95 9.95 0 0 1-2.7 2.69" />
-  <path d="M13.9 21.82a9.94 9.94 0 0 1-3.8 0" />
-  <path d="M6.4 20.29a9.95 9.95 0 0 1-2.69-2.7" />
-  <path d="M2.18 13.9a9.93 9.93 0 0 1 0-3.8" />
-  <path d="M3.71 6.4a9.95 9.95 0 0 1 2.7-2.69" />
-  <circle cx="12" cy="12" r="1" />
-</svg>
-`;
-
-const CircleEqual = `
-<svg
-  class="lucide lucide-circle-equal"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
   <circle cx="12" cy="12" r="10" />
-  <path d="M7 10h10" />
-  <path d="M7 14h10" />
 </svg>
 `;
 
@@ -7630,9 +8277,28 @@ const CircleEllipsis = `
 </svg>
 `;
 
-const CircleEuroSign = `
+const CircleEqual = `
 <svg
-  class="lucide lucide-circle-euro-sign"
+  class="lucide lucide-circle-equal"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="12" cy="12" r="10" />
+  <path d="M7 10h10" />
+  <path d="M7 14h10" />
+</svg>
+`;
+
+const CircleEuro = `
+<svg
+  class="lucide lucide-circle-euro"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -7646,6 +8312,25 @@ const CircleEuroSign = `
   <path d="M15 9.4a4 4 0 1 0 0 5.2" />
   <path d="M7 12h5" />
   <circle cx="12" cy="12" r="10" />
+</svg>
+`;
+
+const CircleExclamationPoint = `
+<svg
+  class="lucide lucide-circle-exclamation-point"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="12" cy="12" r="10" />
+  <line x1="12" x2="12" y1="8" y2="12" />
+  <line x1="12" x2="12.01" y1="16" y2="16" />
 </svg>
 `;
 
@@ -7665,6 +8350,28 @@ const CircleFadingArrowUp = `
   <path d="M12 2a10 10 0 0 1 7.38 16.75" />
   <path d="m16 12-4-4-4 4" />
   <path d="M12 16V8" />
+  <path d="M2.5 8.875a10 10 0 0 0-.5 3" />
+  <path d="M2.83 16a10 10 0 0 0 2.43 3.4" />
+  <path d="M4.636 5.235a10 10 0 0 1 .891-.857" />
+  <path d="M8.644 21.42a10 10 0 0 0 7.631-.38" />
+</svg>
+`;
+
+const CircleFadingPlay = `
+<svg
+  class="lucide lucide-circle-fading-play"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 2a10 10 0 0 1 7.38 16.75" />
+  <path d="M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z" />
   <path d="M2.5 8.875a10 10 0 0 0-.5 3" />
   <path d="M2.83 16a10 10 0 0 0 2.43 3.4" />
   <path d="M4.636 5.235a10 10 0 0 1 .891-.857" />
@@ -7692,7 +8399,8 @@ const CircleFadingPlus = `
   <path d="M2.83 16a10 10 0 0 0 2.43 3.4" />
   <path d="M4.636 5.235a10 10 0 0 1 .891-.857" />
   <path d="M8.644 21.42a10 10 0 0 0 7.631-.38" />
-</svg>`;
+</svg>
+`;
 
 const CircleGauge = `
 <svg
@@ -7710,6 +8418,507 @@ const CircleGauge = `
   <path d="M15.6 2.7a10 10 0 1 0 5.7 5.7" />
   <circle cx="12" cy="12" r="2" />
   <path d="M13.4 10.6 19 5" />
+</svg>
+`;
+
+const CircleLetterA = `
+<svg
+  class="lucide lucide-circle-letter-a"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M15 14H9" />
+  <circle cx="12" cy="12" r="10" />
+  <path d="m8 16 3.453-7.648a.6.6 0 0 1 1.094 0L16 16" />
+</svg>
+`;
+
+const CircleLetterB = `
+<svg
+  class="lucide lucide-circle-letter-b"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M9 12h4.846a2.24 2.24 0 011.523.586 2 2 0 01.001 2.828 2.24 2.24 0 01-1.524.586H9.5a.5.5 0 01-.5-.5v-7a.5.5 0 01.5-.5H13a2 2 0 010 4" />
+  <circle cx="12" cy="12" r="10" />
+</svg>
+`;
+
+const CircleLetterC = `
+<svg
+  class="lucide lucide-circle-letter-c"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M15 9.354a4 4 0 1 0 0 5.292" />
+  <circle cx="12" cy="12" r="10" />
+</svg>
+`;
+
+const CircleLetterD = `
+<svg
+  class="lucide lucide-circle-letter-d"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 8a4 4 0 010 8H9.412A.41.41 0 019 15.588V8.412A.41.41 0 019.412 8z" />
+  <circle cx="12" cy="12" r="10" />
+</svg>
+`;
+
+const CircleLetterE = `
+<svg
+  class="lucide lucide-circle-letter-e"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M15 8H9.5a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .5.5H15" />
+  <path d="M9 12h4" />
+  <circle cx="12" cy="12" r="10" />
+</svg>
+`;
+
+const CircleLetterF = `
+<svg
+  class="lucide lucide-circle-letter-f"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M9 16V8.5a.5.5 0 0 1 .5-.5H15" />
+  <path d="M9 12h4" />
+  <circle cx="12" cy="12" r="10" />
+</svg>
+`;
+
+const CircleLetterG = `
+<svg
+  class="lucide lucide-circle-letter-g"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12.5 12H15v2.268a.88.88 0 01-.263.65A4 4 0 1112 8h2.5" />
+  <circle cx="12" cy="12" r="10" />
+</svg>
+`;
+
+const CircleLetterI = `
+<svg
+  class="lucide lucide-circle-letter-i"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 16V8" />
+  <circle cx="12" cy="12" r="10" />
+</svg>
+`;
+
+const CircleLetterH = `
+<svg
+  class="lucide lucide-circle-letter-h"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M9 16V8" />
+  <path d="M15 16V8" />
+  <path d="M9 12h6" />
+  <circle cx="12" cy="12" r="10" />
+</svg>
+`;
+
+const CircleLetterJ = `
+<svg
+  class="lucide lucide-circle-letter-j"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M14 8v5.5a1 1 0 01-5 0V13" />
+  <circle cx="12" cy="12" r="10" />
+</svg>
+`;
+
+const CircleLetterK = `
+<svg
+  class="lucide lucide-circle-letter-k"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M9 16V8" />
+  <path d="m11 12 4 4" />
+  <path d="m15 8-6 6" />
+  <circle cx="12" cy="12" r="10" />
+</svg>
+`;
+
+const CircleLetterL = `
+<svg
+  class="lucide lucide-circle-letter-l"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M9 8v7.5a.5.5 0 0 0 .5.5H15" />
+  <circle cx="12" cy="12" r="10" />
+</svg>
+`;
+
+const CircleLetterM = `
+<svg
+  class="lucide lucide-circle-letter-m"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M8 16.001v-7.5a.5.5 0 0 1 .9-.3l2.7 3.599a.5.5 0 0 0 .8 0l2.7-3.6a.5.5 0 0 1 .9.3v7.501" />
+  <circle cx="12" cy="12" r="10" />
+</svg>
+`;
+
+const CircleLetterN = `
+<svg
+  class="lucide lucide-circle-letter-n"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M9 16V8.576a.496.496 0 01.937-.243l4.126 7.43A.496.496 0 0015 15.52V8" />
+  <circle cx="12" cy="12" r="10" />
+</svg>
+`;
+
+const CircleLetterO = `
+<svg
+  class="lucide lucide-circle-letter-o"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="12" cy="12" r="4" />
+  <circle cx="12" cy="12" r="10" />
+</svg>
+`;
+
+const CircleLetterPOff = `
+<svg
+  class="lucide lucide-circle-letter-p-off"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 12h1a2 2 0 000-4H9.5a.5.5 0 00-.5.5V9" />
+  <path d="M15.652 21.31A10 10 0 012.691 8.348" />
+  <path d="M22 22 2 2" />
+  <path d="M4.929 4.929a10 10 0 0116.729 4.483 10 10 0 01-2.588 9.658" />
+  <path d="M9 14.657V16" />
+</svg>
+`;
+
+const CircleLetterP = `
+<svg
+  class="lucide lucide-circle-letter-p"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M9 12h4a2 2 0 0 0 0-4H9.5a.5.5 0 0 0-.5.5V16" />
+  <circle cx="12" cy="12" r="10" />
+</svg>
+`;
+
+const CircleLetterQ = `
+<svg
+  class="lucide lucide-circle-letter-q"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="12" cy="12" r="4" />
+  <path d="m16 16-2.5-2.5" />
+  <circle cx="12" cy="12" r="10" />
+</svg>
+`;
+
+const CircleLetterR = `
+<svg
+  class="lucide lucide-circle-letter-r"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m11 12 4 4" />
+  <path d="M9 12h4a2 2 0 0 0 0-4H9.5a.5.5 0 0 0-.5.5V16" />
+  <circle cx="12" cy="12" r="10" />
+</svg>
+`;
+
+const CircleLetterS = `
+<svg
+  class="lucide lucide-circle-letter-s"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M14.5 8H11a2 2 0 100 4h2a2 2 0 110 4H9" />
+  <circle cx="12" cy="12" r="10" />
+</svg>
+`;
+
+const CircleLetterT = `
+<svg
+  class="lucide lucide-circle-letter-t"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 16V8" />
+  <path d="M9 8h6" />
+  <circle cx="12" cy="12" r="10" />
+</svg>
+`;
+
+const CircleLetterU = `
+<svg
+  class="lucide lucide-circle-letter-u"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M15 8v5a3 3 0 1 1-6 0V8" />
+  <circle cx="12" cy="12" r="10" />
+</svg>
+`;
+
+const CircleLetterV = `
+<svg
+  class="lucide lucide-circle-letter-v"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m9 8 2.525 7.66a.5.5 0 0 0 .95 0L15 8" />
+  <circle cx="12" cy="12" r="10" />
+</svg>
+`;
+
+const CircleLetterW = `
+<svg
+  class="lucide lucide-circle-letter-w"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m16 8-1.591 7.598a.497.497 0 01-.97.038l-.96-3.276a.5.5 0 00-.959 0l-.96 3.276a.496.496 0 01-.969-.038L8 8" />
+  <circle cx="12" cy="12" r="10" />
+</svg>
+`;
+
+const CircleLetterX = `
+<svg
+  class="lucide lucide-circle-letter-x"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m9 16 6-8" />
+  <path d="m9 8 6 8" />
+  <circle cx="12" cy="12" r="10" />
+</svg>
+`;
+
+const CircleLetterY = `
+<svg
+  class="lucide lucide-circle-letter-y"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m9 8 3 4 3-4" />
+  <path d="M12 12v4" />
+  <circle cx="12" cy="12" r="10" />
+</svg>
+`;
+
+const CircleLetterZ = `
+<svg
+  class="lucide lucide-circle-letter-z"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M9 8h5.501a.5.5 0 0 1 .37.836L9.13 15.164A.5.5 0 0 0 9.5 16H15" />
+  <circle cx="12" cy="12" r="10" />
 </svg>
 `;
 
@@ -7750,28 +8959,6 @@ const CircleOff = `
 </svg>
 `;
 
-const CircleParkingOff = `
-<svg
-  class="lucide lucide-circle-parking-off"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M12.656 7H13a3 3 0 0 1 2.984 3.307" />
-  <path d="M13 13H9" />
-  <path d="M19.071 19.071A1 1 0 0 1 4.93 4.93" />
-  <path d="m2 2 20 20" />
-  <path d="M8.357 2.687a10 10 0 0 1 12.956 12.956" />
-  <path d="M9 17V9" />
-</svg>
-`;
-
 const CirclePause = `
 <svg
   class="lucide lucide-circle-pause"
@@ -7788,24 +8975,6 @@ const CirclePause = `
   <circle cx="12" cy="12" r="10" />
   <line x1="10" x2="10" y1="15" y2="9" />
   <line x1="14" x2="14" y1="15" y2="9" />
-</svg>
-`;
-
-const CircleParking = `
-<svg
-  class="lucide lucide-circle-parking"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <circle cx="12" cy="12" r="10" />
-  <path d="M9 17V7h4a3 3 0 0 1 0 6H9" />
 </svg>
 `;
 
@@ -8170,6 +9339,62 @@ const Clapperboard = `
 </svg>
 `;
 
+const ClefAlto = `
+<svg
+  class="lucide lucide-clef-alto"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M10 4v16" />
+  <path d="M14 4.764a3 3 0 1 1-.152 4.327A4 4 0 0 1 10 12a4 4 0 0 1 3.848 2.909A3 3 0 1 1 14 19.236" />
+  <path d="M6 4v16" />
+</svg>
+`;
+
+const ClefBass = `
+<svg
+  class="lucide lucide-clef-bass"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M19 11h.01" />
+  <path d="M19 6h.01" />
+  <path d="M5 8c0-4 4-4 4-4 6 0 6 6 6 6 0 7-10 11-10 11" />
+  <circle cx="7" cy="8" r="2" />
+</svg>
+`;
+
+const ClefTreble = `
+<svg
+  class="lucide lucide-clef-treble"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M10.586 21.414a2 2 0 0 0 3.378-1.791L11.036 4.377a2 2 0 1 1 3.378 1.037C12.414 7.414 7 8 7 13a5 5 0 0 0 5 5 5 4 0 0 0 5-4 3 3 0 0 0-3-3 3 2 0 0 0-3 2" />
+</svg>
+`;
+
 const ClipboardCheck = `
 <svg
   class="lucide lucide-clipboard-check"
@@ -8210,27 +9435,6 @@ const ClipboardClock = `
 </svg>
 `;
 
-const ClipboardCopy = `
-<svg
-  class="lucide lucide-clipboard-copy"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
-  <path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" />
-  <path d="M16 4h2a2 2 0 0 1 2 2v4" />
-  <path d="M21 14H11" />
-  <path d="m15 10-4 4 4 4" />
-</svg>
-`;
-
 const ClipboardList = `
 <svg
   class="lucide lucide-clipboard-list"
@@ -8250,6 +9454,27 @@ const ClipboardList = `
   <path d="M12 16h4" />
   <path d="M8 11h.01" />
   <path d="M8 16h.01" />
+</svg>
+`;
+
+const ClipboardCopy = `
+<svg
+  class="lucide lucide-clipboard-copy"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+  <path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" />
+  <path d="M16 4h2a2 2 0 0 1 2 2v4" />
+  <path d="M21 14H11" />
+  <path d="m15 10-4 4 4 4" />
 </svg>
 `;
 
@@ -8390,8 +9615,8 @@ const ClipboardX = `
 >
   <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
   <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
-  <path d="m15 11-6 6" />
-  <path d="m9 11 6 6" />
+  <path d="m14.5 11.5-5 5" />
+  <path d="m9.5 11.5 5 5" />
 </svg>
 `;
 
@@ -8629,26 +9854,6 @@ const Clock9 = `
 </svg>
 `;
 
-const ClockAlert = `
-<svg
-  class="lucide lucide-clock-alert"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M12 6v6l4 2" />
-  <path d="M20 12v5" />
-  <path d="M20 21h.01" />
-  <path d="M21.25 8.2A10 10 0 1 0 16 21.16" />
-</svg>
-`;
-
 const ClockArrowDown = `
 <svg
   class="lucide lucide-clock-arrow-down"
@@ -8729,6 +9934,45 @@ const ClockArrowUp = `
 </svg>
 `;
 
+const ClockExclamationPoint = `
+<svg
+  class="lucide lucide-clock-exclamation-point"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 6v6l4 2" />
+  <path d="M20 12v5" />
+  <path d="M20 21h.01" />
+  <path d="M21.25 8.2A10 10 0 1 0 16 21.16" />
+</svg>
+`;
+
+const ClockCheck = `
+<svg
+  class="lucide lucide-clock-check"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M21.95 13a10 10 0 1 0-8.685 8.92" />
+  <path d="M12 6v6l4 2" />
+  <path d="m16 19 2 2 4-4" />
+</svg>
+`;
+
 const ClockFading = `
 <svg
   class="lucide lucide-clock-fading"
@@ -8748,43 +9992,6 @@ const ClockFading = `
   <path d="M2.83 16a10 10 0 0 0 2.43 3.4" />
   <path d="M4.636 5.235a10 10 0 0 1 .891-.857" />
   <path d="M8.644 21.42a10 10 0 0 0 7.631-.38" />
-</svg>
-`;
-
-const ClockCheck = `
-<svg
-  class="lucide lucide-clock-check"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M12 6v6l4 2" />
-  <path d="M22 12a10 10 0 1 0-11 9.95" />
-  <path d="m22 16-5.5 5.5L14 19" />
-</svg>
-`;
-
-const Clock = `
-<svg
-  class="lucide lucide-clock"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <circle cx="12" cy="12" r="10" />
-  <path d="M12 6v6l4 2" />
 </svg>
 `;
 
@@ -8808,6 +10015,24 @@ const ClockPlus = `
 </svg>
 `;
 
+const Clock = `
+<svg
+  class="lucide lucide-clock"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="12" cy="12" r="10" />
+  <path d="M12 6v6l4 2" />
+</svg>
+`;
+
 const ClosedCaption = `
 <svg
   class="lucide lucide-closed-caption"
@@ -8824,25 +10049,6 @@ const ClosedCaption = `
   <path d="M10 9.17a3 3 0 1 0 0 5.66" />
   <path d="M17 9.17a3 3 0 1 0 0 5.66" />
   <rect x="2" y="5" width="20" height="14" rx="2" />
-</svg>
-`;
-
-const CloudAlert = `
-<svg
-  class="lucide lucide-cloud-alert"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M12 12v4" />
-  <path d="M12 20h.01" />
-  <path d="M8.128 16.949A7 7 0 1 1 15.71 8h1.79a1 1 0 0 1 0 9h-1.642" />
 </svg>
 `;
 
@@ -8947,6 +10153,25 @@ const CloudDrizzle = `
   <path d="M16 14v1" />
   <path d="M12 21v1" />
   <path d="M12 16v1" />
+</svg>
+`;
+
+const CloudExclamationPoint = `
+<svg
+  class="lucide lucide-cloud-exclamation-point"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 12v4" />
+  <path d="M12 20h.01" />
+  <path d="M8.128 16.949A7 7 0 1 1 15.71 8h1.79a1 1 0 0 1 0 9h-1.642" />
 </svg>
 `;
 
@@ -9110,26 +10335,6 @@ const CloudSnow = `
 </svg>
 `;
 
-const CloudRain = `
-<svg
-  class="lucide lucide-cloud-rain"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242" />
-  <path d="M16 14v6" />
-  <path d="M8 14v6" />
-  <path d="M12 16v6" />
-</svg>
-`;
-
 const CloudSunRain = `
 <svg
   class="lucide lucide-cloud-sun-rain"
@@ -9151,6 +10356,26 @@ const CloudSunRain = `
   <path d="M3 20a5 5 0 1 1 8.9-4H13a3 3 0 0 1 2 5.24" />
   <path d="M11 20v2" />
   <path d="M7 19v2" />
+</svg>
+`;
+
+const CloudRain = `
+<svg
+  class="lucide lucide-cloud-rain"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242" />
+  <path d="M16 14v6" />
+  <path d="M8 14v6" />
+  <path d="M12 16v6" />
 </svg>
 `;
 
@@ -9233,24 +10458,6 @@ const Cloud = `
 </svg>
 `;
 
-const Cloudy = `
-<svg
-  class="lucide lucide-cloudy"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M17.5 12a1 1 0 1 1 0 9H9.006a7 7 0 1 1 6.702-9z" />
-  <path d="M21.832 9A3 3 0 0 0 19 7h-2.207a5.5 5.5 0 0 0-10.72.61" />
-</svg>
-`;
-
 const Clover = `
 <svg
   class="lucide lucide-clover"
@@ -9267,6 +10474,24 @@ const Clover = `
   <path d="M16.17 7.83 2 22" />
   <path d="M4.02 12a2.827 2.827 0 1 1 3.81-4.17A2.827 2.827 0 1 1 12 4.02a2.827 2.827 0 1 1 4.17 3.81A2.827 2.827 0 1 1 19.98 12a2.827 2.827 0 1 1-3.81 4.17A2.827 2.827 0 1 1 12 19.98a2.827 2.827 0 1 1-4.17-3.81A1 1 0 1 1 4 12" />
   <path d="m7.83 7.83 8.34 8.34" />
+</svg>
+`;
+
+const Cloudy = `
+<svg
+  class="lucide lucide-cloudy"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M17.5 12a1 1 0 1 1 0 9H9.006a7 7 0 1 1 6.702-9z" />
+  <path d="M21.832 9A3 3 0 0 0 19 7h-2.207a5.5 5.5 0 0 0-10.72.61" />
 </svg>
 `;
 
@@ -9426,19 +10651,20 @@ const Columns3Cog = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M10.5 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v5.5" />
-  <path d="m14.3 19.6 1-.4" />
-  <path d="M15 3v7.5" />
-  <path d="m15.2 16.9-.9-.3" />
-  <path d="m16.6 21.7.3-.9" />
-  <path d="m16.8 15.3-.4-1" />
-  <path d="m19.1 15.2.3-.9" />
-  <path d="m19.6 21.7-.4-1" />
-  <path d="m20.7 16.8 1-.4" />
-  <path d="m21.7 19.4-.9-.3" />
+  <path d="M10.6 21H5a2 2 0 01-2-2V5a2 2 0 012-2h14a2 2 0 012 2v5.6" />
+  <path d="m14.305 19.53.923-.382" />
+  <path d="M15 3v7.6" />
+  <path d="m15.229 16.852-.924-.383" />
+  <path d="m16.852 15.228-.383-.923" />
+  <path d="m16.852 20.772-.383.924" />
+  <path d="m19.148 15.228.383-.923" />
+  <path d="m19.53 21.696-.382-.924" />
+  <path d="m20.773 16.852.922-.383" />
+  <path d="m20.773 19.148.922.383" />
   <path d="M9 3v18" />
   <circle cx="18" cy="18" r="3" />
-</svg>`;
+</svg>
+`;
 
 const Columns3 = `
 <svg
@@ -9569,10 +10795,11 @@ const Computer = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <rect width="14" height="8" x="5" y="2" rx="2" />
-  <rect width="20" height="8" x="2" y="14" rx="2" />
-  <path d="M6 18h2" />
   <path d="M12 18h6" />
+  <path d="M6 18h.01" />
+  <path d="M8 6h1" />
+  <rect x="2" y="14" width="20" height="8" rx="2" />
+  <rect x="4" y="2" width="16" height="12" rx="2" />
 </svg>
 `;
 
@@ -9652,10 +10879,10 @@ const ContactRound = `
   stroke-linejoin="round"
 >
   <path d="M16 2v2" />
-  <path d="M17.915 22a6 6 0 0 0-12 0" />
+  <path d="M17.915 21a6 6 0 10-12 0" />
   <path d="M8 2v2" />
-  <circle cx="12" cy="12" r="4" />
-  <rect x="3" y="4" width="18" height="18" rx="2" />
+  <circle cx="12" cy="11" r="4" />
+  <rect x="3" y="3" width="18" height="18" rx="2" />
 </svg>
 `;
 
@@ -9673,10 +10900,10 @@ const Contact = `
   stroke-linejoin="round"
 >
   <path d="M16 2v2" />
-  <path d="M7 22v-2a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2" />
+  <path d="M7 21v-2a2 2 0 012-2h6a2 2 0 012 2v2" />
   <path d="M8 2v2" />
-  <circle cx="12" cy="11" r="3" />
-  <rect x="3" y="4" width="18" height="18" rx="2" />
+  <circle cx="12" cy="10" r="3" />
+  <rect x="3" y="3" width="18" height="18" rx="2" />
 </svg>
 `;
 
@@ -9732,12 +10959,15 @@ const Cookie = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5" />
-  <path d="M8.5 8.5v.01" />
-  <path d="M16 15.5v.01" />
-  <path d="M12 12v.01" />
-  <path d="M11 17v.01" />
-  <path d="M7 14v.01" />
+  <path d="M11 17h.01" />
+  <path d="M11.496 2c.324-.016.558.292.529.615a4 4 0 004.235 4.368.713.713 0 01.758.757 4 4 0 004.366 4.237c.323-.03.63.204.614.527a10 10 0 01-2.915 6.566A1 1 0 114.93 4.918 10 10 0 0111.496 2" />
+  <path d="M12 12h.01" />
+  <path d="M16 16h.01" />
+  <path d="M16 3h.01" />
+  <path d="M21 4h.01" />
+  <path d="M21 8h.01" />
+  <path d="M7 14h.01" />
+  <path d="M9 8h.01" />
 </svg>
 `;
 
@@ -9761,25 +10991,6 @@ const CookingPot = `
 </svg>
 `;
 
-const CopyMinus = `
-<svg
-  class="lucide lucide-copy-minus"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <line x1="12" x2="18" y1="15" y2="15" />
-  <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
-  <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
-</svg>
-`;
-
 const CopyCheck = `
 <svg
   class="lucide lucide-copy-check"
@@ -9794,6 +11005,25 @@ const CopyCheck = `
   stroke-linejoin="round"
 >
   <path d="m12 15 2 2 4-4" />
+  <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+  <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+</svg>
+`;
+
+const CopyMinus = `
+<svg
+  class="lucide lucide-copy-minus"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <line x1="12" x2="18" y1="15" y2="15" />
   <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
   <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
 </svg>
@@ -9851,28 +11081,10 @@ const CopyX = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <line x1="12" x2="18" y1="12" y2="18" />
-  <line x1="12" x2="18" y1="18" y2="12" />
-  <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
-  <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
-</svg>
-`;
-
-const Copyleft = `
-<svg
-  class="lucide lucide-copyleft"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <circle cx="12" cy="12" r="10" />
-  <path d="M9.17 14.83a4 4 0 1 0 0-5.66" />
+  <path d="M4 16a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2" />
+  <rect x="8" y="8" width="14" height="14" rx="2" />
+  <path d="m12.5 12.5 5 5" />
+  <path d="m12.5 17.5 5-5" />
 </svg>
 `;
 
@@ -9894,9 +11106,9 @@ const Copy = `
 </svg>
 `;
 
-const Copyright = `
+const Copyleft = `
 <svg
-  class="lucide lucide-copyright"
+  class="lucide lucide-copyleft"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -9908,7 +11120,7 @@ const Copyright = `
   stroke-linejoin="round"
 >
   <circle cx="12" cy="12" r="10" />
-  <path d="M14.83 14.83a4 4 0 1 1 0-5.66" />
+  <path d="M9.17 14.83a4 4 0 1 0 0-5.66" />
 </svg>
 `;
 
@@ -10056,6 +11268,38 @@ const CornerUpRight = `
 </svg>
 `;
 
+const CpuAi = `
+<svg
+  class="lucide lucide-cpu-ai"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 20v2" />
+  <path d="M12 2v2" />
+  <path d="M16 9v6" />
+  <path d="M17 20v2" />
+  <path d="M17 2v2" />
+  <path d="M2 12h2" />
+  <path d="M2 17h2" />
+  <path d="M2 7h2" />
+  <path d="M20 12h2" />
+  <path d="M20 17h2" />
+  <path d="M20 7h2" />
+  <path d="M7 20v2" />
+  <path d="M7 2v2" />
+  <path d="M8 13h4" />
+  <path d="M8 15v-4a2 2 0 014 0v4" />
+  <rect x="4" y="4" width="16" height="16" rx="2" />
+</svg>
+`;
+
 const Cpu = `
 <svg
   class="lucide lucide-cpu"
@@ -10105,6 +11349,108 @@ const CreativeCommons = `
 </svg>
 `;
 
+const CreditCardCheck = `
+<svg
+  class="lucide lucide-credit-card-check"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12.5 19H4a2 2 0 01-2-2V7a2 2 0 012-2h16a2 2 0 012 2v4" />
+  <path d="M2 10h20" />
+  <path d="M6 14h2" />
+  <path d="m16 17 2 2 4-4" />
+</svg>
+`;
+
+const CreditCardMinus = `
+<svg
+  class="lucide lucide-credit-card-minus"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M22 13V7a2 2 0 00-2-2H4a2 2 0 00-2 2v10a2 2 0 002 2h8.536" />
+  <path d="M22 10H2" />
+  <path d="M6 14h2" />
+  <path d="M16 17h6" />
+</svg>
+`;
+
+const CreditCardPlus = `
+<svg
+  class="lucide lucide-credit-card-plus"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M22 11.354V7a2 2 0 00-2-2H4a2 2 0 00-2 2v10a2 2 0 002 2h8.536" />
+  <path d="M22 10H2" />
+  <path d="M6 14h2" />
+  <path d="M16 17h6" />
+  <path d="M19 14v6" />
+</svg>
+`;
+
+const CreditCardReader = `
+<svg
+  class="lucide lucide-credit-card-reader"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M15 16v1" />
+  <path d="M16.963 7.734A1 1 0 0015.999 7H8.003a1 1 0 00-.964.734L4.073 18.467A2 2 0 006 21h12a2 2 0 001.927-2.532z" />
+  <path d="M2.678 8.5A2 2 0 012 7V5a2 2 0 012-2h16a2 2 0 012 2v2a2 2 0 01-.676 1.499" />
+  <path d="m9 21 2-14" />
+</svg>
+`;
+
+const CreditCardX = `
+<svg
+  class="lucide lucide-credit-card-x"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12.5 19H4a2 2 0 01-2-2V7a2 2 0 012-2h16a2 2 0 012 2v3.5" />
+  <path d="M2 10h20" />
+  <path d="M6 14h2" />
+  <path d="m16.5 14.5 5 5" />
+  <path d="m21.5 14.5-5 5" />
+</svg>
+`;
+
 const CreditCard = `
 <svg
   class="lucide lucide-credit-card"
@@ -10120,6 +11466,7 @@ const CreditCard = `
 >
   <rect width="20" height="14" x="2" y="5" rx="2" />
   <line x1="2" x2="22" y1="10" y2="10" />
+  <path d="M6 14h2" />
 </svg>
 `;
 
@@ -10257,6 +11604,29 @@ const CupSoda = `
 </svg>
 `;
 
+const Cupcake = `
+<svg
+  class="lucide lucide-cupcake"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 22v-9" />
+  <path d="M14 4h1a3 3 0 013 3l-.004.125A4 4 0 0121 11v2" />
+  <path d="m15.5 22 1.5-9" />
+  <path d="M21 13a1 1 0 01.919 1.394l-2.74 6.394A2 2 0 0117.34 22H6.659a2 2 0 01-1.838-1.212l-2.74-6.394A1 1 0 013 13z" />
+  <path d="M3 13v-2a4 4 0 013.003-3.875L6 7a3 3 0 013-3h1" />
+  <path d="M8.5 22 7 13" />
+  <circle cx="12" cy="4" r="2" />
+</svg>
+`;
+
 const Currency = `
 <svg
   class="lucide lucide-currency"
@@ -10363,27 +11733,6 @@ const DatabaseArrowUp = `
 </svg>
 `;
 
-const DatabaseCheck = `
-<svg
-  class="lucide lucide-database-check"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="m16 19 2 2 4-4" />
-  <path d="M21 13.127V5" />
-  <path d="M3 12A9 3 0 0 0 21 12" />
-  <path d="M3 5V19A9 3 0 0 0 13.318 21.968" />
-  <ellipse cx="12" cy="5" rx="9" ry="3" />
-</svg>
-`;
-
 const DatabaseBackup = `
 <svg
   class="lucide lucide-database-backup"
@@ -10406,9 +11755,9 @@ const DatabaseBackup = `
 </svg>
 `;
 
-const DatabaseMinus = `
+const DatabaseCheck = `
 <svg
-  class="lucide lucide-database-minus"
+  class="lucide lucide-database-check"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -10419,10 +11768,39 @@ const DatabaseMinus = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M21 15V5" />
-  <path d="M22 19h-6" />
+  <path d="m16 19 2 2 4-4" />
+  <path d="M21 13.127V5" />
   <path d="M3 12A9 3 0 0 0 21 12" />
   <path d="M3 5V19A9 3 0 0 0 13.318 21.968" />
+  <ellipse cx="12" cy="5" rx="9" ry="3" />
+</svg>
+`;
+
+const DatabaseCog = `
+<svg
+  class="lucide lucide-database-cog"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m14.305 19.53.923-.382" />
+  <path d="m15.228 16.852-.923-.383" />
+  <path d="m16.852 15.228-.383-.923" />
+  <path d="m16.852 20.772-.383.924" />
+  <path d="m19.148 15.228.383-.923" />
+  <path d="m19.53 21.696-.382-.924" />
+  <path d="m20.772 16.852.924-.383" />
+  <path d="m20.772 19.148.924.383" />
+  <path d="M21 10.5V5" />
+  <path d="M3 12a9 3 0 0 0 7.599 2.963" />
+  <path d="M3 5v14a9 3 0 0 0 8.148 2.987" />
+  <circle cx="18" cy="18" r="3" />
   <ellipse cx="12" cy="5" rx="9" ry="3" />
 </svg>
 `;
@@ -10444,6 +11822,27 @@ const DatabasePlus = `
   <path d="M21 12.536V5" />
   <path d="M22 19h-6" />
   <path d="M3 12A9 3 0 0 0 15.1824 14.8061" />
+  <path d="M3 5V19A9 3 0 0 0 13.318 21.968" />
+  <ellipse cx="12" cy="5" rx="9" ry="3" />
+</svg>
+`;
+
+const DatabaseMinus = `
+<svg
+  class="lucide lucide-database-minus"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M21 15V5" />
+  <path d="M22 19h-6" />
+  <path d="M3 12A9 3 0 0 0 21 12" />
   <path d="M3 5V19A9 3 0 0 0 13.318 21.968" />
   <ellipse cx="12" cy="5" rx="9" ry="3" />
 </svg>
@@ -10613,6 +12012,66 @@ const Dessert = `
 </svg>
 `;
 
+const DiagramFlowHorizontal = `
+<svg
+  class="lucide lucide-diagram-flow-horizontal"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M8 12h.5a3.5 3.5 0 013.5 3.5 3.5 3.5 0 003.5 3.5h.5" />
+  <path d="M8.5 12A3.5 3.5 0 0012 8.5 3.5 3.5 0 0115.5 5h.5" />
+  <rect x="16" y="16" width="6" height="6" rx="1" />
+  <rect x="16" y="2" width="6" height="6" rx="1" />
+  <rect x="2" y="9" width="6" height="6" rx="1" />
+</svg>
+`;
+
+const DiagramFlowVertical = `
+<svg
+  class="lucide lucide-diagram-flow-vertical"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 8.5a3.5 3.5 0 003.5 3.5 3.5 3.5 0 013.5 3.5v.5" />
+  <path d="M12 8v.5A3.5 3.5 0 018.5 12 3.5 3.5 0 005 15.5v.5" />
+  <rect x="16" y="16" width="6" height="6" rx="1" />
+  <rect x="2" y="16" width="6" height="6" rx="1" />
+  <rect x="9" y="2" width="6" height="6" rx="1" />
+</svg>
+`;
+
+const DiamondMinus = `
+<svg
+  class="lucide lucide-diamond-minus"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M2.7 10.3a2.41 2.41 0 0 0 0 3.41l7.59 7.59a2.41 2.41 0 0 0 3.41 0l7.59-7.59a2.41 2.41 0 0 0 0-3.41L13.7 2.71a2.41 2.41 0 0 0-3.41 0z" />
+  <path d="M8 12h8" />
+</svg>
+`;
+
 const Diameter = `
 <svg
   class="lucide lucide-diameter"
@@ -10634,41 +12093,6 @@ const Diameter = `
 </svg>
 `;
 
-const DiamondMinus = `
-<svg
-  class="lucide lucide-diamond-minus"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M2.7 10.3a2.41 2.41 0 0 0 0 3.41l7.59 7.59a2.41 2.41 0 0 0 3.41 0l7.59-7.59a2.41 2.41 0 0 0 0-3.41L13.7 2.71a2.41 2.41 0 0 0-3.41 0z" />
-  <path d="M8 12h8" />
-</svg>`;
-
-const DiamondPlus = `
-<svg
-  class="lucide lucide-diamond-plus"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M12 8v8" />
-  <path d="M2.7 10.3a2.41 2.41 0 0 0 0 3.41l7.59 7.59a2.41 2.41 0 0 0 3.41 0l7.59-7.59a2.41 2.41 0 0 0 0-3.41L13.7 2.71a2.41 2.41 0 0 0-3.41 0z" />
-  <path d="M8 12h8" />
-</svg>`;
-
 const DiamondPercent = `
 <svg
   class="lucide lucide-diamond-percent"
@@ -10686,6 +12110,25 @@ const DiamondPercent = `
   <path d="M9.2 9.2h.01" />
   <path d="m14.5 9.5-5 5" />
   <path d="M14.7 14.8h.01" />
+</svg>
+`;
+
+const DiamondPlus = `
+<svg
+  class="lucide lucide-diamond-plus"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 8v8" />
+  <path d="M2.7 10.3a2.41 2.41 0 0 0 0 3.41l7.59 7.59a2.41 2.41 0 0 0 3.41 0l7.59-7.59a2.41 2.41 0 0 0 0-3.41L13.7 2.71a2.41 2.41 0 0 0-3.41 0z" />
+  <path d="M8 12h8" />
 </svg>
 `;
 
@@ -10763,6 +12206,27 @@ const Dice3 = `
 </svg>
 `;
 
+const Dice4 = `
+<svg
+  class="lucide lucide-dice-4"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <rect width="18" height="18" x="3" y="3" rx="2" ry="2" />
+  <path d="M16 8h.01" />
+  <path d="M8 8h.01" />
+  <path d="M8 16h.01" />
+  <path d="M16 16h.01" />
+</svg>
+`;
+
 const Dice5 = `
 <svg
   class="lucide lucide-dice-5"
@@ -10782,27 +12246,6 @@ const Dice5 = `
   <path d="M8 16h.01" />
   <path d="M16 16h.01" />
   <path d="M12 12h.01" />
-</svg>
-`;
-
-const Dice4 = `
-<svg
-  class="lucide lucide-dice-4"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <rect width="18" height="18" x="3" y="3" rx="2" ry="2" />
-  <path d="M16 8h.01" />
-  <path d="M8 8h.01" />
-  <path d="M8 16h.01" />
-  <path d="M16 16h.01" />
 </svg>
 `;
 
@@ -10829,6 +12272,25 @@ const Dice6 = `
 </svg>
 `;
 
+const Diff = `
+<svg
+  class="lucide lucide-diff"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 3v14" />
+  <path d="M5 10h14" />
+  <path d="M5 21h14" />
+</svg>
+`;
+
 const Dices = `
 <svg
   class="lucide lucide-dices"
@@ -10848,25 +12310,6 @@ const Dices = `
   <path d="M10 14h.01" />
   <path d="M15 6h.01" />
   <path d="M18 9h.01" />
-</svg>
-`;
-
-const Diff = `
-<svg
-  class="lucide lucide-diff"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M12 3v14" />
-  <path d="M5 10h14" />
-  <path d="M5 21h14" />
 </svg>
 `;
 
@@ -10991,6 +12434,25 @@ const DnaOff = `
 </svg>
 `;
 
+const Dock = `
+<svg
+  class="lucide lucide-dock"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M2 8h20" />
+  <rect width="20" height="16" x="2" y="4" rx="2" />
+  <path d="M6 16h12" />
+</svg>
+`;
+
 const Dna = `
 <svg
   class="lucide lucide-dna"
@@ -11052,14 +12514,14 @@ const DollarSign = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <line x1="12" x2="12" y1="2" y2="22" />
-  <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+  <path d="M12 3v18" />
+  <path d="M17 5H9.5a1 1 0 000 7h5a1 1 0 010 7H6" />
 </svg>
 `;
 
-const Dock = `
+const Dome = `
 <svg
-  class="lucide lucide-dock"
+  class="lucide lucide-dome"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -11070,9 +12532,12 @@ const Dock = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M2 8h20" />
-  <rect width="20" height="16" x="2" y="4" rx="2" />
-  <path d="M6 16h12" />
+  <path d="M10 21v-3a2 2 0 014 0v3" />
+  <path d="M12 2v2" />
+  <path d="M18 12v9" />
+  <path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2v-6a1 1 0 011-1h18a1 1 0 011 1z" />
+  <path d="M4 12a8 8 0 0116 0" />
+  <path d="M6 12v9" />
 </svg>
 `;
 
@@ -11094,6 +12559,34 @@ const Donut = `
 </svg>
 `;
 
+const DoorClosedCog = `
+<svg
+  class="lucide lucide-door-closed-cog"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m14.305 19.53.923-.382" />
+  <path d="m15.229 16.852-.924-.383" />
+  <path d="m16.852 15.228-.383-.923" />
+  <path d="m16.852 20.773-.383.924" />
+  <path d="M19 10.35V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16" />
+  <path d="m19.148 15.228.383-.923" />
+  <path d="m19.53 21.697-.382-.924" />
+  <path d="M2 21h8.58" />
+  <path d="m20.773 16.852.922-.383" />
+  <path d="m20.773 19.148.922.383" />
+  <path d="M9 12h.01" />
+  <circle cx="18" cy="18" r="3" />
+</svg>
+`;
+
 const DoorClosedLocked = `
 <svg
   class="lucide lucide-door-closed-locked"
@@ -11107,11 +12600,32 @@ const DoorClosedLocked = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M10 12h.01" />
-  <path d="M18 9V6a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v14" />
-  <path d="M2 20h8" />
-  <path d="M20 17v-2a2 2 0 1 0-4 0v2" />
-  <rect x="14" y="17" width="8" height="5" rx="1" />
+  <path d="M19 8V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16" />
+  <path d="M2 21h8" />
+  <path d="M20 16v-2a2 2 0 00-4 0v2" />
+  <path d="M9 12h.01" />
+  <rect x="14" y="16" width="8" height="5" rx="1" />
+</svg>
+`;
+
+const DoorClosedPackage = `
+<svg
+  class="lucide lucide-door-closed-package"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M18 13v3" />
+  <path d="M19 9V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16" />
+  <path d="M2 21h8" />
+  <path d="M9 12h.01" />
+  <rect x="14" y="13" width="8" height="8" rx="1" />
 </svg>
 `;
 
@@ -11128,9 +12642,9 @@ const DoorClosed = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M10 12h.01" />
-  <path d="M18 20V6a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v14" />
-  <path d="M2 20h20" />
+  <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16" />
+  <path d="M2 21h20" />
+  <path d="M9 12h.01" />
 </svg>
 `;
 
@@ -11147,11 +12661,32 @@ const DoorOpen = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M11 20H2" />
-  <path d="M11 4.562v16.157a1 1 0 0 0 1.242.97L19 20V5.562a2 2 0 0 0-1.515-1.94l-4-1A2 2 0 0 0 11 4.561z" />
-  <path d="M11 4H8a2 2 0 0 0-2 2v14" />
+  <path d="M10 21H2" />
+  <path d="M10 3H7a2 2 0 00-2 2v16" />
   <path d="M14 12h.01" />
-  <path d="M22 20h-3" />
+  <path d="M19 21V5a2 2 0 00-1.675-1.974l-6.163-1.013A1 1 0 0010 3v18a1 1 0 001.124.992z" />
+  <path d="M22 21h-3" />
+</svg>
+`;
+
+const DoorStairwell = `
+<svg
+  class="lucide lucide-door-stairwell"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 17v-3a1 1 0 011-1h6" />
+  <path d="M19 17h-9a1 1 0 00-1 1v3" />
+  <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16" />
+  <path d="M19 9h-3a1 1 0 00-1 1v3" />
+  <path d="M22 21H2" />
 </svg>
 `;
 
@@ -11438,6 +12973,44 @@ const Ear = `
 </svg>
 `;
 
+const EarbudsOff = `
+<svg
+  class="lucide lucide-earbuds-off"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M10 10v9a2 2 0 01-4 0v-8a5 5 0 01-3.75-1.693A1 1 0 012 8.646V5.354a1 1 0 01.25-.661 5 5 0 011.359-1.084" />
+  <path d="M14 14v5a2 2 90 004 0v-1" />
+  <path d="M18 12.343V11a5 5 90 003.75-1.693 1 1 90 00.25-.661V5.354a1 1 90 00-.25-.661A5 5 90 0018 3a4 4 90 00-4 4v1.343" />
+  <path d="m2 2 20 20" />
+</svg>
+`;
+
+const Earbuds = `
+<svg
+  class="lucide lucide-earbuds"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M18 3a4 4 90 00-4 4v12a2 2 90 004 0v-8a5 5 90 003.75-1.693 1 1 90 00.25-.661V5.354a1 1 90 00-.25-.661A5 5 90 0018 3" />
+  <path d="M6 3a4 4 0 014 4v12a2 2 0 01-4 0v-8a5 5 0 01-3.75-1.693A1 1 0 012 8.646V5.354a1 1 0 01.25-.661A5 5 0 016 3" />
+</svg>
+`;
+
 const EarthLock = `
 <svg
   class="lucide lucide-earth-lock"
@@ -11552,6 +13125,61 @@ const Egg = `
 </svg>
 `;
 
+const EighthNote = `
+<svg
+  class="lucide lucide-eighth-note"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m19 6-5.2-3.9a.5.5 0 0 0-.8.4V18" />
+  <circle cx="9" cy="18" r="4" />
+</svg>
+`;
+
+const EighthNotes = `
+<svg
+  class="lucide lucide-eighth-notes"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M21 16V3a1 1 0 0 0-1.28-.96l-10 2.917a1 1 0 0 0-.72.96V19" />
+  <circle cx="18" cy="16" r="3" />
+  <circle cx="6" cy="19" r="3" />
+</svg>
+`;
+
+const Eject = `
+<svg
+  class="lucide lucide-eject"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M4 13a1 1 0 0 1-.72-1.695l7.257-7.668a2 2 0 0 1 2.926 0l7.256 7.668A1 1 0 0 1 20 13z" />
+  <rect x="3" y="17" width="18" height="4" rx="1" />
+</svg>
+`;
+
 const Ellipse = `
 <svg
   class="lucide lucide-ellipse"
@@ -11607,6 +13235,65 @@ const Ellipsis = `
 </svg>
 `;
 
+const EmiratiDirham = `
+<svg
+  class="lucide lucide-emirati-dirham"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M11 4a8 8 0 0 1 0 16H6.406A.4.4 0 0 1 6 19.594V4.406A.4.4 0 0 1 6.406 4z" />
+  <path d="M4 10h17" />
+  <path d="M4 14h17" />
+</svg>
+`;
+
+const Engine = `
+<svg
+  class="lucide lucide-engine"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M10 3h6" />
+  <path d="M13 3v4" />
+  <path d="M2 10v6" />
+  <path d="M2 13h4" />
+  <path d="M6 16a2 2 0 002 2h1a2 2 0 011.6.8l.3.4a2 2 0 001.6.8h2.264a2 2 0 001.789-1.106l1.67-3.341a1 1 0 01.895-.553H21a1 1 0 001-1v-4a1 1 0 00-1-1h-3.5a1 1 0 01-.8-.4l-.9-1.2A1 1 0 0015 7h-4a1 1 0 00-.8.4l-.9 1.2a1 1 0 01-.8.4H7a1 1 0 00-1 1z" />
+</svg>
+`;
+
+const EqualApproximatelyNot = `
+<svg
+  class="lucide lucide-equal-approximately-not"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M5 15a6.5 6.5 0 0 1 7 0 6.5 6.5 0 0 0 7 0" />
+  <path d="M5 9a6.5 6.5 0 0 1 7 0 6.5 6.5 0 0 0 7 0" />
+  <line x1="19" x2="5" y1="5" y2="19" />
+</svg>
+`;
+
 const EqualApproximately = `
 <svg
   class="lucide lucide-equal-approximately"
@@ -11644,24 +13331,6 @@ const EqualNot = `
 </svg>
 `;
 
-const Equal = `
-<svg
-  class="lucide lucide-equal"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <line x1="5" x2="19" y1="9" y2="9" />
-  <line x1="5" x2="19" y1="15" y2="15" />
-</svg>
-`;
-
 const Eraser = `
 <svg
   class="lucide lucide-eraser"
@@ -11680,6 +13349,24 @@ const Eraser = `
 </svg>
 `;
 
+const Equal = `
+<svg
+  class="lucide lucide-equal"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <line x1="5" x2="19" y1="9" y2="9" />
+  <line x1="5" x2="19" y1="15" y2="15" />
+</svg>
+`;
+
 const EthernetPort = `
 <svg
   class="lucide lucide-ethernet-port"
@@ -11693,11 +13380,11 @@ const EthernetPort = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="m15 20 3-3h2a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h2l3 3z" />
-  <path d="M6 8v1" />
   <path d="M10 8v1" />
   <path d="M14 8v1" />
   <path d="M18 8v1" />
+  <path d="M19 17a2 2 0 00-1.765 1.059l-.47.882A2 2 0 0115 20H9a2 2 0 01-1.765-1.059l-.47-.882A2 2 0 005 17H4a2 2 0 01-2-2V6a2 2 0 012-2h16a2 2 0 012 2v9a2 2 0 01-2 2z" />
+  <path d="M6 8v1" />
 </svg>
 `;
 
@@ -11868,6 +13555,130 @@ const Eye = `
 </svg>
 `;
 
+const FaceAngry = `
+<svg
+  class="lucide lucide-face-angry"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M15 12v-1.584" />
+  <path d="M17 10a5 5 0 00-3 1" />
+  <path d="M7 10a5 5 0 013 1" />
+  <path d="M9 12v-1.584" />
+  <path d="M9 17a5 5 0 016.001 0" />
+  <circle cx="12" cy="12" r="10" />
+</svg>
+`;
+
+const FaceExpressionless = `
+<svg
+  class="lucide lucide-face-expressionless"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M14 10h2" />
+  <path d="M8 10h2" />
+  <path d="M8 16h8" />
+  <circle cx="12" cy="12" r="10" />
+</svg>
+`;
+
+const FaceGrinning = `
+<svg
+  class="lucide lucide-face-grinning"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M15 10V9" />
+  <path d="M7.084 14.302a5.12 5.12 0 009.833 0 .24.24 0 00-.235-.302H7.32a.24.24 0 00-.235.302" />
+  <path d="M9 10V9" />
+  <circle cx="12" cy="12" r="10" />
+</svg>
+`;
+
+const FaceNeutral = `
+<svg
+  class="lucide lucide-face-neutral"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M15 10V9" />
+  <path d="M8 16h8" />
+  <path d="M9 10V9" />
+  <circle cx="12" cy="12" r="10" />
+</svg>
+`;
+
+const FaceSlightlyFrowning = `
+<svg
+  class="lucide lucide-face-slightly-frowning"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M15 10V9" />
+  <path d="M9 10V9" />
+  <path d="M9 16a5 5 0 016 0" />
+  <circle cx="12" cy="12" r="10" />
+</svg>
+`;
+
+const FaceSlightlySmilingPlus = `
+<svg
+  class="lucide lucide-face-slightly-smiling-plus"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M13.267 2.08a10 10 0 108.653 8.653" />
+  <path d="M15 10V9" />
+  <path d="M16 5h6" />
+  <path d="M16.472 15a6 6 0 01-8.943 0" />
+  <path d="M19 2v6" />
+  <path d="M9 10V9" />
+</svg>
+`;
+
 const Factory = `
 <svg
   class="lucide lucide-factory"
@@ -11885,6 +13696,26 @@ const Factory = `
   <path d="M16 16h.01" />
   <path d="M3 19a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8.5a.5.5 0 0 0-.769-.422l-4.462 2.844A.5.5 0 0 1 15 10.5v-2a.5.5 0 0 0-.769-.422L9.77 10.922A.5.5 0 0 1 9 10.5V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2z" />
   <path d="M8 16h.01" />
+</svg>
+`;
+
+const FaceSlightlySmiling = `
+<svg
+  class="lucide lucide-face-slightly-smiling"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M15 10V9" />
+  <path d="M16.472 15a6 6 0 01-8.943 0" />
+  <path d="M9 10V9" />
+  <circle cx="12" cy="12" r="10" />
 </svg>
 `;
 
@@ -11924,6 +13755,29 @@ const FastForward = `
 </svg>
 `;
 
+const Faucet = `
+<svg
+  class="lucide lucide-faucet"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M10.083 5.428 5.57 4.083a2 2 0 10.001 3.834l4.512-1.345" />
+  <path d="M12 8v3" />
+  <path d="m13.917 5.428 4.511-1.345a2 2 0 110 3.834l-4.51-1.345" />
+  <path d="M18 17v-4.006" />
+  <path d="M22 11v8" />
+  <path d="M22 12h-3a1 1 0 00-1 .994h-2.539a4 4 0 00-6.915-.012L7 13a5 5 0 00-5 5v1a1 1 0 001 1h2a1 1 0 001-1v-1a1 1 0 01.995-1l1.552.018a4 4 0 006.907 0L18 17a1 1 0 001 1h3" />
+  <circle cx="12" cy="6" r="2" />
+</svg>
+`;
+
 const Feather = `
 <svg
   class="lucide lucide-feather"
@@ -11937,9 +13791,32 @@ const Feather = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M12.67 19a2 2 0 0 0 1.416-.588l6.154-6.172a6 6 0 0 0-8.49-8.49L5.586 9.914A2 2 0 0 0 5 11.328V18a1 1 0 0 0 1 1z" />
+  <path d="M14.086 18.412A2 2 0 0112.67 19H5v-7.672a2 2 0 01.586-1.414L11.75 3.75a6 6 0 118.49 8.49z" />
   <path d="M16 8 2 22" />
-  <path d="M17.5 15H9" />
+  <path d="M17.488 15H9" />
+</svg>
+`;
+
+const Fence = `
+<svg
+  class="lucide lucide-fence"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M4 3 2 5v15c0 .6.4 1 1 1h2c.6 0 1-.4 1-1V5Z" />
+  <path d="M6 8h4" />
+  <path d="M6 18h4" />
+  <path d="m12 3-2 2v15c0 .6.4 1 1 1h2c.6 0 1-.4 1-1V5Z" />
+  <path d="M14 8h4" />
+  <path d="M14 18h4" />
+  <path d="m20 3-2 2v15c0 .6.4 1 1 1h2c.6 0 1-.4 1-1V5Z" />
 </svg>
 `;
 
@@ -11965,29 +13842,6 @@ const FerrisWheel = `
   <path d="m9 22 3-8 3 8" />
   <path d="M8 22h8" />
   <path d="M18 18.7a9 9 0 1 0-12 0" />
-</svg>
-`;
-
-const Fence = `
-<svg
-  class="lucide lucide-fence"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M4 3 2 5v15c0 .6.4 1 1 1h2c.6 0 1-.4 1-1V5Z" />
-  <path d="M6 8h4" />
-  <path d="M6 18h4" />
-  <path d="m12 3-2 2v15c0 .6.4 1 1 1h2c.6 0 1-.4 1-1V5Z" />
-  <path d="M14 8h4" />
-  <path d="M14 18h4" />
-  <path d="m20 3-2 2v15c0 .6.4 1 1 1h2c.6 0 1-.4 1-1V5Z" />
 </svg>
 `;
 
@@ -12053,6 +13907,27 @@ const FileBadge = `
 </svg>
 `;
 
+const FileBox = `
+<svg
+  class="lucide lucide-file-box"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M14 2v5a1 1 0 001 1h5" />
+  <path d="M14.692 22H18a2 2 0 002-2V8a2.4 2.4 0 00-.706-1.706l-3.588-3.588A2.4 2.4 0 0014 2H6a2 2 0 00-2 2v3.804" />
+  <path d="M2.264 13.752 7 16.5l4.737-2.748" />
+  <path d="M2.995 13.014A2 2 0 002 14.744v3.516a2 2 0 00.996 1.73l3 1.74a2 2 0 002.008 0l3-1.74A2 2 0 0012 18.26v-3.517a2 2 0 00-.995-1.73l-3-1.742a2 2 0 00-1.892-.064z" />
+  <path d="M7 16.5V22" />
+</svg>
+`;
+
 const FileBracesCorner = `
 <svg
   class="lucide lucide-file-braces-corner"
@@ -12070,47 +13945,6 @@ const FileBracesCorner = `
   <path d="M14 2v5a1 1 0 0 0 1 1h5" />
   <path d="M5 14a1 1 0 0 0-1 1v2a1 1 0 0 1-1 1 1 1 0 0 1 1 1v2a1 1 0 0 0 1 1" />
   <path d="M9 22a1 1 0 0 0 1-1v-2a1 1 0 0 1 1-1 1 1 0 0 1-1-1v-2a1 1 0 0 0-1-1" />
-</svg>
-`;
-
-const FileBox = `
-<svg
-  class="lucide lucide-file-box"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M14.5 22H18a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v3.8" />
-  <path d="M14 2v5a1 1 0 0 0 1 1h5" />
-  <path d="M11.7 14.2 7 17l-4.7-2.8" />
-  <path d="M3 13.1a2 2 0 0 0-.999 1.76v3.24a2 2 0 0 0 .969 1.78L6 21.7a2 2 0 0 0 2.03.01L11 19.9a2 2 0 0 0 1-1.76V14.9a2 2 0 0 0-.97-1.78L8 11.3a2 2 0 0 0-2.03-.01z" />
-  <path d="M7 17v5" />
-</svg>
-`;
-
-const FileBraces = `
-<svg
-  class="lucide lucide-file-braces"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
-  <path d="M14 2v5a1 1 0 0 0 1 1h5" />
-  <path d="M10 12a1 1 0 0 0-1 1v1a1 1 0 0 1-1 1 1 1 0 0 1 1 1v1a1 1 0 0 0 1 1" />
-  <path d="M14 18a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1 1 1 0 0 1-1-1v-1a1 1 0 0 0-1-1" />
 </svg>
 `;
 
@@ -12132,6 +13966,26 @@ const FileChartColumnIncreasing = `
   <path d="M8 18v-2" />
   <path d="M12 18v-4" />
   <path d="M16 18v-6" />
+</svg>
+`;
+
+const FileBraces = `
+<svg
+  class="lucide lucide-file-braces"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
+  <path d="M14 2v5a1 1 0 0 0 1 1h5" />
+  <path d="M10 12a1 1 0 0 0-1 1v1a1 1 0 0 1-1 1 1 1 0 0 1 1 1v1a1 1 0 0 0 1 1" />
+  <path d="M14 18a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1 1 1 0 0 1-1-1v-1a1 1 0 0 0-1-1" />
 </svg>
 `;
 
@@ -12293,6 +14147,27 @@ const FileCode = `
 </svg>
 `;
 
+const FileDatabase = `
+<svg
+  class="lucide lucide-file-database"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 12v8a5 2 0 01-10 0v-8" />
+  <path d="M12 16a5 2 0 01-10 0" />
+  <path d="M14 2v5a1 1 0 001 1h5" />
+  <path d="M4 6.3V4a2 2 0 012-2h8a2.4 2.4 0 011.706.706l3.588 3.588A2.4 2.4 0 0120 8v12a2 2 0 01-2 2h-2.43" />
+  <ellipse cx="7" cy="12" rx="5" ry="2" />
+</svg>
+`;
+
 const FileCog = `
 <svg
   class="lucide lucide-file-cog"
@@ -12362,25 +14237,6 @@ const FileDigit = `
 </svg>
 `;
 
-const FileExclamationPoint = `
-<svg
-  class="lucide lucide-file-exclamation-point"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
-  <path d="M12 9v4" />
-  <path d="M12 17h.01" />
-</svg>
-`;
-
 const FileDown = `
 <svg
   class="lucide lucide-file-down"
@@ -12417,6 +14273,25 @@ const FileHeadphone = `
   <path d="M4 6.835V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.706.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2h-.343" />
   <path d="M14 2v5a1 1 0 0 0 1 1h5" />
   <path d="M2 19a2 2 0 0 1 4 0v1a2 2 0 0 1-4 0v-4a6 6 0 0 1 12 0v4a2 2 0 0 1-4 0v-1a2 2 0 0 1 4 0" />
+</svg>
+`;
+
+const FileExclamationPoint = `
+<svg
+  class="lucide lucide-file-exclamation-point"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
+  <path d="M12 9v4" />
+  <path d="M12 17h.01" />
 </svg>
 `;
 
@@ -12479,26 +14354,6 @@ const FileInput = `
 </svg>
 `;
 
-const FileLock = `
-<svg
-  class="lucide lucide-file-lock"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M4 9.8V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.706.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2h-3" />
-  <path d="M14 2v5a1 1 0 0 0 1 1h5" />
-  <path d="M9 17v-2a2 2 0 0 0-4 0v2" />
-  <rect width="8" height="5" x="3" y="17" rx="1" />
-</svg>
-`;
-
 const FileKey = `
 <svg
   class="lucide lucide-file-key"
@@ -12520,6 +14375,26 @@ const FileKey = `
 </svg>
 `;
 
+const FileLock = `
+<svg
+  class="lucide lucide-file-lock"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M4 9.8V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.706.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2h-3" />
+  <path d="M14 2v5a1 1 0 0 0 1 1h5" />
+  <path d="M9 17v-2a2 2 0 0 0-4 0v2" />
+  <rect width="8" height="5" x="3" y="17" rx="1" />
+</svg>
+`;
+
 const FileMinusCorner = `
 <svg
   class="lucide lucide-file-minus-corner"
@@ -12536,6 +14411,25 @@ const FileMinusCorner = `
   <path d="M20 14V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12" />
   <path d="M14 2v5a1 1 0 0 0 1 1h5" />
   <path d="M14 18h6" />
+</svg>
+`;
+
+const FileMinus = `
+<svg
+  class="lucide lucide-file-minus"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
+  <path d="M14 2v5a1 1 0 0 0 1 1h5" />
+  <path d="M9 15h6" />
 </svg>
 `;
 
@@ -12559,9 +14453,9 @@ const FileMusic = `
 </svg>
 `;
 
-const FileMinus = `
+const FileOutput = `
 <svg
-  class="lucide lucide-file-minus"
+  class="lucide lucide-file-output"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -12572,9 +14466,10 @@ const FileMinus = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
+  <path d="M4.226 20.925A2 2 0 0 0 6 22h12a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v3.127" />
   <path d="M14 2v5a1 1 0 0 0 1 1h5" />
-  <path d="M9 15h6" />
+  <path d="m5 11-3 3" />
+  <path d="m5 17-3-3h10" />
 </svg>
 `;
 
@@ -12595,26 +14490,6 @@ const FilePenLine = `
   <path d="M14.487 7.858A1 1 0 0 1 14 7V2" />
   <path d="M20 19.645V20a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l2.516 2.516" />
   <path d="M8 18h1" />
-</svg>
-`;
-
-const FileOutput = `
-<svg
-  class="lucide lucide-file-output"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M4.226 20.925A2 2 0 0 0 6 22h12a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v3.127" />
-  <path d="M14 2v5a1 1 0 0 0 1 1h5" />
-  <path d="m5 11-3 3" />
-  <path d="m5 17-3-3h10" />
 </svg>
 `;
 
@@ -12777,27 +14652,6 @@ const FileSearch = `
 </svg>
 `;
 
-const FileSignal = `
-<svg
-  class="lucide lucide-file-signal"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
-  <path d="M14 2v5a1 1 0 0 0 1 1h5" />
-  <path d="M8 15h.01" />
-  <path d="M11.5 13.5a2.5 2.5 0 0 1 0 3" />
-  <path d="M15 12a5 5 0 0 1 0 6" />
-</svg>
-`;
-
 const FileSliders = `
 <svg
   class="lucide lucide-file-sliders"
@@ -12817,6 +14671,27 @@ const FileSliders = `
   <path d="M10 11v2" />
   <path d="M8 17h8" />
   <path d="M14 16v2" />
+</svg>
+`;
+
+const FileSignal = `
+<svg
+  class="lucide lucide-file-signal"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
+  <path d="M14 2v5a1 1 0 0 0 1 1h5" />
+  <path d="M8 15h.01" />
+  <path d="M11.5 13.5a2.5 2.5 0 0 1 0 3" />
+  <path d="M15 12a5 5 0 0 1 0 6" />
 </svg>
 `;
 
@@ -13208,25 +15083,6 @@ const FishSymbol = `
 </svg>
 `;
 
-const FishOff = `
-<svg
-  class="lucide lucide-fish-off"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M18 12.47v.03m0-.5v.47m-.475 5.056A6.744 6.744 0 0 1 15 18c-3.56 0-7.56-2.53-8.5-6 .348-1.28 1.114-2.433 2.121-3.38m3.444-2.088A8.802 8.802 0 0 1 15 6c3.56 0 6.06 2.54 7 6-.309 1.14-.786 2.177-1.413 3.058" />
-  <path d="M7 10.67C7 8 5.58 5.97 2.73 5.5c-1 1.5-1 5 .23 6.5-1.24 1.5-1.24 5-.23 6.5C5.58 18.03 7 16 7 13.33m7.48-4.372A9.77 9.77 0 0 1 16 6.07m0 11.86a9.77 9.77 0 0 1-1.728-3.618" />
-  <path d="m16.01 17.93-.23 1.4A2 2 0 0 1 13.8 21H9.5a5.96 5.96 0 0 0 1.49-3.98M8.53 3h5.27a2 2 0 0 1 1.98 1.67l.23 1.4M2 2l20 20" />
-</svg>
-`;
-
 const Fish = `
 <svg
   class="lucide lucide-fish"
@@ -13249,6 +15105,25 @@ const Fish = `
 </svg>
 `;
 
+const FishOff = `
+<svg
+  class="lucide lucide-fish-off"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M18 12.47v.03m0-.5v.47m-.475 5.056A6.744 6.744 0 0 1 15 18c-3.56 0-7.56-2.53-8.5-6 .348-1.28 1.114-2.433 2.121-3.38m3.444-2.088A8.802 8.802 0 0 1 15 6c3.56 0 6.06 2.54 7 6-.309 1.14-.786 2.177-1.413 3.058" />
+  <path d="M7 10.67C7 8 5.58 5.97 2.73 5.5c-1 1.5-1 5 .23 6.5-1.24 1.5-1.24 5-.23 6.5C5.58 18.03 7 16 7 13.33m7.48-4.372A9.77 9.77 0 0 1 16 6.07m0 11.86a9.77 9.77 0 0 1-1.728-3.618" />
+  <path d="m16.01 17.93-.23 1.4A2 2 0 0 1 13.8 21H9.5a5.96 5.96 0 0 0 1.49-3.98M8.53 3h5.27a2 2 0 0 1 1.98 1.67l.23 1.4M2 2l20 20" />
+</svg>
+`;
+
 const FishingHook = `
 <svg
   class="lucide lucide-fishing-hook"
@@ -13265,6 +15140,25 @@ const FishingHook = `
   <path d="m17.586 11.414-5.93 5.93a1 1 0 0 1-8-8l3.137-3.137a.707.707 0 0 1 1.207.5V10" />
   <path d="M20.414 8.586 22 7" />
   <circle cx="19" cy="10" r="2" />
+</svg>
+`;
+
+const FishingRod = `
+<svg
+  class="lucide lucide-fishing-rod"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M4 11h1" />
+  <path d="M8 15a2 2 0 0 1-4 0V3a1 1 0 0 1 1-1h.5C14 2 20 9 20 18v4" />
+  <circle cx="18" cy="18" r="2" />
 </svg>
 `;
 
@@ -13288,25 +15182,6 @@ const FlagOff = `
 </svg>
 `;
 
-const FishingRod = `
-<svg
-  class="lucide lucide-fishing-rod"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M4 11h1" />
-  <path d="M8 15a2 2 0 0 1-4 0V3a1 1 0 0 1 1-1h.5C14 2 20 9 20 18v4" />
-  <circle cx="18" cy="18" r="2" />
-</svg>
-`;
-
 const FlagTriangleLeft = `
 <svg
   class="lucide lucide-flag-triangle-left"
@@ -13321,7 +15196,8 @@ const FlagTriangleLeft = `
   stroke-linejoin="round"
 >
   <path d="M18 22V2.8a.8.8 0 0 0-1.17-.71L5.45 7.78a.8.8 0 0 0 0 1.44L18 15.5" />
-</svg>`;
+</svg>
+`;
 
 const FlagTriangleRight = `
 <svg
@@ -13493,50 +15369,6 @@ const FlaskRound = `
 </svg>
 `;
 
-const FlipHorizontal2 = `
-<svg
-  class="lucide lucide-flip-horizontal-2"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="m3 7 5 5-5 5V7" />
-  <path d="m21 7-5 5 5 5V7" />
-  <path d="M12 20v2" />
-  <path d="M12 14v2" />
-  <path d="M12 8v2" />
-  <path d="M12 2v2" />
-</svg>
-`;
-
-const FlipVertical2 = `
-<svg
-  class="lucide lucide-flip-vertical-2"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="m17 3-5 5-5-5h10" />
-  <path d="m17 21-5-5-5 5h10" />
-  <path d="M4 12H2" />
-  <path d="M10 12H8" />
-  <path d="M16 12h-2" />
-  <path d="M22 12h-2" />
-</svg>
-`;
-
 const Flower = `
 <svg
   class="lucide lucide-flower"
@@ -13686,26 +15518,8 @@ const FolderBookmark = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M12 6v8l3-3 3 3V6" />
-  <path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2z" />
-</svg>
-`;
-
-const FolderCheck = `
-<svg
-  class="lucide lucide-folder-check"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" />
-  <path d="m9 13 2 2 4-4" />
+  <path d="M12 6v7.751a.25.25 0 00.407.195l2.28-1.834a.5.5 0 01.627 0l2.28 1.834a.25.25 0 00.406-.195V6" />
+  <path d="M20 20a2 2 0 002-2V8a2 2 0 00-2-2h-7.9a2 2 0 01-1.69-.9L9.6 3.9A2 2 0 007.93 3H4a2 2 0 00-2 2v13a2 2 0 002 2z" />
 </svg>
 `;
 
@@ -13725,6 +15539,24 @@ const FolderClock = `
   <path d="M16 14v2.2l1.6 1" />
   <path d="M7 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H20a2 2 0 0 1 2 2" />
   <circle cx="16" cy="16" r="6" />
+</svg>
+`;
+
+const FolderCheck = `
+<svg
+  class="lucide lucide-folder-check"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" />
+  <path d="m9 13 2 2 4-4" />
 </svg>
 `;
 
@@ -13828,26 +15660,6 @@ const FolderDown = `
 </svg>
 `;
 
-const FolderGit2 = `
-<svg
-  class="lucide lucide-folder-git-2"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M18 19a5 5 0 0 1-5-5v8" />
-  <path d="M9 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H20a2 2 0 0 1 2 2v5" />
-  <circle cx="13" cy="12" r="2" />
-  <circle cx="20" cy="19" r="2" />
-</svg>
-`;
-
 const FolderGit = `
 <svg
   class="lucide lucide-folder-git"
@@ -13865,6 +15677,26 @@ const FolderGit = `
   <path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" />
   <path d="M14 13h3" />
   <path d="M7 13h3" />
+</svg>
+`;
+
+const FolderGit2 = `
+<svg
+  class="lucide lucide-folder-git-2"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M18 19a5 5 0 0 1-5-5v8" />
+  <path d="M9 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H20a2 2 0 0 1 2 2v5" />
+  <circle cx="13" cy="12" r="2" />
+  <circle cx="20" cy="19" r="2" />
 </svg>
 `;
 
@@ -13925,6 +15757,25 @@ const FolderKanban = `
 </svg>
 `;
 
+const FolderLock = `
+<svg
+  class="lucide lucide-folder-lock"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <rect width="8" height="5" x="14" y="17" rx="1" />
+  <path d="M10 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H20a2 2 0 0 1 2 2v2.5" />
+  <path d="M20 17v-2a2 2 0 1 0-4 0v2" />
+</svg>
+`;
+
 const FolderKey = `
 <svg
   class="lucide lucide-folder-key"
@@ -13945,25 +15796,6 @@ const FolderKey = `
 </svg>
 `;
 
-const FolderLock = `
-<svg
-  class="lucide lucide-folder-lock"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <rect width="8" height="5" x="14" y="17" rx="1" />
-  <path d="M10 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H20a2 2 0 0 1 2 2v2.5" />
-  <path d="M20 17v-2a2 2 0 1 0-4 0v2" />
-</svg>
-`;
-
 const FolderMinus = `
 <svg
   class="lucide lucide-folder-minus"
@@ -13979,23 +15811,6 @@ const FolderMinus = `
 >
   <path d="M9 13h6" />
   <path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" />
-</svg>
-`;
-
-const FolderOpen = `
-<svg
-  class="lucide lucide-folder-open"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="m6 14 1.5-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.54 6a2 2 0 0 1-1.95 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H18a2 2 0 0 1 2 2v2" />
 </svg>
 `;
 
@@ -14033,6 +15848,23 @@ const FolderOutput = `
   <path d="M2 7.5V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H20a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-1.5" />
   <path d="M2 13h10" />
   <path d="m5 10-3 3 3 3" />
+</svg>
+`;
+
+const FolderOpen = `
+<svg
+  class="lucide lucide-folder-open"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m6 14 1.5-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.54 6a2 2 0 0 1-1.95 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H18a2 2 0 0 1 2 2v2" />
 </svg>
 `;
 
@@ -14130,6 +15962,24 @@ const FolderSearch = `
 </svg>
 `;
 
+const FolderSymlink = `
+<svg
+  class="lucide lucide-folder-symlink"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M2 9.35V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H20a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h7" />
+  <path d="m8 16 3-3-3-3" />
+</svg>
+`;
+
 const FolderSync = `
 <svg
   class="lucide lucide-folder-sync"
@@ -14148,24 +15998,6 @@ const FolderSync = `
   <path d="m12 14 1.535-1.605a5 5 0 0 1 8 1.5" />
   <path d="M22 22v-4h-4" />
   <path d="m22 18-1.535 1.605a5 5 0 0 1-8-1.5" />
-</svg>
-`;
-
-const FolderSymlink = `
-<svg
-  class="lucide lucide-folder-symlink"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M2 9.35V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H20a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h7" />
-  <path d="m8 16 3-3-3-3" />
 </svg>
 `;
 
@@ -14205,6 +16037,45 @@ const FolderUp = `
   <path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" />
   <path d="M12 10v6" />
   <path d="m9 13 3-3 3 3" />
+</svg>
+`;
+
+const FolderUser = `
+<svg
+  class="lucide lucide-folder-user"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M10.254 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H20a2 2 0 0 1 2 2V9.255" />
+  <path d="M22 22a4 4 0 0 0-8 0" />
+  <circle cx="18" cy="15" r="3" />
+</svg>
+`;
+
+const FolderUsers = `
+<svg
+  class="lucide lucide-folder-users"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M5.254 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H20a2 2 0 0 1 2 2V9.255" />
+  <circle cx="13" cy="15" r="3" />
+  <path d="M17 22a4 4 0 0 0-8 0" />
+  <path d="M22 22A4 4 0 0 0 20.24 18.686 1 1 0 0 1 20.1 17.143 3 3 0 0 0 19.5 12.402" />
 </svg>
 `;
 
@@ -14363,26 +16234,6 @@ const Frame = `
 </svg>
 `;
 
-const Frown = `
-<svg
-  class="lucide lucide-frown"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <circle cx="12" cy="12" r="10" />
-  <path d="M16 16s-1.5-2-4-2-4 2-4 2" />
-  <line x1="9" x2="9.01" y1="9" y2="9" />
-  <line x1="15" x2="15.01" y1="9" y2="9" />
-</svg>
-`;
-
 const Fuel = `
 <svg
   class="lucide lucide-fuel"
@@ -14479,6 +16330,27 @@ const Funnel = `
 </svg>
 `;
 
+const Galaxy = `
+<svg
+  class="lucide lucide-galaxy"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M16.005 15.108a5.041 6.52 28.25 00-8.008-6.217 5.041 6.52 28.25 008.008 6.217A11.884 7.288-60.76 014.029 7.001" />
+  <path d="M17 21h.01" />
+  <path d="M7 3h.01" />
+  <path d="M7.997 8.891a11.885 7.288-60.756 0111.977 8.107" />
+  <circle cx="12" cy="12" r="1" fill="currentColor" />
+</svg>
+`;
+
 const GalleryHorizontalEnd = `
 <svg
   class="lucide lucide-gallery-horizontal-end"
@@ -14557,6 +16429,25 @@ const GalleryVerticalEnd = `
 </svg>
 `;
 
+const GalleryVertical = `
+<svg
+  class="lucide lucide-gallery-vertical"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M3 2h18" />
+  <rect width="18" height="12" x="3" y="6" rx="2" />
+  <path d="M3 22h18" />
+</svg>
+`;
+
 const Gamepad2 = `
 <svg
   class="lucide lucide-gamepad-2"
@@ -14578,25 +16469,6 @@ const Gamepad2 = `
 </svg>
 `;
 
-const GalleryVertical = `
-<svg
-  class="lucide lucide-gallery-vertical"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M3 2h18" />
-  <rect width="18" height="12" x="3" y="6" rx="2" />
-  <path d="M3 22h18" />
-</svg>
-`;
-
 const GamepadDirectional = `
 <svg
   class="lucide lucide-gamepad-directional"
@@ -14610,14 +16482,10 @@ const GamepadDirectional = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path
-    d="M11.146 15.854a1.207 1.207 0 0 1 1.708 0l1.56 1.56A2 2 0 0 1 15 18.828V21a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-2.172a2 2 0 0 1 .586-1.414z" />
-  <path
-    d="M18.828 15a2 2 0 0 1-1.414-.586l-1.56-1.56a1.207 1.207 0 0 1 0-1.708l1.56-1.56A2 2 0 0 1 18.828 9H21a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1z" />
-  <path
-    d="M6.586 14.414A2 2 0 0 1 5.172 15H3a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1h2.172a2 2 0 0 1 1.414.586l1.56 1.56a1.207 1.207 0 0 1 0 1.708z" />
-  <path
-    d="M9 3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2.172a2 2 0 0 1-.586 1.414l-1.56 1.56a1.207 1.207 0 0 1-1.708 0l-1.56-1.56A2 2 0 0 1 9 5.172z" />
+  <path d="M11.146 15.854a1.207 1.207 0 0 1 1.708 0l1.56 1.56A2 2 0 0 1 15 18.828V21a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-2.172a2 2 0 0 1 .586-1.414z" />
+  <path d="M18.828 15a2 2 0 0 1-1.414-.586l-1.56-1.56a1.207 1.207 0 0 1 0-1.708l1.56-1.56A2 2 0 0 1 18.828 9H21a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1z" />
+  <path d="M6.586 14.414A2 2 0 0 1 5.172 15H3a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1h2.172a2 2 0 0 1 1.414.586l1.56 1.56a1.207 1.207 0 0 1 0 1.708z" />
+  <path d="M9 3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2.172a2 2 0 0 1-.586 1.414l-1.56 1.56a1.207 1.207 0 0 1-1.708 0l-1.56-1.56A2 2 0 0 1 9 5.172z" />
 </svg>
 `;
 
@@ -14639,6 +16507,50 @@ const Gamepad = `
   <line x1="15" x2="15.01" y1="13" y2="13" />
   <line x1="18" x2="18.01" y1="11" y2="11" />
   <rect width="20" height="12" x="2" y="6" rx="2" />
+</svg>
+`;
+
+const GapHorizontal = `
+<svg
+  class="lucide lucide-gap-horizontal"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 2v2" />
+  <path d="M12 8v2" />
+  <path d="M12 14v2" />
+  <path d="M12 20v2" />
+  <path d="M21 3h-3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3" />
+  <path d="M3 3h3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H3" />
+</svg>
+`;
+
+const GapVertical = `
+<svg
+  class="lucide lucide-gap-vertical"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M2 12h2" />
+  <path d="M8 12h2" />
+  <path d="M14 12h2" />
+  <path d="M20 12h2" />
+  <path d="M3 21v-3a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v3" />
+  <path d="M3 3v3a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3" />
 </svg>
 `;
 
@@ -14713,10 +16625,67 @@ const GeorgianLari = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M11.5 21a7.5 7.5 0 1 1 7.35-9" />
-  <path d="M13 12V3" />
-  <path d="M4 21h16" />
-  <path d="M9 12V3" />
+  <path d="M10 10V3" />
+  <path d="M14 10V3" />
+  <path d="M19 13a7 7 0 10-7 7" />
+  <path d="M5 20h14" />
+</svg>
+`;
+
+const GermOff = `
+<svg
+  class="lucide lucide-germ-off"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m11 2 .925 1.848" />
+  <path d="M13 15h.01" />
+  <path d="M13.424 7.768a2 2 0 112.808 2.808" />
+  <path d="m16 21-1-2.472" />
+  <path d="M16.988 16.988A12 12 0 019 20a5 5 0 01-2.759-9.171 8.8 8.8 0 002.307-2.28" />
+  <path d="m19 2-1 1.804" />
+  <path d="m2 19 2.746-1.373" />
+  <path d="m2 2 20 20" />
+  <path d="m22 16-2.474-2.13a12 12 0 001.376-3.786 6 6 0 00-10.313-5.151" />
+  <path d="m22 5-1.804 1" />
+  <path d="m3 10 2 2" />
+  <path d="M9 16h.01" />
+  <path d="M9 20v2" />
+</svg>
+`;
+
+const Germ = `
+<svg
+  class="lucide lucide-germ"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m11 2 .925 1.848" />
+  <path d="M13 15h.01" />
+  <path d="m16 21-1-2.472" />
+  <path d="m19 2-1 1.804" />
+  <path d="m2 19 2.746-1.373" />
+  <path d="m22 16-2.474-2.13" />
+  <path d="m22 5-1.804 1" />
+  <path d="m3 10 2 2" />
+  <path d="M9 16h.01" />
+  <path d="M9 20v2" />
+  <path d="M9.33 7.035c-.51 1.478-1.786 2.93-3.09 3.794A5 5 0 009 20a12.1 12.1 0 0011.902-9.916A6 6 0 009.33 7.035" />
+  <circle cx="15" cy="9" r="2" />
 </svg>
 `;
 
@@ -14733,29 +16702,9 @@ const Ghost = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M9 10h.01" />
-  <path d="M15 10h.01" />
-  <path d="M12 2a8 8 0 0 0-8 8v12l3-3 2.5 2.5L12 19l2.5 2.5L17 19l3 3V10a8 8 0 0 0-8-8z" />
-</svg>
-`;
-
-const Gift = `
-<svg
-  class="lucide lucide-gift"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M12 7v14" />
-  <path d="M20 11v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8" />
-  <path d="M7.5 7a1 1 0 0 1 0-5A4.8 8 0 0 1 12 7a4.8 8 0 0 1 4.5-5 1 1 0 0 1 0 5" />
-  <rect x="3" y="7" width="18" height="4" rx="1" />
+  <path d="M15 10v1" />
+  <path d="M7.528 20.472a1.6 1.6 0 012.277 0l1.057 1.056a1.6 1.6 0 002.276 0l1.057-1.056a1.6 1.6 0 012.277 0l1.114 1.114a1.4 1.4 0 002.414-1V10a8 8 0 00-16 0v10.586a1.4 1.4 0 002.414 1z" />
+  <path d="M9 10v1" />
 </svg>
 `;
 
@@ -14776,6 +16725,26 @@ const GitBranchMinus = `
   <path d="M21 18h-6" />
   <circle cx="18" cy="6" r="3" />
   <circle cx="6" cy="18" r="3" />
+</svg>
+`;
+
+const Gift = `
+<svg
+  class="lucide lucide-gift"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 7v14" />
+  <path d="M20 11v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8" />
+  <path d="M7.5 7a1 1 0 0 1 0-5A4.8 8 0 0 1 12 7a4.8 8 0 0 1 4.5-5 1 1 0 0 1 0 5" />
+  <rect x="3" y="7" width="18" height="4" rx="1" />
 </svg>
 `;
 
@@ -14880,26 +16849,6 @@ const GitCompareArrows = `
 </svg>
 `;
 
-const GitCompare = `
-<svg
-  class="lucide lucide-git-compare"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <circle cx="18" cy="18" r="3" />
-  <circle cx="6" cy="6" r="3" />
-  <path d="M13 6h3a2 2 0 0 1 2 2v7" />
-  <path d="M11 18H8a2 2 0 0 1-2-2V9" />
-</svg>
-`;
-
 const GitFork = `
 <svg
   class="lucide lucide-git-fork"
@@ -14918,6 +16867,26 @@ const GitFork = `
   <circle cx="18" cy="6" r="3" />
   <path d="M18 9v2c0 .6-.4 1-1 1H7c-.6 0-1-.4-1-1V9" />
   <path d="M12 12v3" />
+</svg>
+`;
+
+const GitCompare = `
+<svg
+  class="lucide lucide-git-compare"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="18" cy="18" r="3" />
+  <circle cx="6" cy="6" r="3" />
+  <path d="M13 6h3a2 2 0 0 1 2 2v7" />
+  <path d="M11 18H8a2 2 0 0 1-2-2V9" />
 </svg>
 `;
 
@@ -14958,10 +16927,11 @@ const GitMergeConflict = `
 >
   <path d="M12 6h4a2 2 0 0 1 2 2v7" />
   <path d="M6 12v9" />
-  <path d="M9 3 3 9" />
-  <path d="M9 9 3 3" />
+  <path d="m8.5 3.5-5 5" />
+  <path d="m8.5 8.5-5-5" />
   <circle cx="18" cy="18" r="3" />
-</svg>`;
+</svg>
+`;
 
 const GitMerge = `
 <svg
@@ -14979,28 +16949,6 @@ const GitMerge = `
   <circle cx="18" cy="18" r="3" />
   <circle cx="6" cy="6" r="3" />
   <path d="M6 21V9a9 9 0 0 0 9 9" />
-</svg>
-`;
-
-const GitPullRequestClosed = `
-<svg
-  class="lucide lucide-git-pull-request-closed"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <circle cx="6" cy="6" r="3" />
-  <path d="M6 9v12" />
-  <path d="m21 3-6 6" />
-  <path d="m21 9-6-6" />
-  <path d="M18 11.5V15" />
-  <circle cx="18" cy="18" r="3" />
 </svg>
 `;
 
@@ -15022,6 +16970,28 @@ const GitPullRequestArrow = `
   <circle cx="19" cy="18" r="3" />
   <path d="m15 9-3-3 3-3" />
   <path d="M12 6h5a2 2 0 0 1 2 2v7" />
+</svg>
+`;
+
+const GitPullRequestClosed = `
+<svg
+  class="lucide lucide-git-pull-request-closed"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m15.5 3.5 5 5" />
+  <path d="m15.5 8.5 5-5" />
+  <path d="M18 11.62V15" />
+  <path d="M6 9v12" />
+  <circle cx="18" cy="18" r="3" />
+  <circle cx="6" cy="6" r="3" />
 </svg>
 `;
 
@@ -15166,6 +17136,47 @@ const GlobeCheck = `
 </svg>
 `;
 
+const GlobeBan = `
+<svg
+  class="lucide lucide-globe-ban"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 22a14.48 14.48 0 01-4.008-10C7.993 9.136 9 5.258 11 2.05A10 10 0 0012 22" />
+  <path d="m15.172 3.172 5.656 5.656" />
+  <path d="M15.86 14a14.5 14.5 0 01-3.859 8 10 10 0 009.949-9" />
+  <path d="M2 12h10.5" />
+  <circle cx="18" cy="6" r="4" />
+</svg>
+`;
+
+const GlobeCode = `
+<svg
+  class="lucide lucide-globe-code"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M15.5 10 13 7.5 15.5 5" />
+  <path d="M15.861 14A14.5 14.5 0 0112 22a14.48 14.48 0 010-20 10 10 0 109.888 11.5" />
+  <path d="M19.5 5 22 7.5 19.5 10" />
+  <path d="M2 12h8.5" />
+</svg>
+`;
+
 const GlobeLock = `
 <svg
   class="lucide lucide-globe-lock"
@@ -15225,6 +17236,27 @@ const GlobeX = `
   <path d="m16 3 5 5" />
   <path d="M2 12h20A10 10 0 1 1 12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 4-10" />
   <path d="m21 3-5 5" />
+</svg>
+`;
+
+const GlobePlus = `
+<svg
+  class="lucide lucide-globe-plus"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M15.929 10.563A14.5 14.5 0 0112 22a1 1 0 010-20 15 15 0 01.68.768" />
+  <path d="M19 2v6" />
+  <path d="M21.92 10.734A10 10 0 0112 22a14.5 14.5 0 010-20 10 10 0 011.266.08" />
+  <path d="M22 12H2" />
+  <path d="M22 5h-6" />
 </svg>
 `;
 
@@ -15331,9 +17363,9 @@ const Grape = `
 </svg>
 `;
 
-const Grid2x2Check = `
+const GraphHub = `
 <svg
-  class="lucide lucide-grid-2x2-check"
+  class="lucide lucide-graph-hub"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -15344,8 +17376,40 @@ const Grid2x2Check = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M12 3v17a1 1 0 0 1-1 1H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6a1 1 0 0 1-1 1H3" />
-  <path d="m16 19 2 2 4-4" />
+  <circle cx="12" cy="7" r="4" />
+  <circle cx="4" cy="19" r="2" />
+  <circle cx="12" cy="19" r="2" />
+  <circle cx="20" cy="19" r="2" />
+  <path d="M8 7a4 4 0 0 0-4 4v6" />
+  <path d="M12 11v6" />
+  <path d="M16 7a4 4 0 0 1 4 4v6" />
+</svg>
+`;
+
+const GraphStar = `
+<svg
+  class="lucide lucide-graph-star"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m12.342 9.316 1.764-3.527" />
+  <path d="m12.59 14.545 2.35 3.759" />
+  <path d="m13.982 12.332 4.03.447" />
+  <path d="M5.414 17.586 8.88 14.12" />
+  <path d="M9.025 9.742 5.317 5.505" />
+  <circle cx="11" cy="12" r="3" />
+  <circle cx="15" cy="4" r="2" />
+  <circle cx="16" cy="20" r="2" />
+  <circle cx="20" cy="13" r="2" />
+  <circle cx="4" cy="19" r="2" />
+  <circle cx="4" cy="4" r="2" />
 </svg>
 `;
 
@@ -15368,6 +17432,24 @@ const Grid2x2Plus = `
 </svg>
 `;
 
+const Grid2x2Check = `
+<svg
+  class="lucide lucide-grid-2x2-check"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 3v17a1 1 0 0 1-1 1H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6a1 1 0 0 1-1 1H3" />
+  <path d="m16 19 2 2 4-4" />
+</svg>
+`;
+
 const Grid2x2X = `
 <svg
   class="lucide lucide-grid-2x2-x"
@@ -15382,8 +17464,8 @@ const Grid2x2X = `
   stroke-linejoin="round"
 >
   <path d="M12 3v17a1 1 0 0 1-1 1H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6a1 1 0 0 1-1 1H3" />
-  <path d="m16 16 5 5" />
-  <path d="m16 21 5-5" />
+  <path d="m16.5 16.5 5 5" />
+  <path d="m16.5 21.5 5-5" />
 </svg>
 `;
 
@@ -15426,27 +17508,6 @@ const Grid3x2 = `
 </svg>
 `;
 
-const Grid3x3 = `
-<svg
-  class="lucide lucide-grid-3x3"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <rect width="18" height="18" x="3" y="3" rx="2" />
-  <path d="M3 9h18" />
-  <path d="M3 15h18" />
-  <path d="M9 3v18" />
-  <path d="M15 3v18" />
-</svg>
-`;
-
 const GripHorizontal = `
 <svg
   class="lucide lucide-grip-horizontal"
@@ -15466,6 +17527,27 @@ const GripHorizontal = `
   <circle cx="12" cy="15" r="1" />
   <circle cx="19" cy="15" r="1" />
   <circle cx="5" cy="15" r="1" />
+</svg>
+`;
+
+const Grid3x3 = `
+<svg
+  class="lucide lucide-grid-3x3"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <rect width="18" height="18" x="3" y="3" rx="2" />
+  <path d="M3 9h18" />
+  <path d="M3 15h18" />
+  <path d="M9 3v18" />
+  <path d="M15 3v18" />
 </svg>
 `;
 
@@ -15516,6 +17598,26 @@ const Grip = `
 </svg>
 `;
 
+const Groceries = `
+<svg
+  class="lucide lucide-groceries"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M10 15h4" />
+  <path d="M19.424 11.095a2.5 2.5 0 00.471-2.309 2 2 0 00.424-3.286 2 2 0 00-2.143-3.322 2 2 0 00-.676.502 2 2 0 00-3.287.424 2.5 2.5 0 00-3.189 2.06A3 3 0 0012 11l4-4" />
+  <path d="M4 12.006A1 1 0 014.994 11H19a1 1 0 011 1v7a2 2 0 01-2 2H6a2 2 0 01-2-2z" />
+  <path d="M7 11a4 4 0 01-4-4V5a1 1 0 011-1h2a4 4 0 013.584 2.222" />
+</svg>
+`;
+
 const Group = `
 <svg
   class="lucide lucide-group"
@@ -15538,6 +17640,26 @@ const Group = `
 </svg>
 `;
 
+const GuitarElectric = `
+<svg
+  class="lucide lucide-guitar-electric"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m12.172 11.828 4.242-4.242" />
+  <path d="M16.414 7.586A2 2 0 0017 6.172V5a2 2 0 011.177-1.823L20.59 2.09a1 1 0 011.32 1.32l-1.088 2.412A2 2 0 0119 7h-1a2 2 0 00-1.586.586" />
+  <path d="m6 16 2 2" />
+  <path d="M8.23 9.85a3 3 0 011.28-1.454 1 1 0 011.496.815 4 4 0 003.783 3.783 1 1 0 01.815 1.496 3 3 0 01-1.454 1.28l-.92.38A2 2 0 0012 18a4 4 0 01-4 4 6 6 0 01-6-6 4 4 0 014-4 2 2 0 001.85-1.23z" />
+</svg>
+`;
+
 const Guitar = `
 <svg
   class="lucide lucide-guitar"
@@ -15555,6 +17677,24 @@ const Guitar = `
   <path d="M20.1 2.3a1 1 0 0 0-1.4 0l-1.114 1.114A2 2 0 0 0 17 4.828v1.344a2 2 0 0 1-.586 1.414A2 2 0 0 1 17.828 7h1.344a2 2 0 0 0 1.414-.586L21.7 5.3a1 1 0 0 0 0-1.4z" />
   <path d="m6 16 2 2" />
   <path d="M8.23 9.85A3 3 0 0 1 11 8a5 5 0 0 1 5 5 3 3 0 0 1-1.85 2.77l-.92.38A2 2 0 0 0 12 18a4 4 0 0 1-4 4 6 6 0 0 1-6-6 4 4 0 0 1 4-4 2 2 0 0 0 1.85-1.23z" />
+</svg>
+`;
+
+const HalfNote = `
+<svg
+  class="lucide lucide-half-note"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="12" cy="18" r="4" />
+  <path d="M16 18V2" />
 </svg>
 `;
 
@@ -15658,6 +17798,26 @@ const HandFist = `
 </svg>
 `;
 
+const HandHeart = `
+<svg
+  class="lucide lucide-hand-heart"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M11 14h2a2 2 0 0 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 16" />
+  <path d="m14.45 13.39 5.05-4.694C20.196 8 21 6.85 21 5.75a2.75 2.75 0 0 0-4.797-1.837.276.276 0 0 1-.406 0A2.75 2.75 0 0 0 11 5.75c0 1.2.802 2.248 1.5 2.946L16 11.95" />
+  <path d="m2 15 6 6" />
+  <path d="m7 20 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a1 1 0 0 0-2.75-2.91" />
+</svg>
+`;
+
 const HandGrab = `
 <svg
   class="lucide lucide-hand-grab"
@@ -15676,26 +17836,6 @@ const HandGrab = `
   <path d="M10 9.9V9a2 2 0 0 0-2-2a2 2 0 0 0-2 2v5" />
   <path d="M6 14a2 2 0 0 0-2-2a2 2 0 0 0-2 2" />
   <path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-4a8 8 0 0 1-8-8 2 2 0 1 1 4 0" />
-</svg>
-`;
-
-const HandHeart = `
-<svg
-  class="lucide lucide-hand-heart"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M11 14h2a2 2 0 0 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 16" />
-  <path d="m14.45 13.39 5.05-4.694C20.196 8 21 6.85 21 5.75a2.75 2.75 0 0 0-4.797-1.837.276.276 0 0 1-.406 0A2.75 2.75 0 0 0 11 5.75c0 1.2.802 2.248 1.5 2.946L16 11.95" />
-  <path d="m2 15 6 6" />
-  <path d="m7 20 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a1 1 0 0 0-2.75-2.91" />
 </svg>
 `;
 
@@ -15760,24 +17900,6 @@ const HandPlatter = `
 </svg>
 `;
 
-const Handbag = `
-<svg
-  class="lucide lucide-handbag"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M2.048 18.566A2 2 0 0 0 4 21h16a2 2 0 0 0 1.952-2.434l-2-9A2 2 0 0 0 18 8H6a2 2 0 0 0-1.952 1.566z" />
-  <path d="M8 11V6a4 4 0 0 1 8 0v5" />
-</svg>
-`;
-
 const Hand = `
 <svg
   class="lucide lucide-hand"
@@ -15795,6 +17917,24 @@ const Hand = `
   <path d="M14 10V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v2" />
   <path d="M10 10.5V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2v8" />
   <path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15" />
+</svg>
+`;
+
+const Handbag = `
+<svg
+  class="lucide lucide-handbag"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M2.048 18.566A2 2 0 0 0 4 21h16a2 2 0 0 0 1.952-2.434l-2-9A2 2 0 0 0 18 8H6a2 2 0 0 0-1.952 1.566z" />
+  <path d="M8 11V6a4 4 0 0 1 8 0v5" />
 </svg>
 `;
 
@@ -15840,6 +17980,24 @@ const HardDriveDownload = `
 </svg>
 `;
 
+const HandleBottomRight = `
+<svg
+  class="lucide lucide-handle-bottom-right"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M21 8 8 21" />
+  <path d="m21 15-6 6" />
+</svg>
+`;
+
 const HardDriveUpload = `
 <svg
   class="lucide lucide-hard-drive-upload"
@@ -15881,26 +18039,6 @@ const HardDrive = `
 </svg>
 `;
 
-const Hash = `
-<svg
-  class="lucide lucide-hash"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <line x1="4" x2="20" y1="9" y2="9" />
-  <line x1="4" x2="20" y1="15" y2="15" />
-  <line x1="10" x2="8" y1="3" y2="21" />
-  <line x1="16" x2="14" y1="3" y2="21" />
-</svg>
-`;
-
 const HardHat = `
 <svg
   class="lucide lucide-hard-hat"
@@ -15918,6 +18056,26 @@ const HardHat = `
   <path d="M14 6a6 6 0 0 1 6 6v3" />
   <path d="M4 15v-3a6 6 0 0 1 6-6" />
   <rect x="2" y="15" width="20" height="4" rx="1" />
+</svg>
+`;
+
+const Hash = `
+<svg
+  class="lucide lucide-hash"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <line x1="4" x2="20" y1="9" y2="9" />
+  <line x1="4" x2="20" y1="15" y2="15" />
+  <line x1="10" x2="8" y1="3" y2="21" />
+  <line x1="16" x2="14" y1="3" y2="21" />
 </svg>
 `;
 
@@ -15939,6 +18097,27 @@ const HatGlasses = `
   <path d="M2 11h20" />
   <circle cx="17" cy="18" r="3" />
   <circle cx="7" cy="18" r="3" />
+</svg>
+`;
+
+const Hd = `
+<svg
+  class="lucide lucide-hd"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M10 12H6" />
+  <path d="M10 15V9" />
+  <path d="M14 14.5a.5.5 0 0 0 .5.5h1a2.5 2.5 0 0 0 2.5-2.5v-1A2.5 2.5 0 0 0 15.5 9h-1a.5.5 0 0 0-.5.5z" />
+  <path d="M6 15V9" />
+  <rect x="2" y="5" width="20" height="14" rx="2" />
 </svg>
 `;
 
@@ -15966,27 +18145,6 @@ const Haze = `
 </svg>
 `;
 
-const Hd = `
-<svg
-  class="lucide lucide-hd"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M10 12H6" />
-  <path d="M10 15V9" />
-  <path d="M14 14.5a.5.5 0 0 0 .5.5h1a2.5 2.5 0 0 0 2.5-2.5v-1A2.5 2.5 0 0 0 15.5 9h-1a.5.5 0 0 0-.5.5z" />
-  <path d="M6 15V9" />
-  <rect x="2" y="5" width="20" height="14" rx="2" />
-</svg>
-`;
-
 const Heading1 = `
 <svg
   class="lucide lucide-heading-1"
@@ -16007,24 +18165,6 @@ const Heading1 = `
 </svg>
 `;
 
-const HdmiPort = `
-<svg
-  class="lucide lucide-hdmi-port"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M22 9a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h1l2 2h12l2-2h1a1 1 0 0 0 1-1Z" />
-  <path d="M7.5 12h9" />
-</svg>
-`;
-
 const Heading2 = `
 <svg
   class="lucide lucide-heading-2"
@@ -16042,6 +18182,24 @@ const Heading2 = `
   <path d="M4 18V6" />
   <path d="M12 18V6" />
   <path d="M21 18h-4c0-4 4-3 4-6 0-1.5-2-2.5-4-1" />
+</svg>
+`;
+
+const HdmiPort = `
+<svg
+  class="lucide lucide-hdmi-port"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M22 9a1 1 0 00-1-1H3a1 1 0 00-1 1v4a1 1 0 001 1h.5a2 2 0 011.6.8l.3.4A2 2 0 007 16h10a2 2 0 001.6-.8l.3-.4a2 2 0 011.6-.8h.5a1 1 0 001-1z" />
+  <path d="M8 12h8" />
 </svg>
 `;
 
@@ -16066,27 +18224,6 @@ const Heading3 = `
 </svg>
 `;
 
-const Heading4 = `
-<svg
-  class="lucide lucide-heading-4"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M12 18V6" />
-  <path d="M17 10v3a1 1 0 0 0 1 1h3" />
-  <path d="M21 10v8" />
-  <path d="M4 12h8" />
-  <path d="M4 18V6" />
-</svg>
-`;
-
 const Heading5 = `
 <svg
   class="lucide lucide-heading-5"
@@ -16108,9 +18245,9 @@ const Heading5 = `
 </svg>
 `;
 
-const Heading6 = `
+const Heading4 = `
 <svg
-  class="lucide lucide-heading-6"
+  class="lucide lucide-heading-4"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -16121,30 +18258,11 @@ const Heading6 = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
+  <path d="M12 18V6" />
+  <path d="M17 10v3a1 1 0 0 0 1 1h3" />
+  <path d="M21 10v8" />
   <path d="M4 12h8" />
   <path d="M4 18V6" />
-  <path d="M12 18V6" />
-  <circle cx="19" cy="16" r="2" />
-  <path d="M20 10c-2 2-3 3.5-3 6" />
-</svg>
-`;
-
-const Heading = `
-<svg
-  class="lucide lucide-heading"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M6 12h12" />
-  <path d="M6 20V4" />
-  <path d="M18 20V4" />
 </svg>
 `;
 
@@ -16166,6 +18284,27 @@ const HeadphoneOff = `
   <path d="m2 2 20 20" />
   <path d="M20.414 20.414A2 2 0 0 1 19 21h-1a2 2 0 0 1-2-2v-3" />
   <path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 2.636-6.364" />
+</svg>
+`;
+
+const Heading6 = `
+<svg
+  class="lucide lucide-heading-6"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M4 12h8" />
+  <path d="M4 18V6" />
+  <path d="M12 18V6" />
+  <circle cx="19" cy="16" r="2" />
+  <path d="M20 10c-2 2-3 3.5-3 6" />
 </svg>
 `;
 
@@ -16239,6 +18378,24 @@ const HeartHandshake = `
 </svg>
 `;
 
+const HeartMinus = `
+<svg
+  class="lucide lucide-heart-minus"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m14.876 18.99-1.368 1.323a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5a5.2 5.2 0 0 1-.244 1.572" />
+  <path d="M15 15h6" />
+</svg>
+`;
+
 const HeartOff = `
 <svg
   class="lucide lucide-heart-off"
@@ -16255,24 +18412,6 @@ const HeartOff = `
   <path d="M10.5 4.893a5.5 5.5 0 0 1 1.091.931.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 1.872-1.002 3.356-2.187 4.655" />
   <path d="m16.967 16.967-3.459 3.346a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5a5.5 5.5 0 0 1 2.747-4.761" />
   <path d="m2 2 20 20" />
-</svg>
-`;
-
-const HeartMinus = `
-<svg
-  class="lucide lucide-heart-minus"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="m14.876 18.99-1.368 1.323a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5a5.2 5.2 0 0 1-.244 1.572" />
-  <path d="M15 15h6" />
 </svg>
 `;
 
@@ -16375,30 +18514,6 @@ const Heater = `
 </svg>
 `;
 
-const Helicopter = `
-<svg
-  class="lucide lucide-helicopter"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M11 17v4" />
-  <path d="M14 3v8a2 2 0 0 0 2 2h5.865" />
-  <path d="M17 17v4" />
-  <path d="M18 17a4 4 0 0 0 4-4 8 6 0 0 0-8-6 6 5 0 0 0-6 5v3a2 2 0 0 0 2 2z" />
-  <path d="M2 10v5" />
-  <path d="M6 3h16" />
-  <path d="M7 21h14" />
-  <path d="M8 13H2" />
-</svg>
-`;
-
 const Hexagon = `
 <svg
   class="lucide lucide-hexagon"
@@ -16434,9 +18549,9 @@ const Highlighter = `
 </svg>
 `;
 
-const History = `
+const Helicopter = `
 <svg
-  class="lucide lucide-history"
+  class="lucide lucide-helicopter"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -16447,9 +18562,55 @@ const History = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
-  <path d="M3 3v5h5" />
-  <path d="M12 7v5l4 2" />
+  <path d="M11 17v4" />
+  <path d="M14 3v8a2 2 0 0 0 2 2h5.865" />
+  <path d="M17 17v4" />
+  <path d="M18 17a4 4 0 0 0 4-4 8 6 0 0 0-8-6 6 5 0 0 0-6 5v3a2 2 0 0 0 2 2z" />
+  <path d="M2 10v5" />
+  <path d="M6 3h16" />
+  <path d="M7 21h14" />
+  <path d="M8 13H2" />
+</svg>
+`;
+
+const HikingStick = `
+<svg
+  class="lucide lucide-hiking-stick"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M13.5 10.5 2 22" />
+  <path d="M16.352 11.648a1.205 1.205 0 01-1.704 0l-2.296-2.296a1.205 1.205 0 010-1.704l.72-.72a2 2 0 011.022-.546l.599-.12a2 2 0 001.569-1.57l.12-.598a2 2 0 01.546-1.022l.72-.72a1.205 1.205 0 011.704 0l2.296 2.296a1.205 1.205 0 010 1.704l-6.02 6.02a1 1 0 103 3l.201-.201A7.4 7.4 0 0021 9.93V7" />
+  <path d="m6 21-3-3" />
+</svg>
+`;
+
+const HockeyStick = `
+<svg
+  class="lucide lucide-hockey-stick"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M11 4v4c0 1.1-2.025 2-4.5 2S2 9.1 2 8V4" />
+  <path d="M18.21 3.106a2 2 0 013.579 1.789l-6.895 13.789A6 6 0 019.529 22H4.5a1 1 0 010-5h5.528a2 2 0 001.788-1.105z" />
+  <path d="m18.59 11.295-3.578-1.789" />
+  <path d="m20.79 6.895-3.578-1.789" />
+  <path d="M7 17v5" />
+  <ellipse cx="6.5" cy="4" rx="4.5" ry="2" />
 </svg>
 `;
 
@@ -16523,6 +18684,25 @@ const Hospital = `
 </svg>
 `;
 
+const HotAirBalloon = `
+<svg
+  class="lucide lucide-hot-air-balloon"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M11.5 18C10 15 9 12 9 9a3 7 0 0 1 6 0c0 3-1 6-2.5 9" />
+  <path d="M15 18c3-3 5-5 5-9A8 7 0 0 0 4 9c0 4 2 6 5 9" />
+  <path d="M15 18H9v3a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1z" />
+</svg>
+`;
+
 const Hotel = `
 <svg
   class="lucide lucide-hotel"
@@ -16566,6 +18746,62 @@ const Hourglass = `
   <path d="M5 2h14" />
   <path d="M17 22v-4.172a2 2 0 0 0-.586-1.414L12 12l-4.414 4.414A2 2 0 0 0 7 17.828V22" />
   <path d="M7 2v4.172a2 2 0 0 0 .586 1.414L12 12l4.414-4.414A2 2 0 0 0 17 6.172V2" />
+</svg>
+`;
+
+const HourglassCog = `
+<svg
+  class="lucide lucide-hourglass-cog"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m14.305 19.53.923-.382" />
+  <path d="m15.228 16.852-.923-.383" />
+  <path d="m16.852 15.228-.383-.923" />
+  <path d="m16.852 20.772-.383.924" />
+  <path d="M17 2v4.172a2 2 0 0 1-.586 1.414l-8.828 8.828A2 2 0 0 0 7 17.828V22" />
+  <path d="m19.148 15.228.383-.923" />
+  <path d="m19.53 21.696-.382-.924" />
+  <path d="m20.772 16.852.924-.383" />
+  <path d="m20.772 19.148.924.383" />
+  <path d="M5 22h6.159" />
+  <path d="M5 2h14" />
+  <path d="M7 2v4.172a2 2 0 0 0 .586 1.414l5.188 5.188" />
+  <circle cx="18" cy="18" r="3" />
+</svg>
+`;
+
+const HouseCog = `
+<svg
+  class="lucide lucide-house-cog"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M10.584 21H5a2 2 0 01-2-2v-9a2 2 0 01.709-1.527l7-6a2 2 0 012.582 0l7 6A2 2 0 0121 10.001v.583" />
+  <path d="M14 12H10a1 1 0 00-1 1v8" />
+  <path d="m14.305 19.53.923-.382" />
+  <path d="m15.229 16.852-.924-.383" />
+  <path d="m16.852 15.228-.383-.923" />
+  <path d="m16.852 20.773-.383.924" />
+  <path d="m19.148 15.228.383-.923" />
+  <path d="m19.53 21.697-.382-.924" />
+  <path d="m20.773 16.852.922-.383" />
+  <path d="m20.773 19.148.922.383" />
+  <circle cx="18" cy="18" r="3" />
 </svg>
 `;
 
@@ -16647,6 +18883,25 @@ const HouseWifi = `
 </svg>
 `;
 
+const Houses = `
+<svg
+  class="lucide lucide-houses"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m12.681 4.24.834-.715a1.45 1.45 0 011.88 0l5.09 4.364A1.45 1.45 0 0121 9v6.546a1.45 1.45 0 01-1 1.381" />
+  <path d="M15.485 11.889A1.45 1.45 0 0116 13v6.546A1.454 1.454 0 0114.546 21H4.364a1.454 1.454 0 01-1.454-1.454V13a1.45 1.45 0 01.515-1.111l5.09-4.364a1.45 1.45 0 011.88 0z" />
+  <path d="M7.41 20.546v-4a1 1 0 011-1h2a1 1 0 011 1v4" />
+</svg>
+`;
+
 const House = `
 <svg
   class="lucide lucide-house"
@@ -16717,11 +18972,12 @@ const IdCardLanyard = `
   stroke-linejoin="round"
 >
   <path d="M13.5 8h-3" />
-  <path d="m15 2-1 2h3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h3" />
-  <path d="M16.899 22A5 5 0 0 0 7.1 22" />
+  <path d="m15 2-1 2h3a2 2 0 012 2v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6a2 2 0 012-2h3" />
+  <path d="M16 22a4 4 0 00-8 0" />
   <path d="m9 2 3 6" />
   <circle cx="12" cy="15" r="3" />
-</svg>`;
+</svg>
+`;
 
 const IdCard = `
 <svg
@@ -16736,10 +18992,10 @@ const IdCard = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
+  <path d="M13 19a4 4 0 00-8 0" />
   <path d="M16 10h2" />
   <path d="M16 14h2" />
-  <path d="M6.17 15a3 3 0 0 1 5.66 0" />
-  <circle cx="9" cy="11" r="2" />
+  <circle cx="9" cy="12" r="3" />
   <rect x="2" y="5" width="20" height="14" rx="2" />
 </svg>
 `;
@@ -16764,26 +19020,6 @@ const ImageDown = `
 </svg>
 `;
 
-const ImageMinus = `
-<svg
-  class="lucide lucide-image-minus"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M21 9v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7" />
-  <line x1="16" x2="22" y1="5" y2="5" />
-  <circle cx="9" cy="9" r="2" />
-  <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
-</svg>
-`;
-
 const ImageOff = `
 <svg
   class="lucide lucide-image-off"
@@ -16803,6 +19039,26 @@ const ImageOff = `
   <line x1="18" x2="21" y1="12" y2="15" />
   <path d="M3.59 3.59A1.99 1.99 0 0 0 3 5v14a2 2 0 0 0 2 2h14c.55 0 1.052-.22 1.41-.59" />
   <path d="M21 15V5a2 2 0 0 0-2-2H9" />
+</svg>
+`;
+
+const ImageMinus = `
+<svg
+  class="lucide lucide-image-minus"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M21 9v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7" />
+  <line x1="16" x2="22" y1="5" y2="5" />
+  <circle cx="9" cy="9" r="2" />
+  <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
 </svg>
 `;
 
@@ -16967,27 +19223,6 @@ const Inbox = `
 </svg>
 `;
 
-const IndianRupee = `
-<svg
-  class="lucide lucide-indian-rupee"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M6 3h12" />
-  <path d="M6 8h12" />
-  <path d="m6 13 8.5 8" />
-  <path d="M6 13h3" />
-  <path d="M9 13c6.667 0 6.667-10 0-10" />
-</svg>
-`;
-
 const Infinity = `
 <svg
   class="lucide lucide-infinity"
@@ -17002,6 +19237,25 @@ const Infinity = `
   stroke-linejoin="round"
 >
   <path d="M6 16c5 0 7-8 12-8a4 4 0 0 1 0 8c-5 0-7-8-12-8a4 4 0 1 0 0 8" />
+</svg>
+`;
+
+const IndianRupee = `
+<svg
+  class="lucide lucide-indian-rupee"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m14 20-8-8h4c5.333 0 5.333-8 0-8" />
+  <path d="M6 4h12" />
+  <path d="M6 8h12" />
 </svg>
 `;
 
@@ -17064,24 +19318,6 @@ const Italic = `
 </svg>
 `;
 
-const IterationCw = `
-<svg
-  class="lucide lucide-iteration-cw"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M4 10a8 8 0 1 1 8 8H4" />
-  <path d="m8 22-4-4 4-4" />
-</svg>
-`;
-
 const IterationCcw = `
 <svg
   class="lucide lucide-iteration-ccw"
@@ -17100,6 +19336,43 @@ const IterationCcw = `
 </svg>
 `;
 
+const IterationCw = `
+<svg
+  class="lucide lucide-iteration-cw"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M4 10a8 8 0 1 1 8 8H4" />
+  <path d="m8 22-4-4 4-4" />
+</svg>
+`;
+
+const IvBag = `
+<svg
+  class="lucide lucide-iv-bag"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 18v2a2 2 0 002 2h6" />
+  <path d="M6 11c.72.5 1.44 1 3 1 3 0 3-2 6-2 1.56 0 2.28.5 3 1" />
+  <path d="M9.293 3c.453 0 .887-.18 1.207-.5s.754-.5 1.207-.5h.586c.453 0 .887.18 1.207.5s.754.5 1.207.5H16a2 2 0 012 2v11a2 2 0 01-2 2H8a2 2 0 01-2-2V5a2 2 0 012-2z" />
+</svg>
+`;
+
 const JapaneseYen = `
 <svg
   class="lucide lucide-japanese-yen"
@@ -17113,9 +19386,10 @@ const JapaneseYen = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M12 9.5V21m0-11.5L6 3m6 6.5L18 3" />
-  <path d="M6 15h12" />
-  <path d="M6 11h12" />
+  <path d="M12 12v8" />
+  <path d="m6 4 6 8 6-8" />
+  <path d="M8 13h8" />
+  <path d="M8 17h8" />
 </svg>
 `;
 
@@ -17178,9 +19452,9 @@ const Kayak = `
 </svg>
 `;
 
-const KeySquare = `
+const KazakhTenge = `
 <svg
-  class="lucide lucide-key-square"
+  class="lucide lucide-kazakh-tenge"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -17191,28 +19465,9 @@ const KeySquare = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M12.4 2.7a2.5 2.5 0 0 1 3.4 0l5.5 5.5a2.5 2.5 0 0 1 0 3.4l-3.7 3.7a2.5 2.5 0 0 1-3.4 0L8.7 9.8a2.5 2.5 0 0 1 0-3.4z" />
-  <path d="m14 7 3 3" />
-  <path d="m9.4 10.6-6.814 6.814A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814" />
-</svg>
-`;
-
-const Key = `
-<svg
-  class="lucide lucide-key"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="m15.5 7.5 2.3 2.3a1 1 0 0 0 1.4 0l2.1-2.1a1 1 0 0 0 0-1.4L19 4" />
-  <path d="m21 2-9.6 9.6" />
-  <circle cx="7.5" cy="15.5" r="5.5" />
+  <path d="M12 8v12" />
+  <path d="M6 4h12" />
+  <path d="M6 8h12" />
 </svg>
 `;
 
@@ -17231,6 +19486,25 @@ const KeyRound = `
 >
   <path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z" />
   <circle cx="16.5" cy="7.5" r=".5" fill="currentColor" />
+</svg>
+`;
+
+const KeySquare = `
+<svg
+  class="lucide lucide-key-square"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12.4 2.7a2.5 2.5 0 0 1 3.4 0l5.5 5.5a2.5 2.5 0 0 1 0 3.4l-3.7 3.7a2.5 2.5 0 0 1-3.4 0L8.7 9.8a2.5 2.5 0 0 1 0-3.4z" />
+  <path d="m14 7 3 3" />
+  <path d="m9.4 10.6-6.814 6.814A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814" />
 </svg>
 `;
 
@@ -17259,6 +19533,25 @@ const KeyboardMusic = `
 </svg>
 `;
 
+const Key = `
+<svg
+  class="lucide lucide-key"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m2 21 9.6-9.6" />
+  <path d="m7.5 15.5 2.3 2.3a1 1 0 0 1 0 1.4l-2.1 2.1a1 1 0 0 1-1.4 0L4 19" />
+  <circle cx="15.5" cy="7.5" r="5.5" />
+</svg>
+`;
+
 const KeyboardOff = `
 <svg
   class="lucide lucide-keyboard-off"
@@ -17282,7 +19575,8 @@ const KeyboardOff = `
   <path d="M20 20H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2" />
   <path d="M6 8h.01" />
   <path d="M8 12h.01" />
-</svg>`;
+</svg>
+`;
 
 const Keyboard = `
 <svg
@@ -17306,6 +19600,24 @@ const Keyboard = `
   <path d="M7 16h10" />
   <path d="M8 12h.01" />
   <rect width="20" height="16" x="2" y="4" rx="2" />
+</svg>
+`;
+
+const Lambda = `
+<svg
+  class="lucide lucide-lambda"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M11.38 10 5 20" />
+  <path d="M19 18a2 2 0 01-2 2c-4.87-.003-5.052-16-10-16a2 2 0 00-2 2" />
 </svg>
 `;
 
@@ -17367,25 +19679,6 @@ const LampFloor = `
 </svg>
 `;
 
-const LampWallUp = `
-<svg
-  class="lucide lucide-lamp-wall-up"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M19.929 9.629A1 1 0 0 1 19 11H9a1 1 0 0 1-.928-1.371l2-5A1 1 0 0 1 11 4h6a1 1 0 0 1 .928.629z" />
-  <path d="M6 15a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2H5a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1z" />
-  <path d="M8 18h4a2 2 0 0 0 2-2v-5" />
-</svg>
-`;
-
 const LampWallDown = `
 <svg
   class="lucide lucide-lamp-wall-down"
@@ -17405,6 +19698,25 @@ const LampWallDown = `
 </svg>
 `;
 
+const LampWallUp = `
+<svg
+  class="lucide lucide-lamp-wall-up"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M19.929 9.629A1 1 0 0 1 19 11H9a1 1 0 0 1-.928-1.371l2-5A1 1 0 0 1 11 4h6a1 1 0 0 1 .928.629z" />
+  <path d="M6 15a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2H5a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1z" />
+  <path d="M8 18h4a2 2 0 0 0 2-2v-5" />
+</svg>
+`;
+
 const Lamp = `
 <svg
   class="lucide lucide-lamp"
@@ -17421,6 +19733,28 @@ const Lamp = `
   <path d="M12 12v6" />
   <path d="M4.077 10.615A1 1 0 0 0 5 12h14a1 1 0 0 0 .923-1.385l-3.077-7.384A2 2 0 0 0 15 2H9a2 2 0 0 0-1.846 1.23Z" />
   <path d="M8 20a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1z" />
+</svg>
+`;
+
+const Landmark = `
+<svg
+  class="lucide lucide-landmark"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M10 18v-7" />
+  <path d="M11.119 2.205a2 2 0 0 1 1.762 0l7.84 3.846A.5.5 0 0 1 20.5 7h-17a.5.5 0 0 1-.22-.949z" />
+  <path d="M14 18v-7" />
+  <path d="M18 18v-7" />
+  <path d="M3 22h18" />
+  <path d="M6 18v-7" />
 </svg>
 `;
 
@@ -17444,9 +19778,9 @@ const LandPlot = `
 </svg>
 `;
 
-const Landmark = `
+const LaptopMinimalCheck = `
 <svg
-  class="lucide lucide-landmark"
+  class="lucide lucide-laptop-minimal-check"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -17457,12 +19791,9 @@ const Landmark = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M10 18v-7" />
-  <path d="M11.119 2.205a2 2 0 0 1 1.762 0l7.84 3.846A.5.5 0 0 1 20.5 7h-17a.5.5 0 0 1-.22-.949z" />
-  <path d="M14 18v-7" />
-  <path d="M18 18v-7" />
-  <path d="M3 22h18" />
-  <path d="M6 18v-7" />
+  <path d="M2 20h20" />
+  <path d="m9 10 2 2 4-4" />
+  <rect x="3" y="4" width="18" height="12" rx="2" />
 </svg>
 `;
 
@@ -17506,25 +19837,6 @@ const LaptopMinimal = `
 </svg>
 `;
 
-const LaptopMinimalCheck = `
-<svg
-  class="lucide lucide-laptop-minimal-check"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M2 20h20" />
-  <path d="m9 10 2 2 4-4" />
-  <rect x="3" y="4" width="18" height="12" rx="2" />
-</svg>
-`;
-
 const Laptop = `
 <svg
   class="lucide lucide-laptop"
@@ -17540,6 +19852,31 @@ const Laptop = `
 >
   <path d="M18 5a2 2 0 0 1 2 2v8.526a2 2 0 0 0 .212.897l1.068 2.127a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45l1.068-2.127A2 2 0 0 0 4 15.526V7a2 2 0 0 1 2-2z" />
   <path d="M20.054 15.987H3.946" />
+</svg>
+`;
+
+const Laser = `
+<svg
+  class="lucide lucide-laser"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m13 8 .95-.95" />
+  <path d="M13.95 16.95 13 16" />
+  <path d="M22 12h-9" />
+  <path d="M4 12H2" />
+  <path d="M4.05 16.95 5 16" />
+  <path d="m5 8-.95-.95" />
+  <path d="M9 12h.01" />
+  <path d="M9 19v-2" />
+  <path d="M9 7V5" />
 </svg>
 `;
 
@@ -17583,9 +19920,9 @@ const Lasso = `
 </svg>
 `;
 
-const Laugh = `
+const LayerArrowDown = `
 <svg
-  class="lucide lucide-laugh"
+  class="lucide lucide-layer-arrow-down"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -17596,10 +19933,29 @@ const Laugh = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <circle cx="12" cy="12" r="10" />
-  <path d="M18 13a6 6 0 0 1-6 5 6 6 0 0 1-6-5h12Z" />
-  <line x1="9" x2="9.01" y1="9" y2="9" />
-  <line x1="15" x2="15.01" y1="9" y2="9" />
+  <path d="M12 10v10" />
+  <path d="M22 10a1 1 0 01-.59.92l-5.077 2.308" />
+  <path d="M22.017 10.005a1 1 0 00-.597-.916l-8.59-3.91a2 2 0 00-1.66.001L2.6 9.08a1 1 0 00-.02 1.831l5.093 2.316" />
+  <path d="m9 17 3 3 3-3" />
+</svg>
+`;
+
+const LayerArrowUp = `
+<svg
+  class="lucide lucide-layer-arrow-up"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 14V4" />
+  <path d="M7.674 10.774 2.58 13.09a1 1 0 000 1.822l8.6 3.91a2 2 0 001.65 0l8.58-3.9a1 1 0 00.59-.92 1 1 0 00-.59-.922l-5.078-2.308" />
+  <path d="m9 7 3-3 3 3" />
 </svg>
 `;
 
@@ -17618,6 +19974,47 @@ const Layers2 = `
 >
   <path d="M13 13.74a2 2 0 0 1-2 0L2.5 8.87a1 1 0 0 1 0-1.74L11 2.26a2 2 0 0 1 2 0l8.5 4.87a1 1 0 0 1 0 1.74z" />
   <path d="m20 14.285 1.5.845a1 1 0 0 1 0 1.74L13 21.74a2 2 0 0 1-2 0l-8.5-4.87a1 1 0 0 1 0-1.74l1.5-.845" />
+</svg>
+`;
+
+const LayersArrowDown = `
+<svg
+  class="lucide lucide-layers-arrow-down"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 7v15" />
+  <path d="M2 12a1 1 0 00.58.91l5.093 2.316" />
+  <path d="M22 12a1 1 0 01-.59.92l-5.077 2.308" />
+  <path d="M8 10.37 2.6 7.91a1 1 0 010-1.831l8.57-3.9a2 2 0 011.66.001l8.59 3.91a1 1 0 010 1.831l-5.392 2.45" />
+  <path d="m9 19 3 3 3-3" />
+</svg>
+`;
+
+const LayersArrowUp = `
+<svg
+  class="lucide lucide-layers-arrow-up"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 12V2" />
+  <path d="M2 17.002a1 1 0 00.58.91l8.6 3.91a2 2 0 001.65 0l8.58-3.9a1 1 0 00.59-.92" />
+  <path d="M7.674 8.774 2.58 11.09a1 1 0 000 1.822l8.6 3.91a2 2 0 001.65 0l8.58-3.9a1 1 0 00.59-.92 1 1 0 00-.59-.922l-5.078-2.308" />
+  <path d="m9 5 3-3 3 3" />
 </svg>
 `;
 
@@ -17660,7 +20057,86 @@ const LayersPlus = `
   <path d="M19 14v6" />
   <path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 .825.178" />
   <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l2.116-.962" />
-</svg>`;
+</svg>
+`;
+
+const Layers = `
+<svg
+  class="lucide lucide-layers"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z" />
+  <path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12" />
+  <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17" />
+</svg>
+`;
+
+const LayoutArrowRight = `
+<svg
+  class="lucide lucide-layout-arrow-right"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <rect width="7" height="7" x="3" y="3" rx="1" />
+  <rect width="7" height="7" x="14" y="3" rx="1" />
+  <path d="M3 18h18" />
+  <path d="m18 21 3-3-3-3" />
+</svg>
+`;
+
+const LayoutFreeform = `
+<svg
+  class="lucide lucide-layout-freeform"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <rect width="7" height="7" x="3" y="3" rx="1" />
+  <rect width="7" height="7" x="14" y="4" rx="1" />
+  <rect width="7" height="7" x="4" y="14" rx="1" />
+</svg>
+`;
+
+const LayoutArrowDown = `
+<svg
+  class="lucide lucide-layout-arrow-down"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <rect width="7" height="7" x="3" y="3" rx="1" />
+  <rect width="7" height="7" x="3" y="14" rx="1" />
+  <path d="M18 3v18" />
+  <path d="m21 18-3 3-3-3" />
+</svg>
+`;
 
 const LayoutDashboard = `
 <svg
@@ -17682,9 +20158,9 @@ const LayoutDashboard = `
 </svg>
 `;
 
-const Layers = `
+const LayoutGridCircles = `
 <svg
-  class="lucide lucide-layers"
+  class="lucide lucide-layout-grid-circles"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -17695,9 +20171,10 @@ const Layers = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z" />
-  <path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12" />
-  <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17" />
+  <circle cx="17.5" cy="17.5" r="3.5" />
+  <circle cx="17.5" cy="6.5" r="3.5" />
+  <circle cx="6.5" cy="17.5" r="3.5" />
+  <circle cx="6.5" cy="6.5" r="3.5" />
 </svg>
 `;
 
@@ -17762,25 +20239,6 @@ const LayoutPanelLeft = `
 </svg>
 `;
 
-const LayoutPanelTop = `
-<svg
-  class="lucide lucide-layout-panel-top"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <rect width="18" height="7" x="3" y="3" rx="1" />
-  <rect width="7" height="7" x="3" y="14" rx="1" />
-  <rect width="7" height="7" x="14" y="14" rx="1" />
-</svg>
-`;
-
 const LayoutTemplate = `
 <svg
   class="lucide lucide-layout-template"
@@ -17800,6 +20258,25 @@ const LayoutTemplate = `
 </svg>
 `;
 
+const LayoutPanelTop = `
+<svg
+  class="lucide lucide-layout-panel-top"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <rect width="18" height="7" x="3" y="3" rx="1" />
+  <rect width="7" height="7" x="3" y="14" rx="1" />
+  <rect width="7" height="7" x="14" y="14" rx="1" />
+</svg>
+`;
+
 const Leaf = `
 <svg
   class="lucide lucide-leaf"
@@ -17813,8 +20290,8 @@ const Leaf = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z" />
-  <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
+  <path d="M11 20a10 10 0 0010-10 25.9 25.9 0 00-1.04-7.281 1 1 0 00-1.755-.325C15.833 5.5 13 5.5 9.8 6.1A7 7 0 0011 20" />
+  <path d="M2 21a5 5 0 012.911-4.544C7.613 15.212 8.351 15.24 11 13" />
 </svg>
 `;
 
@@ -17836,25 +20313,6 @@ const LeafyGreen = `
 </svg>
 `;
 
-const Lectern = `
-<svg
-  class="lucide lucide-lectern"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M16 12h3a2 2 0 0 0 1.902-1.38l1.056-3.333A1 1 0 0 0 21 6H3a1 1 0 0 0-.958 1.287l1.056 3.334A2 2 0 0 0 5 12h3" />
-  <path d="M18 6V3a1 1 0 0 0-1-1h-3" />
-  <rect width="8" height="12" x="8" y="10" rx="1" />
-</svg>
-`;
-
 const LensConcave = `
 <svg
   class="lucide lucide-lens-concave"
@@ -17872,6 +20330,26 @@ const LensConcave = `
 </svg>
 `;
 
+const Lectern = `
+<svg
+  class="lucide lucide-lectern"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M15 13h4a2 2 0 001.901-1.38l1.057-4.333A1 1 0 0021 6H3a1 1 0 00-.958 1.287L3.1 11.621A2 2 0 005.001 13h4" />
+  <path d="M15 22V11a1 1 0 00-1-1h-4a1 1 0 00-1 1v11" />
+  <path d="M18 22H6" />
+  <path d="M18 6V3a1 1 0 00-1-1h-3" />
+</svg>
+`;
+
 const LensConvex = `
 <svg
   class="lucide lucide-lens-convex"
@@ -17885,8 +20363,520 @@ const LensConvex = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path
-    d="M13.433 2a1 1 0 0 1 .824.448 18 18 0 0 1 0 19.104 1 1 0 0 1-.824.448h-2.866a1 1 0 0 1-.824-.448 18 18 0 0 1 0-19.104A1 1 0 0 1 10.567 2z" />
+  <path d="M13.433 2a1 1 0 0 1 .824.448 18 18 0 0 1 0 19.104 1 1 0 0 1-.824.448h-2.866a1 1 0 0 1-.824-.448 18 18 0 0 1 0-19.104A1 1 0 0 1 10.567 2z" />
+</svg>
+`;
+
+const Lens = `
+<svg
+  class="lucide lucide-lens"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M15.725 7.296h.01" />
+  <path d="M6 12a6 6 0 016-6" />
+  <circle cx="12" cy="12" r="10" />
+</svg>
+`;
+
+const LetterA = `
+<svg
+  class="lucide lucide-letter-a"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M17.117 14H6.883" />
+  <path d="m4 20 7.55-15.712a.5.5 0 01.9 0L20 20" />
+</svg>
+`;
+
+const LetterB = `
+<svg
+  class="lucide lucide-letter-b"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M6 12h9a4 4 0 010 8H7a1 1 0 01-1-1V5a1 1 0 011-1h7a4 4 0 010 8" />
+</svg>
+`;
+
+const LetterC = `
+<svg
+  class="lucide lucide-letter-c"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M19 6.708a8 8 0 100 10.584" />
+</svg>
+`;
+
+const LetterD = `
+<svg
+  class="lucide lucide-letter-d"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M11 4a8 8 0 010 16H6.406A.406.406 0 016 19.594V4.406A.406.406 0 016.406 4z" />
+</svg>
+`;
+
+const LetterE = `
+<svg
+  class="lucide lucide-letter-e"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M18 4H7a1 1 0 00-1 1v14a1 1 0 001 1h11" />
+  <path d="M6 12h8" />
+</svg>
+`;
+
+const LetterF = `
+<svg
+  class="lucide lucide-letter-f"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M6 12h8" />
+  <path d="M6 20V5a1 1 0 011-1h11" />
+</svg>
+`;
+
+const LetterG = `
+<svg
+  class="lucide lucide-letter-g"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M19 6.708a8 8 0 10-.526 11.126c.355-.333.526-.811.526-1.299V13a1 1 0 00-1-1h-4" />
+</svg>
+`;
+
+const LetterH = `
+<svg
+  class="lucide lucide-letter-h"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M18 20V4" />
+  <path d="M6 12H18" />
+  <path d="M6 20V4" />
+</svg>
+`;
+
+const LetterJ = `
+<svg
+  class="lucide lucide-letter-j"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M17 4v11a5 5 0 01-10 0" />
+</svg>
+`;
+
+const LetterI = `
+<svg
+  class="lucide lucide-letter-i"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 20V4" />
+</svg>
+`;
+
+const LetterK = `
+<svg
+  class="lucide lucide-letter-k"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M17 4 6 15" />
+  <path d="M6 20V4" />
+  <path d="m9 12 8 8" />
+</svg>
+`;
+
+const LetterL = `
+<svg
+  class="lucide lucide-letter-l"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M6 4v15a1 1 0 001 1h11" />
+</svg>
+`;
+
+const LetterM = `
+<svg
+  class="lucide lucide-letter-m"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M4 20V4.253a.25.25 0 01.454-.144l6.727 9.467a1 1 0 001.63 0l6.735-9.468a.25.25 0 01.454.145V20" />
+</svg>
+`;
+
+const LetterN = `
+<svg
+  class="lucide lucide-letter-n"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M6 20V4.25a.25.25 0 01.455-.143l11.09 15.786a.25.25 0 00.455-.144V4" />
+</svg>
+`;
+
+const LetterO = `
+<svg
+  class="lucide lucide-letter-o"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="12" cy="12" r="8" />
+</svg>
+`;
+
+const LetterP = `
+<svg
+  class="lucide lucide-letter-p"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M6 12h8a4 4 0 000-8H7a1 1 0 00-1 1v15" />
+</svg>
+`;
+
+const LetterR = `
+<svg
+  class="lucide lucide-letter-r"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m10 12 8 8" />
+  <path d="M6 12h8a4 4 0 000-8H7a1 1 0 00-1 1v15" />
+</svg>
+`;
+
+const LetterQ = `
+<svg
+  class="lucide lucide-letter-q"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="12" cy="12" r="8" />
+  <path d="M20 20L15 15" />
+</svg>
+`;
+
+const LetterS = `
+<svg
+  class="lucide lucide-letter-s"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M17 4h-7a4 4 0 000 8h4a4 4 0 010 8H6" />
+</svg>
+`;
+
+const LetterSpacing = `
+<svg
+  class="lucide lucide-letter-spacing"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M15 14H9" />
+  <path d="M21 3v18" />
+  <path d="M3 3v18" />
+  <path d="m8 16 3.453-7.648a.6.6 0 011.094.001L16 16" />
+</svg>
+`;
+
+const LetterT = `
+<svg
+  class="lucide lucide-letter-t"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 20V4" />
+  <path d="M5 4h14" />
+</svg>
+`;
+
+const LetterU = `
+<svg
+  class="lucide lucide-letter-u"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M6 4v10a6 6 0 0012 0V4" />
+</svg>
+`;
+
+const LetterV = `
+<svg
+  class="lucide lucide-letter-v"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m6 4 5.765 15.835a.25.25 0 00.47 0L18 4" />
+</svg>
+`;
+
+const LetterW = `
+<svg
+  class="lucide lucide-letter-w"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m21 4-4.794 15.821a.25.25 0 01-.471.021l-3.503-8.685a.25.25 0 00-.464 0l-3.503 8.685a.25.25 0 01-.47-.021L3 4" />
+</svg>
+`;
+
+const LetterX = `
+<svg
+  class="lucide lucide-letter-x"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M18 4 6 20" />
+  <path d="m6 4 12 16" />
+</svg>
+`;
+
+const LetterY = `
+<svg
+  class="lucide lucide-letter-y"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 12v8" />
+  <path d="m6 4 6 8 6-8" />
+</svg>
+`;
+
+const LetterZ = `
+<svg
+  class="lucide lucide-letter-z"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M6 4h11.5a.5.5 0 01.387.817L6.114 19.183a.5.5 0 00.387.817H18" />
+</svg>
+`;
+
+const Letters = `
+<svg
+  class="lucide lucide-letters"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M15 8H9" />
+  <path d="M21 15.354a4 4 0 100 5.292" />
+  <path d="M3 18h4a2 2 0 010 4H3.5a.5.5 0 01-.5-.5v-7a.5.5 0 01.5-.5H6a2 2 0 010 4" />
+  <path d="m8 10 3.453-7.648a.6.6 0 011.094 0L16 10" />
 </svg>
 `;
 
@@ -17951,6 +20941,27 @@ const LifeBuoy = `
 </svg>
 `;
 
+const LightbulbOff = `
+<svg
+  class="lucide lucide-lightbulb-off"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M16.8 11.2c.8-.9 1.2-2 1.2-3.2a6 6 0 0 0-9.3-5" />
+  <path d="m2 2 20 20" />
+  <path d="M6.3 6.3a4.67 4.67 0 0 0 1.2 5.2c.7.7 1.3 1.5 1.5 2.5" />
+  <path d="M9 18h6" />
+  <path d="M10 22h4" />
+</svg>
+`;
+
 const Ligature = `
 <svg
   class="lucide lucide-ligature"
@@ -17991,9 +21002,9 @@ const Lightbulb = `
 </svg>
 `;
 
-const LightbulbOff = `
+const Lighthouse = `
 <svg
-  class="lucide lucide-lightbulb-off"
+  class="lucide lucide-lighthouse"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -18004,11 +21015,54 @@ const LightbulbOff = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M16.8 11.2c.8-.9 1.2-2 1.2-3.2a6 6 0 0 0-9.3-5" />
-  <path d="m2 2 20 20" />
-  <path d="M6.3 6.3a4.67 4.67 0 0 0 1.2 5.2c.7.7 1.3 1.5 1.5 2.5" />
-  <path d="M9 18h6" />
-  <path d="M10 22h4" />
+  <path d="M12 3V2" />
+  <path d="M16.066 16.865 7 22l2-11V6a3 3 0 016 0v5l2 11" />
+  <path d="m19.792 4.5.866-.5" />
+  <path d="m19.797 13.5.866.5" />
+  <path d="M21 9h1" />
+  <path d="M3 9H2" />
+  <path d="m4.203 13.5-.866.5" />
+  <path d="M4.208 4.5 3.342 4" />
+  <path d="M5.5 22h13" />
+  <path d="m7.932 16.875 7.377-4.178" />
+  <path d="M8 11h8" />
+  <path d="M8 7h8" />
+</svg>
+`;
+
+const LineDotLeftHorizontal = `
+<svg
+  class="lucide lucide-line-dot-left-horizontal"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M9 12h12" />
+  <circle cx="6" cy="12" r="3" />
+</svg>
+`;
+
+const LineDotBottomVertical = `
+<svg
+  class="lucide lucide-line-dot-bottom-vertical"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 3v12" />
+  <circle cx="12" cy="18" r="3" />
 </svg>
 `;
 
@@ -18030,6 +21084,44 @@ const LineDotRightHorizontal = `
 </svg>
 `;
 
+const LineDotTopVertical = `
+<svg
+  class="lucide lucide-line-dot-top-vertical"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 9v12" />
+  <circle cx="12" cy="6" r="3" />
+</svg>
+`;
+
+const LineHeight = `
+<svg
+  class="lucide lucide-line-height"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M15 14H9" />
+  <path d="M21 21H3" />
+  <path d="M21 3H3" />
+  <path d="m8 16 3.453-7.648a.6.6 0 011.094.001L16 16" />
+</svg>
+`;
+
 const LineSquiggle = `
 <svg
   class="lucide lucide-line-squiggle"
@@ -18044,7 +21136,8 @@ const LineSquiggle = `
   stroke-linejoin="round"
 >
   <path d="M7 3.5c5-2 7 2.5 3 4C1.5 10 2 15 5 16c5 2 9-10 14-7s.5 13.5-4 12c-5-2.5.5-11 6-2" />
-</svg>`;
+</svg>
+`;
 
 const LineStyle = `
 <svg
@@ -18145,27 +21238,6 @@ const ListCheck = `
 </svg>
 `;
 
-const ListChecks = `
-<svg
-  class="lucide lucide-list-checks"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M13 5h8" />
-  <path d="M13 12h8" />
-  <path d="M13 19h8" />
-  <path d="m3 17 2 2 4-4" />
-  <path d="m3 7 2 2 4-4" />
-</svg>
-`;
-
 const ListChevronsDownUp = `
 <svg
   class="lucide lucide-list-chevrons-down-up"
@@ -18187,6 +21259,27 @@ const ListChevronsDownUp = `
 </svg>
 `;
 
+const ListChecks = `
+<svg
+  class="lucide lucide-list-checks"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M13 5h8" />
+  <path d="M13 12h8" />
+  <path d="M13 19h8" />
+  <path d="m3 17 2 2 4-4" />
+  <path d="m3 7 2 2 4-4" />
+</svg>
+`;
+
 const ListChevronsUpDown = `
 <svg
   class="lucide lucide-list-chevrons-up-down"
@@ -18205,6 +21298,27 @@ const ListChevronsUpDown = `
   <path d="M3 19h8" />
   <path d="m15 8 3-3 3 3" />
   <path d="m15 16 3 3 3-3" />
+</svg>
+`;
+
+const ListClock = `
+<svg
+  class="lucide lucide-list-clock"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M16 13v2.2l1.6 1" />
+  <path d="M3 12h3.458" />
+  <path d="M3 19h3.832" />
+  <path d="M3 5h18" />
+  <circle cx="16" cy="15" r="6" />
 </svg>
 `;
 
@@ -18250,6 +21364,25 @@ const ListEnd = `
 </svg>
 `;
 
+const ListFilter = `
+<svg
+  class="lucide lucide-list-filter"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M2 5h20" />
+  <path d="M6 12h12" />
+  <path d="M9 19h6" />
+</svg>
+`;
+
 const ListFilterPlus = `
 <svg
   class="lucide lucide-list-filter-plus"
@@ -18288,25 +21421,6 @@ const ListIndentDecrease = `
   <path d="M21 12H11" />
   <path d="M21 19H11" />
   <path d="m7 8-4 4 4 4" />
-</svg>
-`;
-
-const ListFilter = `
-<svg
-  class="lucide lucide-list-filter"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M2 5h20" />
-  <path d="M6 12h12" />
-  <path d="M9 19h6" />
 </svg>
 `;
 
@@ -18371,6 +21485,27 @@ const ListMusic = `
 </svg>
 `;
 
+const ListPlus = `
+<svg
+  class="lucide lucide-list-plus"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M16 5H3" />
+  <path d="M11 12H3" />
+  <path d="M16 19H3" />
+  <path d="M18 9v6" />
+  <path d="M21 12h-6" />
+</svg>
+`;
+
 const ListOrdered = `
 <svg
   class="lucide lucide-list-ordered"
@@ -18390,27 +21525,6 @@ const ListOrdered = `
   <path d="M4 4h1v5" />
   <path d="M4 9h2" />
   <path d="M6.5 20H3.4c0-1 2.6-1.925 2.6-3.5a1.5 1.5 0 0 0-2.6-1.02" />
-</svg>
-`;
-
-const ListPlus = `
-<svg
-  class="lucide lucide-list-plus"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M16 5H3" />
-  <path d="M11 12H3" />
-  <path d="M16 19H3" />
-  <path d="M18 9v6" />
-  <path d="M21 12h-6" />
 </svg>
 `;
 
@@ -18473,27 +21587,6 @@ const ListSortDescending = `
 </svg>
 `;
 
-const ListStart = `
-<svg
-  class="lucide lucide-list-start"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M3 5h6" />
-  <path d="M3 12h13" />
-  <path d="M3 19h13" />
-  <path d="m16 8-3-3 3-3" />
-  <path d="M21 19V7a2 2 0 0 0-2-2h-6" />
-</svg>
-`;
-
 const ListTodo = `
 <svg
   class="lucide lucide-list-todo"
@@ -18515,9 +21608,9 @@ const ListTodo = `
 </svg>
 `;
 
-const ListTree = `
+const ListStart = `
 <svg
-  class="lucide lucide-list-tree"
+  class="lucide lucide-list-start"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -18528,11 +21621,11 @@ const ListTree = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M8 5h13" />
-  <path d="M13 12h8" />
-  <path d="M13 19h8" />
-  <path d="M3 10a2 2 0 0 0 2 2h3" />
-  <path d="M3 5v12a2 2 0 0 0 2 2h3" />
+  <path d="M3 5h6" />
+  <path d="M3 12h13" />
+  <path d="M3 19h13" />
+  <path d="m16 8-3-3 3-3" />
+  <path d="M21 19V7a2 2 0 0 0-2-2h-6" />
 </svg>
 `;
 
@@ -18577,6 +21670,44 @@ const ListX = `
 </svg>
 `;
 
+const ListTree = `
+<svg
+  class="lucide lucide-list-tree"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M8 5h13" />
+  <path d="M13 12h8" />
+  <path d="M13 19h8" />
+  <path d="M3 10a2 2 0 0 0 2 2h3" />
+  <path d="M3 5v12a2 2 0 0 0 2 2h3" />
+</svg>
+`;
+
+const LoaderCircle = `
+<svg
+  class="lucide lucide-loader-circle"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M21 12a9 9 0 1 1-6.219-8.56" />
+</svg>
+`;
+
 const List = `
 <svg
   class="lucide lucide-list"
@@ -18596,23 +21727,6 @@ const List = `
   <path d="M8 5h13" />
   <path d="M8 12h13" />
   <path d="M8 19h13" />
-</svg>
-`;
-
-const LoaderCircle = `
-<svg
-  class="lucide lucide-loader-circle"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M21 12a9 9 0 1 1-6.219-8.56" />
 </svg>
 `;
 
@@ -18819,25 +21933,6 @@ const LogIn = `
 </svg>
 `;
 
-const LogOut = `
-<svg
-  class="lucide lucide-log-out"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="m16 17 5-5-5-5" />
-  <path d="M21 12H9" />
-  <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
-</svg>
-`;
-
 const Logs = `
 <svg
   class="lucide lucide-logs"
@@ -18860,6 +21955,25 @@ const Logs = `
   <path d="M13 5h8" />
   <path d="M13 12h8" />
   <path d="M13 19h8" />
+</svg>
+`;
+
+const LogOut = `
+<svg
+  class="lucide lucide-log-out"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m16 17 5-5-5-5" />
+  <path d="M21 12H9" />
+  <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
 </svg>
 `;
 
@@ -18903,6 +22017,45 @@ const Luggage = `
 </svg>
 `;
 
+const Magnet = `
+<svg
+  class="lucide lucide-magnet"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m12 15 4 4" />
+  <path d="M2.352 10.648a1.205 1.205 0 0 0 0 1.704l2.296 2.296a1.205 1.205 0 0 0 1.704 0l6.029-6.029a1 1 0 1 1 3 3l-6.029 6.029a1.205 1.205 0 0 0 0 1.704l2.296 2.296a1.205 1.205 0 0 0 1.704 0l6.365-6.367A1 1 0 0 0 8.716 4.282z" />
+  <path d="m5 8 4 4" />
+</svg>
+`;
+
+const MailBadge = `
+<svg
+  class="lucide lucide-mail-badge"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M22 7.7V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8.25" />
+  <path d="M12 12.996a1.94 1.94 0 0 1-1.03-.296L2 7" />
+  <path d="m20.69 16.479 1.29 4.88a.5.5 0 0 1-.698.591l-1.843-.849a1 1 0 0 0-.879.001l-1.846.85a.5.5 0 0 1-.692-.593l1.29-4.88" />
+  <circle cx="19" cy="14" r="3" />
+</svg>
+`;
+
 const MailCheck = `
 <svg
   class="lucide lucide-mail-check"
@@ -18922,9 +22075,9 @@ const MailCheck = `
 </svg>
 `;
 
-const Magnet = `
+const MailClock = `
 <svg
-  class="lucide lucide-magnet"
+  class="lucide lucide-mail-clock"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -18935,9 +22088,68 @@ const Magnet = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="m12 15 4 4" />
-  <path d="M2.352 10.648a1.205 1.205 0 0 0 0 1.704l2.296 2.296a1.205 1.205 0 0 0 1.704 0l6.029-6.029a1 1 0 1 1 3 3l-6.029 6.029a1.205 1.205 0 0 0 0 1.704l2.296 2.296a1.205 1.205 0 0 0 1.704 0l6.365-6.367A1 1 0 0 0 8.716 4.282z" />
-  <path d="m5 8 4 4" />
+  <path d="M16 14v2.2l1.6 1" />
+  <path d="m22 7-.759.484" />
+  <path d="M6.835 20H4a2 2 0 01-2-2V6a2 2 0 012-2h16a2 2 0 012 2v2" />
+  <path d="M7.605 10.567 2 7" />
+  <circle cx="16" cy="16" r="6" />
+</svg>
+`;
+
+const MailDot = `
+<svg
+  class="lucide lucide-mail-dot"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12.674 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-4.675" />
+  <path d="m2 7 9 5.701a2 2 0 0 0 2 0l1.084-.686" />
+  <circle cx="19" cy="7" r="3" />
+</svg>
+`;
+
+const MailExclamationPoint = `
+<svg
+  class="lucide lucide-mail-exclamation-point"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M22 10.5V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h12.5" />
+  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+  <path d="M20 14v4" />
+  <path d="M20 22v.01" />
+</svg>
+`;
+
+const MailOpen = `
+<svg
+  class="lucide lucide-mail-open"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M21.2 8.4c.5.38.8.97.8 1.6v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V10a2 2 0 0 1 .8-1.6l8-6a2 2 0 0 1 2.4 0l8 6Z" />
+  <path d="m22 10-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 10" />
 </svg>
 `;
 
@@ -18960,9 +22172,9 @@ const MailMinus = `
 </svg>
 `;
 
-const MailOpen = `
+const MailPen = `
 <svg
-  class="lucide lucide-mail-open"
+  class="lucide lucide-mail-pen"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -18973,8 +22185,9 @@ const MailOpen = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M21.2 8.4c.5.38.8.97.8 1.6v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V10a2 2 0 0 1 .8-1.6l8-6a2 2 0 0 1 2.4 0l8 6Z" />
-  <path d="m22 10-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 10" />
+  <path d="M15.363 17.634a2 2 0 00-.506.854l-.837 2.87a.5.5 0 00.62.62l2.87-.837a2 2 0 00.854-.506l3.013-3.009a1 1 0 10-3.004-3.004z" />
+  <path d="M22 10.38V6a2 2 0 00-2-2H4a2 2 0 00-2 2v12a2 2 0 002 2h6.25" />
+  <path d="m22 7-8.991 5.727a2 2 0 01-2.009 0L2 7" />
 </svg>
 `;
 
@@ -19039,26 +22252,6 @@ const MailSearch = `
 </svg>
 `;
 
-const MailWarning = `
-<svg
-  class="lucide lucide-mail-warning"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M22 10.5V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h12.5" />
-  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-  <path d="M20 14v4" />
-  <path d="M20 22v.01" />
-</svg>
-`;
-
 const MailX = `
 <svg
   class="lucide lucide-mail-x"
@@ -19072,28 +22265,10 @@ const MailX = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M22 13V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h9" />
-  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-  <path d="m17 17 4 4" />
-  <path d="m21 17-4 4" />
-</svg>
-`;
-
-const Mail = `
-<svg
-  class="lucide lucide-mail"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
+  <path d="M22 12.532V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8.792" />
   <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
-  <rect x="2" y="4" width="20" height="16" rx="2" />
+  <path d="m16.5 16.5 5 5" />
+  <path d="m21.5 16.5-5 5" />
 </svg>
 `;
 
@@ -19117,6 +22292,24 @@ const Mailbox = `
 </svg>
 `;
 
+const Mail = `
+<svg
+  class="lucide lucide-mail"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
+  <rect x="2" y="4" width="20" height="16" rx="2" />
+</svg>
+`;
+
 const Mails = `
 <svg
   class="lucide lucide-mails"
@@ -19133,6 +22326,24 @@ const Mails = `
   <path d="M17 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 1-1.732" />
   <path d="m22 5.5-6.419 4.179a2 2 0 0 1-2.162 0L7 5.5" />
   <rect x="7" y="3" width="15" height="12" rx="2" />
+</svg>
+`;
+
+const Mango = `
+<svg
+  class="lucide lucide-mango"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m17 6 3-3" />
+  <path d="M7 22a4 4 0 01-2.62-7.023A2 2 0 005 13.383V10a8 8 0 1116 0A12 12 0 019 22z" />
 </svg>
 `;
 
@@ -19250,6 +22461,25 @@ const MapPinMinus = `
 </svg>
 `;
 
+const MapPinPen = `
+<svg
+  class="lucide lucide-map-pin-pen"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M17.97 9.304A8 8 0 0 0 2 10c0 4.69 4.887 9.562 7.022 11.468" />
+  <path d="M21.378 16.626a1 1 0 0 0-3.004-3.004l-4.01 4.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z" />
+  <circle cx="10" cy="10" r="3" />
+</svg>
+`;
+
 const MapPinOff = `
 <svg
   class="lucide lucide-map-pin-off"
@@ -19268,25 +22498,6 @@ const MapPinOff = `
   <path d="m2 2 20 20" />
   <path d="M8.475 2.818A8 8 0 0 1 20 10c0 1.183-.31 2.377-.81 3.533" />
   <path d="M9.13 9.13a3 3 0 0 0 3.74 3.74" />
-</svg>
-`;
-
-const MapPinPen = `
-<svg
-  class="lucide lucide-map-pin-pen"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M17.97 9.304A8 8 0 0 0 2 10c0 4.69 4.887 9.562 7.022 11.468" />
-  <path d="M21.378 16.626a1 1 0 0 0-3.004-3.004l-4.01 4.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z" />
-  <circle cx="10" cy="10" r="3" />
 </svg>
 `;
 
@@ -19349,25 +22560,6 @@ const MapPinSearch = `
 </svg>
 `;
 
-const MapPinXInside = `
-<svg
-  class="lucide lucide-map-pin-x-inside"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
-  <path d="m14.5 7.5-5 5" />
-  <path d="m9.5 7.5 5 5" />
-</svg>
-`;
-
 const MapPinX = `
 <svg
   class="lucide lucide-map-pin-x"
@@ -19406,6 +22598,25 @@ const MapPin = `
 </svg>
 `;
 
+const MapPinXInside = `
+<svg
+  class="lucide lucide-map-pin-x-inside"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+  <path d="m14.5 7.5-5 5" />
+  <path d="m9.5 7.5 5 5" />
+</svg>
+`;
+
 const MapPinned = `
 <svg
   class="lucide lucide-map-pinned"
@@ -19419,9 +22630,9 @@ const MapPinned = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M18 8c0 3.613-3.869 7.429-5.393 8.795a1 1 0 0 1-1.214 0C9.87 15.429 6 11.613 6 8a6 6 0 0 1 12 0" />
+  <path d="M18 8c0 3.613-3.869 7.429-5.393 8.795a1 1 0 01-1.214 0C9.87 15.429 6 11.613 6 8a6 6 0 0112 0" />
+  <path d="M4.474 15h-.197a1 1 0 00-.969.753l-1.097 4.35a1.5 1.5 0 001.444 1.898L20.344 22a1.5 1.5 0 001.446-1.897l-1.098-4.35a1 1 0 00-.969-.753h-.197" />
   <circle cx="12" cy="8" r="2" />
-  <path d="M8.714 14h-3.71a1 1 0 0 0-.948.683l-2.004 6A1 1 0 0 0 3 22h18a1 1 0 0 0 .948-1.316l-2-6a1 1 0 0 0-.949-.684h-3.712" />
 </svg>
 `;
 
@@ -19446,6 +22657,156 @@ const MapPlus = `
 </svg>
 `;
 
+const Map = `
+<svg
+  class="lucide lucide-map"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z" />
+  <path d="M15 5.764v15" />
+  <path d="M9 3.236v15" />
+</svg>
+`;
+
+const MarginBottom = `
+<svg
+  class="lucide lucide-margin-bottom"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <rect x="9" y="9" width="6" height="6" rx="1" />
+  <path d="M3 21h18" />
+</svg>
+`;
+
+const MarginHorizontal = `
+<svg
+  class="lucide lucide-margin-horizontal"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <rect x="9" y="9" width="6" height="6" rx="1" />
+  <path d="M21 3v18" />
+  <path d="M3 3v18" />
+</svg>
+`;
+
+const MarginLeft = `
+<svg
+  class="lucide lucide-margin-left"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <rect x="9" y="9" width="6" height="6" rx="1" />
+  <path d="M3 3v18" />
+</svg>
+`;
+
+const MarginRight = `
+<svg
+  class="lucide lucide-margin-right"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <rect x="9" y="9" width="6" height="6" rx="1" />
+  <path d="M21 3v18" />
+</svg>
+`;
+
+const MarginVertical = `
+<svg
+  class="lucide lucide-margin-vertical"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <rect x="9" y="9" width="6" height="6" rx="1" />
+  <path d="M3 21h18" />
+  <path d="M3 3h18" />
+</svg>
+`;
+
+const Margin = `
+<svg
+  class="lucide lucide-margin"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <rect x="9" y="9" width="6" height="6" rx="1" />
+  <path d="M21 6v12" />
+  <path d="M3 6v12" />
+  <path d="M6 21h12" />
+  <path d="M6 3h12" />
+</svg>
+`;
+
+const MarginTop = `
+<svg
+  class="lucide lucide-margin-top"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <rect x="9" y="9" width="6" height="6" rx="1" />
+  <path d="M3 3h18" />
+</svg>
+`;
+
 const MarsStroke = `
 <svg
   class="lucide lucide-mars-stroke"
@@ -19463,25 +22824,6 @@ const MarsStroke = `
   <path d="M17 3h4v4" />
   <path d="m21 3-7.75 7.75" />
   <circle cx="9" cy="15" r="6" />
-</svg>
-`;
-
-const Map = `
-<svg
-  class="lucide lucide-map"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z" />
-  <path d="M15 5.764v15" />
-  <path d="M9 3.236v15" />
 </svg>
 `;
 
@@ -19625,9 +22967,9 @@ const Megaphone = `
 </svg>
 `;
 
-const Meh = `
+const Menu = `
 <svg
-  class="lucide lucide-meh"
+  class="lucide lucide-menu"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -19638,10 +22980,9 @@ const Meh = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <circle cx="12" cy="12" r="10" />
-  <line x1="8" x2="16" y1="15" y2="15" />
-  <line x1="9" x2="9.01" y1="9" y2="9" />
-  <line x1="15" x2="15.01" y1="9" y2="9" />
+  <path d="M4 5h16" />
+  <path d="M4 12h16" />
+  <path d="M4 19h16" />
 </svg>
 `;
 
@@ -19669,25 +23010,6 @@ const MemoryStick = `
   <path d="M8 12v-2" />
   <path d="M8 18v-2" />
   <rect x="2" y="6" width="20" height="10" rx="2" />
-</svg>
-`;
-
-const Menu = `
-<svg
-  class="lucide lucide-menu"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M4 5h16" />
-  <path d="M4 12h16" />
-  <path d="M4 19h16" />
 </svg>
 `;
 
@@ -19724,7 +23046,7 @@ const MessageCircleCheck = `
   stroke-linejoin="round"
 >
   <path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" />
-  <path d="m9 12 2 2 4-4" />
+  <path d="m16 9-5.5 5.5L8 12" />
 </svg>
 `;
 
@@ -19771,9 +23093,34 @@ const MessageCircleDashed = `
 </svg>
 `;
 
-const MessageCircleHeart = `
+const MessageCircleDashedCheck = `
 <svg
-  class="lucide lucide-message-circle-heart"
+  class="lucide lucide-message-circle-dashed-check"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M10.1 2.182a10 10 0 013.8 0" />
+  <path d="M13.9 21.818a10 10 0 01-3.8 0" />
+  <path d="M17.609 3.72a10 10 0 012.69 2.7" />
+  <path d="M2.182 13.9a10 10 0 010-3.8" />
+  <path d="M20.28 17.61a10 10 0 01-2.7 2.69" />
+  <path d="M21.818 10.1a10 10 0 010 3.8" />
+  <path d="M3.721 6.391a10 10 0 012.7-2.69" />
+  <path d="m6.163 21.117-2.906.85a1 1 0 01-1.236-1.169l.965-2.98" />
+  <path d="m16 9-5.5 5.5L8 12" />
+</svg>
+`;
+
+const MessageCircleExclamationPoint = `
+<svg
+  class="lucide lucide-message-circle-exclamation-point"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -19785,7 +23132,8 @@ const MessageCircleHeart = `
   stroke-linejoin="round"
 >
   <path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" />
-  <path d="M7.828 13.07A3 3 0 0 1 12 8.764a3 3 0 0 1 5.004 2.224 3 3 0 0 1-.832 2.083l-3.447 3.62a1 1 0 0 1-1.45-.001z" />
+  <path d="M12 8v4" />
+  <path d="M12 16h.01" />
 </svg>
 `;
 
@@ -19806,6 +23154,24 @@ const MessageCircleMore = `
   <path d="M8 12h.01" />
   <path d="M12 12h.01" />
   <path d="M16 12h.01" />
+</svg>
+`;
+
+const MessageCircleHeart = `
+<svg
+  class="lucide lucide-message-circle-heart"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" />
+  <path d="M7.828 13.07A3 3 0 0 1 12 8.764a3 3 0 0 1 5.004 2.224 3 3 0 0 1-.832 2.083l-3.447 3.62a1 1 0 0 1-1.45-.001z" />
 </svg>
 `;
 
@@ -19885,9 +23251,9 @@ const MessageCircleReply = `
 </svg>
 `;
 
-const MessageCircleWarning = `
+const MessageCircleText = `
 <svg
-  class="lucide lucide-message-circle-warning"
+  class="lucide lucide-message-circle-text"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -19898,9 +23264,10 @@ const MessageCircleWarning = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" />
-  <path d="M12 8v4" />
-  <path d="M12 16h.01" />
+  <path d="M3.086 17.509a2 2 0 00-.094-1.167 10 10 0 114.777 4.719 2 2 0 00-1.099-.092l-3.413.998a1 1 0 01-1.236-1.168z" />
+  <path d="M8 12h9" />
+  <path d="M8 16h5" />
+  <path d="M8 8h7" />
 </svg>
 `;
 
@@ -19923,23 +23290,6 @@ const MessageCircleX = `
 </svg>
 `;
 
-const MessageCircle = `
-<svg
-  class="lucide lucide-message-circle"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" />
-</svg>
-`;
-
 const MessageSquareCheck = `
 <svg
   class="lucide lucide-message-square-check"
@@ -19955,6 +23305,23 @@ const MessageSquareCheck = `
 >
   <path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.7.7 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z" />
   <path d="m9 11 2 2 4-4" />
+</svg>
+`;
+
+const MessageCircle = `
+<svg
+  class="lucide lucide-message-circle"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" />
 </svg>
 `;
 
@@ -20023,9 +23390,9 @@ const MessageSquareDiff = `
 </svg>
 `;
 
-const MessageSquareDot = `
+const MessageSquareExclamationPoint = `
 <svg
-  class="lucide lucide-message-square-dot"
+  class="lucide lucide-message-square-exclamation-point"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -20036,8 +23403,9 @@ const MessageSquareDot = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M12.7 3H4a2 2 0 0 0-2 2v16.286a.71.71 0 0 0 1.212.502l2.202-2.202A2 2 0 0 1 6.828 19H20a2 2 0 0 0 2-2v-4.7" />
-  <circle cx="19" cy="6" r="3" />
+  <path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z" />
+  <path d="M12 15h.01" />
+  <path d="M12 7v4" />
 </svg>
 `;
 
@@ -20056,6 +23424,24 @@ const MessageSquareHeart = `
 >
   <path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z" />
   <path d="M7.5 9.5c0 .687.265 1.383.697 1.844l3.009 3.264a1.14 1.14 0 0 0 .407.314 1 1 0 0 0 .783-.004 1.14 1.14 0 0 0 .398-.31l3.008-3.264A2.77 2.77 0 0 0 16.5 9.5 2.5 2.5 0 0 0 12 8a2.5 2.5 0 0 0-4.5 1.5" />
+</svg>
+`;
+
+const MessageSquareDot = `
+<svg
+  class="lucide lucide-message-square-dot"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12.7 3H4a2 2 0 0 0-2 2v16.286a.71.71 0 0 0 1.212.502l2.202-2.202A2 2 0 0 1 6.828 19H20a2 2 0 0 0 2-2v-4.7" />
+  <circle cx="19" cy="6" r="3" />
 </svg>
 `;
 
@@ -20213,9 +23599,9 @@ const MessageSquareText = `
 </svg>
 `;
 
-const MessageSquareWarning = `
+const MessageSquareX = `
 <svg
-  class="lucide lucide-message-square-warning"
+  class="lucide lucide-message-square-x"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -20227,8 +23613,8 @@ const MessageSquareWarning = `
   stroke-linejoin="round"
 >
   <path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z" />
-  <path d="M12 15h.01" />
-  <path d="M12 7v4" />
+  <path d="m14.5 8.5-5 5" />
+  <path d="m9.5 8.5 5 5" />
 </svg>
 `;
 
@@ -20249,9 +23635,9 @@ const MessageSquare = `
 </svg>
 `;
 
-const MessageSquareX = `
+const MessagesCircle = `
 <svg
-  class="lucide lucide-message-square-x"
+  class="lucide lucide-messages-circle"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -20262,9 +23648,8 @@ const MessageSquareX = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z" />
-  <path d="m14.5 8.5-5 5" />
-  <path d="m9.5 8.5 5 5" />
+  <path d="M19.95 10.05a7 7 0 011.412 7.872 1 1 0 00-.058.787l.675 2.089a1 1 0 01-1.236 1.168l-2.155-.631a1 1 0 00-.745.06 7 7 0 01-7.793-1.445" />
+  <path d="M2.696 12.708a1 1 0 00-.058-.785 7 7 0 113.518 3.473 1 1 0 00-.744-.061l-2.155.63a1 1 0 01-1.236-1.167z" />
 </svg>
 `;
 
@@ -20306,6 +23691,31 @@ const Metronome = `
 </svg>
 `;
 
+const MicAudioLines = `
+<svg
+  class="lucide lucide-mic-audio-lines"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M10 3v2.341" />
+  <path d="M12 17v4" />
+  <path d="M14 5v.341" />
+  <path d="M18 5v13" />
+  <path d="M2 10v3" />
+  <path d="M22 10v3" />
+  <path d="M6 6v11" />
+  <path d="M9 21h6" />
+  <rect width="4" height="8" x="10" y="9" rx="2" />
+</svg>
+`;
+
 const MicOff = `
 <svg
   class="lucide lucide-mic-off"
@@ -20325,6 +23735,29 @@ const MicOff = `
   <path d="M18.89 13.23A7 7 0 0 0 19 12v-2" />
   <path d="m2 2 20 20" />
   <path d="M9 9v3a3 3 0 0 0 5.12 2.12" />
+</svg>
+`;
+
+const MicSignal = `
+<svg
+  class="lucide lucide-mic-signal"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 17v4" />
+  <path d="M18 11a6 6 0 00-3-5.197" />
+  <path d="M2 11a10 10 0 015-8.662" />
+  <path d="M22 11a10 10 0 00-5-8.662" />
+  <path d="M6 11a6 6 0 013-5.197" />
+  <path d="M9 21h6" />
+  <rect x="10" y="9" width="4" height="8" rx="2" />
 </svg>
 `;
 
@@ -20414,6 +23847,29 @@ const Microscope = `
 </svg>
 `;
 
+const MidiPort = `
+<svg
+  class="lucide lucide-midi-port"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 18h.01" />
+  <path d="M15 2.458V5a1 1 0 01-1 1h-4a1 1 0 01-1-1V2.458" />
+  <path d="M16 16h.01" />
+  <path d="M18 12h.01" />
+  <path d="M6 12h.01" />
+  <path d="M8 16h.01" />
+  <circle cx="12" cy="12" r="10" />
+</svg>
+`;
+
 const Microwave = `
 <svg
   class="lucide lucide-microwave"
@@ -20474,6 +23930,26 @@ const MilkOff = `
 </svg>
 `;
 
+const Minimize2 = `
+<svg
+  class="lucide lucide-minimize-2"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m14 10 7-7" />
+  <path d="M20 10h-6V4" />
+  <path d="m3 21 7-7" />
+  <path d="M4 14h6v6" />
+</svg>
+`;
+
 const Milk = `
 <svg
   class="lucide lucide-milk"
@@ -20530,26 +24006,6 @@ const Minus = `
 </svg>
 `;
 
-const Minimize2 = `
-<svg
-  class="lucide lucide-minimize-2"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="m14 10 7-7" />
-  <path d="M20 10h-6V4" />
-  <path d="m3 21 7-7" />
-  <path d="M4 14h6v6" />
-</svg>
-`;
-
 const MirrorRectangular = `
 <svg
   class="lucide lucide-mirror-rectangular"
@@ -20566,7 +24022,8 @@ const MirrorRectangular = `
   <path d="M11 6 8 9" />
   <path d="m16 7-8 8" />
   <rect x="4" y="2" width="16" height="20" rx="2" />
-</svg>`;
+</svg>
+`;
 
 const MirrorRound = `
 <svg
@@ -20586,7 +24043,8 @@ const MirrorRound = `
   <path d="M15 7.5 9.5 13" />
   <path d="M7 22h10" />
   <circle cx="12" cy="10" r="8" />
-</svg>`;
+</svg>
+`;
 
 const MonitorCheck = `
 <svg
@@ -20605,6 +24063,26 @@ const MonitorCheck = `
   <rect width="20" height="14" x="2" y="3" rx="2" />
   <path d="M12 17v4" />
   <path d="M8 21h8" />
+</svg>
+`;
+
+const MonitorActivity = `
+<svg
+  class="lucide lucide-monitor-activity"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 17v4" />
+  <path d="M18 10h-2.315a1 1 0 00-.932.64l-.787 2.034a.5.5 0 01-.932 0l-2.068-5.348a.5.5 0 00-.932 0l-.787 2.035a1 1 0 01-.932.639H6" />
+  <path d="M8 21h8" />
+  <rect x="2" y="3" width="20" height="14" rx="2" />
 </svg>
 `;
 
@@ -20676,27 +24154,6 @@ const MonitorDot = `
 </svg>
 `;
 
-const MonitorDown = `
-<svg
-  class="lucide lucide-monitor-down"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M12 13V7" />
-  <path d="m15 10-3 3-3-3" />
-  <rect width="20" height="14" x="2" y="3" rx="2" />
-  <path d="M12 17v4" />
-  <path d="M8 21h8" />
-</svg>
-`;
-
 const MonitorOff = `
 <svg
   class="lucide lucide-monitor-off"
@@ -20718,6 +24175,27 @@ const MonitorOff = `
 </svg>
 `;
 
+const MonitorDown = `
+<svg
+  class="lucide lucide-monitor-down"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 13V7" />
+  <path d="m15 10-3 3-3-3" />
+  <rect width="20" height="14" x="2" y="3" rx="2" />
+  <path d="M12 17v4" />
+  <path d="M8 21h8" />
+</svg>
+`;
+
 const MonitorPause = `
 <svg
   class="lucide lucide-monitor-pause"
@@ -20736,6 +24214,29 @@ const MonitorPause = `
   <rect width="20" height="14" x="2" y="3" rx="2" />
   <path d="M12 17v4" />
   <path d="M8 21h8" />
+</svg>
+`;
+
+const MonitorPc = `
+<svg
+  class="lucide lucide-monitor-pc"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M10 15H4a2 2 0 01-2-2V7a2 2 0 012-2h6" />
+  <path d="M10 19H5" />
+  <path d="M14 11h8" />
+  <path d="M14 7h8" />
+  <path d="M18 17h.01" />
+  <path d="M9 19v-4" />
+  <rect x="14" y="3" width="8" height="18" rx="1" />
 </svg>
 `;
 
@@ -20917,6 +24418,73 @@ const Moon = `
 </svg>
 `;
 
+const MopSparkles = `
+<svg
+  class="lucide lucide-mop-sparkles"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M10 22a3 3 0 01-3-3" />
+  <path d="M10 22c2.761 0 5-1.79 5-4-4.42 0-4.08-5-8.5-5a4.501 4.501 0 000 9z" />
+  <path d="M10 3H8" />
+  <path d="M12.5 11.5 22 2" />
+  <path d="M20 13v4" />
+  <path d="M22 15h-4" />
+  <path d="M4 5v4" />
+  <path d="M6 7H2" />
+  <path d="m6.98 13.02 2.665-2.664a1.21 1.21 0 011.71 0l2.29 2.288a1.21 1.21 0 010 1.712l-2.088 2.087" />
+  <path d="M9 2v2" />
+</svg>
+`;
+
+const Mop = `
+<svg
+  class="lucide lucide-mop"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M10 22c2.761 0 5-1.79 5-4-4.42 0-4.08-5-8.5-5a1 1 0 100 9za3 3 0 01-3-3" />
+  <path d="M12.5 11.5 22 2" />
+  <path d="m6.98 13.02 2.665-2.664a1.21 1.21 0 011.71 0l2.29 2.288a1.21 1.21 0 010 1.712l-2.088 2.087" />
+</svg>
+`;
+
+const Mosque = `
+<svg
+  class="lucide lucide-mosque"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12.268 2a2 2 0 003.465 2" />
+  <path d="M14 5 L14 8" />
+  <path d="M16 22v-3a2 2 0 00-4 0v3" />
+  <path d="M21 13c-.662-1.497-1.666-2.753-2.9-3.63C16.825 8.47 15.422 8 14 8s-2.826.47-4.1 1.37C8.668 10.248 7.663 11.504 7 13z" />
+  <path d="M3 9h4" />
+  <path d="M7 22V6a5 5 0 00-2-4 5 5 0 00-2 4v14a2 2 0 002 2h14a2 2 0 002-2v-7" />
+</svg>
+`;
+
 const Motorbike = `
 <svg
   class="lucide lucide-motorbike"
@@ -21031,6 +24599,23 @@ const MousePointer2Off = `
 </svg>
 `;
 
+const MousePointer2 = `
+<svg
+  class="lucide lucide-mouse-pointer-2"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z" />
+</svg>
+`;
+
 const MousePointerBan = `
 <svg
   class="lucide lucide-mouse-pointer-ban"
@@ -21047,23 +24632,6 @@ const MousePointerBan = `
   <path d="M2.034 2.681a.498.498 0 0 1 .647-.647l9 3.5a.5.5 0 0 1-.033.944L8.204 7.545a1 1 0 0 0-.66.66l-1.066 3.443a.5.5 0 0 1-.944.033z" />
   <circle cx="16" cy="16" r="6" />
   <path d="m11.8 11.8 8.4 8.4" />
-</svg>
-`;
-
-const MousePointer2 = `
-<svg
-  class="lucide lucide-mouse-pointer-2"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z" />
 </svg>
 `;
 
@@ -21085,24 +24653,6 @@ const MousePointerClick = `
   <path d="m6 12-1.9 2" />
   <path d="M7.2 2.2 8 5.1" />
   <path d="M9.037 9.69a.498.498 0 0 1 .653-.653l11 4.5a.5.5 0 0 1-.074.949l-4.349 1.041a1 1 0 0 0-.74.739l-1.04 4.35a.5.5 0 0 1-.95.074z" />
-</svg>
-`;
-
-const MousePointer = `
-<svg
-  class="lucide lucide-mouse-pointer"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M12.586 12.586 19 19" />
-  <path d="M3.688 3.037a.497.497 0 0 0-.651.651l6.5 15.999a.501.501 0 0 0 .947-.062l1.569-6.083a2 2 0 0 1 1.448-1.479l6.124-1.579a.5.5 0 0 0 .063-.947z" />
 </svg>
 `;
 
@@ -21140,6 +24690,63 @@ const Mouse = `
 >
   <rect x="5" y="2" width="14" height="20" rx="7" />
   <path d="M12 6v4" />
+</svg>
+`;
+
+const MousePointer = `
+<svg
+  class="lucide lucide-mouse-pointer"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12.586 12.586 19 19" />
+  <path d="M3.688 3.037a.497.497 0 0 0-.651.651l6.5 15.999a.501.501 0 0 0 .947-.062l1.569-6.083a2 2 0 0 1 1.448-1.479l6.124-1.579a.5.5 0 0 0 .063-.947z" />
+</svg>
+`;
+
+const Mouth = `
+<svg
+  class="lucide lucide-mouth"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M2 12a50.5 50.5 0 0020 0 1 1 0 00-1-1" />
+  <path d="M2.457 11.159a1 1 0 00-.307 1.369 11.59 11.59 0 0019.7 0 1 1 0 00-.308-1.368c-2.426-1.568-3.65-2.284-5.479-3.644a2.6 2.6 0 00-3.373.208 1 1 0 01-1.38 0 2.62 2.62 0 00-3.373-.208c-1.83 1.36-3.053 2.076-5.48 3.643" />
+</svg>
+`;
+
+const MouthOff = `
+<svg
+  class="lucide lucide-mouth-off"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M13.074 7.417a2.6 2.6 0 012.989.099c1.829 1.36 3.053 2.076 5.479 3.644a1 1 0 01.308 1.368 11.6 11.6 0 01-1.617 2.05" />
+  <path d="M2 12a50.5 50.5 0 0010.99.99" />
+  <path d="m2 2 20 20" />
+  <path d="M21 11a1 1 0 011 1 51 51 0 01-3.734.61" />
+  <path d="M7.695 7.695c-1.7 1.247-2.92 1.967-5.238 3.464a1 1 0 00-.307 1.369 11.6 11.6 0 0014.766 4.388" />
 </svg>
 `;
 
@@ -21405,9 +25012,9 @@ const Move = `
 </svg>
 `;
 
-const Music2 = `
+const Navigation2 = `
 <svg
-  class="lucide lucide-music-2"
+  class="lucide lucide-navigation-2"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -21418,46 +25025,7 @@ const Music2 = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <circle cx="8" cy="18" r="4" />
-  <path d="M12 18V2l7 4" />
-</svg>
-`;
-
-const Music3 = `
-<svg
-  class="lucide lucide-music-3"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <circle cx="12" cy="18" r="4" />
-  <path d="M16 18V2" />
-</svg>
-`;
-
-const Music4 = `
-<svg
-  class="lucide lucide-music-4"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M9 18V5l12-2v13" />
-  <path d="m9 9 12-2" />
-  <circle cx="6" cy="18" r="3" />
-  <circle cx="18" cy="16" r="3" />
+  <polygon points="12 2 19 21 12 17 5 21 12 2" />
 </svg>
 `;
 
@@ -21480,9 +25048,9 @@ const Navigation2Off = `
 </svg>
 `;
 
-const Music = `
+const NavigationOff = `
 <svg
-  class="lucide lucide-music"
+  class="lucide lucide-navigation-off"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -21493,26 +25061,9 @@ const Music = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M9 18V5l12-2v13" />
-  <circle cx="6" cy="18" r="3" />
-  <circle cx="18" cy="16" r="3" />
-</svg>
-`;
-
-const Navigation2 = `
-<svg
-  class="lucide lucide-navigation-2"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <polygon points="12 2 19 21 12 17 5 21 12 2" />
+  <path d="M8.43 8.43 3 11l8 2 2 8 2.57-5.43" />
+  <path d="M17.39 11.73 22 2l-9.73 4.61" />
+  <line x1="2" x2="22" y1="2" y2="22" />
 </svg>
 `;
 
@@ -21530,25 +25081,6 @@ const Navigation = `
   stroke-linejoin="round"
 >
   <polygon points="3 11 22 2 13 21 11 13 3 11" />
-</svg>
-`;
-
-const NavigationOff = `
-<svg
-  class="lucide lucide-navigation-off"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M8.43 8.43 3 11l8 2 2 8 2.57-5.43" />
-  <path d="M17.39 11.73 22 2l-9.73 4.61" />
-  <line x1="2" x2="22" y1="2" y2="22" />
 </svg>
 `;
 
@@ -21573,9 +25105,9 @@ const Network = `
 </svg>
 `;
 
-const Newspaper = `
+const NepaliRupee = `
 <svg
-  class="lucide lucide-newspaper"
+  class="lucide lucide-nepali-rupee"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -21586,10 +25118,9 @@ const Newspaper = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M15 18h-5" />
-  <path d="M18 14h-8" />
-  <path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-4 0v-9a2 2 0 0 1 2-2h2" />
-  <rect width="8" height="4" x="10" y="6" rx="1" />
+  <path d="m14 20-8-8h4c5.333 0 5.333-8 0-8" />
+  <path d="M14 8c4.078 0 5.038 4.678 2.88 6.88" />
+  <path d="M6 4h12" />
 </svg>
 `;
 
@@ -21613,6 +25144,26 @@ const Nfc = `
 </svg>
 `;
 
+const Newspaper = `
+<svg
+  class="lucide lucide-newspaper"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M15 18h-5" />
+  <path d="M18 14h-8" />
+  <path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-4 0v-9a2 2 0 0 1 2-2h2" />
+  <rect width="8" height="4" x="10" y="6" rx="1" />
+</svg>
+`;
+
 const NonBinary = `
 <svg
   class="lucide lucide-non-binary"
@@ -21630,6 +25181,29 @@ const NonBinary = `
   <path d="m8.5 4 7 4" />
   <path d="m8.5 8 7-4" />
   <circle cx="12" cy="17" r="5" />
+</svg>
+`;
+
+const NotebookDot = `
+<svg
+  class="lucide lucide-notebook-dot"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M16 11.75V22" />
+  <path d="M2 10h4" />
+  <path d="M2 14h4" />
+  <path d="M2 18h4" />
+  <path d="M2 6h4" />
+  <path d="M20 11.75V20a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h5.65" />
+  <circle cx="18" cy="5" r="3" />
 </svg>
 `;
 
@@ -21778,6 +25352,25 @@ const NotepadText = `
 </svg>
 `;
 
+const Numbers = `
+<svg
+  class="lucide lucide-numbers"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m10 4 2.6-1.95a.25.25 0 01.4.2V10" />
+  <path d="M16 14.535A4 4 0 0118 14a2 2 0 010 4 2 2 0 010 4 4 4 0 01-2-.535" />
+  <path d="M8 22H4.5a.5.5 0 01-.5-.5c0-2.68 4-2.932 4-5.5a2 2 0 00-2-2 2.5 2.5 0 00-2 1" />
+</svg>
+`;
+
 const NutOff = `
 <svg
   class="lucide lucide-nut-off"
@@ -21791,11 +25384,11 @@ const NutOff = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M12 4V2" />
-  <path d="M5 10v4a7.004 7.004 0 0 0 5.277 6.787c.412.104.802.292 1.102.592L12 22l.621-.621c.3-.3.69-.488 1.102-.592a7.01 7.01 0 0 0 4.125-2.939" />
-  <path d="M19 10v3.343" />
-  <path d="M12 12c-1.349-.573-1.905-1.005-2.5-2-.546.902-1.048 1.353-2.5 2-1.018-.644-1.46-1.08-2-2-1.028.71-1.69.918-3 1 1.081-1.048 1.757-2.03 2-3 .194-.776.84-1.551 1.79-2.21m11.654 5.997c.887-.457 1.28-.891 1.556-1.787 1.032.916 1.683 1.157 3 1-1.297-1.036-1.758-2.03-2-3-.5-2-4-4-8-4-.74 0-1.461.068-2.15.192" />
-  <line x1="2" x2="22" y1="2" y2="22" />
+  <path d="M11.868 11.868a.88.88 0 01-.488.252c-1.78.28-3.54-.17-4.88-.62 0 1.272-.229 3.578-.653 5.347a10 10 0 01-.417 1.363c-.21.52-.82.55-1.17.12a10 10 0 01.677-13.393" />
+  <path d="M12.14 6.485a27.4 27.4 0 004.707-.638L20 9a7.23 7.23 0 011.706 7.05" />
+  <path d="m2 2 20 20" />
+  <path d="M20.707 20.707A1 1 0 0120 21h-1c-1.069 0-1.648.242-2.485.552A7.2 7.2 0 019.002 20l-3.155-3.153" />
+  <path d="M8.356 2.7a10 10 0 019.974 1.56c.43.35.4.97-.12 1.17a10 10 0 01-1.363.417" />
 </svg>
 `;
 
@@ -21812,15 +25405,15 @@ const Nut = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M12 4V2" />
-  <path d="M5 10v4a7.004 7.004 0 0 0 5.277 6.787c.412.104.802.292 1.102.592L12 22l.621-.621c.3-.3.69-.488 1.102-.592A7.003 7.003 0 0 0 19 14v-4" />
-  <path d="M12 4C8 4 4.5 6 4 8c-.243.97-.919 1.952-2 3 1.31-.082 1.972-.29 3-1 .54.92.982 1.356 2 2 1.452-.647 1.954-1.098 2.5-2 .595.995 1.151 1.427 2.5 2 1.31-.621 1.862-1.058 2.5-2 .629.977 1.162 1.423 2.5 2 1.209-.548 1.68-.967 2-2 1.032.916 1.683 1.157 3 1-1.297-1.036-1.758-2.03-2-3-.5-2-4-4-8-4Z" />
+  <path d="M16.847 5.847 20 9a7.23 7.23 0 011.551 7.516C21.241 17.352 21 17.932 21 19v1a1 1 0 01-1 1h-1c-1.069 0-1.648.242-2.485.552A7.2 7.2 0 019.002 20l-3.155-3.153" />
+  <path d="M18.21 5.43c-1.71.69-5.07 1.07-6.71 1.07.46 1.38.91 2.74.61 4.88a.88.88 0 01-.73.74c-1.78.28-3.54-.17-4.88-.62 0 1.64-.38 5-1.07 6.71-.21.52-.82.55-1.17.12A10 10 0 0118.33 4.26c.43.35.4.97-.12 1.17" />
+  <path d="M4.93 4.93 3 3a.7.7 0 010-1" />
 </svg>
 `;
 
-const OctagonAlert = `
+const OctagonExclamationPoint = `
 <svg
-  class="lucide lucide-octagon-alert"
+  class="lucide lucide-octagon-exclamation-point"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -21834,6 +25427,24 @@ const OctagonAlert = `
   <path d="M12 16h.01" />
   <path d="M12 8v4" />
   <path d="M15.312 2a2 2 0 0 1 1.414.586l4.688 4.688A2 2 0 0 1 22 8.688v6.624a2 2 0 0 1-.586 1.414l-4.688 4.688a2 2 0 0 1-1.414.586H8.688a2 2 0 0 1-1.414-.586l-4.688-4.688A2 2 0 0 1 2 15.312V8.688a2 2 0 0 1 .586-1.414l4.688-4.688A2 2 0 0 1 8.688 2z" />
+</svg>
+`;
+
+const OctagonMinus = `
+<svg
+  class="lucide lucide-octagon-minus"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M2.586 16.726A2 2 0 0 1 2 15.312V8.688a2 2 0 0 1 .586-1.414l4.688-4.688A2 2 0 0 1 8.688 2h6.624a2 2 0 0 1 1.414.586l4.688 4.688A2 2 0 0 1 22 8.688v6.624a2 2 0 0 1-.586 1.414l-4.688 4.688a2 2 0 0 1-1.414.586H8.688a2 2 0 0 1-1.414-.586z" />
+  <path d="M8 12h8" />
 </svg>
 `;
 
@@ -21856,24 +25467,6 @@ const OctagonPause = `
 </svg>
 `;
 
-const OctagonMinus = `
-<svg
-  class="lucide lucide-octagon-minus"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M2.586 16.726A2 2 0 0 1 2 15.312V8.688a2 2 0 0 1 .586-1.414l4.688-4.688A2 2 0 0 1 8.688 2h6.624a2 2 0 0 1 1.414.586l4.688 4.688A2 2 0 0 1 22 8.688v6.624a2 2 0 0 1-.586 1.414l-4.688 4.688a2 2 0 0 1-1.414.586H8.688a2 2 0 0 1-1.414-.586z" />
-  <path d="M8 12h8" />
-</svg>
-`;
-
 const OctagonX = `
 <svg
   class="lucide lucide-octagon-x"
@@ -21893,23 +25486,6 @@ const OctagonX = `
 </svg>
 `;
 
-const Omega = `
-<svg
-  class="lucide lucide-omega"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M3 20h4.5a.5.5 0 0 0 .5-.5v-.282a.52.52 0 0 0-.247-.437 8 8 0 1 1 8.494-.001.52.52 0 0 0-.247.438v.282a.5.5 0 0 0 .5.5H21" />
-</svg>
-`;
-
 const Octagon = `
 <svg
   class="lucide lucide-octagon"
@@ -21924,6 +25500,23 @@ const Octagon = `
   stroke-linejoin="round"
 >
   <path d="M2.586 16.726A2 2 0 0 1 2 15.312V8.688a2 2 0 0 1 .586-1.414l4.688-4.688A2 2 0 0 1 8.688 2h6.624a2 2 0 0 1 1.414.586l4.688 4.688A2 2 0 0 1 22 8.688v6.624a2 2 0 0 1-.586 1.414l-4.688 4.688a2 2 0 0 1-1.414.586H8.688a2 2 0 0 1-1.414-.586z" />
+</svg>
+`;
+
+const Omega = `
+<svg
+  class="lucide lucide-omega"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M3 20h4.5a.5.5 0 0 0 .5-.5v-.282a.52.52 0 0 0-.247-.437 8 8 0 1 1 8.494-.001.52.52 0 0 0-.247.438v.282a.5.5 0 0 0 .5.5H21" />
 </svg>
 `;
 
@@ -22066,28 +25659,6 @@ const PackageOpen = `
 </svg>
 `;
 
-const PackagePlus = `
-<svg
-  class="lucide lucide-package-plus"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M12 22V12" />
-  <path d="M16 17h6" />
-  <path d="M19 14v6" />
-  <path d="M21 10.535V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.729l7 4a2 2 0 0 0 2 .001l1.675-.955" />
-  <path d="M3.29 7 12 12l8.71-5" />
-  <path d="m7.5 4.27 8.997 5.148" />
-</svg>
-`;
-
 const PackageSearch = `
 <svg
   class="lucide lucide-package-search"
@@ -22110,9 +25681,9 @@ const PackageSearch = `
 </svg>
 `;
 
-const PackageX = `
+const PackagePlus = `
 <svg
-  class="lucide lucide-package-x"
+  class="lucide lucide-package-plus"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -22124,9 +25695,9 @@ const PackageX = `
   stroke-linejoin="round"
 >
   <path d="M12 22V12" />
-  <path d="m16.5 14.5 5 5" />
-  <path d="m16.5 19.5 5-5" />
-  <path d="M21 10.5V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.729l7 4a2 2 0 0 0 2 .001l.13-.074" />
+  <path d="M16 17h6" />
+  <path d="M19 14v6" />
+  <path d="M21 10.535V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.729l7 4a2 2 0 0 0 2 .001l1.675-.955" />
   <path d="M3.29 7 12 12l8.71-5" />
   <path d="m7.5 4.27 8.997 5.148" />
 </svg>
@@ -22149,6 +25720,28 @@ const Package = `
   <path d="M12 22V12" />
   <polyline points="3.29 7 12 12 20.71 7" />
   <path d="m7.5 4.27 9 5.15" />
+</svg>
+`;
+
+const PackageX = `
+<svg
+  class="lucide lucide-package-x"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 22V12" />
+  <path d="m16.5 14.5 5 5" />
+  <path d="m16.5 19.5 5-5" />
+  <path d="M21 10.5V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.729l7 4a2 2 0 0 0 2 .001l.13-.074" />
+  <path d="M3.29 7 12 12l8.71-5" />
+  <path d="m7.5 4.27 8.997 5.148" />
 </svg>
 `;
 
@@ -22211,25 +25804,6 @@ const PaintbrushVertical = `
 </svg>
 `;
 
-const Paintbrush = `
-<svg
-  class="lucide lucide-paintbrush"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="m14.622 17.897-10.68-2.913" />
-  <path d="M18.376 2.622a1 1 0 1 1 3.002 3.002L17.36 9.643a.5.5 0 0 0 0 .707l.944.944a2.41 2.41 0 0 1 0 3.408l-.944.944a.5.5 0 0 1-.707 0L8.354 7.348a.5.5 0 0 1 0-.707l.944-.944a2.41 2.41 0 0 1 3.408 0l.944.944a.5.5 0 0 0 .707 0z" />
-  <path d="M9 8c-1.804 2.71-3.97 3.46-6.583 3.948a.507.507 0 0 0-.302.819l7.32 8.883a1 1 0 0 0 1.185.204C12.735 20.405 16 16.792 16 15" />
-</svg>
-`;
-
 const Palette = `
 <svg
   class="lucide lucide-palette"
@@ -22251,6 +25825,25 @@ const Palette = `
 </svg>
 `;
 
+const Paintbrush = `
+<svg
+  class="lucide lucide-paintbrush"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m14.622 17.897-10.68-2.913" />
+  <path d="M18.376 2.622a1 1 0 1 1 3.002 3.002L17.36 9.643a.5.5 0 0 0 0 .707l.944.944a2.41 2.41 0 0 1 0 3.408l-.944.944a.5.5 0 0 1-.707 0L8.354 7.348a.5.5 0 0 1 0-.707l.944-.944a2.41 2.41 0 0 1 3.408 0l.944.944a.5.5 0 0 0 .707 0z" />
+  <path d="M9 8c-1.804 2.71-3.97 3.46-6.583 3.948a.507.507 0 0 0-.302.819l7.32 8.883a1 1 0 0 0 1.185.204C12.735 20.405 16 16.792 16 15" />
+</svg>
+`;
+
 const Panda = `
 <svg
   class="lucide lucide-panda"
@@ -22266,9 +25859,9 @@ const Panda = `
 >
   <path d="M11.25 17.25h1.5L12 18z" />
   <path d="m15 12 2 2" />
-  <path d="M18 6.5a.5.5 0 0 0-.5-.5" />
-  <path d="M20.69 9.67a4.5 4.5 0 1 0-7.04-5.5 8.35 8.35 0 0 0-3.3 0 4.5 4.5 0 1 0-7.04 5.5C2.49 11.2 2 12.88 2 14.5 2 19.47 6.48 22 12 22s10-2.53 10-7.5c0-1.62-.48-3.3-1.3-4.83" />
-  <path d="M6 6.5a.495.495 0 0 1 .5-.5" />
+  <path d="M17.902 6.599a8 8 0 0 0-.5-.5" />
+  <path d="M2 14.5C2 19.47 6.48 22 12 22s10-2.53 10-7.5a10 10 0 0 0-1.3-4.83 4.5 4.5 0 1 0-7.05-5.5 8 8 0 0 0-3.3 0 4.5 4.5 0 1 0-7.04 5.5A10 10 0 0 0 2 14.5" />
+  <path d="M6.099 6.599a8 8 0 0 1 .5-.5" />
   <path d="m9 12-2 2" />
 </svg>
 `;
@@ -22409,31 +26002,6 @@ const PanelLeftOpen = `
 </svg>
 `;
 
-const PanelLeftRightDashed = `
-<svg
-  class="lucide lucide-panel-left-right-dashed"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M15 10V9" />
-  <path d="M15 15v-1" />
-  <path d="M15 21v-2" />
-  <path d="M15 5V3" />
-  <path d="M9 10V9" />
-  <path d="M9 15v-1" />
-  <path d="M9 21v-2" />
-  <path d="M9 5V3" />
-  <rect x="3" y="3" width="18" height="18" rx="2" />
-</svg>
-`;
-
 const PanelLeft = `
 <svg
   class="lucide lucide-panel-left"
@@ -22468,6 +26036,31 @@ const PanelRightClose = `
   <rect width="18" height="18" x="3" y="3" rx="2" />
   <path d="M15 3v18" />
   <path d="m8 9 3 3-3 3" />
+</svg>
+`;
+
+const PanelLeftRightDashed = `
+<svg
+  class="lucide lucide-panel-left-right-dashed"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M15 10V9" />
+  <path d="M15 15v-1" />
+  <path d="M15 21v-2" />
+  <path d="M15 5V3" />
+  <path d="M9 10V9" />
+  <path d="M9 15v-1" />
+  <path d="M9 21v-2" />
+  <path d="M9 5V3" />
+  <rect x="3" y="3" width="18" height="18" rx="2" />
 </svg>
 `;
 
@@ -22529,25 +26122,6 @@ const PanelRight = `
 </svg>
 `;
 
-const PanelTopClose = `
-<svg
-  class="lucide lucide-panel-top-close"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <rect width="18" height="18" x="3" y="3" rx="2" />
-  <path d="M3 9h18" />
-  <path d="m9 16 3-3 3 3" />
-</svg>
-`;
-
 const PanelTopBottomDashed = `
 <svg
   class="lucide lucide-panel-top-bottom-dashed"
@@ -22573,25 +26147,6 @@ const PanelTopBottomDashed = `
 </svg>
 `;
 
-const PanelTopOpen = `
-<svg
-  class="lucide lucide-panel-top-open"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <rect width="18" height="18" x="3" y="3" rx="2" />
-  <path d="M3 9h18" />
-  <path d="m15 14-3 3-3-3" />
-</svg>
-`;
-
 const PanelTopDashed = `
 <svg
   class="lucide lucide-panel-top-dashed"
@@ -22613,9 +26168,9 @@ const PanelTopDashed = `
 </svg>
 `;
 
-const PanelsLeftBottom = `
+const PanelTopClose = `
 <svg
-  class="lucide lucide-panels-left-bottom"
+  class="lucide lucide-panel-top-close"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -22627,8 +26182,27 @@ const PanelsLeftBottom = `
   stroke-linejoin="round"
 >
   <rect width="18" height="18" x="3" y="3" rx="2" />
-  <path d="M9 3v18" />
-  <path d="M9 15h12" />
+  <path d="M3 9h18" />
+  <path d="m9 16 3-3 3 3" />
+</svg>
+`;
+
+const PanelTopOpen = `
+<svg
+  class="lucide lucide-panel-top-open"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <rect width="18" height="18" x="3" y="3" rx="2" />
+  <path d="M3 9h18" />
+  <path d="m15 14-3 3-3-3" />
 </svg>
 `;
 
@@ -22666,6 +26240,25 @@ const PanelsRightBottom = `
   <rect width="18" height="18" x="3" y="3" rx="2" />
   <path d="M3 15h12" />
   <path d="M15 3v18" />
+</svg>
+`;
+
+const PanelsLeftBottom = `
+<svg
+  class="lucide lucide-panels-left-bottom"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <rect width="18" height="18" x="3" y="3" rx="2" />
+  <path d="M9 3v18" />
+  <path d="M9 15h12" />
 </svg>
 `;
 
@@ -22781,6 +26374,30 @@ const ParkingMeter = `
 </svg>
 `;
 
+const Park = `
+<svg
+  class="lucide lucide-park"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 18h10" />
+  <path d="M13.248 9.998A4.5 4.5 0 0 0 11.75 8.6V8a1 1 0 0 0-7.5 0 4.9 4.9 0 0 0 2.25 9H8" />
+  <path d="m15 14-2 6" />
+  <path d="m19 14 2 6" />
+  <path d="M21 14h-8" />
+  <path d="M8 20v-5.922a2 2 0 0 0-.586-1.414L6.5 11.75" />
+  <path d="M9.205 12.795 8 14" />
+  <circle cx="19" cy="6" r="2" />
+</svg>
+`;
+
 const PartyPopper = `
 <svg
   class="lucide lucide-party-popper"
@@ -22844,26 +26461,6 @@ const PawPrint = `
 </svg>
 `;
 
-const PcCase = `
-<svg
-  class="lucide lucide-pc-case"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <rect width="14" height="20" x="5" y="2" rx="2" />
-  <path d="M15 14h.01" />
-  <path d="M9 6h6" />
-  <path d="M9 10h6" />
-</svg>
-`;
-
 const PenLine = `
 <svg
   class="lucide lucide-pen-line"
@@ -22901,6 +26498,26 @@ const PenOff = `
 </svg>
 `;
 
+const PcCase = `
+<svg
+  class="lucide lucide-pc-case"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <rect width="14" height="20" x="5" y="2" rx="2" />
+  <path d="M15 14h.01" />
+  <path d="M9 6h6" />
+  <path d="M9 10h6" />
+</svg>
+`;
+
 const PenTool = `
 <svg
   class="lucide lucide-pen-tool"
@@ -22914,9 +26531,9 @@ const PenTool = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M15.707 21.293a1 1 0 0 1-1.414 0l-1.586-1.586a1 1 0 0 1 0-1.414l5.586-5.586a1 1 0 0 1 1.414 0l1.586 1.586a1 1 0 0 1 0 1.414z" />
-  <path d="m18 13-1.375-6.874a1 1 0 0 0-.746-.776L3.235 2.028a1 1 0 0 0-1.207 1.207L5.35 15.879a1 1 0 0 0 .776.746L13 18" />
-  <path d="m2.3 2.3 7.286 7.286" />
+  <path d="m18 13-.654-4.736a4 4 0 00-2.756-3.266l-9.163-2.9a2 2 0 00-2.017.493l-.82.819a2 2 0 00-.492 2.017l2.9 9.163a4 4 0 003.266 2.756L13 18" />
+  <path d="M18.648 12.352a1.205 1.205 0 011.704 0l1.296 1.296a1.205 1.205 0 010 1.704l-6.296 6.296a1.205 1.205 0 01-1.704 0l-1.296-1.296a1.205 1.205 0 010-1.704z" />
+  <path d="m3 3 6.586 6.586" />
   <circle cx="11" cy="11" r="2" />
 </svg>
 `;
@@ -23023,6 +26640,23 @@ const PencilSparkles = `
 </svg>
 `;
 
+const Pentagon = `
+<svg
+  class="lucide lucide-pentagon"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M10.83 2.38a2 2 0 0 1 2.34 0l8 5.74a2 2 0 0 1 .73 2.25l-3.04 9.26a2 2 0 0 1-1.9 1.37H7.04a2 2 0 0 1-1.9-1.37L2.1 10.37a2 2 0 0 1 .73-2.25z" />
+</svg>
+`;
+
 const Pencil = `
 <svg
   class="lucide lucide-pencil"
@@ -23041,9 +26675,9 @@ const Pencil = `
 </svg>
 `;
 
-const Pentagon = `
+const PerfumeBottle = `
 <svg
-  class="lucide lucide-pentagon"
+  class="lucide lucide-perfume-bottle"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -23054,7 +26688,15 @@ const Pentagon = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M10.83 2.38a2 2 0 0 1 2.34 0l8 5.74a2 2 0 0 1 .73 2.25l-3.04 9.26a2 2 0 0 1-1.9 1.37H7.04a2 2 0 0 1-1.9-1.37L2.1 10.37a2 2 0 0 1 .73-2.25z" />
+  <path d="M 5 22 H 11.072" />
+  <path d="M15 5 C 23 4 23.328 12.676 20 14.536" />
+  <path d="M15.802 10.308 C 14.776 9.465 14 8.496 14 7" />
+  <path d="M2 2h.01" />
+  <path d="M2 7h.01" />
+  <path d="M5 4.5h.01" />
+  <path d="M8.127 22 A 8 8 0 0 1 4 15 3 3 0 0 1 4.879 12.879C 6.879 10.879 10 10 10 7" />
+  <circle cx="18" cy="18" r="4" />
+  <rect x="9" y="2" width="6" height="5" rx="1" />
 </svg>
 `;
 
@@ -23115,25 +26757,6 @@ const Phi = `
 </svg>
 `;
 
-const PhilippinePeso = `
-<svg
-  class="lucide lucide-philippine-peso"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M20 11H4" />
-  <path d="M20 7H4" />
-  <path d="M7 21V4a1 1 0 0 1 1-1h4a1 1 0 0 1 0 12H7" />
-</svg>
-`;
-
 const PhoneCall = `
 <svg
   class="lucide lucide-phone-call"
@@ -23172,6 +26795,25 @@ const PhoneForwarded = `
 </svg>
 `;
 
+const PhilippinePeso = `
+<svg
+  class="lucide lucide-philippine-peso"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M4 12h16" />
+  <path d="M4 8h16" />
+  <path d="M6 20V5a1 1 0 011-1h5a6 6 0 010 12H6" />
+</svg>
+`;
+
 const PhoneIncoming = `
 <svg
   class="lucide lucide-phone-incoming"
@@ -23188,6 +26830,25 @@ const PhoneIncoming = `
   <path d="M16 2v6h6" />
   <path d="m22 2-6 6" />
   <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" />
+</svg>
+`;
+
+const PhoneLog = `
+<svg
+  class="lucide lucide-phone-log"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M13.832 16.568a1 1 0 001.213-.303l.355-.465A2 2 0 0117 15h3a2 2 0 012 2v3a2 2 0 01-2 2A18 18 0 012 4a2 2 0 012-2h3a2 2 0 012 2v3a2 2 0 01-.8 1.6l-.468.351a1 1 0 00-.292 1.233 14 14 0 006.392 6.384" />
+  <path d="M14.396 4.171h7.171" />
+  <path d="M17.343 8.17h4.224" />
 </svg>
 `;
 
@@ -23210,25 +26871,6 @@ const PhoneMissed = `
 </svg>
 `;
 
-const PhoneOff = `
-<svg
-  class="lucide lucide-phone-off"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M10.1 13.9a14 14 0 0 0 3.732 2.668 1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2 18 18 0 0 1-12.728-5.272" />
-  <path d="M22 2 2 22" />
-  <path d="M4.76 13.582A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 .244.473" />
-</svg>
-`;
-
 const PhoneOutgoing = `
 <svg
   class="lucide lucide-phone-outgoing"
@@ -23245,6 +26887,25 @@ const PhoneOutgoing = `
   <path d="m16 8 6-6" />
   <path d="M22 8V2h-6" />
   <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" />
+</svg>
+`;
+
+const PhoneOff = `
+<svg
+  class="lucide lucide-phone-off"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M10.1 13.9a14 14 0 0 0 3.732 2.668 1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2 18 18 0 0 1-12.728-5.272" />
+  <path d="M22 2 2 22" />
+  <path d="M4.76 13.582A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 .244.473" />
 </svg>
 `;
 
@@ -23297,12 +26958,12 @@ const Piano = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M18.5 8c-1.4 0-2.6-.8-3.2-2A6.87 6.87 0 0 0 2 9v11a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-8.5C22 9.6 20.4 8 18.5 8" />
-  <path d="M2 14h20" />
-  <path d="M6 14v4" />
-  <path d="M10 14v4" />
-  <path d="M14 14v4" />
-  <path d="M18 14v4" />
+  <path d="M10 13v4" />
+  <path d="M14 13v4" />
+  <path d="M18 13v4" />
+  <path d="M2 13h20" />
+  <path d="M22 11.5A3.5 3.5 0 0018.5 8a3.52 3.52 0 01-3.173-2A7 7 0 002 9v10a2 2 0 002 2h16a2 2 0 002-2z" />
+  <path d="M6 13v4" />
 </svg>
 `;
 
@@ -23423,7 +27084,8 @@ const PilcrowRight = `
   <path d="M14 3v11" />
   <path d="m18 14 4 4H2" />
   <path d="m22 18-4 4" />
-</svg>`;
+</svg>
+`;
 
 const Pilcrow = `
 <svg
@@ -23441,25 +27103,6 @@ const Pilcrow = `
   <path d="M13 4v16" />
   <path d="M17 4v16" />
   <path d="M19 4H9.5a4.5 4.5 0 0 0 0 9H13" />
-</svg>
-`;
-
-const PillBottle = `
-<svg
-  class="lucide lucide-pill-bottle"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M18 11h-4a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h4" />
-  <path d="M6 7v13a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7" />
-  <rect width="16" height="5" x="4" y="2" rx="1" />
 </svg>
 `;
 
@@ -23501,9 +27144,9 @@ const PinOff = `
 </svg>
 `;
 
-const Pin = `
+const PillBottle = `
 <svg
-  class="lucide lucide-pin"
+  class="lucide lucide-pill-bottle"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -23514,8 +27157,9 @@ const Pin = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M12 17v5" />
-  <path d="M9 10.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24V16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V7a1 1 0 0 1 1-1 2 2 0 0 0 0-4H8a2 2 0 0 0 0 4 1 1 0 0 1 1 1z" />
+  <path d="M18 11h-4a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h4" />
+  <path d="M6 7v13a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7" />
+  <rect width="16" height="5" x="4" y="2" rx="1" />
 </svg>
 `;
 
@@ -23538,9 +27182,9 @@ const Pipette = `
 </svg>
 `;
 
-const Pizza = `
+const Pin = `
 <svg
-  class="lucide lucide-pizza"
+  class="lucide lucide-pin"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -23551,11 +27195,8 @@ const Pizza = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="m12 14-1 1" />
-  <path d="m13.75 18.25-1.25 1.42" />
-  <path d="M17.775 5.654a15.68 15.68 0 0 0-12.121 12.12" />
-  <path d="M18.8 9.3a1 1 0 0 0 2.1 7.7" />
-  <path d="M21.964 20.732a1 1 0 0 1-1.232 1.232l-18-5a1 1 0 0 1-.695-1.232A19.68 19.68 0 0 1 15.732 2.037a1 1 0 0 1 1.232.695z" />
+  <path d="M12 17v5" />
+  <path d="M9 10.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24V16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V7a1 1 0 0 1 1-1 2 2 0 0 0 0-4H8a2 2 0 0 0 0 4 1 1 0 0 1 1 1z" />
 </svg>
 `;
 
@@ -23595,6 +27236,27 @@ const PlaneTakeoff = `
 </svg>
 `;
 
+const Pizza = `
+<svg
+  class="lucide lucide-pizza"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m12 14-1 1" />
+  <path d="m13.75 18.25-1.25 1.42" />
+  <path d="M17.775 5.654a15.68 15.68 0 0 0-12.121 12.12" />
+  <path d="M18.8 9.3a1 1 0 0 0 2.1 7.7" />
+  <path d="M21.964 20.732a1 1 0 0 1-1.232 1.232l-18-5a1 1 0 0 1-.695-1.232A19.68 19.68 0 0 1 15.732 2.037a1 1 0 0 1 1.232.695z" />
+</svg>
+`;
+
 const Plane = `
 <svg
   class="lucide lucide-plane"
@@ -23609,6 +27271,25 @@ const Plane = `
   stroke-linejoin="round"
 >
   <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z" />
+</svg>
+`;
+
+const PlantPot = `
+<svg
+  class="lucide lucide-plant-pot"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M14 8.536V6a4 4 0 014-4h1.5a.5.5 0 01.5.5V4a4 4 0 01-4 4 4 4 0 00-4 4 5 5 0 01-8-4 5 5 0 018 4c0 2 1 3 1 5" />
+  <path d="m18 17-1.085 3.58A2 2 0 0115 22H9.002a2 2 0 01-1.913-1.418L6 17" />
+  <path d="M5 17h14" />
 </svg>
 `;
 
@@ -23648,6 +27329,62 @@ const Play = `
 </svg>
 `;
 
+const PlayingCardsFan = `
+<svg
+  class="lucide lucide-playing-cards-fan"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12.65 7.65a2 2 0 012.629-1.046l5.51 2.374a2 2 0 011.046 2.628l-3.957 9.184a2 2 0 01-2.628 1.046l-5.51-2.374a2 2 0 01-1.046-2.628z" />
+  <path d="M18 7.777V4a2 2 0 00-2-2h-6a2 2 0 00-2 2v10a2 2 0 001.137 1.805" />
+  <path d="m8 4.389-4.364.809a2 2 0 00-1.602 2.33l1.822 9.833a2 2 0 002.331 1.602l2.542-.47" />
+</svg>
+`;
+
+const PlayingCards = `
+<svg
+  class="lucide lucide-playing-cards"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M14.832 8.445a1 1 0 00-1.589-.098l-2.075 3.098a1 1 0 000 1.11l2 3a1 1 0 001.664 0l2-3a1 1 0 000-1.11z" />
+  <path d="m7.18 20.827-5-11a2 2 0 01.993-2.647L7 5.44" />
+  <rect x="7" y="2" width="14" height="20" rx="2" />
+</svg>
+`;
+
+const PlayingCard = `
+<svg
+  class="lucide lucide-playing-card"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12.832 8.445a1 1 0 00-1.589-.098l-2.075 3.098a1 1 0 000 1.11l2 3a1 1 0 001.664 0l2-3a1 1 0 000-1.11z" />
+  <rect x="5" y="2" width="14" height="20" rx="2" />
+</svg>
+`;
+
 const Plug2 = `
 <svg
   class="lucide lucide-plug-2"
@@ -23666,6 +27403,26 @@ const Plug2 = `
   <path d="M12 17v5" />
   <path d="M5 8h14" />
   <path d="M6 11V8h12v3a6 6 0 1 1-12 0Z" />
+</svg>
+`;
+
+const Plug = `
+<svg
+  class="lucide lucide-plug"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 22v-5" />
+  <path d="M15 8V2" />
+  <path d="M17 8a1 1 0 0 1 1 1v4a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1z" />
+  <path d="M9 8V2" />
 </svg>
 `;
 
@@ -23690,26 +27447,6 @@ const PlugZap = `
 </svg>
 `;
 
-const Plug = `
-<svg
-  class="lucide lucide-plug"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M12 22v-5" />
-  <path d="M15 8V2" />
-  <path d="M17 8a1 1 0 0 1 1 1v4a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1z" />
-  <path d="M9 8V2" />
-</svg>
-`;
-
 const Plus = `
 <svg
   class="lucide lucide-plus"
@@ -23725,6 +27462,25 @@ const Plus = `
 >
   <path d="M5 12h14" />
   <path d="M12 5v14" />
+</svg>
+`;
+
+const Podium = `
+<svg
+  class="lucide lucide-podium"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 6V2h-1" />
+  <path d="M9 15a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1" />
+  <path d="M9 21V11a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v10" />
 </svg>
 `;
 
@@ -23746,45 +27502,6 @@ const PocketKnife = `
   <path d="M6 18h.01" />
   <path d="M20.83 8.83a4 4 0 0 0-5.66-5.66l-12 12a4 4 0 1 0 5.66 5.66Z" />
   <path d="M18 11.66V22a4 4 0 0 0 4-4V6" />
-</svg>
-`;
-
-const Podcast = `
-<svg
-  class="lucide lucide-podcast"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M13 17a1 1 0 1 0-2 0l.5 4.5a0.5 0.5 0 0 0 1 0z" fill="currentColor" />
-  <path d="M16.85 18.58a9 9 0 1 0-9.7 0" />
-  <path d="M8 14a5 5 0 1 1 8 0" />
-  <circle cx="12" cy="11" r="1" fill="currentColor" />
-</svg>
-`;
-
-const Podium = `
-<svg
-  class="lucide lucide-podium"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M12 6V2h-1" />
-  <path d="M9 15a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1" />
-  <path d="M9 21V11a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v10" />
 </svg>
 `;
 
@@ -23851,6 +27568,24 @@ const Popcorn = `
 </svg>
 `;
 
+const PoundSterling = `
+<svg
+  class="lucide lucide-pound-sterling"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M17 18a2 2 0 01-2 2H5a3 3 0 003-3V8a4 4 0 018 0" />
+  <path d="M6 12h7" />
+</svg>
+`;
+
 const Popsicle = `
 <svg
   class="lucide lucide-popsicle"
@@ -23866,26 +27601,6 @@ const Popsicle = `
 >
   <path d="M18.6 14.4c.8-.8.8-2 0-2.8l-8.1-8.1a4.95 4.95 0 1 0-7.1 7.1l8.1 8.1c.9.7 2.1.7 2.9-.1Z" />
   <path d="m22 22-5.5-5.5" />
-</svg>
-`;
-
-const PoundSterling = `
-<svg
-  class="lucide lucide-pound-sterling"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M18 7c0-5.333-8-5.333-8 0" />
-  <path d="M10 7v14" />
-  <path d="M6 21h12" />
-  <path d="M6 13h10" />
 </svg>
 `;
 
@@ -23909,24 +27624,6 @@ const PowerOff = `
 </svg>
 `;
 
-const Power = `
-<svg
-  class="lucide lucide-power"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M12 2v10" />
-  <path d="M18.4 6.6a9 9 0 1 1-12.77.04" />
-</svg>
-`;
-
 const Presentation = `
 <svg
   class="lucide lucide-presentation"
@@ -23946,9 +27643,9 @@ const Presentation = `
 </svg>
 `;
 
-const PrinterCheck = `
+const Printer3d = `
 <svg
-  class="lucide lucide-printer-check"
+  class="lucide lucide-printer-3d"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -23959,10 +27656,31 @@ const PrinterCheck = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M13.5 22H7a1 1 0 0 1-1-1v-6a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v.5" />
-  <path d="m16 19 2 2 4-4" />
-  <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v2" />
-  <path d="M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6" />
+  <path d="M10 11v1" />
+  <path d="M12 8h8" />
+  <path d="M15 20v-3a1 1 0 00-1-1H9a1 1 0 00-1 1v3" />
+  <path d="M4 20h16" />
+  <path d="M4 22V4a2 2 0 012-2h12a2 2 0 012 2v18" />
+  <path d="M4 8h4" />
+  <path d="M8.635 10.093A2 2 0 018 8.631V7a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 01-.293.707l-1 1a1 1 0 01-1.414 0z" />
+</svg>
+`;
+
+const Power = `
+<svg
+  class="lucide lucide-power"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 2v10" />
+  <path d="M18.4 6.6a9 9 0 1 1-12.77.04" />
 </svg>
 `;
 
@@ -23983,6 +27701,26 @@ const PrinterX = `
   <path d="m16.5 16.5 5 5" />
   <path d="m16.5 21.5 5-5" />
   <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v1.5" />
+  <path d="M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6" />
+</svg>
+`;
+
+const PrinterCheck = `
+<svg
+  class="lucide lucide-printer-check"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M13.5 22H7a1 1 0 0 1-1-1v-6a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v.5" />
+  <path d="m16 19 2 2 4-4" />
+  <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v2" />
   <path d="M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6" />
 </svg>
 `;
@@ -24110,27 +27848,6 @@ const QrCode = `
 </svg>
 `;
 
-const Rabbit = `
-<svg
-  class="lucide lucide-rabbit"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M13 16a3 3 0 0 1 2.24 5" />
-  <path d="M18 12h.01" />
-  <path d="M18 21h-8a4 4 0 0 1-4-4 7 7 0 0 1 7-7h.2L9.6 6.4a1 1 0 1 1 2.8-2.8L15.8 7h.2c3.3 0 6 2.7 6 6v1a2 2 0 0 1-2 2h-1a3 3 0 0 0-3 3" />
-  <path d="M20 8.54V4a2 2 0 1 0-4 0v3" />
-  <path d="M7.612 12.524a3 3 0 1 0-1.6 4.3" />
-</svg>
-`;
-
 const Quote = `
 <svg
   class="lucide lucide-quote"
@@ -24149,9 +27866,9 @@ const Quote = `
 </svg>
 `;
 
-const Radar = `
+const Rabbit = `
 <svg
-  class="lucide lucide-radar"
+  class="lucide lucide-rabbit"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -24162,14 +27879,11 @@ const Radar = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M19.07 4.93A10 10 0 0 0 6.99 3.34" />
-  <path d="M4 6h.01" />
-  <path d="M2.29 9.62A10 10 0 1 0 21.31 8.35" />
-  <path d="M16.24 7.76A6 6 0 1 0 8.23 16.67" />
-  <path d="M12 18h.01" />
-  <path d="M17.99 11.66A6 6 0 0 1 15.77 16.67" />
-  <circle cx="12" cy="12" r="2" />
-  <path d="m13.41 10.59 5.66-5.66" />
+  <path d="M13 16a3 3 0 0 1 2.24 5" />
+  <path d="M18 12h.01" />
+  <path d="M18 21h-8a4 4 0 0 1-4-4 7 7 0 0 1 7-7h.2L9.6 6.4a1 1 0 1 1 2.8-2.8L15.8 7h.2c3.3 0 6 2.7 6 6v1a2 2 0 0 1-2 2h-1a3 3 0 0 0-3 3" />
+  <path d="M20 8.54V4a2 2 0 1 0-4 0v3" />
+  <path d="M7.612 12.524a3 3 0 1 0-1.6 4.3" />
 </svg>
 `;
 
@@ -24210,9 +27924,9 @@ const Radical = `
 </svg>
 `;
 
-const RadioOff = `
+const Radar = `
 <svg
-  class="lucide lucide-radio-off"
+  class="lucide lucide-radar"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -24223,12 +27937,14 @@ const RadioOff = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M13.414 13.414a2 2 0 1 1-2.828-2.828" />
-  <path d="M16.247 7.761a6 6 0 0 1 1.744 4.572" />
-  <path d="M19.075 4.933a10 10 0 0 1 2.234 10.72" />
-  <path d="m2 2 20 20" />
-  <path d="M4.925 19.067a10 10 0 0 1 0-14.134" />
-  <path d="M7.753 16.239a6 6 0 0 1 0-8.478" />
+  <path d="M19.07 4.93A10 10 0 0 0 6.99 3.34" />
+  <path d="M4 6h.01" />
+  <path d="M2.29 9.62A10 10 0 1 0 21.31 8.35" />
+  <path d="M16.24 7.76A6 6 0 1 0 8.23 16.67" />
+  <path d="M12 18h.01" />
+  <path d="M17.99 11.66A6 6 0 0 1 15.77 16.67" />
+  <circle cx="12" cy="12" r="2" />
+  <path d="m13.41 10.59 5.66-5.66" />
 </svg>
 `;
 
@@ -24249,6 +27965,28 @@ const RadioReceiver = `
   <path d="M19 16v2" />
   <rect width="20" height="8" x="2" y="8" rx="2" />
   <path d="M18 12h.01" />
+</svg>
+`;
+
+const RadioOff = `
+<svg
+  class="lucide lucide-radio-off"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M13.414 13.414a2 2 0 1 1-2.828-2.828" />
+  <path d="M16.247 7.761a6 6 0 0 1 1.744 4.572" />
+  <path d="M19.075 4.933a10 10 0 0 1 2.234 10.72" />
+  <path d="m2 2 20 20" />
+  <path d="M4.925 19.067a10 10 0 0 1 0-14.134" />
+  <path d="M7.753 16.239a6 6 0 0 1 0-8.478" />
 </svg>
 `;
 
@@ -24374,25 +28112,6 @@ const Ratio = `
 </svg>
 `;
 
-const ReceiptEuro = `
-<svg
-  class="lucide lucide-receipt-euro"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M15.828 14.829a4 4 0 0 1-5.656 0 4 4 0 0 1 0-5.657 4 4 0 0 1 5.656 0" />
-  <path d="M4 3a1 1 0 0 1 1-1 1.3 1.3 0 0 1 .7.2l.933.6a1.3 1.3 0 0 0 1.4 0l.934-.6a1.3 1.3 0 0 1 1.4 0l.933.6a1.3 1.3 0 0 0 1.4 0l.933-.6a1.3 1.3 0 0 1 1.4 0l.934.6a1.3 1.3 0 0 0 1.4 0l.933-.6A1.3 1.3 0 0 1 19 2a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1 1.3 1.3 0 0 1-.7-.2l-.933-.6a1.3 1.3 0 0 0-1.4 0l-.934.6a1.3 1.3 0 0 1-1.4 0l-.933-.6a1.3 1.3 0 0 0-1.4 0l-.933.6a1.3 1.3 0 0 1-1.4 0l-.934-.6a1.3 1.3 0 0 0-1.4 0l-.933.6a1.3 1.3 0 0 1-.7.2 1 1 0 0 1-1-1z" />
-  <path d="M8 12h5" />
-</svg>
-`;
-
 const ReceiptCent = `
 <svg
   class="lucide lucide-receipt-cent"
@@ -24409,6 +28128,25 @@ const ReceiptCent = `
   <path d="M12 7v10" />
   <path d="M14.828 14.829a4 4 0 0 1-5.656 0 4 4 0 0 1 0-5.657 4 4 0 0 1 5.656 0" />
   <path d="M4 3a1 1 0 0 1 1-1 1.3 1.3 0 0 1 .7.2l.933.6a1.3 1.3 0 0 0 1.4 0l.934-.6a1.3 1.3 0 0 1 1.4 0l.933.6a1.3 1.3 0 0 0 1.4 0l.933-.6a1.3 1.3 0 0 1 1.4 0l.934.6a1.3 1.3 0 0 0 1.4 0l.933-.6A1.3 1.3 0 0 1 19 2a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1 1.3 1.3 0 0 1-.7-.2l-.933-.6a1.3 1.3 0 0 0-1.4 0l-.934.6a1.3 1.3 0 0 1-1.4 0l-.933-.6a1.3 1.3 0 0 0-1.4 0l-.933.6a1.3 1.3 0 0 1-1.4 0l-.934-.6a1.3 1.3 0 0 0-1.4 0l-.933.6a1.3 1.3 0 0 1-.7.2 1 1 0 0 1-1-1z" />
+</svg>
+`;
+
+const ReceiptEuro = `
+<svg
+  class="lucide lucide-receipt-euro"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M15.828 14.829a4 4 0 0 1-5.656 0 4 4 0 0 1 0-5.657 4 4 0 0 1 5.656 0" />
+  <path d="M4 3a1 1 0 0 1 1-1 1.3 1.3 0 0 1 .7.2l.933.6a1.3 1.3 0 0 0 1.4 0l.934-.6a1.3 1.3 0 0 1 1.4 0l.933.6a1.3 1.3 0 0 0 1.4 0l.933-.6a1.3 1.3 0 0 1 1.4 0l.934.6a1.3 1.3 0 0 0 1.4 0l.933-.6A1.3 1.3 0 0 1 19 2a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1 1.3 1.3 0 0 1-.7-.2l-.933-.6a1.3 1.3 0 0 0-1.4 0l-.934.6a1.3 1.3 0 0 1-1.4 0l-.933-.6a1.3 1.3 0 0 0-1.4 0l-.933.6a1.3 1.3 0 0 1-1.4 0l-.934-.6a1.3 1.3 0 0 0-1.4 0l-.933.6a1.3 1.3 0 0 1-.7.2 1 1 0 0 1-1-1z" />
+  <path d="M8 12h5" />
 </svg>
 `;
 
@@ -24512,26 +28250,6 @@ const ReceiptSwissFranc = `
 </svg>
 `;
 
-const ReceiptText = `
-<svg
-  class="lucide lucide-receipt-text"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M13 16H8" />
-  <path d="M14 8H8" />
-  <path d="M16 12H8" />
-  <path d="M4 3a1 1 0 0 1 1-1 1.3 1.3 0 0 1 .7.2l.933.6a1.3 1.3 0 0 0 1.4 0l.934-.6a1.3 1.3 0 0 1 1.4 0l.933.6a1.3 1.3 0 0 0 1.4 0l.933-.6a1.3 1.3 0 0 1 1.4 0l.934.6a1.3 1.3 0 0 0 1.4 0l.933-.6A1.3 1.3 0 0 1 19 2a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1 1.3 1.3 0 0 1-.7-.2l-.933-.6a1.3 1.3 0 0 0-1.4 0l-.934.6a1.3 1.3 0 0 1-1.4 0l-.933-.6a1.3 1.3 0 0 0-1.4 0l-.933.6a1.3 1.3 0 0 1-1.4 0l-.934-.6a1.3 1.3 0 0 0-1.4 0l-.933.6a1.3 1.3 0 0 1-.7.2 1 1 0 0 1-1-1z" />
-</svg>
-`;
-
 const ReceiptTurkishLira = `
 <svg
   class="lucide lucide-receipt-turkish-lira"
@@ -24548,6 +28266,24 @@ const ReceiptTurkishLira = `
   <path d="M10 7v10a5 5 0 0 0 5-5" />
   <path d="m14 8-6 3" />
   <path d="M4 3a1 1 0 0 1 1-1 1.3 1.3 0 0 1 .7.2l.933.6a1.3 1.3 0 0 0 1.4 0l.934-.6a1.3 1.3 0 0 1 1.4 0l.933.6a1.3 1.3 0 0 0 1.4 0l.933-.6a1.3 1.3 0 0 1 1.4 0l.934.6a1.3 1.3 0 0 0 1.4 0l.933-.6A1.3 1.3 0 0 1 19 2a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1 1.3 1.3 0 0 1-.7-.2l-.933-.6a1.3 1.3 0 0 0-1.4 0l-.934.6a1.3 1.3 0 0 1-1.4 0l-.933-.6a1.3 1.3 0 0 0-1.4 0l-.933.6a1.3 1.3 0 0 1-1.4 0l-.934-.6a1.3 1.3 0 0 0-1.4 0l-.933.6a1.3 1.3 0 0 1-.7.2 1 1 0 0 1-1-1z" />
+</svg>
+`;
+
+const RectangleCircle = `
+<svg
+  class="lucide lucide-rectangle-circle"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M14 4v16H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z" />
+  <circle cx="14" cy="12" r="8" />
 </svg>
 `;
 
@@ -24570,9 +28306,9 @@ const Receipt = `
 </svg>
 `;
 
-const RectangleCircle = `
+const ReceiptText = `
 <svg
-  class="lucide lucide-rectangle-circle"
+  class="lucide lucide-receipt-text"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -24583,8 +28319,10 @@ const RectangleCircle = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M14 4v16H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z" />
-  <circle cx="14" cy="12" r="8" />
+  <path d="M13 16H8" />
+  <path d="M14 8H8" />
+  <path d="M16 12H8" />
+  <path d="M4 3a1 1 0 0 1 1-1 1.3 1.3 0 0 1 .7.2l.933.6a1.3 1.3 0 0 0 1.4 0l.934-.6a1.3 1.3 0 0 1 1.4 0l.933.6a1.3 1.3 0 0 0 1.4 0l.933-.6a1.3 1.3 0 0 1 1.4 0l.934.6a1.3 1.3 0 0 0 1.4 0l.933-.6A1.3 1.3 0 0 1 19 2a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1 1.3 1.3 0 0 1-.7-.2l-.933-.6a1.3 1.3 0 0 0-1.4 0l-.934.6a1.3 1.3 0 0 1-1.4 0l-.933-.6a1.3 1.3 0 0 0-1.4 0l-.933.6a1.3 1.3 0 0 1-1.4 0l-.934-.6a1.3 1.3 0 0 0-1.4 0l-.933.6a1.3 1.3 0 0 1-.7.2 1 1 0 0 1-1-1z" />
 </svg>
 `;
 
@@ -24659,6 +28397,24 @@ const RectangleVertical = `
 </svg>
 `;
 
+const Redo2 = `
+<svg
+  class="lucide lucide-redo-2"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m15 14 5-5-5-5" />
+  <path d="M20 9H9.5A5.5 5.5 0 0 0 4 14.5A5.5 5.5 0 0 0 9.5 20H13" />
+</svg>
+`;
+
 const Recycle = `
 <svg
   class="lucide lucide-recycle"
@@ -24678,24 +28434,6 @@ const Recycle = `
   <path d="M8.293 13.596 7.196 9.5 3.1 10.598" />
   <path d="m9.344 5.811 1.093-1.892A1.83 1.83 0 0 1 11.985 3a1.784 1.784 0 0 1 1.546.888l3.943 6.843" />
   <path d="m13.378 9.633 4.096 1.098 1.097-4.096" />
-</svg>
-`;
-
-const Redo2 = `
-<svg
-  class="lucide lucide-redo-2"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="m15 14 5-5-5-5" />
-  <path d="M20 9H9.5A5.5 5.5 0 0 0 4 14.5A5.5 5.5 0 0 0 9.5 20H13" />
 </svg>
 `;
 
@@ -24880,27 +28618,6 @@ const RemoveFormatting = `
 </svg>
 `;
 
-const Repeat1 = `
-<svg
-  class="lucide lucide-repeat-1"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="m17 2 4 4-4 4" />
-  <path d="M3 11v-1a4 4 0 0 1 4-4h14" />
-  <path d="m7 22-4-4 4-4" />
-  <path d="M21 13v1a4 4 0 0 1-4 4H3" />
-  <path d="M11 10h1v4" />
-</svg>
-`;
-
 const Repeat2 = `
 <svg
   class="lucide lucide-repeat-2"
@@ -24961,6 +28678,27 @@ const Repeat = `
   <path d="M3 11v-1a4 4 0 0 1 4-4h14" />
   <path d="m7 22-4-4 4-4" />
   <path d="M21 13v1a4 4 0 0 1-4 4H3" />
+</svg>
+`;
+
+const Repeat1 = `
+<svg
+  class="lucide lucide-repeat-1"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m17 2 4 4-4 4" />
+  <path d="M3 11v-1a4 4 0 0 1 4-4h14" />
+  <path d="m7 22-4-4 4-4" />
+  <path d="M21 13v1a4 4 0 0 1-4 4H3" />
+  <path d="M11 10h1v4" />
 </svg>
 `;
 
@@ -25108,6 +28846,52 @@ const Road = `
 </svg>
 `;
 
+const RobotVacuum = `
+<svg
+  class="lucide lucide-robot-vacuum"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M11 17h2" />
+  <path d="M12 12h.01" />
+  <path d="M17 12a5 5 0 00-10 0" />
+  <path d="M19 2v2.8" />
+  <path d="M2 5h2.8" />
+  <path d="M22 5h-2.8" />
+  <path d="M5 2v2.8" />
+  <circle cx="12" cy="12" r="10" />
+</svg>
+`;
+
+const RobotArm = `
+<svg
+  class="lucide lucide-robot-arm"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 21 7.5 8.322" />
+  <path d="m14 7 1.75-3.767a.5.5 0 0 1 .662-.172L20 5.005" />
+  <path d="m20 8.998-3.588 1.944a.5.5 0 0 1-.662-.172L14 7H8" />
+  <path d="M3.486 21h10" />
+  <path d="M5 21V8.732" />
+  <circle cx="6" cy="7" r="2" />
+</svg>
+`;
+
 const Rocket = `
 <svg
   class="lucide lucide-rocket"
@@ -25125,26 +28909,6 @@ const Rocket = `
   <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09" />
   <path d="M9 12a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2z" />
   <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 .05 5 .05" />
-</svg>
-`;
-
-const RockingChair = `
-<svg
-  class="lucide lucide-rocking-chair"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="m15 13 3.708 7.416" />
-  <path d="M3 19a15 15 0 0 0 18 0" />
-  <path d="m3 2 3.21 9.633A2 2 0 0 0 8.109 13H18" />
-  <path d="m9 13-3.708 7.416" />
 </svg>
 `;
 
@@ -25168,6 +28932,26 @@ const RollerCoaster = `
   <path d="M18 19v-6" />
   <path d="M22 19V9" />
   <path d="M2 19V9a4 4 0 0 1 4-4c2 0 4 1.33 6 4s4 4 6 4a4 4 0 1 0-3-6.65" />
+</svg>
+`;
+
+const RockingChair = `
+<svg
+  class="lucide lucide-rocking-chair"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m15 13 3.708 7.416" />
+  <path d="M3 19a15 15 0 0 0 18 0" />
+  <path d="m3 2 3.21 9.633A2 2 0 0 0 8.109 13H18" />
+  <path d="m9 13-3.708 7.416" />
 </svg>
 `;
 
@@ -25211,6 +28995,25 @@ const Rotate3d = `
 </svg>
 `;
 
+const RotateCcwClock = `
+<svg
+  class="lucide lucide-rotate-ccw-clock"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+  <path d="M3 3v5h5" />
+  <path d="M12 7v5l4 2" />
+</svg>
+`;
+
 const RotateCcwKey = `
 <svg
   class="lucide lucide-rotate-ccw-key"
@@ -25251,6 +29054,25 @@ const RotateCcwSquare = `
 </svg>
 `;
 
+const RotateCwClock = `
+<svg
+  class="lucide lucide-rotate-cw-clock"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 7v5l4 2" />
+  <path d="M16 8h5V3" />
+  <path d="m21 8-2.3-2.3A9.7 9.7 0 0012 3a9 9 0 109 9" />
+</svg>
+`;
+
 const RotateCcw = `
 <svg
   class="lucide lucide-rotate-ccw"
@@ -25266,6 +29088,32 @@ const RotateCcw = `
 >
   <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
   <path d="M3 3v5h5" />
+</svg>
+`;
+
+const RotateCwFadingClock = `
+<svg
+  class="lucide lucide-rotate-cw-fading-clock"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 3a9.75 9.75 0 0 1 6.74 2.74" />
+  <path d="M18.74 5.74 21 8" />
+  <path d="M21 8V3" />
+  <path d="M7.5 19.794c-6-3.464-6-12.124 0-15.588" />
+  <path d="M7.5 4.206A9 9 0 0 1 12 3" />
+  <path d="M12 7v5l4 2" />
+  <path d="M14 20.775A9 9 0 0 1 12 21" />
+  <path d="M19 17.656a9 9 0 0 1-1.5 1.456" />
+  <path d="M21 12a9 9 0 0 1-.228 2" />
+  <path d="M21 8h-5" />
 </svg>
 `;
 
@@ -25329,25 +29177,6 @@ const RouteOff = `
 </svg>
 `;
 
-const Route = `
-<svg
-  class="lucide lucide-route"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <circle cx="6" cy="19" r="3" />
-  <path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15" />
-  <circle cx="18" cy="5" r="3" />
-</svg>
-`;
-
 const Router = `
 <svg
   class="lucide lucide-router"
@@ -25367,6 +29196,25 @@ const Router = `
   <path d="M15 10v4" />
   <path d="M17.84 7.17a4 4 0 0 0-5.66 0" />
   <path d="M20.66 4.34a8 8 0 0 0-11.31 0" />
+</svg>
+`;
+
+const Route = `
+<svg
+  class="lucide lucide-route"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="6" cy="19" r="3" />
+  <path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15" />
+  <circle cx="18" cy="5" r="3" />
 </svg>
 `;
 
@@ -25407,6 +29255,46 @@ const Rows3 = `
 </svg>
 `;
 
+const Rss = `
+<svg
+  class="lucide lucide-rss"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M4 11a9 9 0 0 1 9 9" />
+  <path d="M4 4a16 16 0 0 1 16 16" />
+  <circle cx="5" cy="19" r="1" />
+</svg>
+`;
+
+const RugbyBall = `
+<svg
+  class="lucide lucide-rugby-ball"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m10 10 4 4" />
+  <path d="m13 7 4 4" />
+  <path d="M15.34 2.138A15 15 0 002.138 15.34c-.357 2.94.004 4.919.805 5.717.798.8 2.778 1.162 5.718.805A15 15 0 0021.862 8.661c.357-2.94-.004-4.92-.805-5.718-.798-.8-2.778-1.162-5.717-.805" />
+  <path d="M17 7 7 17" />
+  <path d="m7 13 4 4" />
+</svg>
+`;
+
 const Rows4 = `
 <svg
   class="lucide lucide-rows-4"
@@ -25424,25 +29312,6 @@ const Rows4 = `
   <path d="M21 7.5H3" />
   <path d="M21 12H3" />
   <path d="M21 16.5H3" />
-</svg>
-`;
-
-const Rss = `
-<svg
-  class="lucide lucide-rss"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M4 11a9 9 0 0 1 9 9" />
-  <path d="M4 4a16 16 0 0 1 16 16" />
-  <circle cx="5" cy="19" r="1" />
 </svg>
 `;
 
@@ -25504,27 +29373,8 @@ const RussianRuble = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M6 11h8a4 4 0 0 0 0-8H9v18" />
-  <path d="M6 15h8" />
-</svg>
-`;
-
-const Sailboat = `
-<svg
-  class="lucide lucide-sailboat"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M10 2v15" />
-  <path d="M7 22a4 4 0 0 1-4-4 1 1 0 0 1 1-1h16a1 1 0 0 1 1 1 4 4 0 0 1-4 4z" />
-  <path d="M9.159 2.46a1 1 0 0 1 1.521-.193l9.977 8.98A1 1 0 0 1 20 13H4a1 1 0 0 1-.824-1.567z" />
+  <path d="M4 16h6" />
+  <path d="M7 20V5a1 1 0 011-1h6a4 4 0 010 8H4" />
 </svg>
 `;
 
@@ -25541,11 +29391,10 @@ const Salad = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
+  <path d="M19.496 12a2.5 2.5 0 00.399-2.214A2 2 0 0020.32 6.5 2 2 0 0019 3a2 2 0 00-1.5.68 2 2 0 00-3.287.424 2.5 2.5 0 00-3.189 2.06A3 3 0 0012 12l4-4" />
+  <path d="M4 12a1 1 0 00-.99 1.133A9 9 0 0012 21a9 9 0 008.99-7.867A1 1 0 0020 12z" />
   <path d="M7 21h10" />
-  <path d="M12 21a9 9 0 0 0 9-9H3a9 9 0 0 0 9 9Z" />
-  <path d="M11.38 12a2.4 2.4 0 0 1-.4-4.77 2.4 2.4 0 0 1 3.2-2.77 2.4 2.4 0 0 1 3.47-.63 2.4 2.4 0 0 1 3.37 3.37 2.4 2.4 0 0 1-1.1 3.7 2.51 2.51 0 0 1 .03 1.1" />
-  <path d="m13 12 4-4" />
-  <path d="M10.9 7.25A3.99 3.99 0 0 0 4 10c0 .73.2 1.41.54 2" />
+  <path d="M9.85 6.907A3.5 3.5 0 005.05 12" />
 </svg>
 `;
 
@@ -25570,6 +29419,25 @@ const Sandwich = `
 </svg>
 `;
 
+const Sailboat = `
+<svg
+  class="lucide lucide-sailboat"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M10 2v15" />
+  <path d="M7 22a4 4 0 0 1-4-4 1 1 0 0 1 1-1h16a1 1 0 0 1 1 1 4 4 0 0 1-4 4z" />
+  <path d="M9.159 2.46a1 1 0 0 1 1.521-.193l9.977 8.98A1 1 0 0 1 20 13H4a1 1 0 0 1-.824-1.567z" />
+</svg>
+`;
+
 const SatelliteDish = `
 <svg
   class="lucide lucide-satellite-dish"
@@ -25583,10 +29451,10 @@ const SatelliteDish = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M4 10a7.31 7.31 0 0 0 10 10Z" />
-  <path d="m9 15 3-3" />
-  <path d="M17 13a6 6 0 0 0-6-6" />
-  <path d="M21 13A10 10 0 0 0 11 3" />
+  <path d="M18 12a6 6 0 00-6-6" />
+  <path d="M2.824 10.459a8 8 0 0010.717 10.717c.558-.276.623-1.012.183-1.452l-9.448-9.448c-.44-.44-1.176-.375-1.452.183" />
+  <path d="M22 12A10 10 0 0012 2" />
+  <path d="m9 15 4-4" />
 </svg>
 `;
 
@@ -25624,10 +29492,10 @@ const SaudiRiyal = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="m20 19.5-5.5 1.2" />
-  <path d="M14.5 4v11.22a1 1 0 0 0 1.242.97L20 15.2" />
-  <path d="m2.978 19.351 5.549-1.363A2 2 0 0 0 10 16V2" />
-  <path d="M20 10 4 13.5" />
+  <path d="M10 2.977v13.19a2 2 0 01-1.23 1.846L4 19.999" />
+  <path d="M14 4v9.523a1 1 0 001.371.928L19 13" />
+  <path d="m19 18-5 2" />
+  <path d="M19 8 4 14" />
 </svg>
 `;
 
@@ -25651,26 +29519,6 @@ const SaveAll = `
 </svg>
 `;
 
-const SaveCheck = `
-<svg
-  class="lucide lucide-save-check"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M12.5 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h10.2a2 2 0 0 1 1.4.6l3.8 3.8a2 2 0 0 1 .6 1.4v4.35" />
-  <path d="m16 19 2 2 4-4" />
-  <path d="M17 15.13V14a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1v7" />
-  <path d="M7 3v4a1 1 0 0 0 1 1h7" />
-</svg>
-`;
-
 const SaveOff = `
 <svg
   class="lucide lucide-save-off"
@@ -25689,8 +29537,27 @@ const SaveOff = `
   <path d="M17 21v-4" />
   <path d="m2 2 20 20" />
   <path d="M20.41 20.41A2 2 0 0 1 19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 .59-1.41" />
-  <path d="M29.5 11.5s5 5 4 5" />
   <path d="M9 3h6.2a2 2 0 0 1 1.4.6l3.8 3.8a2 2 0 0 1 .6 1.4V15" />
+</svg>
+`;
+
+const SaveCheck = `
+<svg
+  class="lucide lucide-save-check"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12.5 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h10.2a2 2 0 0 1 1.4.6l3.8 3.8a2 2 0 0 1 .6 1.4v4.35" />
+  <path d="m16 19 2 2 4-4" />
+  <path d="M17 15.13V14a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1v7" />
+  <path d="M7 3v4a1 1 0 0 0 1 1h7" />
 </svg>
 `;
 
@@ -25795,26 +29662,6 @@ const Scale = `
 </svg>
 `;
 
-const Scaling = `
-<svg
-  class="lucide lucide-scaling"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
-  <path d="M14 15H9v-5" />
-  <path d="M16 3h5v5" />
-  <path d="M21 3 9 15" />
-</svg>
-`;
-
 const ScanBarcode = `
 <svg
   class="lucide lucide-scan-barcode"
@@ -25835,6 +29682,49 @@ const ScanBarcode = `
   <path d="M8 7v10" />
   <path d="M12 7v10" />
   <path d="M17 7v10" />
+</svg>
+`;
+
+const Scaling = `
+<svg
+  class="lucide lucide-scaling"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+  <path d="M14 15H9v-5" />
+  <path d="M16 3h5v5" />
+  <path d="M21 3 9 15" />
+</svg>
+`;
+
+const ScanBox = `
+<svg
+  class="lucide lucide-scan-box"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 12v5.5" />
+  <path d="M17 3h2a2 2 0 012 2v2" />
+  <path d="M21 17v2a2 2 0 01-2 2h-2" />
+  <path d="M3 7V5a2 2 0 012-2h2" />
+  <path d="M7 21H5a2 2 0 01-2-2v-2" />
+  <path d="M7.264 9.252 12 12l4.737-2.748" />
+  <path d="M7.995 8.514A2 2 0 007 10.244v3.516a2 2 0 00.996 1.73l3 1.74a2 2 0 002.008 0l3-1.74A2 2 0 0017 13.76v-3.517a2 2 0 00-.995-1.73l-3-1.742a2 2 0 00-1.892-.064z" />
 </svg>
 `;
 
@@ -25971,9 +29861,9 @@ const ScanSearch = `
 </svg>
 `;
 
-const ScanText = `
+const ScanSquare = `
 <svg
-  class="lucide lucide-scan-text"
+  class="lucide lucide-scan-square"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -25988,9 +29878,7 @@ const ScanText = `
   <path d="M17 3h2a2 2 0 0 1 2 2v2" />
   <path d="M21 17v2a2 2 0 0 1-2 2h-2" />
   <path d="M7 21H5a2 2 0 0 1-2-2v-2" />
-  <path d="M7 8h8" />
-  <path d="M7 12h10" />
-  <path d="M7 16h6" />
+  <rect width="8" height="8" x="8" y="8" rx="1" />
 </svg>
 `;
 
@@ -26011,6 +29899,29 @@ const Scan = `
   <path d="M17 3h2a2 2 0 0 1 2 2v2" />
   <path d="M21 17v2a2 2 0 0 1-2 2h-2" />
   <path d="M7 21H5a2 2 0 0 1-2-2v-2" />
+</svg>
+`;
+
+const ScanText = `
+<svg
+  class="lucide lucide-scan-text"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M3 7V5a2 2 0 0 1 2-2h2" />
+  <path d="M17 3h2a2 2 0 0 1 2 2v2" />
+  <path d="M21 17v2a2 2 0 0 1-2 2h-2" />
+  <path d="M7 21H5a2 2 0 0 1-2-2v-2" />
+  <path d="M7 8h8" />
+  <path d="M7 12h10" />
+  <path d="M7 16h6" />
 </svg>
 `;
 
@@ -26097,7 +30008,47 @@ const Scooter = `
   <path d="M6.95 17h5.142c.523 0 .95-.406 1.063-.916a6.5 6.5 0 0 1 5.345-5.009" />
   <circle cx="19.5" cy="17.5" r="2.5" />
   <circle cx="4.5" cy="17.5" r="2.5" />
-</svg>`;
+</svg>
+`;
+
+const ScratchBlocks = `
+<svg
+  class="lucide lucide-scratch-blocks"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M19 5a2 2 0 012 2v11a2 2 0 01-2 2h-5.586a1 1 0 00-.707.293l-1.414 1.414a1 1 0 01-.707.293H8.414a1 1 0 01-.707-.293l-1.414-1.414A1 1 0 005.586 20H5a2 2 0 01-2-2V5.286c0-.394.11-.785.36-1.09a6 6 0 019.168-.133C12.996 4.6 13.637 5 14.35 5z" />
+  <path d="M21 12h-7.586a1 1 0 00-.707.293l-1.414 1.414a1 1 0 01-.707.293H8.414a1 1 0 01-.707-.293l-1.414-1.414A1 1 0 005.586 12H3" />
+</svg>
+`;
+
+const ScreenShare = `
+<svg
+  class="lucide lucide-screen-share"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M13 3H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-3" />
+  <path d="M8 21h8" />
+  <path d="M12 17v4" />
+  <path d="m17 8 5-5" />
+  <path d="M17 3h5v5" />
+</svg>
+`;
 
 const ScreenShareOff = `
 <svg
@@ -26120,9 +30071,9 @@ const ScreenShareOff = `
 </svg>
 `;
 
-const ScreenShare = `
+const Screw = `
 <svg
-  class="lucide lucide-screen-share"
+  class="lucide lucide-screw"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -26133,11 +30084,11 @@ const ScreenShare = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M13 3H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-3" />
-  <path d="M8 21h8" />
-  <path d="M12 17v4" />
-  <path d="m17 8 5-5" />
-  <path d="M17 3h5v5" />
+  <path d="M10 9v10" />
+  <path d="M14 13v2" />
+  <path d="M16.5 10.5 5.706 21.294A2.4 2.4 0 014.002 22H2.5a.5.5 0 01-.5-.5v-1.502a2.4 2.4 0 01.706-1.704L13.5 7.5" />
+  <path d="M20.819 11.575a6 6 0 00.969-5.162.6.6 0 00-.981-.219l-.455.454a1.2 1.2 0 01-1.704 0l-1.296-1.296a1.2 1.2 0 010-1.704l.454-.453a.595.595 0 00-.219-.98 6 6 0 00-5.162.967 2 2 0 00-.222 3.019l5.596 5.597a2 2 0 003.02-.222" />
+  <path d="M6 13v8" />
 </svg>
 `;
 
@@ -26179,44 +30130,6 @@ const Scroll = `
 </svg>
 `;
 
-const SearchAlert = `
-<svg
-  class="lucide lucide-search-alert"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <circle cx="11" cy="11" r="8" />
-  <path d="m21 21-4.3-4.3" />
-  <path d="M11 7v4" />
-  <path d="M11 15h.01" />
-</svg>`;
-
-const SearchCheck = `
-<svg
-  class="lucide lucide-search-check"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="m8 11 2 2 4-4" />
-  <circle cx="11" cy="11" r="8" />
-  <path d="m21 21-4.3-4.3" />
-</svg>
-`;
-
 const SearchCode = `
 <svg
   class="lucide lucide-search-code"
@@ -26234,6 +30147,45 @@ const SearchCode = `
   <path d="m21 21-4.3-4.3" />
   <path d="M9 8.5 7 11l2 2.5" />
   <circle cx="11" cy="11" r="8" />
+</svg>
+`;
+
+const SearchExclamationPoint = `
+<svg
+  class="lucide lucide-search-exclamation-point"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="11" cy="11" r="8" />
+  <path d="m21 21-4.3-4.3" />
+  <path d="M11 7v4" />
+  <path d="M11 15h.01" />
+</svg>
+`;
+
+const SearchCheck = `
+<svg
+  class="lucide lucide-search-check"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m8 11 2 2 4-4" />
+  <circle cx="11" cy="11" r="8" />
+  <path d="m21 21-4.3-4.3" />
 </svg>
 `;
 
@@ -26330,6 +30282,26 @@ const SendHorizontal = `
 </svg>
 `;
 
+const SendToBack = `
+<svg
+  class="lucide lucide-send-to-back"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <rect x="14" y="14" width="8" height="8" rx="2" />
+  <rect x="2" y="2" width="8" height="8" rx="2" />
+  <path d="M7 14v1a2 2 0 0 0 2 2h1" />
+  <path d="M14 7h1a2 2 0 0 1 2 2v1" />
+</svg>
+`;
+
 const Send = `
 <svg
   class="lucide lucide-send"
@@ -26364,26 +30336,6 @@ const SeparatorHorizontal = `
   <path d="m16 16-4 4-4-4" />
   <path d="M3 12h18" />
   <path d="m8 8 4-4 4 4" />
-</svg>
-`;
-
-const SendToBack = `
-<svg
-  class="lucide lucide-send-to-back"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <rect x="14" y="14" width="8" height="8" rx="2" />
-  <rect x="2" y="2" width="8" height="8" rx="2" />
-  <path d="M7 14v1a2 2 0 0 0 2 2h1" />
-  <path d="M14 7h1a2 2 0 0 1 2 2v1" />
 </svg>
 `;
 
@@ -26434,6 +30386,28 @@ const ServerCog = `
 </svg>
 `;
 
+const ServerNas = `
+<svg
+  class="lucide lucide-server-nas"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M10 16V8" />
+  <path d="M14 16V8" />
+  <path d="M18 16V8" />
+  <path d="M6 12h.01" />
+  <path d="M6 16h.01" />
+  <rect x="2" y="4" width="20" height="16" rx="2" />
+</svg>
+`;
+
 const ServerCrash = `
 <svg
   class="lucide lucide-server-crash"
@@ -26452,6 +30426,28 @@ const ServerCrash = `
   <path d="M6 6h.01" />
   <path d="M6 18h.01" />
   <path d="m13 6-4 6h6l-4 6" />
+</svg>
+`;
+
+const ServerPlus = `
+<svg
+  class="lucide lucide-server-plus"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12.5 10H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v2" />
+  <path d="M16 12h6" />
+  <path d="M19 9v6" />
+  <path d="M22 18v2a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h8.5" />
+  <path d="M6 18h.01" />
+  <path d="M6 6h.01" />
 </svg>
 `;
 
@@ -26535,6 +30531,27 @@ const Settings = `
 </svg>
 `;
 
+const Share2 = `
+<svg
+  class="lucide lucide-share-2"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="18" cy="5" r="3" />
+  <circle cx="6" cy="12" r="3" />
+  <circle cx="18" cy="19" r="3" />
+  <line x1="8.59" x2="15.42" y1="13.51" y2="17.49" />
+  <line x1="15.41" x2="8.59" y1="6.51" y2="10.49" />
+</svg>
+`;
+
 const Shapes = `
 <svg
   class="lucide lucide-shapes"
@@ -26554,9 +30571,9 @@ const Shapes = `
 </svg>
 `;
 
-const Share2 = `
+const Share = `
 <svg
-  class="lucide lucide-share-2"
+  class="lucide lucide-share"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -26567,11 +30584,9 @@ const Share2 = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <circle cx="18" cy="5" r="3" />
-  <circle cx="6" cy="12" r="3" />
-  <circle cx="18" cy="19" r="3" />
-  <line x1="8.59" x2="15.42" y1="13.51" y2="17.49" />
-  <line x1="15.41" x2="8.59" y1="6.51" y2="10.49" />
+  <path d="M12 2v13" />
+  <path d="m16 6-4-4-4 4" />
+  <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" />
 </svg>
 `;
 
@@ -26596,25 +30611,6 @@ const Sheet = `
 </svg>
 `;
 
-const Share = `
-<svg
-  class="lucide lucide-share"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M12 2v13" />
-  <path d="m16 6-4-4-4 4" />
-  <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" />
-</svg>
-`;
-
 const Shell = `
 <svg
   class="lucide lucide-shell"
@@ -26629,48 +30625,6 @@ const Shell = `
   stroke-linejoin="round"
 >
   <path d="M14 11a2 2 0 1 1-4 0 4 4 0 0 1 8 0 6 6 0 0 1-12 0 8 8 0 0 1 16 0 10 10 0 1 1-20 0 11.93 11.93 0 0 1 2.42-7.22 2 2 0 1 1 3.16 2.44" />
-</svg>
-`;
-
-const ShelvingUnit = `
-<svg
-  class="lucide lucide-shelving-unit"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M12 12V9a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3" />
-  <path d="M16 20v-3a1 1 0 0 0-1-1h-2a1 1 0 0 0-1 1v3" />
-  <path d="M20 22V2" />
-  <path d="M4 12h16" />
-  <path d="M4 20h16" />
-  <path d="M4 2v20" />
-  <path d="M4 4h16" />
-</svg>
-`;
-
-const ShieldAlert = `
-<svg
-  class="lucide lucide-shield-alert"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
-  <path d="M12 8v4" />
-  <path d="M12 16h.01" />
 </svg>
 `;
 
@@ -26707,6 +30661,29 @@ const ShieldCheck = `
 >
   <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
   <path d="m9 12 2 2 4-4" />
+</svg>
+`;
+
+const ShelvingUnit = `
+<svg
+  class="lucide lucide-shelving-unit"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 12V9a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3" />
+  <path d="M16 20v-3a1 1 0 0 0-1-1h-2a1 1 0 0 0-1 1v3" />
+  <path d="M20 22V2" />
+  <path d="M4 12h16" />
+  <path d="M4 20h16" />
+  <path d="M4 2v20" />
+  <path d="M4 4h16" />
 </svg>
 `;
 
@@ -26762,6 +30739,45 @@ const ShieldCog = `
 </svg>
 `;
 
+const ShieldEllipsis = `
+<svg
+  class="lucide lucide-shield-ellipsis"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
+  <path d="M8 12h.01" />
+  <path d="M12 12h.01" />
+  <path d="M16 12h.01" />
+</svg>
+`;
+
+const ShieldExclamationPoint = `
+<svg
+  class="lucide lucide-shield-exclamation-point"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
+  <path d="M12 8v4" />
+  <path d="M12 16h.01" />
+</svg>
+`;
+
 const ShieldHalf = `
 <svg
   class="lucide lucide-shield-half"
@@ -26780,9 +30796,9 @@ const ShieldHalf = `
 </svg>
 `;
 
-const ShieldEllipsis = `
+const ShieldHouse = `
 <svg
-  class="lucide lucide-shield-ellipsis"
+  class="lucide lucide-shield-house"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -26793,10 +30809,47 @@ const ShieldEllipsis = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
-  <path d="M8 12h.01" />
-  <path d="M12 12h.01" />
-  <path d="M16 12h.01" />
+  <path d="M15 22a1 1 0 01-1-1v-4a1 1 0 01.445-.832l3-2a1 1 0 011.11 0l3 2A1 1 0 0122 17v4a1 1 0 01-1 1z" />
+  <path d="M18 22v-3" />
+  <path d="M20 10.418V6a1 1 0 00-1-1c-2 0-4.49-1.19-6.24-2.72a1.17 1.17 0 00-1.52 0C9.5 3.8 7 5 5 5a1 1 0 00-1 1v7c0 4.602 2.67 7.1 6.037 8.603" />
+</svg>
+`;
+
+const ShieldKeyhole = `
+<svg
+  class="lucide lucide-shield-keyhole"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 13v3" />
+  <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 01-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 011-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 011.52 0C14.51 3.81 17 5 19 5a1 1 0 011 1z" />
+  <circle cx="12" cy="11" r="2" />
+</svg>
+`;
+
+const ShieldLock = `
+<svg
+  class="lucide lucide-shield-lock"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M20 9.807V6a1 1 0 00-1-1c-2 0-4.49-1.19-6.24-2.72a1.17 1.17 0 00-1.52 0C9.5 3.8 7 5 5 5a1 1 0 00-1 1v7c0 3.88 2.107 6.254 5 7.796" />
+  <path d="M19 17v-2a2 2 0 00-4 0v2" />
+  <rect x="13" y="17" width="8" height="5" rx="1" />
 </svg>
 `;
 
@@ -26930,6 +30983,27 @@ const Shield = `
 </svg>
 `;
 
+const ShipCargo = `
+<svg
+  class="lucide lucide-ship-cargo"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 15v-3" />
+  <path d="M12 2v2" />
+  <path d="M16.5 12V9a1 1 0 011-1h1a1 1 0 001-1V5a1 1 0 00-1-1h-13a1 1 0 00-1 1v2a1 1 0 001 1h1a1 1 0 011 1v3" />
+  <path d="M19.38 19c1.076-1.815 1.636-4.89 1.628-6.008a1 1 0 00-1-.992H3.984a1 1 0 00-1 .984c-.03 1.86.97 5.621 2.826 7.776" />
+  <path d="M2 20c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1s1.2 1 2.5 1c2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1" />
+</svg>
+`;
+
 const ShipWheel = `
 <svg
   class="lucide lucide-ship-wheel"
@@ -26969,11 +31043,11 @@ const Ship = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M12 10.189V14" />
-  <path d="M12 2v3" />
-  <path d="M19 13V7a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v6" />
-  <path d="M19.38 20A11.6 11.6 0 0 0 21 14l-8.188-3.639a2 2 0 0 0-1.624 0L3 14a11.6 11.6 0 0 0 2.81 7.76" />
-  <path d="M2 21c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1s1.2 1 2.5 1c2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1" />
+  <path d="M12 2v2" />
+  <path d="M12 9.189V13" />
+  <path d="M19 12V6a2 2 0 00-2-2H7a2 2 0 00-2 2v6" />
+  <path d="M19.38 19A11.6 11.6 0 0021 13l-8.188-3.639a2 2 0 00-1.624 0L3 13.001a11.6 11.6 0 002.81 7.76" />
+  <path d="M2 20c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1s1.2 1 2.5 1c2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1" />
 </svg>
 `;
 
@@ -27013,6 +31087,51 @@ const ShoppingBag = `
 </svg>
 `;
 
+const ShoppingCartMinus = `
+<svg
+  class="lucide lucide-shopping-cart-minus"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M16 5h6" />
+  <path d="m2.05 2.05 1.099-.028a1 1 0 011.008.815l2.69 14.347A1 1 0 007.83 18H18" />
+  <path d="M4.564 5H12" />
+  <path d="M6.25 14h12.712a2 2 0 001.991-1.57l.514-3.113" />
+  <circle cx="18" cy="20" r="2" />
+  <circle cx="8" cy="20" r="2" />
+</svg>
+`;
+
+const ShoppingCartPlus = `
+<svg
+  class="lucide lucide-shopping-cart-plus"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M16 5h6" />
+  <path d="M19 2v6" />
+  <path d="m2.05 2.05 1.099-.028a1 1 0 011.008.815l2.69 14.347A1 1 0 007.83 18H18" />
+  <path d="M4.564 5H12" />
+  <path d="M6.25 14h12.712a2 2 0 001.991-1.57l.172-1.041" />
+  <circle cx="18" cy="20" r="2" />
+  <circle cx="8" cy="20" r="2" />
+</svg>
+`;
+
 const ShoppingBasket = `
 <svg
   class="lucide lucide-shopping-basket"
@@ -27049,28 +31168,10 @@ const ShoppingCart = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <circle cx="8" cy="21" r="1" />
-  <circle cx="19" cy="21" r="1" />
-  <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
-</svg>
-`;
-
-const Shovel = `
-<svg
-  class="lucide lucide-shovel"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M21.56 4.56a1.5 1.5 0 0 1 0 2.122l-.47.47a3 3 0 0 1-4.212-.03 3 3 0 0 1 0-4.243l.44-.44a1.5 1.5 0 0 1 2.121 0z" />
-  <path d="M3 22a1 1 0 0 1-1-1v-3.586a1 1 0 0 1 .293-.707l3.355-3.355a1.205 1.205 0 0 1 1.704 0l3.296 3.296a1.205 1.205 0 0 1 0 1.704l-3.355 3.355a1 1 0 0 1-.707.293z" />
-  <path d="m9 15 7.879-7.878" />
+  <path d="m2.05 2.05 1.099-.028a1 1 0 0 1 1.008.815l2.69 14.347A1 1 0 0 0 7.83 18H18" />
+  <path d="M4.563 5h16.435a1 1 0 0 1 .981 1.204l-1.026 6.226A2 2 0 0 1 18.962 14H6.25" />
+  <circle cx="18" cy="20" r="2" />
+  <circle cx="8" cy="20" r="2" />
 </svg>
 `;
 
@@ -27123,6 +31224,25 @@ const Shredder = `
 </svg>
 `;
 
+const Shovel = `
+<svg
+  class="lucide lucide-shovel"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M21.56 4.56a1.5 1.5 0 0 1 0 2.122l-.47.47a3 3 0 0 1-4.212-.03 3 3 0 0 1 0-4.243l.44-.44a1.5 1.5 0 0 1 2.121 0z" />
+  <path d="M3 22a1 1 0 0 1-1-1v-3.586a1 1 0 0 1 .293-.707l3.355-3.355a1.205 1.205 0 0 1 1.704 0l3.296 3.296a1.205 1.205 0 0 1 0 1.704l-3.355 3.355a1 1 0 0 1-.707.293z" />
+  <path d="m9 15 7.879-7.878" />
+</svg>
+`;
+
 const Shrimp = `
 <svg
   class="lucide lucide-shrimp"
@@ -27136,11 +31256,34 @@ const Shrimp = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M11 12h.01" />
-  <path d="M13 22c.5-.5 1.12-1 2.5-1-1.38 0-2-.5-2.5-1" />
-  <path d="M14 2a3.28 3.28 0 0 1-3.227 1.798l-6.17-.561A2.387 2.387 0 1 0 4.387 8H15.5a1 1 0 0 1 0 13 1 1 0 0 0 0-5H12a7 7 0 0 1-7-7V8" />
-  <path d="M14 8a8.5 8.5 0 0 1 0 8" />
-  <path d="M16 16c2 0 4.5-4 4-6" />
+  <path d="M10 2a3.28 3.28 0 003.227 1.798l6.17-.561A1 1 0 1119.614 8H8.5a6.44 6.44 0 00-5.63 9.75A6.5 6.5 0 008.5 21c1.38 0 2-.5 2.5-1" />
+  <path d="M10 8a8.5 8.5 0 000 8" />
+  <path d="M11 22c-.5-.5-1.12-1-2.5-1a1 1 0 010-5H12a7 7 0 007-7V8" />
+  <path d="M13 12h.01" />
+  <path d="M8 16c-2 0-4.5-4-4-6" />
+</svg>
+`;
+
+const ShrimpOff = `
+<svg
+  class="lucide lucide-shrimp-off"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M10 2a3.28 3.28 0 003.227 1.798l6.17-.561A1 1 0 1119.614 8H13.5" />
+  <path d="M11 20c-.5.5-1.12 1-2.5 1a1 1 0 010-5H12a7 7 0 003.283-.817" />
+  <path d="M11 22c-.5-.5-1.12-1-2.5-1a6.5 6.5 0 01-5.63-3.25 6.44 6.44 0 015.236-9.744" />
+  <path d="M18.04 12.54A7 7 0 0019 9V8" />
+  <path d="m2 2 20 20" />
+  <path d="M8 16c-2 0-4.5-4-4-6" />
+  <path d="M9.43 9.33A8.5 8.5 0 0010 16" />
 </svg>
 `;
 
@@ -27183,23 +31326,6 @@ const Shrub = `
 </svg>
 `;
 
-const Sigma = `
-<svg
-  class="lucide lucide-sigma"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M18 7V5a1 1 0 0 0-1-1H6.5a.5.5 0 0 0-.4.8l4.5 6a2 2 0 0 1 0 2.4l-4.5 6a.5.5 0 0 0 .4.8H17a1 1 0 0 0 1-1v-2" />
-</svg>
-`;
-
 const Shuffle = `
 <svg
   class="lucide lucide-shuffle"
@@ -27218,6 +31344,23 @@ const Shuffle = `
   <path d="M2 18h1.973a4 4 0 0 0 3.3-1.7l5.454-8.6a4 4 0 0 1 3.3-1.7H22" />
   <path d="M2 6h1.972a4 4 0 0 1 3.6 2.2" />
   <path d="M22 18h-6.041a4 4 0 0 1-3.3-1.8l-.359-.45" />
+</svg>
+`;
+
+const Sigma = `
+<svg
+  class="lucide lucide-sigma"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M18 7V5a1 1 0 0 0-1-1H6.5a.5.5 0 0 0-.4.8l4.5 6a2 2 0 0 1 0 2.4l-4.5 6a.5.5 0 0 0 .4.8H17a1 1 0 0 0 1-1v-2" />
 </svg>
 `;
 
@@ -27278,23 +31421,6 @@ const SignalMedium = `
 </svg>
 `;
 
-const SignalZero = `
-<svg
-  class="lucide lucide-signal-zero"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M2 20h.01" />
-</svg>
-`;
-
 const Signal = `
 <svg
   class="lucide lucide-signal"
@@ -27331,6 +31457,23 @@ const Signature = `
 >
   <path d="m21 17-2.156-1.868A.5.5 0 0 0 18 15.5v.5a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1c0-2.545-3.991-3.97-8.5-4a1 1 0 0 0 0 5c4.153 0 4.745-11.295 5.708-13.5a2.5 2.5 0 1 1 3.31 3.284" />
   <path d="M3 21h18" />
+</svg>
+`;
+
+const SignalZero = `
+<svg
+  class="lucide lucide-signal-zero"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M2 20h.01" />
 </svg>
 `;
 
@@ -27373,9 +31516,9 @@ const Signpost = `
 </svg>
 `;
 
-const SkipBack = `
+const SirenOff = `
 <svg
-  class="lucide lucide-skip-back"
+  class="lucide lucide-siren-off"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -27386,8 +31529,15 @@ const SkipBack = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M17.971 4.285A2 2 0 0 1 21 6v12a2 2 0 0 1-3.029 1.715l-9.997-5.998a2 2 0 0 1-.003-3.432z" />
-  <path d="M3 20V4" />
+  <path d="M12 12v6" />
+  <path d="M12 2v1" />
+  <path d="M12.707 7.05a5 5 0 0 1 4.243 4.243" />
+  <path d="M17 17v1H7a2 2 0 0 0-2 2v1a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-1a2 2 0 0 0-2-2" />
+  <path d="M18.5 4.5 18 5" />
+  <path d="M2 12h1" />
+  <path d="m2 2 20 20" />
+  <path d="M21 12h1" />
+  <path d="M7 18v-6a5 5 0 0 1 1.464-3.536" />
 </svg>
 `;
 
@@ -27412,6 +31562,44 @@ const Siren = `
   <path d="M12 2v1" />
   <path d="m4.929 4.929.707.707" />
   <path d="M12 12v6" />
+</svg>
+`;
+
+const SixteenthNotes = `
+<svg
+  class="lucide lucide-sixteenth-notes"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M21 16V3a1 1 0 0 0-1.28-.96l-10 2.917a1 1 0 0 0-.72.96V19" />
+  <path d="M21 6 9 9.5" />
+  <circle cx="18" cy="16" r="3" />
+  <circle cx="6" cy="19" r="3" />
+</svg>
+`;
+
+const SkipBack = `
+<svg
+  class="lucide lucide-skip-back"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M17.971 4.285A2 2 0 0 1 21 6v12a2 2 0 0 1-3.029 1.715l-9.997-5.998a2 2 0 0 1-.003-3.432z" />
+  <path d="M3 20V4" />
 </svg>
 `;
 
@@ -27453,23 +31641,6 @@ const Skull = `
 </svg>
 `;
 
-const Slash = `
-<svg
-  class="lucide lucide-slash"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M22 2 2 22" />
-</svg>
-`;
-
 const Slice = `
 <svg
   class="lucide lucide-slice"
@@ -27484,6 +31655,23 @@ const Slice = `
   stroke-linejoin="round"
 >
   <path d="M11 16.586V19a1 1 0 0 1-1 1H2L18.37 3.63a1 1 0 1 1 3 3l-9.663 9.663a1 1 0 0 1-1.414 0L8 14" />
+</svg>
+`;
+
+const Slash = `
+<svg
+  class="lucide lucide-slash"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M22 2 2 22" />
 </svg>
 `;
 
@@ -27555,24 +31743,6 @@ const SmartphoneCharging = `
 </svg>
 `;
 
-const Smartphone = `
-<svg
-  class="lucide lucide-smartphone"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <rect width="14" height="20" x="5" y="2" rx="2" ry="2" />
-  <path d="M12 18h.01" />
-</svg>
-`;
-
 const SmartphoneNfc = `
 <svg
   class="lucide lucide-smartphone-nfc"
@@ -27593,9 +31763,9 @@ const SmartphoneNfc = `
 </svg>
 `;
 
-const SmilePlus = `
+const SmartphoneUserRound = `
 <svg
-  class="lucide lucide-smile-plus"
+  class="lucide lucide-smartphone-user-round"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -27606,32 +31776,10 @@ const SmilePlus = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M22 11v1a10 10 0 1 1-9-10" />
-  <path d="M8 14s1.5 2 4 2 4-2 4-2" />
-  <line x1="9" x2="9.01" y1="9" y2="9" />
-  <line x1="15" x2="15.01" y1="9" y2="9" />
-  <path d="M16 5h6" />
-  <path d="M19 2v6" />
-</svg>
-`;
-
-const Smile = `
-<svg
-  class="lucide lucide-smile"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <circle cx="12" cy="12" r="10" />
-  <path d="M8 14s1.5 2 4 2 4-2 4-2" />
-  <line x1="9" x2="9.01" y1="9" y2="9" />
-  <line x1="15" x2="15.01" y1="9" y2="9" />
+  <path d="M10 22H6a2 2 0 01-2-2V4a2 2 0 012-2h10a2 2 0 012 2v4" />
+  <path d="M11 18h.01" />
+  <path d="M22 22a4 4 0 00-8 0" />
+  <circle cx="18" cy="15" r="3" />
 </svg>
 `;
 
@@ -27656,9 +31804,9 @@ const Snail = `
 </svg>
 `;
 
-const SoapDispenserDroplet = `
+const Smartphone = `
 <svg
-  class="lucide lucide-soap-dispenser-droplet"
+  class="lucide lucide-smartphone"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -27669,10 +31817,8 @@ const SoapDispenserDroplet = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M10.5 2v4" />
-  <path d="M14 2H7a2 2 0 0 0-2 2" />
-  <path d="M19.29 14.76A6.67 6.67 0 0 1 17 11a6.6 6.6 0 0 1-2.29 3.76c-1.15.92-1.71 2.04-1.71 3.19 0 2.22 1.8 4.05 4 4.05s4-1.83 4-4.05c0-1.16-.57-2.26-1.71-3.19" />
-  <path d="M9.607 21H6a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h7V7a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3" />
+  <rect width="14" height="20" x="5" y="2" rx="2" ry="2" />
+  <path d="M12 18h.01" />
 </svg>
 `;
 
@@ -27725,6 +31871,26 @@ const Sofa = `
 </svg>
 `;
 
+const SoapDispenserDroplet = `
+<svg
+  class="lucide lucide-soap-dispenser-droplet"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M10.5 2v4" />
+  <path d="M14 2H7a2 2 0 0 0-2 2" />
+  <path d="M19.29 14.76A6.67 6.67 0 0 1 17 11a6.6 6.6 0 0 1-2.29 3.76c-1.15.92-1.71 2.04-1.71 3.19 0 2.22 1.8 4.05 4 4.05s4-1.83 4-4.05c0-1.16-.57-2.26-1.71-3.19" />
+  <path d="M9.607 21H6a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h7V7a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3" />
+</svg>
+`;
+
 const SolarPanel = `
 <svg
   class="lucide lucide-solar-panel"
@@ -27748,6 +31914,28 @@ const SolarPanel = `
 </svg>
 `;
 
+const Soup = `
+<svg
+  class="lucide lucide-soup"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M11.248 3c.273.1.808.53.747 1.36-.05.83-.938 1.2-.989 2.02-.06.78.333 1.24.727 1.62" />
+  <path d="M16.252 3c.268.1.794.53.745 1.36-.06.83-.923 1.2-.993 2.02-.05.78.338 1.24.725 1.62" />
+  <path d="M19.5 12 22 6" />
+  <path d="M4 12a1 1 0 00-.99 1.133A9 9 0 0012 21a9 9 0 008.99-7.867A1 1 0 0020 12z" />
+  <path d="M6.252 3c.268.1.794.53.745 1.36-.06.83-.923 1.2-.993 2.02-.05.78.338 1.24.735 1.62" />
+  <path d="M7 21h10" />
+</svg>
+`;
+
 const Space = `
 <svg
   class="lucide lucide-space"
@@ -27762,28 +31950,6 @@ const Space = `
   stroke-linejoin="round"
 >
   <path d="M22 17v1c0 .5-.5 1-1 1H3c-.5 0-1-.5-1-1v-1" />
-</svg>
-`;
-
-const Soup = `
-<svg
-  class="lucide lucide-soup"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M12 21a9 9 0 0 0 9-9H3a9 9 0 0 0 9 9Z" />
-  <path d="M7 21h10" />
-  <path d="M19.5 12 22 6" />
-  <path d="M16.25 3c.27.1.8.53.75 1.36-.06.83-.93 1.2-1 2.02-.05.78.34 1.24.73 1.62" />
-  <path d="M11.25 3c.27.1.8.53.74 1.36-.05.83-.93 1.2-.98 2.02-.06.78.33 1.24.72 1.62" />
-  <path d="M6.25 3c.27.1.8.53.75 1.36-.06.83-.93 1.2-1 2.02-.05.78.34 1.24.74 1.62" />
 </svg>
 `;
 
@@ -27819,26 +31985,6 @@ const Sparkle = `
   stroke-linejoin="round"
 >
   <path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z" />
-</svg>
-`;
-
-const Sparkles = `
-<svg
-  class="lucide lucide-sparkles"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z" />
-  <path d="M20 2v4" />
-  <path d="M22 4h-4" />
-  <circle cx="4" cy="20" r="2" />
 </svg>
 `;
 
@@ -27881,6 +32027,26 @@ const Speech = `
 </svg>
 `;
 
+const Sparkles = `
+<svg
+  class="lucide lucide-sparkles"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z" />
+  <path d="M20 2v4" />
+  <path d="M22 4h-4" />
+  <circle cx="4" cy="20" r="2" />
+</svg>
+`;
+
 const SpellCheck2 = `
 <svg
   class="lucide lucide-spell-check-2"
@@ -27913,9 +32079,9 @@ const SpellCheck = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="m6 16 6-12 6 12" />
-  <path d="M8 12h8" />
-  <path d="m16 20 2 2 4-4" />
+  <path d="m20 15-5.5 5.5L12 18" />
+  <path d="m4 16 6-12 5.115 10.23" />
+  <path d="M6 12h8" />
 </svg>
 `;
 
@@ -27936,7 +32102,8 @@ const SplinePointer = `
   <path d="M5 17A12 12 0 0 1 17 5" />
   <circle cx="19" cy="5" r="2" />
   <circle cx="5" cy="19" r="2" />
-</svg>`;
+</svg>
+`;
 
 const Spline = `
 <svg
@@ -27977,24 +32144,6 @@ const Split = `
 </svg>
 `;
 
-const Spool = `
-<svg
-  class="lucide lucide-spool"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M17 13.44 4.442 17.082A2 2 0 0 0 4.982 21H19a2 2 0 0 0 .558-3.921l-1.115-.32A2 2 0 0 1 17 14.837V7.66" />
-  <path d="m7 10.56 12.558-3.642A2 2 0 0 0 19.018 3H5a2 2 0 0 0-.558 3.921l1.115.32A2 2 0 0 1 7 9.163v7.178" />
-</svg>
-`;
-
 const SportShoe = `
 <svg
   class="lucide lucide-sport-shoe"
@@ -28011,6 +32160,24 @@ const SportShoe = `
   <path d="m15 10.42 4.8-5.07" />
   <path d="M19 18h3" />
   <path d="M9.5 22 21.414 9.415A2 2 0 0 0 21.2 6.4l-5.61-4.208A1 1 0 0 0 14 3v2a2 2 0 0 1-1.394 1.906L8.677 8.053A1 1 0 0 0 8 9c-.155 6.393-2.082 9-4 9a2 2 0 0 0 0 4h14" />
+</svg>
+`;
+
+const Spool = `
+<svg
+  class="lucide lucide-spool"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M17 13.44 4.442 17.082A2 2 0 0 0 4.982 21H19a2 2 0 0 0 .558-3.921l-1.115-.32A2 2 0 0 1 17 14.837V7.66" />
+  <path d="m7 10.56 12.558-3.642A2 2 0 0 0 19.018 3H5a2 2 0 0 0-.558 3.921l1.115.32A2 2 0 0 1 7 9.163v7.178" />
 </svg>
 `;
 
@@ -28061,6 +32228,24 @@ const SprayCan = `
 </svg>
 `;
 
+const SquareActivity = `
+<svg
+  class="lucide lucide-square-activity"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <rect width="18" height="18" x="3" y="3" rx="2" />
+  <path d="M17 12h-2l-2 5-2-10-2 5H7" />
+</svg>
+`;
+
 const Sprout = `
 <svg
   class="lucide lucide-sprout"
@@ -28077,24 +32262,6 @@ const Sprout = `
   <path d="M14 9.536V7a4 4 0 0 1 4-4h1.5a.5.5 0 0 1 .5.5V5a4 4 0 0 1-4 4 4 4 0 0 0-4 4c0 2 1 3 1 5a5 5 0 0 1-1 3" />
   <path d="M4 9a5 5 0 0 1 8 4 5 5 0 0 1-8-4" />
   <path d="M5 21h14" />
-</svg>
-`;
-
-const SquareActivity = `
-<svg
-  class="lucide lucide-square-activity"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <rect width="18" height="18" x="3" y="3" rx="2" />
-  <path d="M17 12h-2l-2 5-2-10-2 5H7" />
 </svg>
 `;
 
@@ -28266,7 +32433,8 @@ const SquareArrowRightEnter = `
   <path d="m10 16 4-4-4-4" />
   <path d="M3 12h11" />
   <path d="M3 8V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-3" />
-</svg>`;
+</svg>
+`;
 
 const SquareArrowRightExit = `
 <svg
@@ -28284,7 +32452,8 @@ const SquareArrowRightExit = `
   <path d="M10 12h11" />
   <path d="m17 16 4-4-4-4" />
   <path d="M21 6.344V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-1.344" />
-</svg>`;
+</svg>
+`;
 
 const SquareArrowRight = `
 <svg
@@ -28382,6 +32551,24 @@ const SquareAsterisk = `
 </svg>
 `;
 
+const SquareBookmark = `
+<svg
+  class="lucide lucide-square-bookmark"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M11 3v7.751a.25.25 0 00.407.195l2.28-1.834a.5.5 0 01.627 0l2.28 1.834a.25.25 0 00.406-.195V3" />
+  <rect x="3" y="3" width="18" height="18" rx="2" />
+</svg>
+`;
+
 const SquareBottomDashedScissors = `
 <svg
   class="lucide lucide-square-bottom-dashed-scissors"
@@ -28395,20 +32582,14 @@ const SquareBottomDashedScissors = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <line x1="5" y1="3" x2="19" y2="3" />
-  <line x1="3" y1="5" x2="3" y2="19" />
-  <line x1="21" y1="5" x2="21" y2="19" />
-  <line x1="9" y1="21" x2="10" y2="21" />
-  <line x1="14" y1="21" x2="15" y2="21" />
-  <path d="M 3 5 A2 2 0 0 1 5 3" />
-  <path d="M 19 3 A2 2 0 0 1 21 5" />
-  <path d="M 5 21 A2 2 0 0 1 3 19" />
-  <path d="M 21 19 A2 2 0 0 1 19 21" />
-  <circle cx="8.5" cy="8.5" r="1.5" />
-  <line x1="9.56066" y1="9.56066" x2="12" y2="12" />
-  <line x1="17" y1="17" x2="14.82" y2="14.82" />
+  <path d="M14 21h1" />
+  <path d="m17 17-2.18-2.18" />
+  <path d="M5 21a2 2 0 01-2-2V5a2 2 0 012-2h14a2 2 0 012 2v14a2 2 0 01-2 2" />
+  <path d="M9 21h1" />
+  <path d="M9.56 14.44 17 7" />
+  <path d="M9.56 9.56 12 12" />
   <circle cx="8.5" cy="15.5" r="1.5" />
-  <line x1="9.56066" y1="14.43934" x2="17" y2="7" />
+  <circle cx="8.5" cy="8.5" r="1.5" />
 </svg>
 `;
 
@@ -28508,7 +32689,7 @@ const SquareCheck = `
   stroke-linejoin="round"
 >
   <rect width="18" height="18" x="3" y="3" rx="2" />
-  <path d="m9 12 2 2 4-4" />
+  <path d="m16 9-5.5 5.5L8 12" />
 </svg>
 `;
 
@@ -28584,9 +32765,9 @@ const SquareChevronUp = `
 </svg>
 `;
 
-const SquareCode = `
+const SquareChevronsDown = `
 <svg
-  class="lucide lucide-square-code"
+  class="lucide lucide-square-chevrons-down"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -28597,8 +32778,65 @@ const SquareCode = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="m10 9-3 3 3 3" />
-  <path d="m14 15 3-3-3-3" />
+  <path d="M9 14L12 17L15 14" />
+  <path d="M9 8L12 11L15 8" />
+  <rect x="3" y="3" width="18" height="18" rx="2" />
+</svg>
+`;
+
+const SquareChevronsLeft = `
+<svg
+  class="lucide lucide-square-chevrons-left"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M10 9L7 12L10 15" />
+  <path d="M16 9L13 12L16 15" />
+  <rect x="3" y="3" width="18" height="18" rx="2" />
+</svg>
+`;
+
+const SquareChevronsRight = `
+<svg
+  class="lucide lucide-square-chevrons-right"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M14 15L17 12L14 9" />
+  <path d="M8 15L11 12L8 9" />
+  <rect x="3" y="3" width="18" height="18" rx="2" />
+</svg>
+`;
+
+const SquareChevronsUp = `
+<svg
+  class="lucide lucide-square-chevrons-up"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M15 10L12 7L9 10" />
+  <path d="M15 16L12 13L9 16" />
   <rect x="3" y="3" width="18" height="18" rx="2" />
 </svg>
 `;
@@ -28624,6 +32862,25 @@ const SquareDashedBottomCode = `
 </svg>
 `;
 
+const SquareCode = `
+<svg
+  class="lucide lucide-square-code"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m10 9-3 3 3 3" />
+  <path d="m14 15 3-3-3-3" />
+  <rect x="3" y="3" width="18" height="18" rx="2" />
+</svg>
+`;
+
 const SquareDashedBottom = `
 <svg
   class="lucide lucide-square-dashed-bottom"
@@ -28640,6 +32897,67 @@ const SquareDashedBottom = `
   <path d="M5 21a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2" />
   <path d="M9 21h1" />
   <path d="M14 21h1" />
+</svg>
+`;
+
+const SquareDashedPlus = `
+<svg
+  class="lucide lucide-square-dashed-plus"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M5 3a2 2 0 0 0-2 2" />
+  <path d="M19 3a2 2 0 0 1 2 2" />
+  <path d="M21 19a2 2 0 0 1-2 2" />
+  <path d="M5 21a2 2 0 0 1-2-2" />
+  <path d="M9 3h1" />
+  <path d="M9 21h1" />
+  <path d="M14 3h1" />
+  <path d="M14 21h1" />
+  <path d="M3 9v1" />
+  <path d="M21 9v1" />
+  <path d="M3 14v1" />
+  <path d="M21 14v1" />
+  <path d="M8 12h8" />
+  <path d="M12 8v8" />
+</svg>
+`;
+
+const SquareDashedText = `
+<svg
+  class="lucide lucide-square-dashed-text"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M14 21h1" />
+  <path d="M14 3h1" />
+  <path d="M19 3a2 2 0 0 1 2 2" />
+  <path d="M21 14v1" />
+  <path d="M21 19a2 2 0 0 1-2 2" />
+  <path d="M21 9v1" />
+  <path d="M3 14v1" />
+  <path d="M3 9v1" />
+  <path d="M5 21a2 2 0 0 1-2-2" />
+  <path d="M5 3a2 2 0 0 0-2 2" />
+  <path d="M7 12h10" />
+  <path d="M7 16h6" />
+  <path d="M7 8h8" />
+  <path d="M9 21h1" />
+  <path d="M9 3h1" />
 </svg>
 `;
 
@@ -28700,37 +33018,6 @@ const SquareDashedMousePointer = `
 </svg>
 `;
 
-const SquareDashedText = `
-<svg
-  class="lucide lucide-square-dashed-text"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M14 21h1" />
-  <path d="M14 3h1" />
-  <path d="M19 3a2 2 0 0 1 2 2" />
-  <path d="M21 14v1" />
-  <path d="M21 19a2 2 0 0 1-2 2" />
-  <path d="M21 9v1" />
-  <path d="M3 14v1" />
-  <path d="M3 9v1" />
-  <path d="M5 21a2 2 0 0 1-2-2" />
-  <path d="M5 3a2 2 0 0 0-2 2" />
-  <path d="M7 12h10" />
-  <path d="M7 16h6" />
-  <path d="M7 8h8" />
-  <path d="M9 21h1" />
-  <path d="M9 3h1" />
-</svg>
-`;
-
 const SquareDashedTopSolid = `
 <svg
   class="lucide lucide-square-dashed-top-solid"
@@ -28753,6 +33040,63 @@ const SquareDashedTopSolid = `
   <path d="M3 9v1" />
   <path d="M5 21a2 2 0 0 1-2-2" />
   <path d="M9 21h1" />
+</svg>
+`;
+
+const SquareDashedX = `
+<svg
+  class="lucide lucide-square-dashed-x"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M14 21h1" />
+  <path d="M14 3h1" />
+  <path d="M19 3a2 2 0 012 2" />
+  <path d="M21 14v1" />
+  <path d="M21 19a2 2 0 01-2 2" />
+  <path d="M21 9v1" />
+  <path d="M3 14v1" />
+  <path d="M3 9v1" />
+  <path d="M5 21a2 2 0 01-2-2" />
+  <path d="M5 3a2 2 0 00-2 2" />
+  <path d="m9 15 6-6" />
+  <path d="M9 21h1" />
+  <path d="M9 3h1" />
+  <path d="m9 9 6 6" />
+</svg>
+`;
+
+const SquareDashedXCorner = `
+<svg
+  class="lucide lucide-square-dashed-x-corner"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M14 3h1" />
+  <path d="m16 16 5 5" />
+  <path d="M19 3a2 2 0 012 2" />
+  <path d="m21 16-5 5" />
+  <path d="M21 9v1" />
+  <path d="M3 14v1" />
+  <path d="M3 9v1" />
+  <path d="M5 21a2 2 0 01-2-2" />
+  <path d="M5 3a2 2 0 00-2 2" />
+  <path d="M9 21h1" />
+  <path d="M9 3h1" />
 </svg>
 `;
 
@@ -28781,6 +33125,25 @@ const SquareDashed = `
   <path d="M21 9v1" />
   <path d="M3 14v1" />
   <path d="M21 14v1" />
+</svg>
+`;
+
+const SquareDimensions = `
+<svg
+  class="lucide lucide-square-dimensions"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <rect width="18" height="18" x="3" y="3" rx="2" />
+  <path d="M12 7H7v5" />
+  <path d="M12 17h5v-5" />
 </svg>
 `;
 
@@ -28822,6 +33185,25 @@ const SquareDot = `
 </svg>
 `;
 
+const SquareExclamationPoint = `
+<svg
+  class="lucide lucide-square-exclamation-point"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <rect width="18" height="18" x="3" y="3" rx="2" />
+  <line x1="12" x2="12" y1="8" y2="12" />
+  <line x1="12" x2="12.01" y1="16" y2="16" />
+</svg>
+`;
+
 const SquareEqual = `
 <svg
   class="lucide lucide-square-equal"
@@ -28860,6 +33242,65 @@ const SquareFunction = `
 </svg>
 `;
 
+const SquareKanbanPlus = `
+<svg
+  class="lucide lucide-square-kanban-plus"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 7v4" />
+  <path d="M12.354 21H5a2 2 0 01-2-2V5a2 2 0 012-2h14a2 2 0 012 2v7.354" />
+  <path d="M15 18h6" />
+  <path d="M16 7v4.536" />
+  <path d="M18 21v-6" />
+  <path d="M8 7v7" />
+</svg>
+`;
+
+const SquareLetterA = `
+<svg
+  class="lucide lucide-square-letter-a"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m8 16 3.453-7.648a.6.6 0 0 1 1.094 0L16 16" />
+  <path d="M15 14H9" />
+  <rect width="18" height="18" x="3" y="3" rx="2" />
+</svg>
+`;
+
+const SquareLetterB = `
+<svg
+  class="lucide lucide-square-letter-b"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M9 12h4.846a2.24 2.24 0 011.523.586 2 2 0 01.001 2.828 2.24 2.24 0 01-1.524.586H9.5a.5.5 0 01-.5-.5v-7a.5.5 0 01.5-.5H13a2 2 0 010 4" />
+  <rect x="3" y="3" width="18" height="18" rx="2" />
+</svg>
+`;
+
 const SquareKanban = `
 <svg
   class="lucide lucide-square-kanban"
@@ -28877,6 +33318,470 @@ const SquareKanban = `
   <path d="M8 7v7" />
   <path d="M12 7v4" />
   <path d="M16 7v9" />
+</svg>
+`;
+
+const SquareLetterC = `
+<svg
+  class="lucide lucide-square-letter-c"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M15 9.354a4 4 0 1 0 0 5.292" />
+  <rect width="18" height="18" x="3" y="3" rx="2" />
+</svg>
+`;
+
+const SquareLetterD = `
+<svg
+  class="lucide lucide-square-letter-d"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 8a4 4 0 010 8H9.412A.41.41 0 019 15.588V8.412A.41.41 0 019.412 8z" />
+  <rect width="18" height="18" x="3" y="3" rx="2" />
+</svg>
+`;
+
+const SquareLetterF = `
+<svg
+  class="lucide lucide-square-letter-f"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M9 16V8.5a.5.5 0 0 1 .5-.5H15" />
+  <path d="M9 12h4" />
+  <rect width="18" height="18" x="3" y="3" rx="2" />
+</svg>
+`;
+
+const SquareLetterE = `
+<svg
+  class="lucide lucide-square-letter-e"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M15 8H9.5a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .5.5H15" />
+  <path d="M9 12h4" />
+  <rect width="18" height="18" x="3" y="3" rx="2" />
+</svg>
+`;
+
+const SquareLetterG = `
+<svg
+  class="lucide lucide-square-letter-g"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12.5 12H15v2.268a.88.88 0 01-.263.65A4 4 0 1112 8h2.5" />
+  <rect width="18" height="18" x="3" y="3" rx="2" />
+</svg>
+`;
+
+const SquareLetterH = `
+<svg
+  class="lucide lucide-square-letter-h"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M9 16V8" />
+  <path d="M15 16V8" />
+  <path d="M9 12h6" />
+  <rect width="18" height="18" x="3" y="3" rx="2" />
+</svg>
+`;
+
+const SquareLetterI = `
+<svg
+  class="lucide lucide-square-letter-i"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 16V8" />
+  <rect width="18" height="18" x="3" y="3" rx="2" />
+</svg>
+`;
+
+const SquareLetterJ = `
+<svg
+  class="lucide lucide-square-letter-j"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M14 8v5.5a1 1 0 01-5 0V13" />
+  <rect width="18" height="18" x="3" y="3" rx="2" />
+</svg>
+`;
+
+const SquareLetterK = `
+<svg
+  class="lucide lucide-square-letter-k"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M9 16V8" />
+  <path d="m11 12 4 4" />
+  <path d="m15 8-6 6" />
+  <rect width="18" height="18" x="3" y="3" rx="2" />
+</svg>
+`;
+
+const SquareLetterL = `
+<svg
+  class="lucide lucide-square-letter-l"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M9 8v7.5a.5.5 0 0 0 .5.5H15" />
+  <rect width="18" height="18" x="3" y="3" rx="2" />
+</svg>
+`;
+
+const SquareLetterM = `
+<svg
+  class="lucide lucide-square-letter-m"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M8 16.001v-7.5a.5.5 0 0 1 .9-.3l2.7 3.599a.5.5 0 0 0 .8 0l2.7-3.6a.5.5 0 0 1 .9.3v7.501" />
+  <rect width="18" height="18" x="3" y="3" rx="2" />
+</svg>
+`;
+
+const SquareLetterN = `
+<svg
+  class="lucide lucide-square-letter-n"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M9 16V8.576a.496.496 0 01.937-.243l4.126 7.43A.496.496 0 0015 15.52V8" />
+  <rect x="3" y="3" width="18" height="18" rx="2" />
+</svg>
+`;
+
+const SquareLetterO = `
+<svg
+  class="lucide lucide-square-letter-o"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="12" cy="12" r="4" />
+  <rect width="18" height="18" x="3" y="3" rx="2" />
+</svg>
+`;
+
+const SquareLetterPOff = `
+<svg
+  class="lucide lucide-square-letter-p-off"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 12h1a2 2 0 000-4H9.5a.5.5 0 00-.5.5V9" />
+  <path d="M15.343 21H5a2 2 0 01-2-2V8.657" />
+  <path d="M22 22 2 2" />
+  <path d="M3.586 3.586A2 2 0 015 3h14a2 2 0 012 2v14a2 2 0 01-.586 1.414" />
+  <path d="M9 14.657V16" />
+</svg>
+`;
+
+const SquareLetterP = `
+<svg
+  class="lucide lucide-square-letter-p"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M9 12h4a2 2 0 0 0 0-4H9.5a.5.5 0 0 0-.5.5V16" />
+  <rect width="18" height="18" x="3" y="3" rx="2" />
+</svg>
+`;
+
+const SquareLetterQ = `
+<svg
+  class="lucide lucide-square-letter-q"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="12" cy="12" r="4" />
+  <path d="m16 16-2.5-2.5" />
+  <rect width="18" height="18" x="3" y="3" rx="2" />
+</svg>
+`;
+
+const SquareLetterS = `
+<svg
+  class="lucide lucide-square-letter-s"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M14.5 8H11a2 2 0 100 4h2a2 2 0 110 4H9" />
+  <rect x="3" y="3" width="18" height="18" rx="2" />
+</svg>
+`;
+
+const SquareLetterR = `
+<svg
+  class="lucide lucide-square-letter-r"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m11 12 4 4" />
+  <path d="M9 12h4a2 2 0 0 0 0-4H9.5a.5.5 0 0 0-.5.5V16" />
+  <rect width="18" height="18" x="3" y="3" rx="2" />
+</svg>
+`;
+
+const SquareLetterT = `
+<svg
+  class="lucide lucide-square-letter-t"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 16V8" />
+  <path d="M9 8h6" />
+  <rect x="3" y="3" width="18" height="18" rx="2" />
+</svg>
+`;
+
+const SquareLetterU = `
+<svg
+  class="lucide lucide-square-letter-u"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M15 8v5a3 3 0 1 1-6 0V8" />
+  <rect width="18" height="18" x="3" y="3" rx="2" />
+</svg>
+`;
+
+const SquareLetterV = `
+<svg
+  class="lucide lucide-square-letter-v"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m9 8 2.525 7.66a.5.5 0 0 0 .95 0L15 8" />
+  <rect width="18" height="18" x="3" y="3" rx="2" />
+</svg>
+`;
+
+const SquareLetterW = `
+<svg
+  class="lucide lucide-square-letter-w"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m16 8-1.591 7.598a.497.497 0 01-.97.038l-.96-3.276a.5.5 0 00-.959 0l-.96 3.276a.496.496 0 01-.969-.038L8 8" />
+  <rect x="3" y="3" width="18" height="18" rx="2" />
+</svg>
+`;
+
+const SquareLetterY = `
+<svg
+  class="lucide lucide-square-letter-y"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m9 8 3 4 3-4" />
+  <path d="M12 12v4" />
+  <rect width="18" height="18" x="3" y="3" rx="2" />
+</svg>
+`;
+
+const SquareLetterX = `
+<svg
+  class="lucide lucide-square-letter-x"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m9 16 6-8" />
+  <path d="m9 8 6 8" />
+  <rect x="3" y="3" width="18" height="18" rx="2" />
+</svg>
+`;
+
+const SquareLetterZ = `
+<svg
+  class="lucide lucide-square-letter-z"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M9 8h5.501a.5.5 0 0 1 .37.836L9.13 15.164A.5.5 0 0 0 9.5 16H15" />
+  <rect width="18" height="18" x="3" y="3" rx="2" />
 </svg>
 `;
 
@@ -28900,24 +33805,6 @@ const SquareLibrary = `
 </svg>
 `;
 
-const SquareM = `
-<svg
-  class="lucide lucide-square-m"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M8 16V8.5a.5.5 0 0 1 .9-.3l2.7 3.599a.5.5 0 0 0 .8 0l2.7-3.6a.5.5 0 0 1 .9.3V16" />
-  <rect x="3" y="3" width="18" height="18" rx="2" />
-</svg>
-`;
-
 const SquareMenu = `
 <svg
   class="lucide lucide-square-menu"
@@ -28935,24 +33822,6 @@ const SquareMenu = `
   <path d="M7 8h10" />
   <path d="M7 12h10" />
   <path d="M7 16h10" />
-</svg>
-`;
-
-const SquareMousePointer = `
-<svg
-  class="lucide lucide-square-mouse-pointer"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M12.034 12.681a.498.498 0 0 1 .647-.647l9 3.5a.5.5 0 0 1-.033.943l-3.444 1.068a1 1 0 0 0-.66.66l-1.067 3.443a.5.5 0 0 1-.943.033z" />
-  <path d="M21 11V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h6" />
 </svg>
 `;
 
@@ -28974,9 +33843,9 @@ const SquareMinus = `
 </svg>
 `;
 
-const SquareParkingOff = `
+const SquareMousePointer = `
 <svg
-  class="lucide lucide-square-parking-off"
+  class="lucide lucide-square-mouse-pointer"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -28987,17 +33856,14 @@ const SquareParkingOff = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M3.6 3.6A2 2 0 0 1 5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-.59 1.41" />
-  <path d="M3 8.7V19a2 2 0 0 0 2 2h10.3" />
-  <path d="m2 2 20 20" />
-  <path d="M13 13a3 3 0 1 0 0-6H9v2" />
-  <path d="M9 17v-2.3" />
+  <path d="M12.034 12.681a.498.498 0 0 1 .647-.647l9 3.5a.5.5 0 0 1-.033.943l-3.444 1.068a1 1 0 0 0-.66.66l-1.067 3.443a.5.5 0 0 1-.943.033z" />
+  <path d="M21 11V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h6" />
 </svg>
 `;
 
-const SquareParking = `
+const SquareOff = `
 <svg
-  class="lucide lucide-square-parking"
+  class="lucide lucide-square-off"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -29008,14 +33874,15 @@ const SquareParking = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <rect width="18" height="18" x="3" y="3" rx="2" />
-  <path d="M9 17V7h4a3 3 0 0 1 0 6H9" />
+  <path d="M20.4 20.4a2 2 0 01-1.4.6H5a2 2 0 01-2-2V5a2 2 0 01.59-1.41" />
+  <path d="M21 15.3V5a2 2 0 00-2-2H8.7" />
+  <path d="M22 22 2 2" />
 </svg>
 `;
 
-const SquarePen = `
+const SquarePaddingBottom = `
 <svg
-  class="lucide lucide-square-pen"
+  class="lucide lucide-square-padding-bottom"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -29026,8 +33893,121 @@ const SquarePen = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
-  <path d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z" />
+  <rect x="3" y="3" width="18" height="18" rx="2" />
+  <path d="M8 17h8" />
+</svg>
+`;
+
+const SquarePaddingLeft = `
+<svg
+  class="lucide lucide-square-padding-left"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <rect x="3" y="3" width="18" height="18" rx="2" />
+  <path d="M7 16V8" />
+</svg>
+`;
+
+const SquarePaddingTop = `
+<svg
+  class="lucide lucide-square-padding-top"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <rect x="3" y="3" width="18" height="18" rx="2" />
+  <path d="M8 7h8" />
+</svg>
+`;
+
+const SquarePaddingHorizontal = `
+<svg
+  class="lucide lucide-square-padding-horizontal"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <rect x="3" y="3" width="18" height="18" rx="2" />
+  <path d="M17 16V8" />
+  <path d="M7 16V8" />
+</svg>
+`;
+
+const SquarePaddingRight = `
+<svg
+  class="lucide lucide-square-padding-right"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <rect x="3" y="3" width="18" height="18" rx="2" />
+  <path d="M17 16V8" />
+</svg>
+`;
+
+const SquarePaddingVertical = `
+<svg
+  class="lucide lucide-square-padding-vertical"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <rect x="3" y="3" width="18" height="18" rx="2" />
+  <path d="M8 17h8" />
+  <path d="M8 7h8" />
+</svg>
+`;
+
+const SquarePadding = `
+<svg
+  class="lucide lucide-square-padding"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <rect x="3" y="3" width="18" height="18" rx="2" />
+  <path d="M14 17h-4" />
+  <path d="M14 7h-4" />
+  <path d="M17 14v-4" />
+  <path d="M7 14v-4" />
 </svg>
 `;
 
@@ -29047,6 +34027,24 @@ const SquarePause = `
   <rect width="18" height="18" x="3" y="3" rx="2" />
   <line x1="10" x2="10" y1="15" y2="9" />
   <line x1="14" x2="14" y1="15" y2="9" />
+</svg>
+`;
+
+const SquarePen = `
+<svg
+  class="lucide lucide-square-pen"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+  <path d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z" />
 </svg>
 `;
 
@@ -29070,26 +34068,6 @@ const SquarePercent = `
 </svg>
 `;
 
-const SquarePilcrow = `
-<svg
-  class="lucide lucide-square-pilcrow"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <rect width="18" height="18" x="3" y="3" rx="2" />
-  <path d="M12 12H9.5a2.5 2.5 0 0 1 0-5H17" />
-  <path d="M12 7v10" />
-  <path d="M16 7v10" />
-</svg>
-`;
-
 const SquarePi = `
 <svg
   class="lucide lucide-square-pi"
@@ -29110,9 +34088,9 @@ const SquarePi = `
 </svg>
 `;
 
-const SquarePlay = `
+const SquarePilcrow = `
 <svg
-  class="lucide lucide-square-play"
+  class="lucide lucide-square-pilcrow"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -29123,8 +34101,10 @@ const SquarePlay = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <rect x="3" y="3" width="18" height="18" rx="2" />
-  <path d="M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z" />
+  <rect width="18" height="18" x="3" y="3" rx="2" />
+  <path d="M12 12H9.5a2.5 2.5 0 0 1 0-5H17" />
+  <path d="M12 7v10" />
+  <path d="M16 7v10" />
 </svg>
 `;
 
@@ -29144,6 +34124,24 @@ const SquarePlus = `
   <rect width="18" height="18" x="3" y="3" rx="2" />
   <path d="M8 12h8" />
   <path d="M12 8v8" />
+</svg>
+`;
+
+const SquarePlay = `
+<svg
+  class="lucide lucide-square-play"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <rect x="3" y="3" width="18" height="18" rx="2" />
+  <path d="M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z" />
 </svg>
 `;
 
@@ -29215,12 +34213,12 @@ const SquareScissors = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <rect width="18" height="18" x="3" y="3" rx="2" />
-  <circle cx="8.5" cy="8.5" r="1.5" />
-  <line x1="9.56066" y1="9.56066" x2="12" y2="12" />
-  <line x1="17" y1="17" x2="14.82" y2="14.82" />
+  <path d="m17 17-2.18-2.18" />
+  <path d="M9.56 14.44 17 7" />
+  <path d="M9.56 9.56 12 12" />
   <circle cx="8.5" cy="15.5" r="1.5" />
-  <line x1="9.56066" y1="14.43934" x2="17" y2="7" />
+  <circle cx="8.5" cy="8.5" r="1.5" />
+  <rect x="3" y="3" width="18" height="18" rx="2" />
 </svg>
 `;
 
@@ -29273,9 +34271,29 @@ const SquareSplitHorizontal = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M8 19H5c-1 0-2-1-2-2V7c0-1 1-2 2-2h3" />
-  <path d="M16 5h3c1 0 2 1 2 2v10c0 1-1 2-2 2h-3" />
-  <line x1="12" x2="12" y1="4" y2="20" />
+  <path d="M12 2v20" />
+  <path d="M16 3h3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-3" />
+  <path d="M8 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3" />
+</svg>
+`;
+
+const SquareSparkles = `
+<svg
+  class="lucide lucide-square-sparkles"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M11 15H7" />
+  <path d="M15.41 2.49a.6.6 0 011.18 0l.63 3.334a1.2 1.2 0 00.956.955l3.334.631a.6.6 0 010 1.18l-3.334.63a1.2 1.2 0 00-.955.956l-.631 3.334a.6.6 0 01-1.18 0l-.63-3.334a1.2 1.2 0 00-.956-.955L10.49 8.59a.6.6 0 010-1.18l3.334-.63a1.2 1.2 0 00.955-.956z" />
+  <path d="M21 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h6" />
+  <path d="M9 13v4" />
 </svg>
 `;
 
@@ -29292,9 +34310,9 @@ const SquareSplitVertical = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M5 8V5c0-1 1-2 2-2h10c1 0 2 1 2 2v3" />
-  <path d="M19 16v3c0 1-1 2-2 2H7c-1 0-2-1-2-2v-3" />
-  <line x1="4" x2="20" y1="12" y2="12" />
+  <path d="M2 12h20" />
+  <path d="M21 16v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-3" />
+  <path d="M3 8V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v3" />
 </svg>
 `;
 
@@ -29390,9 +34408,9 @@ const SquareTerminal = `
 </svg>
 `;
 
-const SquareUserRound = `
+const SquareText = `
 <svg
-  class="lucide lucide-square-user-round"
+  class="lucide lucide-square-text"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -29403,9 +34421,10 @@ const SquareUserRound = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M18 21a6 6 0 0 0-12 0" />
-  <circle cx="12" cy="11" r="4" />
   <rect width="18" height="18" x="3" y="3" rx="2" />
+  <path d="M7 8h8" />
+  <path d="M7 12h10" />
+  <path d="M7 16h6" />
 </svg>
 `;
 
@@ -29428,6 +34447,25 @@ const SquareUser = `
 </svg>
 `;
 
+const SquareUserRound = `
+<svg
+  class="lucide lucide-square-user-round"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M18 21a6 6 0 0 0-12 0" />
+  <circle cx="12" cy="11" r="4" />
+  <rect width="18" height="18" x="3" y="3" rx="2" />
+</svg>
+`;
+
 const SquareX = `
 <svg
   class="lucide lucide-square-x"
@@ -29447,6 +34485,23 @@ const SquareX = `
 </svg>
 `;
 
+const Square = `
+<svg
+  class="lucide lucide-square"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <rect width="18" height="18" x="3" y="3" rx="2" />
+</svg>
+`;
+
 const SquaresExclude = `
 <svg
   class="lucide lucide-squares-exclude"
@@ -29462,22 +34517,6 @@ const SquaresExclude = `
 >
   <path d="M16 12v2a2 2 0 0 1-2 2H9a1 1 0 0 0-1 1v3a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2h0" />
   <path d="M4 16a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v3a1 1 0 0 1-1 1h-5a2 2 0 0 0-2 2v2" />
-</svg>`;
-
-const Square = `
-<svg
-  class="lucide lucide-square"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <rect width="18" height="18" x="3" y="3" rx="2" />
 </svg>
 `;
 
@@ -29505,7 +34544,25 @@ const SquaresIntersect = `
   <path d="M4 16a2 2 0 0 1-2-2" />
   <path d="M8 10a2 2 0 0 1 2-2h5a1 1 0 0 1 1 1v5a2 2 0 0 1-2 2H9a1 1 0 0 1-1-1z" />
   <path d="M8 2h2" />
-</svg>`;
+</svg>
+`;
+
+const SquaresUnite = `
+<svg
+  class="lucide lucide-squares-unite"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M4 16a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v3a1 1 0 0 0 1 1h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2v-3a1 1 0 0 0-1-1z" />
+</svg>
+`;
 
 const SquaresSubtract = `
 <svg
@@ -29526,23 +34583,8 @@ const SquaresSubtract = `
   <path d="M20 8a2 2 0 0 1 2 2" />
   <path d="M22 14v2" />
   <path d="M22 20a2 2 0 0 1-2 2" />
-</svg>`;
-
-const SquaresUnite = `
-<svg
-  class="lucide lucide-squares-unite"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M4 16a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v3a1 1 0 0 0 1 1h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2v-3a1 1 0 0 0-1-1z" />
-</svg>`;
+</svg>
+`;
 
 const SquircleDashed = `
 <svg
@@ -29769,6 +34811,24 @@ const StepBack = `
 </svg>
 `;
 
+const StepForward = `
+<svg
+  class="lucide lucide-step-forward"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M10.029 4.285A2 2 0 0 0 7 6v12a2 2 0 0 0 3.029 1.715l9.997-5.998a2 2 0 0 0 .003-3.432z" />
+  <path d="M3 4v16" />
+</svg>
+`;
+
 const Stethoscope = `
 <svg
   class="lucide lucide-stethoscope"
@@ -29787,24 +34847,6 @@ const Stethoscope = `
   <path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1" />
   <path d="M8 15a6 6 0 0 0 12 0v-3" />
   <circle cx="20" cy="10" r="2" />
-</svg>
-`;
-
-const StepForward = `
-<svg
-  class="lucide lucide-step-forward"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M10.029 4.285A2 2 0 0 0 7 6v12a2 2 0 0 0 3.029 1.715l9.997-5.998a2 2 0 0 0 .003-3.432z" />
-  <path d="M3 4v16" />
 </svg>
 `;
 
@@ -29887,26 +34929,6 @@ const StickyNoteOff = `
 </svg>
 `;
 
-const StickyNoteX = `
-<svg
-  class="lucide lucide-sticky-note-x"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M15 3v5a1 1 0 0 0 1 1h5" />
-  <path d="m16 16 5 5" />
-  <path d="M21 12V9a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 15 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h7" />
-  <path d="m21 16-5 5" />
-</svg>
-`;
-
 const StickyNotePlus = `
 <svg
   class="lucide lucide-sticky-note-plus"
@@ -29942,6 +34964,26 @@ const StickyNote = `
 >
   <path d="M21 9a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 15 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z" />
   <path d="M15 3v5a1 1 0 0 0 1 1h5" />
+</svg>
+`;
+
+const StickyNoteX = `
+<svg
+  class="lucide lucide-sticky-note-x"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M15 3v5a1 1 0 0 0 1 1h5" />
+  <path d="m16 16 5 5" />
+  <path d="M21 12V9a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 15 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h7" />
+  <path d="m21 16-5 5" />
 </svg>
 `;
 
@@ -30003,24 +35045,6 @@ const Store = `
 </svg>
 `;
 
-const StretchHorizontal = `
-<svg
-  class="lucide lucide-stretch-horizontal"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <rect width="20" height="6" x="2" y="4" rx="2" />
-  <rect width="20" height="6" x="2" y="14" rx="2" />
-</svg>
-`;
-
 const StretchVertical = `
 <svg
   class="lucide lucide-stretch-vertical"
@@ -30055,6 +35079,24 @@ const Strikethrough = `
   <path d="M16 4H9a3 3 0 0 0-2.83 4" />
   <path d="M14 12a4 4 0 0 1 0 8H6" />
   <line x1="4" x2="20" y1="12" y2="12" />
+</svg>
+`;
+
+const StretchHorizontal = `
+<svg
+  class="lucide lucide-stretch-horizontal"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <rect width="20" height="6" x="2" y="4" rx="2" />
+  <rect width="20" height="6" x="2" y="14" rx="2" />
 </svg>
 `;
 
@@ -30095,31 +35137,6 @@ const Summary = `
   <path d="M3 4v13a2 2 0 0 0 2 2h16" />
   <path d="M7 14h7" />
   <path d="M7 9h12" />
-</svg>
-`;
-
-const SunDim = `
-<svg
-  class="lucide lucide-sun-dim"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <circle cx="12" cy="12" r="4" />
-  <path d="M12 4h.01" />
-  <path d="M20 12h.01" />
-  <path d="M12 20h.01" />
-  <path d="M4 12h.01" />
-  <path d="M17.657 6.343h.01" />
-  <path d="M17.657 17.657h.01" />
-  <path d="M6.343 17.657h.01" />
-  <path d="M6.343 6.343h.01" />
 </svg>
 `;
 
@@ -30169,9 +35186,9 @@ const SunMoon = `
 </svg>
 `;
 
-const SunSnow = `
+const SunDim = `
 <svg
-  class="lucide lucide-sun-snow"
+  class="lucide lucide-sun-dim"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -30182,17 +35199,15 @@ const SunSnow = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M10 21v-1" />
-  <path d="M10 4V3" />
-  <path d="M10 9a3 3 0 0 0 0 6" />
-  <path d="m14 20 1.25-2.5L18 18" />
-  <path d="m14 4 1.25 2.5L18 6" />
-  <path d="m17 21-3-6 1.5-3H22" />
-  <path d="m17 3-3 6 1.5 3" />
-  <path d="M2 12h1" />
-  <path d="m20 10-1.5 2 1.5 2" />
-  <path d="m3.64 18.36.7-.7" />
-  <path d="m4.34 6.34-.7-.7" />
+  <circle cx="12" cy="12" r="4" />
+  <path d="M12 4h.01" />
+  <path d="M20 12h.01" />
+  <path d="M12 20h.01" />
+  <path d="M4 12h.01" />
+  <path d="M17.657 6.343h.01" />
+  <path d="M17.657 17.657h.01" />
+  <path d="M6.343 17.657h.01" />
+  <path d="M6.343 6.343h.01" />
 </svg>
 `;
 
@@ -30218,6 +35233,33 @@ const Sun = `
   <path d="M20 12h2" />
   <path d="m6.34 17.66-1.41 1.41" />
   <path d="m19.07 4.93-1.41 1.41" />
+</svg>
+`;
+
+const SunSnow = `
+<svg
+  class="lucide lucide-sun-snow"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M10 21v-1" />
+  <path d="M10 4V3" />
+  <path d="M10 9a3 3 0 0 0 0 6" />
+  <path d="m14 20 1.25-2.5L18 18" />
+  <path d="m14 4 1.25 2.5L18 6" />
+  <path d="m17 21-3-6 1.5-3H22" />
+  <path d="m17 3-3 6 1.5 3" />
+  <path d="M2 12h1" />
+  <path d="m20 10-1.5 2 1.5 2" />
+  <path d="m3.64 18.36.7-.7" />
+  <path d="m4.34 6.34-.7-.7" />
 </svg>
 `;
 
@@ -30321,9 +35363,9 @@ const SwissFranc = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M10 21V3h8" />
+  <path d="M10 10h7" />
+  <path d="M10 20V5a1 1 0 011-1h7" />
   <path d="M6 16h9" />
-  <path d="M10 9.5h7" />
 </svg>
 `;
 
@@ -30364,7 +35406,7 @@ const Sword = `
   <path d="m11 19-6-6" />
   <path d="m5 21-2-2" />
   <path d="m8 16-4 4" />
-  <path d="M9.5 17.5 21 6V3h-3L6.5 14.5" />
+  <path d="M9.5 17.5 20.414 6.586A2 2 0 0021 5.172V3h-2.172a2 2 0 00-1.414.586L6.5 14.5" />
 </svg>
 `;
 
@@ -30381,14 +35423,33 @@ const Swords = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <polyline points="14.5 17.5 3 6 3 3 6 3 17.5 14.5" />
-  <line x1="13" x2="19" y1="19" y2="13" />
-  <line x1="16" x2="20" y1="16" y2="20" />
-  <line x1="19" x2="21" y1="21" y2="19" />
-  <polyline points="14.5 6.5 18 3 21 3 21 6 17.5 9.5" />
-  <line x1="5" x2="9" y1="14" y2="18" />
-  <line x1="7" x2="4" y1="17" y2="20" />
-  <line x1="3" x2="5" y1="19" y2="21" />
+  <path d="m13 19 6-6" />
+  <path d="M14.5 17.5 3.586 6.586A2 2 0 013 5.172V3h2.172a2 2 0 011.414.586L17.5 14.5" />
+  <path d="m14.828 6.172 2.586-2.586A2 2 0 0118.828 3H21v2.172a2 2 0 01-.586 1.414l-2.586 2.586" />
+  <path d="m16 16 4 4" />
+  <path d="m19 21 2-2" />
+  <path d="m5 14 4 4" />
+  <path d="m5 21-2-2" />
+  <path d="M7.5 16.5 4 20" />
+</svg>
+`;
+
+const Table2 = `
+<svg
+  class="lucide lucide-table-2"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M3 9h18" />
+  <path d="M9 3v18" />
+  <rect x="3" y="3" width="18" height="18" rx="2" />
 </svg>
 `;
 
@@ -30414,23 +35475,6 @@ const Syringe = `
 </svg>
 `;
 
-const Table2 = `
-<svg
-  class="lucide lucide-table-2"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18" />
-</svg>
-`;
-
 const TableCellsMerge = `
 <svg
   class="lucide lucide-table-cells-merge"
@@ -30446,26 +35490,6 @@ const TableCellsMerge = `
 >
   <path d="M12 21v-6" />
   <path d="M12 9V3" />
-  <path d="M3 15h18" />
-  <path d="M3 9h18" />
-  <rect width="18" height="18" x="3" y="3" rx="2" />
-</svg>
-`;
-
-const TableCellsSplit = `
-<svg
-  class="lucide lucide-table-cells-split"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M12 15V9" />
   <path d="M3 15h18" />
   <path d="M3 9h18" />
   <rect width="18" height="18" x="3" y="3" rx="2" />
@@ -30496,6 +35520,26 @@ const TableColumnsSplit = `
   <path d="M22 3h-2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h2" />
   <path d="M22 9h-4" />
   <path d="M5 3v18" />
+</svg>
+`;
+
+const TableCellsSplit = `
+<svg
+  class="lucide lucide-table-cells-split"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 15V9" />
+  <path d="M3 15h18" />
+  <path d="M3 9h18" />
+  <rect width="18" height="18" x="3" y="3" rx="2" />
 </svg>
 `;
 
@@ -30568,6 +35612,25 @@ const TableRowsSplit = `
 </svg>
 `;
 
+const TabletSmartphone = `
+<svg
+  class="lucide lucide-tablet-smartphone"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <rect width="10" height="14" x="3" y="8" rx="2" />
+  <path d="M5 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2h-2.4" />
+  <path d="M8 18h.01" />
+</svg>
+`;
+
 const Table = `
 <svg
   class="lucide lucide-table"
@@ -30585,25 +35648,6 @@ const Table = `
   <rect width="18" height="18" x="3" y="3" rx="2" />
   <path d="M3 9h18" />
   <path d="M3 15h18" />
-</svg>
-`;
-
-const TabletSmartphone = `
-<svg
-  class="lucide lucide-tablet-smartphone"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <rect width="10" height="14" x="3" y="8" rx="2" />
-  <path d="M5 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2h-2.4" />
-  <path d="M8 18h.01" />
 </svg>
 `;
 
@@ -30685,24 +35729,6 @@ const TagX = `
 </svg>
 `;
 
-const Tag = `
-<svg
-  class="lucide lucide-tag"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z" />
-  <circle cx="7.5" cy="7.5" r=".5" fill="currentColor" />
-</svg>
-`;
-
 const Tags = `
 <svg
   class="lucide lucide-tags"
@@ -30719,6 +35745,24 @@ const Tags = `
   <path d="M13.172 2a2 2 0 0 1 1.414.586l6.71 6.71a2.4 2.4 0 0 1 0 3.408l-4.592 4.592a2.4 2.4 0 0 1-3.408 0l-6.71-6.71A2 2 0 0 1 6 9.172V3a1 1 0 0 1 1-1z" />
   <path d="M2 7v6.172a2 2 0 0 0 .586 1.414l6.71 6.71a2.4 2.4 0 0 0 3.191.193" />
   <circle cx="10.5" cy="6.5" r=".5" fill="currentColor" />
+</svg>
+`;
+
+const Tag = `
+<svg
+  class="lucide lucide-tag"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z" />
+  <circle cx="7.5" cy="7.5" r=".5" fill="currentColor" />
 </svg>
 `;
 
@@ -30757,6 +35801,26 @@ const Tally2 = `
 </svg>
 `;
 
+const Tally4 = `
+<svg
+  class="lucide lucide-tally-4"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M4 4v16" />
+  <path d="M9 4v16" />
+  <path d="M14 4v16" />
+  <path d="M19 4v16" />
+</svg>
+`;
+
 const Tally3 = `
 <svg
   class="lucide lucide-tally-3"
@@ -30776,9 +35840,9 @@ const Tally3 = `
 </svg>
 `;
 
-const Tally4 = `
+const Tangent = `
 <svg
-  class="lucide lucide-tally-4"
+  class="lucide lucide-tangent"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -30789,10 +35853,10 @@ const Tally4 = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M4 4v16" />
-  <path d="M9 4v16" />
-  <path d="M14 4v16" />
-  <path d="M19 4v16" />
+  <circle cx="17" cy="4" r="2" />
+  <path d="M15.59 5.41 5.41 15.59" />
+  <circle cx="4" cy="17" r="2" />
+  <path d="M12 22s-4-9-1.5-11.5S22 12 22 12" />
 </svg>
 `;
 
@@ -30814,26 +35878,6 @@ const Tally5 = `
   <path d="M14 4v16" />
   <path d="M19 4v16" />
   <path d="M22 6 2 18" />
-</svg>
-`;
-
-const Tangent = `
-<svg
-  class="lucide lucide-tangent"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <circle cx="17" cy="4" r="2" />
-  <path d="M15.59 5.41 5.41 15.59" />
-  <circle cx="4" cy="17" r="2" />
-  <path d="M12 22s-4-9-1.5-11.5S22 12 22 12" />
 </svg>
 `;
 
@@ -31038,6 +36082,63 @@ const TextAlignEnd = `
 </svg>
 `;
 
+const TextAlignJustifyCenter = `
+<svg
+  class="lucide lucide-text-align-justify-center"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M3 5h18" />
+  <path d="M3 12h18" />
+  <path d="M7 19h10" />
+</svg>
+`;
+
+const TextAlignJustifyEnd = `
+<svg
+  class="lucide lucide-text-align-justify-end"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M3 5h18" />
+  <path d="M3 12h18" />
+  <path d="M11 19h10" />
+</svg>
+`;
+
+const TextAlignJustifyStart = `
+<svg
+  class="lucide lucide-text-align-justify-start"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M3 5h18" />
+  <path d="M3 12h18" />
+  <path d="M3 19h10" />
+</svg>
+`;
+
 const TextAlignJustify = `
 <svg
   class="lucide lucide-text-align-justify"
@@ -31116,27 +36217,6 @@ const TextCursor = `
 </svg>
 `;
 
-const TextInitial = `
-<svg
-  class="lucide lucide-text-initial"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M15 5h6" />
-  <path d="M15 12h6" />
-  <path d="M3 19h18" />
-  <path d="m3 12 3.553-7.724a.5.5 0 0 1 .894 0L11 12" />
-  <path d="M3.92 10h6.16" />
-</svg>
-`;
-
 const TextQuote = `
 <svg
   class="lucide lucide-text-quote"
@@ -31195,6 +36275,27 @@ const TextWrap = `
   <path d="M3 12h14.5a1 1 0 0 1 0 7H13" />
   <path d="M3 19h6" />
   <path d="M3 5h18" />
+</svg>
+`;
+
+const TextInitial = `
+<svg
+  class="lucide lucide-text-initial"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M15 5h6" />
+  <path d="M15 12h6" />
+  <path d="M3 19h18" />
+  <path d="m3 12 3.553-7.724a.5.5 0 0 1 .894 0L11 12" />
+  <path d="M3.92 10h6.16" />
 </svg>
 `;
 
@@ -31319,6 +36420,30 @@ const ThumbsUp = `
 >
   <path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z" />
   <path d="M7 10v12" />
+</svg>
+`;
+
+const TicTacToe = `
+<svg
+  class="lucide lucide-tic-tac-toe"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 2v20" />
+  <path d="m21 16-5 5" />
+  <path d="m21 21-5-5" />
+  <path d="M22 12H2" />
+  <path d="M8 3 3 8" />
+  <path d="M8 8 3 3" />
+  <circle cx="18.5" cy="5.5" r="2.5" />
+  <circle cx="5.5" cy="18.5" r="2.5" />
 </svg>
 `;
 
@@ -31454,29 +36579,6 @@ const Ticket = `
 </svg>
 `;
 
-const TicketsPlane = `
-<svg
-  class="lucide lucide-tickets-plane"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M10.5 17h1.227a2 2 0 0 0 1.345-.52L18 12" />
-  <path d="m12 13.5 3.794.506" />
-  <path d="m3.173 8.18 11-5a2 2 0 0 1 2.647.993L18.56 8" />
-  <path d="M6 10V8" />
-  <path d="M6 14v1" />
-  <path d="M6 19v2" />
-  <rect x="2" y="8" width="20" height="13" rx="2" />
-</svg>
-`;
-
 const Tickets = `
 <svg
   class="lucide lucide-tickets"
@@ -31498,9 +36600,9 @@ const Tickets = `
 </svg>
 `;
 
-const TimerOff = `
+const TicketsPlane = `
 <svg
-  class="lucide lucide-timer-off"
+  class="lucide lucide-tickets-plane"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -31511,11 +36613,13 @@ const TimerOff = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M10 2h4" />
-  <path d="M4.6 11a8 8 0 0 0 1.7 8.7 8 8 0 0 0 8.7 1.7" />
-  <path d="M7.4 7.4a8 8 0 0 1 10.3 1 8 8 0 0 1 .9 10.2" />
-  <path d="m2 2 20 20" />
-  <path d="M12 12v-2" />
+  <path d="M10.5 17h1.227a2 2 0 0 0 1.345-.52L18 12" />
+  <path d="m12 13.5 3.794.506" />
+  <path d="m3.173 8.18 11-5a2 2 0 0 1 2.647.993L18.56 8" />
+  <path d="M6 10V8" />
+  <path d="M6 14v1" />
+  <path d="M6 19v2" />
+  <rect x="2" y="8" width="20" height="13" rx="2" />
 </svg>
 `;
 
@@ -31540,6 +36644,27 @@ const Timeline = `
   <path d="M9.414 13.414a2 2 0 0 0 1.414.586H19a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1h-8.172a2 2 0 0 0-1.414.586L8 12z" />
   <path d="M9.414 21.414a2 2 0 0 0 1.414.586H19a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1h-8.172a2 2 0 0 0-1.414.586L8 20z" />
   <path d="M9.414 5.414A2 2 0 0 0 10.828 6H19a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1h-8.172a2 2 0 0 0-1.414.586L8 4z" />
+</svg>
+`;
+
+const TimerOff = `
+<svg
+  class="lucide lucide-timer-off"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M10 2h4" />
+  <path d="M4.6 11a8 8 0 0 0 1.7 8.7 8 8 0 0 0 8.7 1.7" />
+  <path d="M7.4 7.4a8 8 0 0 1 10.3 1 8 8 0 0 1 .9 10.2" />
+  <path d="m2 2 20 20" />
+  <path d="M12 12v-2" />
 </svg>
 `;
 
@@ -31633,11 +36758,12 @@ const Toilet = `
 >
   <path d="M7 12h13a1 1 0 0 1 1 1 5 5 0 0 1-5 5h-.598a.5.5 0 0 0-.424.765l1.544 2.47a.5.5 0 0 1-.424.765H5.402a.5.5 0 0 1-.424-.765L7 18" />
   <path d="M8 18a5 5 0 0 1-5-5V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8" />
-</svg>`;
+</svg>
+`;
 
-const ToolCase = `
+const Tombstone = `
 <svg
-  class="lucide lucide-tool-case"
+  class="lucide lucide-tombstone"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -31648,10 +36774,10 @@ const ToolCase = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M10 15h4" />
-  <path d="m14.817 10.995-.971-1.45 1.034-1.232a2 2 0 0 0-2.025-3.238l-1.82.364L9.91 3.885a2 2 0 0 0-3.625.748L6.141 6.55l-1.725.426a2 2 0 0 0-.19 3.756l.657.27" />
-  <path d="m18.822 10.995 2.26-5.38a1 1 0 0 0-.557-1.318L16.954 2.9a1 1 0 0 0-1.281.533l-.924 2.122" />
-  <path d="M4 12.006A1 1 0 0 1 4.994 11H19a1 1 0 0 1 1 1v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z" />
+  <path d="M11 10h2" />
+  <path d="M19 21V10a7 7 0 00-14 0v11" />
+  <path d="M2 21h20" />
+  <path d="M9 14h6" />
 </svg>
 `;
 
@@ -31669,10 +36795,91 @@ const Toolbox = `
   stroke-linejoin="round"
 >
   <path d="M16 12v4" />
-  <path d="M16 6a2 2 0 0 1 1.414.586l4 4A2 2 0 0 1 22 12v7a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 .586-1.414l4-4A2 2 0 0 1 8 6z" />
-  <path d="M16 6V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
+  <path d="M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2" />
+  <path d="M17 6a2 2 0 011.414.586l3 3A2 2 0 0122 11v8a2 2 0 01-2 2H4a2 2 0 01-2-2v-8a2 2 0 01.586-1.414l3-3A2 2 0 017 6z" />
   <path d="M2 14h20" />
   <path d="M8 12v4" />
+</svg>
+`;
+
+const ToothbrushSparkles = `
+<svg
+  class="lucide lucide-toothbrush-sparkles"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M10 3H8" />
+  <path d="M14.586 11.414 22 4" />
+  <path d="M15 11a8 8 0 01-.429.4" />
+  <path d="m2 22 7-7c1.857-1.857 3.714-1.99 5.571-3.6l-1.985-1.986A2 2 0 0114 6a2 2 0 012-2 2 2 0 013.262-1.552l2.152 2.138" />
+  <path d="M20 15v4" />
+  <path d="M22 17h-4" />
+  <path d="M4 5v4" />
+  <path d="M6 7H2" />
+  <path d="M9 2v2" />
+</svg>
+`;
+
+const ToolCase = `
+<svg
+  class="lucide lucide-tool-case"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M10 15h4" />
+  <path d="m14.5 4.058.571-1.429a1 1 0 011.3-.558l5 2a1 1 0 01.549.534.88.88 0 01.01.765l-2.332 5.83" />
+  <path d="M15.634 11a2 2 0 00-.186-.34l-1.17-1.757 1.31-1.656a2 2 0 00-2.109-3.165l-2.032.57-1.17-1.758a2 2 0 00-3.664 1.028l-.086 2.11-2.032.568a2 2 0 00-.155 3.8l1.617.6" />
+  <path d="M4 12.006A1 1 0 014.994 11H19a1 1 0 011 1v7a2 2 0 01-2 2H6a2 2 0 01-2-2z" />
+</svg>
+`;
+
+const Toothbrush = `
+<svg
+  class="lucide lucide-toothbrush"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M15 11c-2 2-4 2-6 4l-7 7" />
+  <path d="m22 4-7.414 7.414-2-2A2 2 0 0114 6c0-.512.196-1.024.586-1.414A2 2 0 0116 4a2 2 0 013.262-1.552l2.152 2.138" />
+</svg>
+`;
+
+const Torus = `
+<svg
+  class="lucide lucide-torus"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <ellipse cx="12" cy="11" rx="3" ry="2" />
+  <ellipse cx="12" cy="12.5" rx="10" ry="8.5" />
 </svg>
 `;
 
@@ -31697,9 +36904,9 @@ const Tornado = `
 </svg>
 `;
 
-const Torus = `
+const Touchpad = `
 <svg
-  class="lucide lucide-torus"
+  class="lucide lucide-touchpad"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -31710,8 +36917,9 @@ const Torus = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <ellipse cx="12" cy="11" rx="3" ry="2" />
-  <ellipse cx="12" cy="12.5" rx="10" ry="8.5" />
+  <rect width="20" height="16" x="2" y="4" rx="2" />
+  <path d="M2 14h20" />
+  <path d="M12 20v-6" />
 </svg>
 `;
 
@@ -31734,25 +36942,6 @@ const TouchpadOff = `
   <path d="m2 2 20 20" />
   <path d="M20 20H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2" />
   <path d="M9.656 4H20a2 2 0 0 1 2 2v10.344" />
-</svg>
-`;
-
-const Touchpad = `
-<svg
-  class="lucide lucide-touchpad"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <rect width="20" height="16" x="2" y="4" rx="2" />
-  <path d="M2 14h20" />
-  <path d="M12 20v-6" />
 </svg>
 `;
 
@@ -31859,6 +37048,28 @@ const TrafficCone = `
   <path d="m16.923 14.049 4.48 2.04a1 1 0 0 1 .001 1.831l-8.574 3.9a2 2 0 0 1-1.66 0l-8.574-3.91a1 1 0 0 1 0-1.83l4.484-2.04" />
   <path d="M16.949 14.14a5 2.5 0 1 1-9.9 0L10.063 3.5a2 2 0 0 1 3.874 0z" />
   <path d="M9.194 6.57a5 2.5 0 0 0 5.61 0" />
+</svg>
+`;
+
+const Trailer = `
+<svg
+  class="lucide lucide-trailer"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M10 11.341V10" />
+  <path d="M14 13v-3" />
+  <path d="M18 17V8a2 2 0 00-2-2H4a2 2 0 00-2 2v7a2 2 0 002 2h2" />
+  <path d="M22 15v1a1 1 0 01-1 1H10" />
+  <path d="M6 11.341V10" />
+  <circle cx="8" cy="17" r="2" />
 </svg>
 `;
 
@@ -31977,9 +37188,9 @@ const Transgender = `
 </svg>
 `;
 
-const Trash2 = `
+const TrashOff = `
 <svg
-  class="lucide lucide-trash-2"
+  class="lucide lucide-trash-off"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -31991,10 +37202,13 @@ const Trash2 = `
   stroke-linejoin="round"
 >
   <path d="M10 11v6" />
-  <path d="M14 11v6" />
-  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" />
-  <path d="M3 6h18" />
-  <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+  <path d="M14 17v-3" />
+  <path d="M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-1.576.768" />
+  <path d="M19 6v7.344" />
+  <path d="m2 2 20 20" />
+  <path d="M21 6h-9.344" />
+  <path d="M3 6h3" />
+  <path d="M5 6v14a2 2 0 002 2h10a2 2 0 002-2v-1" />
 </svg>
 `;
 
@@ -32011,6 +37225,8 @@ const Trash = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
+  <path d="M10 11v6" />
+  <path d="M14 11v6" />
   <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" />
   <path d="M3 6h18" />
   <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
@@ -32032,26 +37248,6 @@ const TreeDeciduous = `
 >
   <path d="M8 19a4 4 0 0 1-2.24-7.32A3.5 3.5 0 0 1 9 6.03V6a3 3 0 1 1 6 0v.04a3.5 3.5 0 0 1 3.24 5.65A4 4 0 0 1 16 19Z" />
   <path d="M12 19v3" />
-</svg>
-`;
-
-const TreePalm = `
-<svg
-  class="lucide lucide-tree-palm"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M13 8c0-2.76-2.46-5-5.5-5S2 5.24 2 8h2l1-1 1 1h4" />
-  <path d="M13 7.14A5.82 5.82 0 0 1 16.5 6c3.04 0 5.5 2.24 5.5 5h-3l-1-1-1 1h-3" />
-  <path d="M5.89 9.71c-2.15 2.15-2.3 5.47-.35 7.43l4.24-4.25.7-.7.71-.71 2.12-2.12c-1.95-1.96-5.27-1.8-7.42.35" />
-  <path d="M11 15.5c.5 2.5-.17 4.5-1 6.5h4c2-5.5-.5-12-1-14" />
 </svg>
 `;
 
@@ -32090,6 +37286,26 @@ const Trees = `
   <path d="M7 16v6" />
   <path d="M13 19v3" />
   <path d="M12 19h8.3a1 1 0 0 0 .7-1.7L18 14h.3a1 1 0 0 0 .7-1.7L16 9h.2a1 1 0 0 0 .8-1.7L13 3l-1.4 1.5" />
+</svg>
+`;
+
+const TreePalm = `
+<svg
+  class="lucide lucide-tree-palm"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M13 8c0-2.76-2.46-5-5.5-5S2 5.24 2 8h2l1-1 1 1h4" />
+  <path d="M13 7.14A5.82 5.82 0 0 1 16.5 6c3.04 0 5.5 2.24 5.5 5h-3l-1-1-1 1h-3" />
+  <path d="M5.89 9.71c-2.15 2.15-2.3 5.47-.35 7.43l4.24-4.25.7-.7.71-.71 2.12-2.12c-1.95-1.96-5.27-1.8-7.42.35" />
+  <path d="M11 15.5c.5 2.5-.17 4.5-1 6.5h4c2-5.5-.5-12-1-14" />
 </svg>
 `;
 
@@ -32149,25 +37365,6 @@ const TrendingUp = `
 </svg>
 `;
 
-const TriangleAlert = `
-<svg
-  class="lucide lucide-triangle-alert"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3" />
-  <path d="M12 9v4" />
-  <path d="M12 17h.01" />
-</svg>
-`;
-
 const TriangleDashed = `
 <svg
   class="lucide lucide-triangle-dashed"
@@ -32193,6 +37390,25 @@ const TriangleDashed = `
 </svg>
 `;
 
+const TriangleExclamationPoint = `
+<svg
+  class="lucide lucide-triangle-exclamation-point"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3" />
+  <path d="M12 9v4" />
+  <path d="M12 17h.01" />
+</svg>
+`;
+
 const TriangleRight = `
 <svg
   class="lucide lucide-triangle-right"
@@ -32207,6 +37423,28 @@ const TriangleRight = `
   stroke-linejoin="round"
 >
   <path d="M22 18a2 2 0 0 1-2 2H3c-1.1 0-1.3-.6-.4-1.3L20.4 4.3c.9-.7 1.6-.4 1.6.7Z" />
+</svg>
+`;
+
+const TrianglesCenterlineDashedHorizontal = `
+<svg
+  class="lucide lucide-triangles-centerline-dashed-horizontal"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M10 12H8" />
+  <path d="M16 12h-2" />
+  <path d="M22 12h-2" />
+  <path d="M4 12H2" />
+  <path d="M7.298 20.288A1 1 0 008 22h8a1 1 0 00.703-1.712l-3.991-3.99a1 1 0 00-1.424-.001z" />
+  <path d="M7.298 3.712A1 1 0 018 2h8a1 1 0 01.703 1.712l-3.991 3.99a1 1 0 01-1.424.001z" />
 </svg>
 `;
 
@@ -32227,6 +37465,28 @@ const Triangle = `
 </svg>
 `;
 
+const TrianglesCenterlineDashedVertical = `
+<svg
+  class="lucide lucide-triangles-centerline-dashed-vertical"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 14v2" />
+  <path d="M12 20v2" />
+  <path d="M12 2v2" />
+  <path d="M12 8v2" />
+  <path d="M20.288 16.703A1 1 0 0022 16V8a1 1 0 00-1.712-.703l-3.99 3.991a1 1 0 00-.001 1.424z" />
+  <path d="M3.712 16.703A1 1 0 012 16V8a1 1 0 011.712-.703l3.99 3.991a1 1 0 01.001 1.424z" />
+</svg>
+`;
+
 const Trophy = `
 <svg
   class="lucide lucide-trophy"
@@ -32240,12 +37500,12 @@ const Trophy = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M10 14.66v1.626a2 2 0 0 1-.976 1.696A5 5 0 0 0 7 21.978" />
-  <path d="M14 14.66v1.626a2 2 0 0 0 .976 1.696A5 5 0 0 1 17 21.978" />
-  <path d="M18 9h1.5a1 1 0 0 0 0-5H18" />
+  <path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2" />
+  <path d="M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2" />
+  <path d="M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3" />
   <path d="M4 22h16" />
   <path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z" />
-  <path d="M6 9H4.5a1 1 0 0 1 0-5H6" />
+  <path d="M6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3" />
 </svg>
 `;
 
@@ -32290,7 +37550,27 @@ const Truck = `
   <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14" />
   <circle cx="17" cy="18" r="2" />
   <circle cx="7" cy="18" r="2" />
-</svg>`;
+</svg>
+`;
+
+const TubeLotion = `
+<svg
+  class="lucide lucide-tube-lotion"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M15 18v3a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-3" />
+  <path d="M17 2a2 2 0 0 1 1.6 3.2A8 8 0 0 0 17 10v6a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-6a8 8 0 0 0-1.6-4.8A2 2 0 0 1 7 2z" />
+  <path d="M7 10a6.47 6.47 0 0 1 5 0 6.47 6.47 0 0 0 5 0" />
+</svg>
+`;
 
 const TurkishLira = `
 <svg
@@ -32305,9 +37585,9 @@ const TurkishLira = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M15 4 5 9" />
-  <path d="m15 8.5-10 5" />
-  <path d="M18 12a9 9 0 0 1-9 9V3" />
+  <path d="m14 10-8 4" />
+  <path d="M14 5 6 9" />
+  <path d="M18 12a8 8 0 01-7.003 7.937c-.547.07-.997-.385-.997-.937V4" />
 </svg>
 `;
 
@@ -32442,6 +37722,25 @@ const Type = `
 </svg>
 `;
 
+const Umbrella = `
+<svg
+  class="lucide lucide-umbrella"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 13v7a2 2 0 0 0 4 0" />
+  <path d="M12 2v2" />
+  <path d="M20.992 13a1 1 0 0 0 .97-1.274 10.284 10.284 0 0 0-19.923 0A1 1 0 0 0 3 13z" />
+</svg>
+`;
+
 const UmbrellaOff = `
 <svg
   class="lucide lucide-umbrella-off"
@@ -32460,25 +37759,6 @@ const UmbrellaOff = `
   <path d="M18.656 13h2.336a1 1 0 0 0 .97-1.274 10.284 10.284 0 0 0-12.07-7.51" />
   <path d="m2 2 20 20" />
   <path d="M5.961 5.957a10.28 10.28 0 0 0-3.922 5.769A1 1 0 0 0 3 13h10" />
-</svg>
-`;
-
-const Umbrella = `
-<svg
-  class="lucide lucide-umbrella"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M12 13v7a2 2 0 0 0 4 0" />
-  <path d="M12 2v2" />
-  <path d="M20.992 13a1 1 0 0 0 .97-1.274 10.284 10.284 0 0 0-19.923 0A1 1 0 0 0 3 13z" />
 </svg>
 `;
 
@@ -32537,9 +37817,9 @@ const UndoDot = `
 </svg>
 `;
 
-const Undo = `
+const UnfoldHorizontal = `
 <svg
-  class="lucide lucide-undo"
+  class="lucide lucide-unfold-horizontal"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -32550,8 +37830,14 @@ const Undo = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M3 7v6h6" />
-  <path d="M21 17a9 9 0 0 0-9-9 9 9 0 0 0-6 2.3L3 13" />
+  <path d="M16 12h6" />
+  <path d="M8 12H2" />
+  <path d="M12 2v2" />
+  <path d="M12 8v2" />
+  <path d="M12 14v2" />
+  <path d="M12 20v2" />
+  <path d="m19 15 3-3-3-3" />
+  <path d="m5 9-3 3 3 3" />
 </svg>
 `;
 
@@ -32579,9 +37865,9 @@ const UnfoldVertical = `
 </svg>
 `;
 
-const UnfoldHorizontal = `
+const Undo = `
 <svg
-  class="lucide lucide-unfold-horizontal"
+  class="lucide lucide-undo"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -32592,14 +37878,8 @@ const UnfoldHorizontal = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M16 12h6" />
-  <path d="M8 12H2" />
-  <path d="M12 2v2" />
-  <path d="M12 8v2" />
-  <path d="M12 14v2" />
-  <path d="M12 20v2" />
-  <path d="m19 15 3-3-3-3" />
-  <path d="m5 9-3 3 3 3" />
+  <path d="M3 7v6h6" />
+  <path d="M21 17a9 9 0 0 0-9-9 9 9 0 0 0-6 2.3L3 13" />
 </svg>
 `;
 
@@ -32683,6 +37963,43 @@ const Unlink = `
 </svg>
 `;
 
+const Upload = `
+<svg
+  class="lucide lucide-upload"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 3v12" />
+  <path d="m17 8-5-5-5 5" />
+  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+</svg>
+`;
+
+const UsbCPort = `
+<svg
+  class="lucide lucide-usb-c-port"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M6 12h12" />
+  <rect x="2" y="8" width="20" height="8" rx="4" />
+</svg>
+`;
+
 const Unplug = `
 <svg
   class="lucide lucide-unplug"
@@ -32702,25 +38019,6 @@ const Unplug = `
   <path d="M7.5 13.5 10 11" />
   <path d="M10.5 16.5 13 14" />
   <path d="m12 6 6 6 2.3-2.3a2.4 2.4 0 0 0 0-3.4l-2.6-2.6a2.4 2.4 0 0 0-3.4 0Z" />
-</svg>
-`;
-
-const Upload = `
-<svg
-  class="lucide lucide-upload"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M12 3v12" />
-  <path d="m17 8-5-5-5 5" />
-  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
 </svg>
 `;
 
@@ -32766,6 +38064,49 @@ const UserCheck = `
 </svg>
 `;
 
+const UserGroup = `
+<svg
+  class="lucide lucide-user-group"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M17 21v-1a2 2 0 00-2-2H9a2 2 0 00-2 2v1" />
+  <path d="M19 10h1a2 2 0 012 2v1" />
+  <path d="M5 10H4a2 2 0 00-2 2v1" />
+  <circle cx="12" cy="11" r="3" />
+  <circle cx="18" cy="4" r="2" />
+  <circle cx="6" cy="4" r="2" />
+</svg>
+`;
+
+const UserKey = `
+<svg
+  class="lucide lucide-user-key"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M20 11v6" />
+  <path d="M20 13h2" />
+  <path d="M3 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 2.072.578" />
+  <circle cx="10" cy="7" r="4" />
+  <circle cx="20" cy="19" r="2" />
+</svg>
+`;
+
 const UserCog = `
 <svg
   class="lucide lucide-user-cog"
@@ -32790,27 +38131,6 @@ const UserCog = `
   <path d="m20.772 16.148.924.383" />
   <circle cx="18" cy="15" r="3" />
   <circle cx="9" cy="7" r="4" />
-</svg>
-`;
-
-const UserKey = `
-<svg
-  class="lucide lucide-user-key"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M20 11v6" />
-  <path d="M20 13h2" />
-  <path d="M3 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 2.072.578" />
-  <circle cx="10" cy="7" r="4" />
-  <circle cx="20" cy="19" r="2" />
 </svg>
 `;
 
@@ -32872,26 +38192,6 @@ const UserPen = `
 </svg>
 `;
 
-const UserPlus = `
-<svg
-  class="lucide lucide-user-plus"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-  <circle cx="9" cy="7" r="4" />
-  <line x1="19" x2="19" y1="8" y2="14" />
-  <line x1="22" x2="16" y1="11" y2="11" />
-</svg>
-`;
-
 const UserRoundArrowLeft = `
 <svg
   class="lucide lucide-user-round-arrow-left"
@@ -32931,9 +38231,9 @@ const UserRoundCheck = `
 </svg>
 `;
 
-const UserRoundKey = `
+const UserPlus = `
 <svg
-  class="lucide lucide-user-round-key"
+  class="lucide lucide-user-plus"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -32944,11 +38244,10 @@ const UserRoundKey = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M19 11v6" />
-  <path d="M19 13h2" />
-  <path d="M2 21a8 8 0 0 1 12.868-6.349" />
-  <circle cx="10" cy="8" r="5" />
-  <circle cx="19" cy="19" r="2" />
+  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+  <circle cx="9" cy="7" r="4" />
+  <line x1="19" x2="19" y1="8" y2="14" />
+  <line x1="22" x2="16" y1="11" y2="11" />
 </svg>
 `;
 
@@ -32976,6 +38275,49 @@ const UserRoundCog = `
   <path d="m20.772 19.148.924.383" />
   <circle cx="10" cy="8" r="5" />
   <circle cx="18" cy="18" r="3" />
+</svg>
+`;
+
+const UserRoundGroup = `
+<svg
+  class="lucide lucide-user-round-group"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M17 21a5 5 0 00-10 0" />
+  <path d="M22 10.5a3.5 3.5 0 00-5.507-2.868" />
+  <path d="M7.507 7.632A3.5 3.5 0 002 10.5" />
+  <circle cx="12" cy="13" r="3" />
+  <circle cx="18.5" cy="4.5" r="2.5" />
+  <circle cx="5.5" cy="4.5" r="2.5" />
+</svg>
+`;
+
+const UserRoundKey = `
+<svg
+  class="lucide lucide-user-round-key"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M19 11v6" />
+  <path d="M19 13h2" />
+  <path d="M2 21a8 8 0 0 1 12.868-6.349" />
+  <circle cx="10" cy="8" r="5" />
+  <circle cx="19" cy="19" r="2" />
 </svg>
 `;
 
@@ -33057,6 +38399,43 @@ const UserRoundSearch = `
 </svg>
 `;
 
+const UserRoundShield = `
+<svg
+  class="lucide lucide-user-round-shield"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M2 21a8 8 0 0 1 8-8 5 5 0 1 1 4.845-3.759" />
+  <path d="M22 17.5c0 2.5-1.75 3.75-3.83 4.474a.5.5 0 0 1-.335-.005C15.75 21.25 14 20 14 17.5V14a.5.5 0 0 1 .5-.499c1 0 2.25-.6 3.12-1.36a.6.6 0 0 1 .76-.001c.875.765 2.12 1.36 3.12 1.36a.5.5 0 0 1 .5.5z" />
+</svg>
+`;
+
+const UserRoundStar = `
+<svg
+  class="lucide lucide-user-round-star"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M16.051 12.616a1 1 0 0 1 1.909.024l.737 1.452a1 1 0 0 0 .737.535l1.634.256a1 1 0 0 1 .588 1.806l-1.172 1.168a1 1 0 0 0-.282.866l.259 1.613a1 1 0 0 1-1.541 1.134l-1.465-.75a1 1 0 0 0-.912 0l-1.465.75a1 1 0 0 1-1.539-1.133l.258-1.613a1 1 0 0 0-.282-.867l-1.156-1.152a1 1 0 0 1 .572-1.822l1.633-.256a1 1 0 0 0 .737-.535z" />
+  <path d="M2 21a8 8 0 0 1 6.778-7.905" />
+  <path d="M8.927 12.885a5 5 0 1 1 6.061-4.535" />
+</svg>
+`;
+
 const UserRoundX = `
 <svg
   class="lucide lucide-user-round-x"
@@ -33070,10 +38449,10 @@ const UserRoundX = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M2 21a8 8 0 0 1 11.873-7" />
+  <path d="m16.5 16.5 5 5" />
+  <path d="M2 21a8 8 0 0 1 11.531-7.18" />
+  <path d="m21.5 16.5-5 5" />
   <circle cx="10" cy="8" r="5" />
-  <path d="m17 17 5 5" />
-  <path d="m22 17-5 5" />
 </svg>
 `;
 
@@ -33112,6 +38491,25 @@ const UserSearch = `
   <path d="M10.3 15H7a4 4 0 0 0-4 4v2" />
   <circle cx="17" cy="17" r="3" />
   <path d="m21 21-1.9-1.9" />
+</svg>
+`;
+
+const UserShield = `
+<svg
+  class="lucide lucide-user-shield"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M10 15H6a4 4 0 0 0-4 4v2" />
+  <path d="M22 17.5c0 2.499-1.75 3.749-3.83 4.474a.5.5 0 0 1-.335-.005c-2.085-.72-3.835-1.97-3.835-4.47V14a.5.5 0 0 1 .5-.499c1 0 2.25-.6 3.12-1.36a.6.6 0 0 1 .76-.001c.875.765 2.12 1.36 3.12 1.36a.5.5 0 0 1 .5.5z" />
+  <circle cx="9" cy="7" r="4" />
 </svg>
 `;
 
@@ -33169,6 +38567,50 @@ const User = `
 >
   <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
   <circle cx="12" cy="7" r="4" />
+</svg>
+`;
+
+const UsersRoundCollaboration = `
+<svg
+  class="lucide lucide-users-round-collaboration"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M20.453 8.911a9 9 0 00-6.696-5.738" />
+  <path d="M21 22a4 4 0 00-8 0" />
+  <path d="M3 12a4 4 0 017.963-.543" />
+  <path d="M3.889 15.9a9 9 0 005.247 4.632" />
+  <circle cx="17" cy="15" r="3" />
+  <circle cx="7" cy="5" r="3" />
+</svg>
+`;
+
+const UsersCollaboration = `
+<svg
+  class="lucide lucide-users-collaboration"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12.925 3.047a9 9 0 017.616 6.11" />
+  <path d="M13 22a2 2 0 012-2h4a2 2 0 012 2" />
+  <path d="M3 12a2 2 0 012-2h4a2 2 0 012 2" />
+  <path d="M3.889 15.9a9 9 0 005.247 4.632" />
+  <circle cx="17" cy="14" r="2" />
+  <circle cx="7" cy="4" r="2" />
 </svg>
 `;
 
@@ -33291,7 +38733,8 @@ const Van = `
   <path d="M9 18h5" />
   <circle cx="16" cy="18" r="2" />
   <circle cx="7" cy="18" r="2" />
-</svg>`;
+</svg>
+`;
 
 const Variable = `
 <svg
@@ -33339,6 +38782,30 @@ const Vault = `
 </svg>
 `;
 
+const VectorPolygon = `
+<svg
+  class="lucide lucide-vector-polygon"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m12.828 4.813 5.344 2.375" />
+  <path d="m15.769 18.153 3.461-8.306" />
+  <path d="m5.687 14.074 7.625 4.852" />
+  <path d="M9.772 5.579 5.228 11.42" />
+  <circle cx="11" cy="4" r="2" />
+  <circle cx="15" cy="20" r="2" />
+  <circle cx="20" cy="8" r="2" />
+  <circle cx="4" cy="13" r="2" />
+</svg>
+`;
+
 const VectorSquare = `
 <svg
   class="lucide lucide-vector-square"
@@ -33352,14 +38819,14 @@ const VectorSquare = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M19.5 7a24 24 0 0 1 0 10" />
-  <path d="M4.5 7a24 24 0 0 0 0 10" />
-  <path d="M7 19.5a24 24 0 0 0 10 0" />
-  <path d="M7 4.5a24 24 0 0 1 10 0" />
-  <rect x="17" y="17" width="5" height="5" rx="1" />
-  <rect x="17" y="2" width="5" height="5" rx="1" />
-  <rect x="2" y="17" width="5" height="5" rx="1" />
-  <rect x="2" y="2" width="5" height="5" rx="1" />
+  <path d="M17.055 4.533a24 24 0 00-10.11 0" />
+  <path d="M19.467 17.055a24 24 0 000-10.11" />
+  <path d="M4.533 6.945a24 24 0 000 10.11" />
+  <path d="M6.945 19.467a24 24 0 0010.11 0" />
+  <circle cx="19" cy="19" r="2" />
+  <circle cx="19" cy="5" r="2" />
+  <circle cx="5" cy="19" r="2" />
+  <circle cx="5" cy="5" r="2" />
 </svg>
 `;
 
@@ -33382,6 +38849,25 @@ const Vegan = `
 </svg>
 `;
 
+const VenetianMask = `
+<svg
+  class="lucide lucide-venetian-mask"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M18 11c-1.5 0-2.5.5-3 2" />
+  <path d="M4 6a2 2 0 0 0-2 2v4a5 5 0 0 0 5 5 8 8 0 0 1 5 2 8 8 0 0 1 5-2 5 5 0 0 0 5-5V8a2 2 0 0 0-2-2h-3a8 8 0 0 0-5 2 8 8 0 0 0-5-2z" />
+  <path d="M6 11c1.5 0 2.5.5 3 2" />
+</svg>
+`;
+
 const VenusAndMars = `
 <svg
   class="lucide lucide-venus-and-mars"
@@ -33400,25 +38886,6 @@ const VenusAndMars = `
   <path d="M17 2h4v4" />
   <path d="m21 2-5.46 5.46" />
   <circle cx="12" cy="11" r="5" />
-</svg>
-`;
-
-const VenetianMask = `
-<svg
-  class="lucide lucide-venetian-mask"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M18 11c-1.5 0-2.5.5-3 2" />
-  <path d="M4 6a2 2 0 0 0-2 2v4a5 5 0 0 0 5 5 8 8 0 0 1 5 2 8 8 0 0 1 5-2 5 5 0 0 0 5-5V8a2 2 0 0 0-2-2h-3a8 8 0 0 0-5 2 8 8 0 0 0-5-2z" />
-  <path d="M6 11c1.5 0 2.5.5 3 2" />
 </svg>
 `;
 
@@ -33559,6 +39026,78 @@ const View = `
 </svg>
 `;
 
+const VirusOff = `
+<svg
+  class="lucide lucide-virus-off"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M10.01 10h.01" />
+  <path d="M12 14.991h.01" />
+  <path d="M12 22v-3" />
+  <path d="M12 2v3" />
+  <path d="M13 22h-2" />
+  <path d="M13 2h-2" />
+  <path d="m16.5 19.794-1-1.733" />
+  <path d="m16.5 4.205-1 1.732" />
+  <path d="M18.891 13.235a7 7 0 00-8.126-8.126" />
+  <path d="m19.794 7.5-1.732 1" />
+  <path d="M2 12h3" />
+  <path d="M2 13v-2" />
+  <path d="m2 2 20 20" />
+  <path d="M22 12h-3" />
+  <path d="M22 13v-2" />
+  <path d="m4.206 16.5 1.732-1" />
+  <path d="m4.206 7.5 1.732 1" />
+  <path d="M7.05 7.05a7 7 0 009.9 9.9" />
+  <path d="m7.5 19.794 1-1.733" />
+  <path d="M9 12h.01" />
+</svg>
+`;
+
+const Virus = `
+<svg
+  class="lucide lucide-virus"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 14.991h.01" />
+  <path d="M12 22v-3" />
+  <path d="M12 2v3" />
+  <path d="M13 22h-2" />
+  <path d="M13 2h-2" />
+  <path d="M13.99 10H14" />
+  <path d="m16.5 19.794-1-1.733" />
+  <path d="m16.5 4.205-1 1.732" />
+  <path d="m19.794 16.5-1.732-1" />
+  <path d="m19.794 7.5-1.732 1" />
+  <path d="M2 12h3" />
+  <path d="M2 13v-2" />
+  <path d="M22 12h-3" />
+  <path d="M22 13v-2" />
+  <path d="m4.206 16.5 1.732-1" />
+  <path d="m4.206 7.5 1.732 1" />
+  <path d="m7.5 19.794 1-1.733" />
+  <path d="m7.5 4.205 1 1.732" />
+  <path d="M9 12h.01" />
+  <circle cx="12" cy="12" r="7" />
+</svg>
+`;
+
 const Voicemail = `
 <svg
   class="lucide lucide-voicemail"
@@ -33671,9 +39210,9 @@ const VolumeX = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z" />
-  <line x1="22" x2="16" y1="9" y2="15" />
-  <line x1="16" x2="22" y1="9" y2="15" />
+  <path d="M11 4.702a.7.7 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.7.7 0 0 0 11 19.298z" />
+  <path d="m16.5 14.5 5-5" />
+  <path d="m16.5 9.5 5 5" />
 </svg>
 `;
 
@@ -33858,26 +39397,6 @@ const Warehouse = `
 </svg>
 `;
 
-const Watch = `
-<svg
-  class="lucide lucide-watch"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M12 10v2.2l1.6 1" />
-  <path d="m16.13 7.66-.81-4.05a2 2 0 0 0-2-1.61h-2.68a2 2 0 0 0-2 1.61l-.78 4.05" />
-  <path d="m7.88 16.36.8 4a2 2 0 0 0 2 1.61h2.72a2 2 0 0 0 2-1.61l.81-4.05" />
-  <circle cx="12" cy="12" r="6" />
-</svg>
-`;
-
 const WashingMachine = `
 <svg
   class="lucide lucide-washing-machine"
@@ -33896,6 +39415,26 @@ const WashingMachine = `
   <rect width="18" height="20" x="3" y="2" rx="2" />
   <circle cx="12" cy="13" r="5" />
   <path d="M12 18a2.5 2.5 0 0 0 0-5 2.5 2.5 0 0 1 0-5" />
+</svg>
+`;
+
+const Watch = `
+<svg
+  class="lucide lucide-watch"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 10v2.2l1.6 1" />
+  <path d="m16.13 7.66-.81-4.05a2 2 0 0 0-2-1.61h-2.68a2 2 0 0 0-2 1.61l-.78 4.05" />
+  <path d="m7.88 16.36.8 4a2 2 0 0 0 2 1.61h2.72a2 2 0 0 0 2-1.61l.81-4.05" />
+  <circle cx="12" cy="12" r="6" />
 </svg>
 `;
 
@@ -34064,6 +39603,25 @@ const Webcam = `
 </svg>
 `;
 
+const Webhook = `
+<svg
+  class="lucide lucide-webhook"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M18 16.98h-5.99c-1.1 0-1.95.94-2.48 1.9A4 4 0 0 1 2 17c.01-.7.2-1.4.57-2" />
+  <path d="m6 17 3.13-5.78c.53-.97.1-2.18-.5-3.1a4 4 0 1 1 6.89-4.06" />
+  <path d="m12 6 3.13 5.73C15.66 12.7 16.9 13 18 13a4 4 0 0 1 0 8" />
+</svg>
+`;
+
 const WebhookOff = `
 <svg
   class="lucide lucide-webhook-off"
@@ -34084,25 +39642,6 @@ const WebhookOff = `
   <path d="M18.6 13a4 4 0 0 1 3.357 3.414" />
   <path d="m12 6 .6 1" />
   <path d="m2 2 20 20" />
-</svg>
-`;
-
-const Webhook = `
-<svg
-  class="lucide lucide-webhook"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M18 16.98h-5.99c-1.1 0-1.95.94-2.48 1.9A4 4 0 0 1 2 17c.01-.7.2-1.4.57-2" />
-  <path d="m6 17 3.13-5.78c.53-.97.1-2.18-.5-3.1a4 4 0 1 1 6.89-4.06" />
-  <path d="m12 6 3.13 5.73C15.66 12.7 16.9 13 18 13a4 4 0 0 1 0 8" />
 </svg>
 `;
 
@@ -34193,6 +39732,24 @@ const Wheat = `
 </svg>
 `;
 
+const Whistle = `
+<svg
+  class="lucide lucide-whistle"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M10 6v4" />
+  <path d="M21 6a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-5.675A7 7 0 1 1 9 6z" />
+</svg>
+`;
+
 const WholeWord = `
 <svg
   class="lucide lucide-whole-word"
@@ -34233,11 +39790,11 @@ const WifiCog = `
   <path d="m16.852 20.772-.383.924" />
   <path d="m19.148 15.228.383-.923" />
   <path d="m19.53 21.696-.382-.924" />
-  <path d="M2 7.82a15 15 0 0 1 20 0" />
+  <path d="M2 8.82a15 15 0 0120 0" />
   <path d="m20.772 16.852.924-.383" />
   <path d="m20.772 19.148.924.383" />
-  <path d="M5 11.858a10 10 0 0 1 11.5-1.785" />
-  <path d="M8.5 15.429a5 5 0 0 1 2.413-1.31" />
+  <path d="M5 12.859a10 10 0 0110.18-2.342" />
+  <path d="M8.5 16.429a5 5 0 011.998-1.2" />
   <circle cx="18" cy="18" r="3" />
 </svg>
 `;
@@ -34258,6 +39815,27 @@ const WifiHigh = `
   <path d="M12 20h.01" />
   <path d="M5 12.859a10 10 0 0 1 14 0" />
   <path d="M8.5 16.429a5 5 0 0 1 7 0" />
+</svg>
+`;
+
+const WifiLock = `
+<svg
+  class="lucide lucide-wifi-lock"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M2 8.82a15 15 0 0120 0" />
+  <path d="M20 16v-2a2 2 0 00-4 0v2" />
+  <path d="M5 12.859a10 10 0 018.436-2.756" />
+  <path d="M8.5 16.429a5 5 0 011.794-1.13" />
+  <rect x="14" y="16" width="8" height="5" rx="1" />
 </svg>
 `;
 
@@ -34402,6 +39980,26 @@ const WindArrowDown = `
 </svg>
 `;
 
+const WindArrowUp = `
+<svg
+  class="lucide lucide-wind-arrow-up"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M10 2v8" />
+  <path d="M12.8 21.6A2 2 0 1 0 14 18H2" />
+  <path d="M17.5 10a2.5 2.5 0 1 1 2 4H2" />
+  <path d="m6 6 4 -4 4 4" />
+</svg>
+`;
+
 const Wind = `
 <svg
   class="lucide lucide-wind"
@@ -34500,6 +40098,23 @@ const Worm = `
 </svg>
 `;
 
+const Wrench = `
+<svg
+  class="lucide lucide-wrench"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z" />
+</svg>
+`;
+
 const WrenchOff = `
 <svg
   class="lucide lucide-wrench-off"
@@ -34516,23 +40131,6 @@ const WrenchOff = `
   <path d="M10.747 5.093a6 6 0 0 1 6.841-2.882c.438.12.54.662.219.984L14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-2.882 6.842" />
   <path d="m13.5 13.5-7.88 7.88a1 1 0 0 1-2.999-3l7.88-7.88" />
   <path d="m2 2 20 20" />
-</svg>
-`;
-
-const Wrench = `
-<svg
-  class="lucide lucide-wrench"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z" />
 </svg>
 `;
 
@@ -34586,10 +40184,10 @@ const ZapOff = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M10.513 4.856 13.12 2.17a.5.5 0 0 1 .86.46l-1.377 4.317" />
-  <path d="M15.656 10H20a1 1 0 0 1 .78 1.63l-1.72 1.773" />
-  <path d="M16.273 16.273 10.88 21.83a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14H4a1 1 0 0 1-.78-1.63l4.507-4.643" />
+  <path d="M10.768 5.111 13.44 2.44a1.5 1.5 0 012.474 1.561l-1.633 4.625" />
+  <path d="m18.889 13.232.672-.672A1.5 1.5 0 0018.5 10h-2.844" />
   <path d="m2 2 20 20" />
+  <path d="m7.94 7.94-3.5 3.499A1.5 1.5 0 005.5 14h4.002a.5.5 0 01.471.666L8.086 20a1.5 1.5 0 002.475 1.56l5.5-5.5" />
 </svg>
 `;
 
@@ -34606,7 +40204,7 @@ const Zap = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" />
+  <path d="M15.914 4a1.5 1.5 0 00-2.474-1.561l-9 9A1.5 1.5 0 005.5 14h4.002a.5.5 0 01.471.666L8.086 20a1.5 1.5 0 002.475 1.56l9-9A1.5 1.5 0 0018.5 10h-3.997a.5.5 0 01-.472-.667z" />
 </svg>
 `;
 
@@ -34912,10 +40510,10 @@ exports.AlarmClockPlus = AlarmClockPlus;
 exports.AlarmMinus = AlarmClockMinus;
 exports.AlarmPlus = AlarmClockPlus;
 exports.AlarmSmoke = AlarmSmoke;
-exports.Album = Album;
-exports.AlertCircle = CircleAlert;
-exports.AlertOctagon = OctagonAlert;
-exports.AlertTriangle = TriangleAlert;
+exports.Album = SquareBookmark;
+exports.AlertCircle = CircleExclamationPoint;
+exports.AlertOctagon = OctagonExclamationPoint;
+exports.AlertTriangle = TriangleExclamationPoint;
 exports.AlignCenter = TextAlignCenter;
 exports.AlignCenterHorizontal = AlignCenterHorizontal;
 exports.AlignCenterVertical = AlignCenterVertical;
@@ -34947,8 +40545,9 @@ exports.Ampersand = Ampersand;
 exports.Ampersands = Ampersands;
 exports.Amphora = Amphora;
 exports.Anchor = Anchor;
-exports.Angry = Angry;
-exports.Annoyed = Annoyed;
+exports.Angle = Angle;
+exports.Angry = FaceAngry;
+exports.Annoyed = FaceExpressionless;
 exports.Antenna = Antenna;
 exports.Anvil = Anvil;
 exports.Aperture = Aperture;
@@ -34956,10 +40555,13 @@ exports.AppWindow = AppWindow;
 exports.AppWindowMac = AppWindowMac;
 exports.Apple = Apple;
 exports.Archive = Archive;
-exports.ArchiveRestore = ArchiveRestore;
+exports.ArchiveArrowDown = ArchiveArrowDown;
+exports.ArchiveArrowUp = ArchiveArrowUp;
+exports.ArchiveRestore = ArchiveArrowUp;
 exports.ArchiveX = ArchiveX;
 exports.AreaChart = ChartArea;
 exports.Armchair = Armchair;
+exports.ArmenianDram = ArmenianDram;
 exports.ArrowBigDown = ArrowBigDown;
 exports.ArrowBigDownDash = ArrowBigDownDash;
 exports.ArrowBigLeft = ArrowBigLeft;
@@ -35033,19 +40635,25 @@ exports.Astroid = Astroid;
 exports.AtSign = AtSign;
 exports.Atom = Atom;
 exports.AudioLines = AudioLines;
+exports.AudioLinesOff = AudioLinesOff;
+exports.AudioLinesX = AudioLinesX;
 exports.AudioWaveform = AudioWaveform;
+exports.Avocado = Avocado;
 exports.Award = Award;
 exports.Axe = Axe;
 exports.Axis3D = Axis3d;
 exports.Axis3d = Axis3d;
+exports.AzerbaijaniManat = AzerbaijaniManat;
 exports.Baby = Baby;
 exports.Backpack = Backpack;
+exports.Bacon = Bacon;
 exports.Badge = Badge;
-exports.BadgeAlert = BadgeAlert;
+exports.BadgeAlert = BadgeExclamationPoint;
 exports.BadgeCent = BadgeCent;
 exports.BadgeCheck = BadgeCheck;
 exports.BadgeDollarSign = BadgeDollarSign;
 exports.BadgeEuro = BadgeEuro;
+exports.BadgeExclamationPoint = BadgeExclamationPoint;
 exports.BadgeHelp = BadgeQuestionMark;
 exports.BadgeIndianRupee = BadgeIndianRupee;
 exports.BadgeInfo = BadgeInfo;
@@ -35060,10 +40668,12 @@ exports.BadgeSwissFranc = BadgeSwissFranc;
 exports.BadgeTurkishLira = BadgeTurkishLira;
 exports.BadgeX = BadgeX;
 exports.BaggageClaim = BaggageClaim;
+exports.BallWave = BallWave;
 exports.Balloon = Balloon;
 exports.Ban = Ban;
 exports.Banana = Banana;
 exports.Bandage = Bandage;
+exports.BangladeshiTaka = BangladeshiTaka;
 exports.Banknote = Banknote;
 exports.BanknoteArrowDown = BanknoteArrowDown;
 exports.BanknoteArrowUp = BanknoteArrowUp;
@@ -35082,11 +40692,12 @@ exports.Baseline = Baseline;
 exports.Bath = Bath;
 exports.Battery = Battery;
 exports.BatteryCharging = BatteryCharging;
+exports.BatteryExclamationPoint = BatteryExclamationPoint;
 exports.BatteryFull = BatteryFull;
 exports.BatteryLow = BatteryLow;
 exports.BatteryMedium = BatteryMedium;
 exports.BatteryPlus = BatteryPlus;
-exports.BatteryWarning = BatteryWarning;
+exports.BatteryWarning = BatteryExclamationPoint;
 exports.Beaker = Beaker;
 exports.Bean = Bean;
 exports.BeanOff = BeanOff;
@@ -35097,6 +40708,7 @@ exports.Beef = Beef;
 exports.BeefOff = BeefOff;
 exports.Beer = Beer;
 exports.BeerOff = BeerOff;
+exports.BelarusianRuble = BelarusianRuble;
 exports.Bell = Bell;
 exports.BellCheck = BellCheck;
 exports.BellDot = BellDot;
@@ -35127,25 +40739,27 @@ exports.Bluetooth = Bluetooth;
 exports.BluetoothConnected = BluetoothConnected;
 exports.BluetoothOff = BluetoothOff;
 exports.BluetoothSearching = BluetoothSearching;
-exports.Bold = Bold;
+exports.Bold = LetterB;
 exports.Bolt = Bolt;
 exports.Bomb = Bomb;
 exports.Bone = Bone;
 exports.BoneFracture = BoneFracture;
 exports.Book = Book;
 exports.BookA = BookA;
-exports.BookAlert = BookAlert;
+exports.BookAlert = BookExclamationPoint;
 exports.BookAudio = BookAudio;
+exports.BookBookmark = BookBookmark;
 exports.BookCheck = BookCheck;
 exports.BookCopy = BookCopy;
 exports.BookDashed = BookDashed;
 exports.BookDown = BookDown;
+exports.BookExclamationPoint = BookExclamationPoint;
 exports.BookHeadphones = BookHeadphones;
 exports.BookHeart = BookHeart;
 exports.BookImage = BookImage;
 exports.BookKey = BookKey;
 exports.BookLock = BookLock;
-exports.BookMarked = BookMarked;
+exports.BookMarked = BookBookmark;
 exports.BookMinus = BookMinus;
 exports.BookOpen = BookOpen;
 exports.BookOpenCheck = BookOpenCheck;
@@ -35174,20 +40788,26 @@ exports.BowArrow = BowArrow;
 exports.Box = Box;
 exports.BoxSelect = SquareDashed;
 exports.Boxes = Boxes;
+exports.BoxesLinked = BoxesLinked;
 exports.Braces = Braces;
 exports.Brackets = Brackets;
 exports.Brain = Brain;
 exports.BrainCircuit = BrainCircuit;
 exports.BrainCog = BrainCog;
+exports.BrainOff = BrainOff;
 exports.BrickWall = BrickWall;
 exports.BrickWallFire = BrickWallFire;
 exports.BrickWallShield = BrickWallShield;
+exports.Bridge = Bridge;
 exports.Briefcase = Briefcase;
 exports.BriefcaseBusiness = BriefcaseBusiness;
 exports.BriefcaseConveyorBelt = BriefcaseConveyorBelt;
 exports.BriefcaseMedical = BriefcaseMedical;
+exports.BriefcasePlus = BriefcasePlus;
 exports.BringToFront = BringToFront;
 exports.Broccoli = Broccoli;
+exports.Broom = Broom;
+exports.BroomSparkles = BroomSparkles;
 exports.Brush = Brush;
 exports.BrushCleaning = BrushCleaning;
 exports.Bubbles = Bubbles;
@@ -35195,7 +40815,9 @@ exports.Bug = Bug;
 exports.BugOff = BugOff;
 exports.BugPlay = BugPlay;
 exports.Building = Building;
-exports.Building2 = Building2;
+exports.Building2 = BuildingComplex;
+exports.BuildingComplex = BuildingComplex;
+exports.BuildingComplexPlus = BuildingComplexPlus;
 exports.Bus = Bus;
 exports.BusFront = BusFront;
 exports.Cable = Cable;
@@ -35206,9 +40828,13 @@ exports.Calculator = Calculator;
 exports.Calendar = Calendar;
 exports.Calendar1 = Calendar1;
 exports.CalendarArrowDown = CalendarArrowDown;
+exports.CalendarArrowLeft = CalendarArrowLeft;
+exports.CalendarArrowRight = CalendarArrowRight;
 exports.CalendarArrowUp = CalendarArrowUp;
 exports.CalendarCheck = CalendarCheck;
 exports.CalendarCheck2 = CalendarCheck2;
+exports.CalendarChevronsLeft = CalendarChevronsLeft;
+exports.CalendarChevronsRight = CalendarChevronsRight;
 exports.CalendarClock = CalendarClock;
 exports.CalendarCog = CalendarCog;
 exports.CalendarDays = CalendarDays;
@@ -35227,6 +40853,8 @@ exports.CalendarX2 = CalendarX2;
 exports.Calendars = Calendars;
 exports.Camera = Camera;
 exports.CameraOff = CameraOff;
+exports.Can = Can;
+exports.CanSoda = CanSoda;
 exports.CandlestickChart = ChartCandlestick;
 exports.Candy = Candy;
 exports.CandyCane = CandyCane;
@@ -35236,11 +40864,14 @@ exports.CannabisOff = CannabisOff;
 exports.Captions = Captions;
 exports.CaptionsOff = CaptionsOff;
 exports.Car = Car;
+exports.CarBattery = CarBattery;
 exports.CarFront = CarFront;
 exports.CarTaxiFront = CarTaxiFront;
 exports.Caravan = Caravan;
 exports.CardSim = CardSim;
 exports.Carrot = Carrot;
+exports.Carton = Carton;
+exports.CartonOff = CartonOff;
 exports.CaseLower = CaseLower;
 exports.CaseSensitive = CaseSensitive;
 exports.CaseUpper = CaseUpper;
@@ -35250,12 +40881,14 @@ exports.Castle = Castle;
 exports.Cat = Cat;
 exports.Cctv = Cctv;
 exports.CctvOff = CctvOff;
+exports.Certificate = Certificate;
 exports.ChartArea = ChartArea;
 exports.ChartBar = ChartBar;
 exports.ChartBarBig = ChartBarBig;
 exports.ChartBarDecreasing = ChartBarDecreasing;
 exports.ChartBarIncreasing = ChartBarIncreasing;
 exports.ChartBarStacked = ChartBarStacked;
+exports.ChartBellCurve = ChartBellCurve;
 exports.ChartCandlestick = ChartCandlestick;
 exports.ChartColumn = ChartColumn;
 exports.ChartColumnBig = ChartColumnBig;
@@ -35271,6 +40904,8 @@ exports.ChartNoAxesColumnIncreasing = ChartNoAxesColumnIncreasing;
 exports.ChartNoAxesCombined = ChartNoAxesCombined;
 exports.ChartNoAxesGantt = ChartNoAxesGantt;
 exports.ChartPie = ChartPie;
+exports.ChartQuadrant = ChartQuadrant;
+exports.ChartRadar = ChartRadar;
 exports.ChartScatter = ChartScatter;
 exports.ChartSpline = ChartSpline;
 exports.Check = Check;
@@ -35315,7 +40950,7 @@ exports.Church = Church;
 exports.Cigarette = Cigarette;
 exports.CigaretteOff = CigaretteOff;
 exports.Circle = Circle;
-exports.CircleAlert = CircleAlert;
+exports.CircleAlert = CircleExclamationPoint;
 exports.CircleArrowDown = CircleArrowDown;
 exports.CircleArrowLeft = CircleArrowLeft;
 exports.CircleArrowOutDownLeft = CircleArrowOutDownLeft;
@@ -35330,22 +40965,56 @@ exports.CircleChevronDown = CircleChevronDown;
 exports.CircleChevronLeft = CircleChevronLeft;
 exports.CircleChevronRight = CircleChevronRight;
 exports.CircleChevronUp = CircleChevronUp;
+exports.CircleChevronsDown = CircleChevronsDown;
+exports.CircleChevronsLeft = CircleChevronsLeft;
+exports.CircleChevronsRight = CircleChevronsRight;
+exports.CircleChevronsUp = CircleChevronsUp;
 exports.CircleDashed = CircleDashed;
+exports.CircleDashedCheck = CircleDashedCheck;
 exports.CircleDivide = CircleDivide;
 exports.CircleDollarSign = CircleDollarSign;
 exports.CircleDot = CircleDot;
 exports.CircleDotDashed = CircleDotDashed;
 exports.CircleEllipsis = CircleEllipsis;
 exports.CircleEqual = CircleEqual;
-exports.CircleEuroSign = CircleEuroSign;
+exports.CircleEuro = CircleEuro;
+exports.CircleExclamationPoint = CircleExclamationPoint;
 exports.CircleFadingArrowUp = CircleFadingArrowUp;
+exports.CircleFadingPlay = CircleFadingPlay;
 exports.CircleFadingPlus = CircleFadingPlus;
 exports.CircleGauge = CircleGauge;
 exports.CircleHelp = CircleQuestionMark;
+exports.CircleLetterA = CircleLetterA;
+exports.CircleLetterB = CircleLetterB;
+exports.CircleLetterC = CircleLetterC;
+exports.CircleLetterD = CircleLetterD;
+exports.CircleLetterE = CircleLetterE;
+exports.CircleLetterF = CircleLetterF;
+exports.CircleLetterG = CircleLetterG;
+exports.CircleLetterH = CircleLetterH;
+exports.CircleLetterI = CircleLetterI;
+exports.CircleLetterJ = CircleLetterJ;
+exports.CircleLetterK = CircleLetterK;
+exports.CircleLetterL = CircleLetterL;
+exports.CircleLetterM = CircleLetterM;
+exports.CircleLetterN = CircleLetterN;
+exports.CircleLetterO = CircleLetterO;
+exports.CircleLetterP = CircleLetterP;
+exports.CircleLetterPOff = CircleLetterPOff;
+exports.CircleLetterQ = CircleLetterQ;
+exports.CircleLetterR = CircleLetterR;
+exports.CircleLetterS = CircleLetterS;
+exports.CircleLetterT = CircleLetterT;
+exports.CircleLetterU = CircleLetterU;
+exports.CircleLetterV = CircleLetterV;
+exports.CircleLetterW = CircleLetterW;
+exports.CircleLetterX = CircleLetterX;
+exports.CircleLetterY = CircleLetterY;
+exports.CircleLetterZ = CircleLetterZ;
 exports.CircleMinus = CircleMinus;
 exports.CircleOff = CircleOff;
-exports.CircleParking = CircleParking;
-exports.CircleParkingOff = CircleParkingOff;
+exports.CircleParking = CircleLetterP;
+exports.CircleParkingOff = CircleLetterPOff;
 exports.CirclePause = CirclePause;
 exports.CirclePercent = CirclePercent;
 exports.CirclePile = CirclePile;
@@ -35366,6 +41035,9 @@ exports.CircleX = CircleX;
 exports.CircuitBoard = CircuitBoard;
 exports.Citrus = Citrus;
 exports.Clapperboard = Clapperboard;
+exports.ClefAlto = ClefAlto;
+exports.ClefBass = ClefBass;
+exports.ClefTreble = ClefTreble;
 exports.Clipboard = Clipboard;
 exports.ClipboardCheck = ClipboardCheck;
 exports.ClipboardClock = ClipboardClock;
@@ -35393,22 +41065,24 @@ exports.Clock6 = Clock6;
 exports.Clock7 = Clock7;
 exports.Clock8 = Clock8;
 exports.Clock9 = Clock9;
-exports.ClockAlert = ClockAlert;
+exports.ClockAlert = ClockExclamationPoint;
 exports.ClockArrowDown = ClockArrowDown;
 exports.ClockArrowLeft = ClockArrowLeft;
 exports.ClockArrowRight = ClockArrowRight;
 exports.ClockArrowUp = ClockArrowUp;
 exports.ClockCheck = ClockCheck;
+exports.ClockExclamationPoint = ClockExclamationPoint;
 exports.ClockFading = ClockFading;
 exports.ClockPlus = ClockPlus;
 exports.ClosedCaption = ClosedCaption;
 exports.Cloud = Cloud;
-exports.CloudAlert = CloudAlert;
+exports.CloudAlert = CloudExclamationPoint;
 exports.CloudBackup = CloudBackup;
 exports.CloudCheck = CloudCheck;
 exports.CloudCog = CloudCog;
 exports.CloudDownload = CloudDownload;
 exports.CloudDrizzle = CloudDrizzle;
+exports.CloudExclamationPoint = CloudExclamationPoint;
 exports.CloudFog = CloudFog;
 exports.CloudHail = CloudHail;
 exports.CloudLightning = CloudLightning;
@@ -35460,7 +41134,7 @@ exports.CopyPlus = CopyPlus;
 exports.CopySlash = CopySlash;
 exports.CopyX = CopyX;
 exports.Copyleft = Copyleft;
-exports.Copyright = Copyright;
+exports.Copyright = CircleLetterC;
 exports.CornerDownLeft = CornerDownLeft;
 exports.CornerDownRight = CornerDownRight;
 exports.CornerLeftDown = CornerLeftDown;
@@ -35470,8 +41144,14 @@ exports.CornerRightUp = CornerRightUp;
 exports.CornerUpLeft = CornerUpLeft;
 exports.CornerUpRight = CornerUpRight;
 exports.Cpu = Cpu;
+exports.CpuAi = CpuAi;
 exports.CreativeCommons = CreativeCommons;
 exports.CreditCard = CreditCard;
+exports.CreditCardCheck = CreditCardCheck;
+exports.CreditCardMinus = CreditCardMinus;
+exports.CreditCardPlus = CreditCardPlus;
+exports.CreditCardReader = CreditCardReader;
+exports.CreditCardX = CreditCardX;
 exports.Croissant = Croissant;
 exports.Crop = Crop;
 exports.Cross = Cross;
@@ -35479,6 +41159,7 @@ exports.Crosshair = Crosshair;
 exports.Crown = Crown;
 exports.Cuboid = Cuboid;
 exports.CupSoda = CupSoda;
+exports.Cupcake = Cupcake;
 exports.CurlyBraces = Braces;
 exports.Currency = Currency;
 exports.Cylinder = Cylinder;
@@ -35488,6 +41169,7 @@ exports.DatabaseArrowDown = DatabaseArrowDown;
 exports.DatabaseArrowUp = DatabaseArrowUp;
 exports.DatabaseBackup = DatabaseBackup;
 exports.DatabaseCheck = DatabaseCheck;
+exports.DatabaseCog = DatabaseCog;
 exports.DatabaseMinus = DatabaseMinus;
 exports.DatabasePlus = DatabasePlus;
 exports.DatabaseSearch = DatabaseSearch;
@@ -35497,6 +41179,8 @@ exports.DecimalsArrowLeft = DecimalsArrowLeft;
 exports.DecimalsArrowRight = DecimalsArrowRight;
 exports.Delete = Delete;
 exports.Dessert = Dessert;
+exports.DiagramFlowHorizontal = DiagramFlowHorizontal;
+exports.DiagramFlowVertical = DiagramFlowVertical;
 exports.Diameter = Diameter;
 exports.Diamond = Diamond;
 exports.DiamondMinus = DiamondMinus;
@@ -35522,10 +41206,14 @@ exports.DnaOff = DnaOff;
 exports.Dock = Dock;
 exports.Dog = Dog;
 exports.DollarSign = DollarSign;
+exports.Dome = Dome;
 exports.Donut = Donut;
 exports.DoorClosed = DoorClosed;
+exports.DoorClosedCog = DoorClosedCog;
 exports.DoorClosedLocked = DoorClosedLocked;
+exports.DoorClosedPackage = DoorClosedPackage;
 exports.DoorOpen = DoorOpen;
+exports.DoorStairwell = DoorStairwell;
 exports.Dot = Dot;
 exports.DotSquare = SquareDot;
 exports.Download = Download;
@@ -35542,6 +41230,8 @@ exports.Drumstick = Drumstick;
 exports.Dumbbell = Dumbbell;
 exports.Ear = Ear;
 exports.EarOff = EarOff;
+exports.Earbuds = Earbuds;
+exports.EarbudsOff = EarbudsOff;
 exports.Earth = Earth;
 exports.EarthLock = EarthLock;
 exports.Eclipse = Eclipse;
@@ -35551,11 +41241,17 @@ exports.Edit3 = PenLine;
 exports.Egg = Egg;
 exports.EggFried = EggFried;
 exports.EggOff = EggOff;
+exports.EighthNote = EighthNote;
+exports.EighthNotes = EighthNotes;
+exports.Eject = Eject;
 exports.Ellipse = Ellipse;
 exports.Ellipsis = Ellipsis;
 exports.EllipsisVertical = EllipsisVertical;
+exports.EmiratiDirham = EmiratiDirham;
+exports.Engine = Engine;
 exports.Equal = Equal;
 exports.EqualApproximately = EqualApproximately;
+exports.EqualApproximatelyNot = EqualApproximatelyNot;
 exports.EqualNot = EqualNot;
 exports.EqualSquare = SquareEqual;
 exports.Eraser = Eraser;
@@ -35568,9 +41264,17 @@ exports.Eye = Eye;
 exports.EyeClosed = EyeClosed;
 exports.EyeDashed = EyeDashed;
 exports.EyeOff = EyeOff;
+exports.FaceAngry = FaceAngry;
+exports.FaceExpressionless = FaceExpressionless;
+exports.FaceGrinning = FaceGrinning;
+exports.FaceNeutral = FaceNeutral;
+exports.FaceSlightlyFrowning = FaceSlightlyFrowning;
+exports.FaceSlightlySmiling = FaceSlightlySmiling;
+exports.FaceSlightlySmilingPlus = FaceSlightlySmilingPlus;
 exports.Factory = Factory;
 exports.Fan = Fan;
 exports.FastForward = FastForward;
+exports.Faucet = Faucet;
 exports.Feather = Feather;
 exports.Fence = Fence;
 exports.FerrisWheel = FerrisWheel;
@@ -35600,6 +41304,7 @@ exports.FileCode2 = FileCodeCorner;
 exports.FileCodeCorner = FileCodeCorner;
 exports.FileCog = FileCog;
 exports.FileCog2 = FileCog;
+exports.FileDatabase = FileDatabase;
 exports.FileDiff = FileDiff;
 exports.FileDigit = FileDigit;
 exports.FileDown = FileDown;
@@ -35680,9 +41385,9 @@ exports.FlaskConical = FlaskConical;
 exports.FlaskConicalOff = FlaskConicalOff;
 exports.FlaskRound = FlaskRound;
 exports.FlipHorizontal = SquareCenterlineDashedHorizontal;
-exports.FlipHorizontal2 = FlipHorizontal2;
+exports.FlipHorizontal2 = TrianglesCenterlineDashedHorizontal;
 exports.FlipVertical = SquareCenterlineDashedVertical;
-exports.FlipVertical2 = FlipVertical2;
+exports.FlipVertical2 = TrianglesCenterlineDashedVertical;
 exports.Flower = Flower;
 exports.Flower2 = Flower2;
 exports.Focus = Focus;
@@ -35720,6 +41425,8 @@ exports.FolderSymlink = FolderSymlink;
 exports.FolderSync = FolderSync;
 exports.FolderTree = FolderTree;
 exports.FolderUp = FolderUp;
+exports.FolderUser = FolderUser;
+exports.FolderUsers = FolderUsers;
 exports.FolderX = FolderX;
 exports.Folders = Folders;
 exports.Footprints = Footprints;
@@ -35730,13 +41437,14 @@ exports.Form = Form;
 exports.FormInput = RectangleEllipsis;
 exports.Forward = Forward;
 exports.Frame = Frame;
-exports.Frown = Frown;
+exports.Frown = FaceSlightlyFrowning;
 exports.Fuel = Fuel;
 exports.Fullscreen = Fullscreen;
 exports.FunctionSquare = SquareFunction;
 exports.Funnel = Funnel;
 exports.FunnelPlus = FunnelPlus;
 exports.FunnelX = FunnelX;
+exports.Galaxy = Galaxy;
 exports.GalleryHorizontal = GalleryHorizontal;
 exports.GalleryHorizontalEnd = GalleryHorizontalEnd;
 exports.GalleryThumbnails = GalleryThumbnails;
@@ -35747,11 +41455,15 @@ exports.Gamepad2 = Gamepad2;
 exports.GamepadDirectional = GamepadDirectional;
 exports.GanttChart = ChartNoAxesGantt;
 exports.GanttChartSquare = SquareChartGantt;
+exports.GapHorizontal = GapHorizontal;
+exports.GapVertical = GapVertical;
 exports.Gauge = Gauge;
 exports.GaugeCircle = CircleGauge;
 exports.Gavel = Gavel;
 exports.Gem = Gem;
 exports.GeorgianLari = GeorgianLari;
+exports.Germ = Germ;
+exports.GermOff = GermOff;
 exports.Ghost = Ghost;
 exports.Gift = Gift;
 exports.GitBranch = GitBranch;
@@ -35776,15 +41488,20 @@ exports.GlassWater = GlassWater;
 exports.Glasses = Glasses;
 exports.Globe = Globe;
 exports.Globe2 = Earth;
+exports.GlobeBan = GlobeBan;
 exports.GlobeCheck = GlobeCheck;
+exports.GlobeCode = GlobeCode;
 exports.GlobeLock = GlobeLock;
 exports.GlobeOff = GlobeOff;
+exports.GlobePlus = GlobePlus;
 exports.GlobeX = GlobeX;
 exports.Goal = Goal;
 exports.Gpu = Gpu;
 exports.Grab = HandGrab;
 exports.GraduationCap = GraduationCap;
 exports.Grape = Grape;
+exports.GraphHub = GraphHub;
+exports.GraphStar = GraphStar;
 exports.Grid = Grid3x3;
 exports.Grid2X2 = Grid2x2;
 exports.Grid2X2Check = Grid2x2Check;
@@ -35800,8 +41517,11 @@ exports.Grid3x3 = Grid3x3;
 exports.Grip = Grip;
 exports.GripHorizontal = GripHorizontal;
 exports.GripVertical = GripVertical;
+exports.Groceries = Groceries;
 exports.Group = Group;
 exports.Guitar = Guitar;
+exports.GuitarElectric = GuitarElectric;
+exports.HalfNote = HalfNote;
 exports.Ham = Ham;
 exports.Hamburger = Hamburger;
 exports.Hammer = Hammer;
@@ -35814,6 +41534,7 @@ exports.HandHelping = HandHelping;
 exports.HandMetal = HandMetal;
 exports.HandPlatter = HandPlatter;
 exports.Handbag = Handbag;
+exports.HandleBottomRight = HandleBottomRight;
 exports.Handshake = Handshake;
 exports.HardDrive = HardDrive;
 exports.HardDriveDownload = HardDriveDownload;
@@ -35824,7 +41545,7 @@ exports.HatGlasses = HatGlasses;
 exports.Haze = Haze;
 exports.Hd = Hd;
 exports.HdmiPort = HdmiPort;
-exports.Heading = Heading;
+exports.Heading = LetterH;
 exports.Heading1 = Heading1;
 exports.Heading2 = Heading2;
 exports.Heading3 = Heading3;
@@ -35848,18 +41569,24 @@ exports.HelpCircle = CircleQuestionMark;
 exports.HelpingHand = HandHelping;
 exports.Hexagon = Hexagon;
 exports.Highlighter = Highlighter;
-exports.History = History;
+exports.HikingStick = HikingStick;
+exports.History = RotateCcwClock;
+exports.HockeyStick = HockeyStick;
 exports.Home = House;
 exports.Hop = Hop;
 exports.HopOff = HopOff;
 exports.Hospital = Hospital;
+exports.HotAirBalloon = HotAirBalloon;
 exports.Hotel = Hotel;
 exports.Hourglass = Hourglass;
+exports.HourglassCog = HourglassCog;
 exports.House = House;
+exports.HouseCog = HouseCog;
 exports.HouseHeart = HouseHeart;
 exports.HousePlug = HousePlug;
 exports.HousePlus = HousePlus;
 exports.HouseWifi = HouseWifi;
+exports.Houses = Houses;
 exports.IceCream = IceCreamCone;
 exports.IceCream2 = IceCreamBowl;
 exports.IceCreamBowl = IceCreamBowl;
@@ -35888,18 +41615,21 @@ exports.InspectionPanel = InspectionPanel;
 exports.Italic = Italic;
 exports.IterationCcw = IterationCcw;
 exports.IterationCw = IterationCw;
+exports.IvBag = IvBag;
 exports.JapaneseYen = JapaneseYen;
 exports.Joystick = Joystick;
 exports.Kanban = Kanban;
 exports.KanbanSquare = SquareKanban;
 exports.KanbanSquareDashed = SquareDashedKanban;
 exports.Kayak = Kayak;
+exports.KazakhTenge = KazakhTenge;
 exports.Key = Key;
 exports.KeyRound = KeyRound;
 exports.KeySquare = KeySquare;
 exports.Keyboard = Keyboard;
 exports.KeyboardMusic = KeyboardMusic;
 exports.KeyboardOff = KeyboardOff;
+exports.Lambda = Lambda;
 exports.Lamp = Lamp;
 exports.LampCeiling = LampCeiling;
 exports.LampDesk = LampDesk;
@@ -35913,17 +41643,26 @@ exports.Laptop = Laptop;
 exports.Laptop2 = LaptopMinimal;
 exports.LaptopMinimal = LaptopMinimal;
 exports.LaptopMinimalCheck = LaptopMinimalCheck;
+exports.Laser = Laser;
 exports.Lasso = Lasso;
 exports.LassoSelect = LassoSelect;
-exports.Laugh = Laugh;
+exports.Laugh = FaceGrinning;
+exports.LayerArrowDown = LayerArrowDown;
+exports.LayerArrowUp = LayerArrowUp;
 exports.Layers = Layers;
 exports.Layers2 = Layers2;
 exports.Layers3 = Layers;
+exports.LayersArrowDown = LayersArrowDown;
+exports.LayersArrowUp = LayersArrowUp;
 exports.LayersMinus = LayersMinus;
 exports.LayersPlus = LayersPlus;
 exports.Layout = PanelsTopLeft;
+exports.LayoutArrowDown = LayoutArrowDown;
+exports.LayoutArrowRight = LayoutArrowRight;
 exports.LayoutDashboard = LayoutDashboard;
+exports.LayoutFreeform = LayoutFreeform;
 exports.LayoutGrid = LayoutGrid;
+exports.LayoutGridCircles = LayoutGridCircles;
 exports.LayoutList = LayoutList;
 exports.LayoutPanelLeft = LayoutPanelLeft;
 exports.LayoutPanelTop = LayoutPanelTop;
@@ -35931,9 +41670,38 @@ exports.LayoutTemplate = LayoutTemplate;
 exports.Leaf = Leaf;
 exports.LeafyGreen = LeafyGreen;
 exports.Lectern = Lectern;
+exports.Lens = Lens;
 exports.LensConcave = LensConcave;
 exports.LensConvex = LensConvex;
+exports.LetterA = LetterA;
+exports.LetterB = LetterB;
+exports.LetterC = LetterC;
+exports.LetterD = LetterD;
+exports.LetterE = LetterE;
+exports.LetterF = LetterF;
+exports.LetterG = LetterG;
+exports.LetterH = LetterH;
+exports.LetterI = LetterI;
+exports.LetterJ = LetterJ;
+exports.LetterK = LetterK;
+exports.LetterL = LetterL;
+exports.LetterM = LetterM;
+exports.LetterN = LetterN;
+exports.LetterO = LetterO;
+exports.LetterP = LetterP;
+exports.LetterQ = LetterQ;
+exports.LetterR = LetterR;
+exports.LetterS = LetterS;
+exports.LetterSpacing = LetterSpacing;
+exports.LetterT = LetterT;
 exports.LetterText = TextInitial;
+exports.LetterU = LetterU;
+exports.LetterV = LetterV;
+exports.LetterW = LetterW;
+exports.LetterX = LetterX;
+exports.LetterY = LetterY;
+exports.LetterZ = LetterZ;
+exports.Letters = Letters;
 exports.Library = Library;
 exports.LibraryBig = LibraryBig;
 exports.LibrarySquare = SquareLibrary;
@@ -35941,8 +41709,13 @@ exports.LifeBuoy = LifeBuoy;
 exports.Ligature = Ligature;
 exports.Lightbulb = Lightbulb;
 exports.LightbulbOff = LightbulbOff;
+exports.Lighthouse = Lighthouse;
 exports.LineChart = ChartLine;
+exports.LineDotBottomVertical = LineDotBottomVertical;
+exports.LineDotLeftHorizontal = LineDotLeftHorizontal;
 exports.LineDotRightHorizontal = LineDotRightHorizontal;
+exports.LineDotTopVertical = LineDotTopVertical;
+exports.LineHeight = LineHeight;
 exports.LineSquiggle = LineSquiggle;
 exports.LineStyle = LineStyle;
 exports.Link = Link;
@@ -35953,6 +41726,7 @@ exports.ListCheck = ListCheck;
 exports.ListChecks = ListChecks;
 exports.ListChevronsDownUp = ListChevronsDownUp;
 exports.ListChevronsUpDown = ListChevronsUpDown;
+exports.ListClock = ListClock;
 exports.ListCollapse = ListCollapse;
 exports.ListEnd = ListEnd;
 exports.ListFilter = ListFilter;
@@ -35988,20 +41762,27 @@ exports.LogOut = LogOut;
 exports.Logs = Logs;
 exports.Lollipop = Lollipop;
 exports.Luggage = Luggage;
-exports.MSquare = SquareM;
+exports.MSquare = SquareLetterM;
 exports.Magnet = Magnet;
 exports.Mail = Mail;
+exports.MailAlert = MailExclamationPoint;
+exports.MailBadge = MailBadge;
 exports.MailCheck = MailCheck;
+exports.MailClock = MailClock;
+exports.MailDot = MailDot;
+exports.MailExclamationPoint = MailExclamationPoint;
 exports.MailMinus = MailMinus;
 exports.MailOpen = MailOpen;
+exports.MailPen = MailPen;
 exports.MailPlus = MailPlus;
 exports.MailQuestion = MailQuestionMark;
 exports.MailQuestionMark = MailQuestionMark;
 exports.MailSearch = MailSearch;
-exports.MailWarning = MailWarning;
+exports.MailWarning = MailExclamationPoint;
 exports.MailX = MailX;
 exports.Mailbox = Mailbox;
 exports.Mails = Mails;
+exports.Mango = Mango;
 exports.Map = Map;
 exports.MapMinus = MapMinus;
 exports.MapPin = MapPin;
@@ -36019,6 +41800,13 @@ exports.MapPinX = MapPinX;
 exports.MapPinXInside = MapPinXInside;
 exports.MapPinned = MapPinned;
 exports.MapPlus = MapPlus;
+exports.Margin = Margin;
+exports.MarginBottom = MarginBottom;
+exports.MarginHorizontal = MarginHorizontal;
+exports.MarginLeft = MarginLeft;
+exports.MarginRight = MarginRight;
+exports.MarginTop = MarginTop;
+exports.MarginVertical = MarginVertical;
 exports.Mars = Mars;
 exports.MarsStroke = MarsStroke;
 exports.Martini = Martini;
@@ -36027,15 +41815,18 @@ exports.Maximize2 = Maximize2;
 exports.Medal = Medal;
 exports.Megaphone = Megaphone;
 exports.MegaphoneOff = MegaphoneOff;
-exports.Meh = Meh;
+exports.Meh = FaceNeutral;
 exports.MemoryStick = MemoryStick;
 exports.Menu = Menu;
 exports.MenuSquare = SquareMenu;
 exports.Merge = Merge;
 exports.MessageCircle = MessageCircle;
+exports.MessageCircleAlert = MessageCircleExclamationPoint;
 exports.MessageCircleCheck = MessageCircleCheck;
 exports.MessageCircleCode = MessageCircleCode;
 exports.MessageCircleDashed = MessageCircleDashed;
+exports.MessageCircleDashedCheck = MessageCircleDashedCheck;
+exports.MessageCircleExclamationPoint = MessageCircleExclamationPoint;
 exports.MessageCircleHeart = MessageCircleHeart;
 exports.MessageCircleMore = MessageCircleMore;
 exports.MessageCircleOff = MessageCircleOff;
@@ -36043,14 +41834,17 @@ exports.MessageCirclePlus = MessageCirclePlus;
 exports.MessageCircleQuestion = MessageCircleQuestionMark;
 exports.MessageCircleQuestionMark = MessageCircleQuestionMark;
 exports.MessageCircleReply = MessageCircleReply;
-exports.MessageCircleWarning = MessageCircleWarning;
+exports.MessageCircleText = MessageCircleText;
+exports.MessageCircleWarning = MessageCircleExclamationPoint;
 exports.MessageCircleX = MessageCircleX;
 exports.MessageSquare = MessageSquare;
+exports.MessageSquareAlert = MessageSquareExclamationPoint;
 exports.MessageSquareCheck = MessageSquareCheck;
 exports.MessageSquareCode = MessageSquareCode;
 exports.MessageSquareDashed = MessageSquareDashed;
 exports.MessageSquareDiff = MessageSquareDiff;
 exports.MessageSquareDot = MessageSquareDot;
+exports.MessageSquareExclamationPoint = MessageSquareExclamationPoint;
 exports.MessageSquareHeart = MessageSquareHeart;
 exports.MessageSquareLock = MessageSquareLock;
 exports.MessageSquareMore = MessageSquareMore;
@@ -36060,17 +41854,21 @@ exports.MessageSquareQuote = MessageSquareQuote;
 exports.MessageSquareReply = MessageSquareReply;
 exports.MessageSquareShare = MessageSquareShare;
 exports.MessageSquareText = MessageSquareText;
-exports.MessageSquareWarning = MessageSquareWarning;
+exports.MessageSquareWarning = MessageSquareExclamationPoint;
 exports.MessageSquareX = MessageSquareX;
+exports.MessagesCircle = MessagesCircle;
 exports.MessagesSquare = MessagesSquare;
 exports.Metronome = Metronome;
 exports.Mic = Mic;
 exports.Mic2 = MicVocal;
+exports.MicAudioLines = MicAudioLines;
 exports.MicOff = MicOff;
+exports.MicSignal = MicSignal;
 exports.MicVocal = MicVocal;
 exports.Microchip = Microchip;
 exports.Microscope = Microscope;
 exports.Microwave = Microwave;
+exports.MidiPort = MidiPort;
 exports.Milestone = Milestone;
 exports.Milk = Milk;
 exports.MilkOff = MilkOff;
@@ -36082,6 +41880,7 @@ exports.MinusSquare = SquareMinus;
 exports.MirrorRectangular = MirrorRectangular;
 exports.MirrorRound = MirrorRound;
 exports.Monitor = Monitor;
+exports.MonitorActivity = MonitorActivity;
 exports.MonitorCheck = MonitorCheck;
 exports.MonitorCloud = MonitorCloud;
 exports.MonitorCog = MonitorCog;
@@ -36089,6 +41888,7 @@ exports.MonitorDot = MonitorDot;
 exports.MonitorDown = MonitorDown;
 exports.MonitorOff = MonitorOff;
 exports.MonitorPause = MonitorPause;
+exports.MonitorPc = MonitorPc;
 exports.MonitorPlay = MonitorPlay;
 exports.MonitorSmartphone = MonitorSmartphone;
 exports.MonitorSpeaker = MonitorSpeaker;
@@ -36097,8 +41897,11 @@ exports.MonitorUp = MonitorUp;
 exports.MonitorX = MonitorX;
 exports.Moon = Moon;
 exports.MoonStar = MoonStar;
+exports.Mop = Mop;
+exports.MopSparkles = MopSparkles;
 exports.MoreHorizontal = Ellipsis;
 exports.MoreVertical = EllipsisVertical;
+exports.Mosque = Mosque;
 exports.Motorbike = Motorbike;
 exports.Mountain = Mountain;
 exports.MountainSnow = MountainSnow;
@@ -36112,6 +41915,8 @@ exports.MousePointerBan = MousePointerBan;
 exports.MousePointerClick = MousePointerClick;
 exports.MousePointerSquareDashed = SquareDashedMousePointer;
 exports.MouseRight = MouseRight;
+exports.Mouth = Mouth;
+exports.MouthOff = MouthOff;
 exports.Move = Move;
 exports.Move3D = Move3d;
 exports.Move3d = Move3d;
@@ -36127,28 +41932,32 @@ exports.MoveUp = MoveUp;
 exports.MoveUpLeft = MoveUpLeft;
 exports.MoveUpRight = MoveUpRight;
 exports.MoveVertical = MoveVertical;
-exports.Music = Music;
-exports.Music2 = Music2;
-exports.Music3 = Music3;
-exports.Music4 = Music4;
+exports.Music = EighthNotes;
+exports.Music2 = EighthNote;
+exports.Music3 = HalfNote;
+exports.Music4 = SixteenthNotes;
 exports.Navigation = Navigation;
 exports.Navigation2 = Navigation2;
 exports.Navigation2Off = Navigation2Off;
 exports.NavigationOff = NavigationOff;
+exports.NepaliRupee = NepaliRupee;
 exports.Network = Network;
 exports.Newspaper = Newspaper;
 exports.Nfc = Nfc;
 exports.NonBinary = NonBinary;
 exports.Notebook = Notebook;
+exports.NotebookDot = NotebookDot;
 exports.NotebookPen = NotebookPen;
 exports.NotebookTabs = NotebookTabs;
 exports.NotebookText = NotebookText;
 exports.NotepadText = NotepadText;
 exports.NotepadTextDashed = NotepadTextDashed;
+exports.Numbers = Numbers;
 exports.Nut = Nut;
 exports.NutOff = NutOff;
 exports.Octagon = Octagon;
-exports.OctagonAlert = OctagonAlert;
+exports.OctagonAlert = OctagonExclamationPoint;
+exports.OctagonExclamationPoint = OctagonExclamationPoint;
 exports.OctagonMinus = OctagonMinus;
 exports.OctagonPause = OctagonPause;
 exports.OctagonX = OctagonX;
@@ -36204,11 +42013,12 @@ exports.PaperBag = PaperBag;
 exports.Paperclip = Paperclip;
 exports.Parasol = Parasol;
 exports.Parentheses = Parentheses;
-exports.ParkingCircle = CircleParking;
-exports.ParkingCircleOff = CircleParkingOff;
+exports.Park = Park;
+exports.ParkingCircle = CircleLetterP;
+exports.ParkingCircleOff = CircleLetterPOff;
 exports.ParkingMeter = ParkingMeter;
-exports.ParkingSquare = SquareParking;
-exports.ParkingSquareOff = SquareParkingOff;
+exports.ParkingSquare = SquareLetterP;
+exports.ParkingSquareOff = SquareLetterPOff;
 exports.PartyPopper = PartyPopper;
 exports.Pause = Pause;
 exports.PauseCircle = CirclePause;
@@ -36231,6 +42041,7 @@ exports.Percent = Percent;
 exports.PercentCircle = CirclePercent;
 exports.PercentDiamond = DiamondPercent;
 exports.PercentSquare = SquarePercent;
+exports.PerfumeBottle = PerfumeBottle;
 exports.PersonStanding = PersonStanding;
 exports.Phi = Phi;
 exports.PhilippinePeso = PhilippinePeso;
@@ -36238,6 +42049,7 @@ exports.Phone = Phone;
 exports.PhoneCall = PhoneCall;
 exports.PhoneForwarded = PhoneForwarded;
 exports.PhoneIncoming = PhoneIncoming;
+exports.PhoneLog = PhoneLog;
 exports.PhoneMissed = PhoneMissed;
 exports.PhoneOff = PhoneOff;
 exports.PhoneOutgoing = PhoneOutgoing;
@@ -36262,10 +42074,14 @@ exports.Pizza = Pizza;
 exports.Plane = Plane;
 exports.PlaneLanding = PlaneLanding;
 exports.PlaneTakeoff = PlaneTakeoff;
+exports.PlantPot = PlantPot;
 exports.Play = Play;
 exports.PlayCircle = CirclePlay;
 exports.PlayOff = PlayOff;
 exports.PlaySquare = SquarePlay;
+exports.PlayingCard = PlayingCard;
+exports.PlayingCards = PlayingCards;
+exports.PlayingCardsFan = PlayingCardsFan;
 exports.Plug = Plug;
 exports.Plug2 = Plug2;
 exports.PlugZap = PlugZap;
@@ -36274,7 +42090,7 @@ exports.Plus = Plus;
 exports.PlusCircle = CirclePlus;
 exports.PlusSquare = SquarePlus;
 exports.PocketKnife = PocketKnife;
-exports.Podcast = Podcast;
+exports.Podcast = MicSignal;
 exports.Podium = Podium;
 exports.Pointer = Pointer;
 exports.PointerOff = PointerOff;
@@ -36287,6 +42103,7 @@ exports.PowerOff = PowerOff;
 exports.PowerSquare = SquarePower;
 exports.Presentation = Presentation;
 exports.Printer = Printer;
+exports.Printer3d = Printer3d;
 exports.PrinterCheck = PrinterCheck;
 exports.PrinterX = PrinterX;
 exports.Projector = Projector;
@@ -36344,6 +42161,8 @@ exports.ReplyAll = ReplyAll;
 exports.Rewind = Rewind;
 exports.Ribbon = Ribbon;
 exports.Road = Road;
+exports.RobotArm = RobotArm;
+exports.RobotVacuum = RobotVacuum;
 exports.Rocket = Rocket;
 exports.RockingChair = RockingChair;
 exports.RollerCoaster = RollerCoaster;
@@ -36351,9 +42170,12 @@ exports.Rose = Rose;
 exports.Rotate3D = Rotate3d;
 exports.Rotate3d = Rotate3d;
 exports.RotateCcw = RotateCcw;
+exports.RotateCcwClock = RotateCcwClock;
 exports.RotateCcwKey = RotateCcwKey;
 exports.RotateCcwSquare = RotateCcwSquare;
 exports.RotateCw = RotateCw;
+exports.RotateCwClock = RotateCwClock;
+exports.RotateCwFadingClock = RotateCwFadingClock;
 exports.RotateCwSquare = RotateCwSquare;
 exports.Route = Route;
 exports.RouteOff = RouteOff;
@@ -36363,6 +42185,7 @@ exports.Rows2 = Rows2;
 exports.Rows3 = Rows3;
 exports.Rows4 = Rows4;
 exports.Rss = Rss;
+exports.RugbyBall = RugbyBall;
 exports.Ruler = Ruler;
 exports.RulerDimensionLine = RulerDimensionLine;
 exports.RussianRuble = RussianRuble;
@@ -36384,12 +42207,14 @@ exports.Scale3d = Scale3d;
 exports.Scaling = Scaling;
 exports.Scan = Scan;
 exports.ScanBarcode = ScanBarcode;
+exports.ScanBox = ScanBox;
 exports.ScanEye = ScanEye;
 exports.ScanFace = ScanFace;
 exports.ScanHeart = ScanHeart;
 exports.ScanLine = ScanLine;
 exports.ScanQrCode = ScanQrCode;
 exports.ScanSearch = ScanSearch;
+exports.ScanSquare = ScanSquare;
 exports.ScanText = ScanText;
 exports.ScatterChart = ChartScatter;
 exports.School = School;
@@ -36399,14 +42224,17 @@ exports.ScissorsLineDashed = ScissorsLineDashed;
 exports.ScissorsSquare = SquareScissors;
 exports.ScissorsSquareDashedBottom = SquareBottomDashedScissors;
 exports.Scooter = Scooter;
+exports.ScratchBlocks = ScratchBlocks;
 exports.ScreenShare = ScreenShare;
 exports.ScreenShareOff = ScreenShareOff;
+exports.Screw = Screw;
 exports.Scroll = Scroll;
 exports.ScrollText = ScrollText;
 exports.Search = Search;
-exports.SearchAlert = SearchAlert;
+exports.SearchAlert = SearchExclamationPoint;
 exports.SearchCheck = SearchCheck;
 exports.SearchCode = SearchCode;
+exports.SearchExclamationPoint = SearchExclamationPoint;
 exports.SearchSlash = SearchSlash;
 exports.SearchX = SearchX;
 exports.Section = Section;
@@ -36419,7 +42247,9 @@ exports.SeparatorVertical = SeparatorVertical;
 exports.Server = Server;
 exports.ServerCog = ServerCog;
 exports.ServerCrash = ServerCrash;
+exports.ServerNas = ServerNas;
 exports.ServerOff = ServerOff;
+exports.ServerPlus = ServerPlus;
 exports.Settings = Settings;
 exports.Settings2 = Settings2;
 exports.Shapes = Shapes;
@@ -36429,14 +42259,18 @@ exports.Sheet = Sheet;
 exports.Shell = Shell;
 exports.ShelvingUnit = ShelvingUnit;
 exports.Shield = Shield;
-exports.ShieldAlert = ShieldAlert;
+exports.ShieldAlert = ShieldExclamationPoint;
 exports.ShieldBan = ShieldBan;
 exports.ShieldCheck = ShieldCheck;
 exports.ShieldClose = ShieldX;
 exports.ShieldCog = ShieldCog;
 exports.ShieldCogCorner = ShieldCogCorner;
 exports.ShieldEllipsis = ShieldEllipsis;
+exports.ShieldExclamationPoint = ShieldExclamationPoint;
 exports.ShieldHalf = ShieldHalf;
+exports.ShieldHouse = ShieldHouse;
+exports.ShieldKeyhole = ShieldKeyhole;
+exports.ShieldLock = ShieldLock;
 exports.ShieldMinus = ShieldMinus;
 exports.ShieldOff = ShieldOff;
 exports.ShieldPlus = ShieldPlus;
@@ -36445,15 +42279,19 @@ exports.ShieldQuestionMark = ShieldQuestionMark;
 exports.ShieldUser = ShieldUser;
 exports.ShieldX = ShieldX;
 exports.Ship = Ship;
+exports.ShipCargo = ShipCargo;
 exports.ShipWheel = ShipWheel;
 exports.Shirt = Shirt;
 exports.ShoppingBag = ShoppingBag;
 exports.ShoppingBasket = ShoppingBasket;
 exports.ShoppingCart = ShoppingCart;
+exports.ShoppingCartMinus = ShoppingCartMinus;
+exports.ShoppingCartPlus = ShoppingCartPlus;
 exports.Shovel = Shovel;
 exports.ShowerHead = ShowerHead;
 exports.Shredder = Shredder;
 exports.Shrimp = Shrimp;
+exports.ShrimpOff = ShrimpOff;
 exports.Shrink = Shrink;
 exports.Shrub = Shrub;
 exports.Shuffle = Shuffle;
@@ -36471,6 +42309,8 @@ exports.Signature = Signature;
 exports.Signpost = Signpost;
 exports.SignpostBig = SignpostBig;
 exports.Siren = Siren;
+exports.SirenOff = SirenOff;
+exports.SixteenthNotes = SixteenthNotes;
 exports.SkipBack = SkipBack;
 exports.SkipForward = SkipForward;
 exports.Skull = Skull;
@@ -36483,8 +42323,9 @@ exports.SlidersVertical = SlidersVertical;
 exports.Smartphone = Smartphone;
 exports.SmartphoneCharging = SmartphoneCharging;
 exports.SmartphoneNfc = SmartphoneNfc;
-exports.Smile = Smile;
-exports.SmilePlus = SmilePlus;
+exports.SmartphoneUserRound = SmartphoneUserRound;
+exports.Smile = FaceSlightlySmiling;
+exports.SmilePlus = FaceSlightlySmilingPlus;
 exports.Snail = Snail;
 exports.Snowflake = Snowflake;
 exports.SoapDispenserDroplet = SoapDispenserDroplet;
@@ -36528,6 +42369,7 @@ exports.SquareArrowUp = SquareArrowUp;
 exports.SquareArrowUpLeft = SquareArrowUpLeft;
 exports.SquareArrowUpRight = SquareArrowUpRight;
 exports.SquareAsterisk = SquareAsterisk;
+exports.SquareBookmark = SquareBookmark;
 exports.SquareBottomDashedScissors = SquareBottomDashedScissors;
 exports.SquareCenterlineDashedHorizontal = SquareCenterlineDashedHorizontal;
 exports.SquareCenterlineDashedVertical = SquareCenterlineDashedVertical;
@@ -36538,27 +42380,72 @@ exports.SquareChevronDown = SquareChevronDown;
 exports.SquareChevronLeft = SquareChevronLeft;
 exports.SquareChevronRight = SquareChevronRight;
 exports.SquareChevronUp = SquareChevronUp;
+exports.SquareChevronsDown = SquareChevronsDown;
+exports.SquareChevronsLeft = SquareChevronsLeft;
+exports.SquareChevronsRight = SquareChevronsRight;
+exports.SquareChevronsUp = SquareChevronsUp;
 exports.SquareCode = SquareCode;
 exports.SquareDashed = SquareDashed;
 exports.SquareDashedBottom = SquareDashedBottom;
 exports.SquareDashedBottomCode = SquareDashedBottomCode;
 exports.SquareDashedKanban = SquareDashedKanban;
 exports.SquareDashedMousePointer = SquareDashedMousePointer;
+exports.SquareDashedPlus = SquareDashedPlus;
 exports.SquareDashedText = SquareDashedText;
 exports.SquareDashedTopSolid = SquareDashedTopSolid;
+exports.SquareDashedX = SquareDashedX;
+exports.SquareDashedXCorner = SquareDashedXCorner;
+exports.SquareDimensions = SquareDimensions;
 exports.SquareDivide = SquareDivide;
 exports.SquareDot = SquareDot;
 exports.SquareEqual = SquareEqual;
+exports.SquareExclamationPoint = SquareExclamationPoint;
 exports.SquareFunction = SquareFunction;
 exports.SquareGanttChart = SquareChartGantt;
 exports.SquareKanban = SquareKanban;
+exports.SquareKanbanPlus = SquareKanbanPlus;
+exports.SquareLetterA = SquareLetterA;
+exports.SquareLetterB = SquareLetterB;
+exports.SquareLetterC = SquareLetterC;
+exports.SquareLetterD = SquareLetterD;
+exports.SquareLetterE = SquareLetterE;
+exports.SquareLetterF = SquareLetterF;
+exports.SquareLetterG = SquareLetterG;
+exports.SquareLetterH = SquareLetterH;
+exports.SquareLetterI = SquareLetterI;
+exports.SquareLetterJ = SquareLetterJ;
+exports.SquareLetterK = SquareLetterK;
+exports.SquareLetterL = SquareLetterL;
+exports.SquareLetterM = SquareLetterM;
+exports.SquareLetterN = SquareLetterN;
+exports.SquareLetterO = SquareLetterO;
+exports.SquareLetterP = SquareLetterP;
+exports.SquareLetterPOff = SquareLetterPOff;
+exports.SquareLetterQ = SquareLetterQ;
+exports.SquareLetterR = SquareLetterR;
+exports.SquareLetterS = SquareLetterS;
+exports.SquareLetterT = SquareLetterT;
+exports.SquareLetterU = SquareLetterU;
+exports.SquareLetterV = SquareLetterV;
+exports.SquareLetterW = SquareLetterW;
+exports.SquareLetterX = SquareLetterX;
+exports.SquareLetterY = SquareLetterY;
+exports.SquareLetterZ = SquareLetterZ;
 exports.SquareLibrary = SquareLibrary;
-exports.SquareM = SquareM;
+exports.SquareM = SquareLetterM;
 exports.SquareMenu = SquareMenu;
 exports.SquareMinus = SquareMinus;
 exports.SquareMousePointer = SquareMousePointer;
-exports.SquareParking = SquareParking;
-exports.SquareParkingOff = SquareParkingOff;
+exports.SquareOff = SquareOff;
+exports.SquarePadding = SquarePadding;
+exports.SquarePaddingBottom = SquarePaddingBottom;
+exports.SquarePaddingHorizontal = SquarePaddingHorizontal;
+exports.SquarePaddingLeft = SquarePaddingLeft;
+exports.SquarePaddingRight = SquarePaddingRight;
+exports.SquarePaddingTop = SquarePaddingTop;
+exports.SquarePaddingVertical = SquarePaddingVertical;
+exports.SquareParking = SquareLetterP;
+exports.SquareParkingOff = SquareLetterPOff;
 exports.SquarePause = SquarePause;
 exports.SquarePen = SquarePen;
 exports.SquarePercent = SquarePercent;
@@ -36572,6 +42459,7 @@ exports.SquareRoundCorner = SquareRoundCorner;
 exports.SquareScissors = SquareScissors;
 exports.SquareSigma = SquareSigma;
 exports.SquareSlash = SquareSlash;
+exports.SquareSparkles = SquareSparkles;
 exports.SquareSplitHorizontal = SquareSplitHorizontal;
 exports.SquareSplitVertical = SquareSplitVertical;
 exports.SquareSquare = SquareSquare;
@@ -36579,6 +42467,7 @@ exports.SquareStack = SquareStack;
 exports.SquareStar = SquareStar;
 exports.SquareStop = SquareStop;
 exports.SquareTerminal = SquareTerminal;
+exports.SquareText = SquareText;
 exports.SquareUser = SquareUser;
 exports.SquareUserRound = SquareUserRound;
 exports.SquareX = SquareX;
@@ -36668,6 +42557,9 @@ exports.Text = TextAlignStart;
 exports.TextAlignCenter = TextAlignCenter;
 exports.TextAlignEnd = TextAlignEnd;
 exports.TextAlignJustify = TextAlignJustify;
+exports.TextAlignJustifyCenter = TextAlignJustifyCenter;
+exports.TextAlignJustifyEnd = TextAlignJustifyEnd;
+exports.TextAlignJustifyStart = TextAlignJustifyStart;
 exports.TextAlignStart = TextAlignStart;
 exports.TextCursor = TextCursor;
 exports.TextCursorInput = TextCursorInput;
@@ -36683,6 +42575,7 @@ exports.ThermometerSnowflake = ThermometerSnowflake;
 exports.ThermometerSun = ThermometerSun;
 exports.ThumbsDown = ThumbsDown;
 exports.ThumbsUp = ThumbsUp;
+exports.TicTacToe = TicTacToe;
 exports.Ticket = Ticket;
 exports.TicketCheck = TicketCheck;
 exports.TicketMinus = TicketMinus;
@@ -36699,8 +42592,11 @@ exports.TimerReset = TimerReset;
 exports.ToggleLeft = ToggleLeft;
 exports.ToggleRight = ToggleRight;
 exports.Toilet = Toilet;
+exports.Tombstone = Tombstone;
 exports.ToolCase = ToolCase;
 exports.Toolbox = Toolbox;
+exports.Toothbrush = Toothbrush;
+exports.ToothbrushSparkles = ToothbrushSparkles;
 exports.Tornado = Tornado;
 exports.Torus = Torus;
 exports.Touchpad = Touchpad;
@@ -36710,6 +42606,7 @@ exports.TowerControl = TowerControl;
 exports.ToyBrick = ToyBrick;
 exports.Tractor = Tractor;
 exports.TrafficCone = TrafficCone;
+exports.Trailer = Trailer;
 exports.Train = TramFront;
 exports.TrainFront = TrainFront;
 exports.TrainFrontTunnel = TrainFrontTunnel;
@@ -36717,7 +42614,8 @@ exports.TrainTrack = TrainTrack;
 exports.TramFront = TramFront;
 exports.Transgender = Transgender;
 exports.Trash = Trash;
-exports.Trash2 = Trash2;
+exports.Trash2 = Trash;
+exports.TrashOff = TrashOff;
 exports.TreeDeciduous = TreeDeciduous;
 exports.TreePalm = TreePalm;
 exports.TreePine = TreePine;
@@ -36726,12 +42624,16 @@ exports.TrendingDown = TrendingDown;
 exports.TrendingUp = TrendingUp;
 exports.TrendingUpDown = TrendingUpDown;
 exports.Triangle = Triangle;
-exports.TriangleAlert = TriangleAlert;
+exports.TriangleAlert = TriangleExclamationPoint;
 exports.TriangleDashed = TriangleDashed;
+exports.TriangleExclamationPoint = TriangleExclamationPoint;
 exports.TriangleRight = TriangleRight;
+exports.TrianglesCenterlineDashedHorizontal = TrianglesCenterlineDashedHorizontal;
+exports.TrianglesCenterlineDashedVertical = TrianglesCenterlineDashedVertical;
 exports.Trophy = Trophy;
 exports.Truck = Truck;
 exports.TruckElectric = TruckElectric;
+exports.TubeLotion = TubeLotion;
 exports.TurkishLira = TurkishLira;
 exports.Turntable = Turntable;
 exports.Turtle = Turtle;
@@ -36759,6 +42661,7 @@ exports.Unplug = Unplug;
 exports.Upload = Upload;
 exports.UploadCloud = CloudUpload;
 exports.Usb = Usb;
+exports.UsbCPort = UsbCPort;
 exports.User = User;
 exports.User2 = UserRound;
 exports.UserCheck = UserCheck;
@@ -36767,6 +42670,7 @@ exports.UserCircle = CircleUser;
 exports.UserCircle2 = CircleUserRound;
 exports.UserCog = UserCog;
 exports.UserCog2 = UserRoundCog;
+exports.UserGroup = UserGroup;
 exports.UserKey = UserKey;
 exports.UserLock = UserLock;
 exports.UserMinus = UserMinus;
@@ -36778,13 +42682,17 @@ exports.UserRound = UserRound;
 exports.UserRoundArrowLeft = UserRoundArrowLeft;
 exports.UserRoundCheck = UserRoundCheck;
 exports.UserRoundCog = UserRoundCog;
+exports.UserRoundGroup = UserRoundGroup;
 exports.UserRoundKey = UserRoundKey;
 exports.UserRoundMinus = UserRoundMinus;
 exports.UserRoundPen = UserRoundPen;
 exports.UserRoundPlus = UserRoundPlus;
 exports.UserRoundSearch = UserRoundSearch;
+exports.UserRoundShield = UserRoundShield;
+exports.UserRoundStar = UserRoundStar;
 exports.UserRoundX = UserRoundX;
 exports.UserSearch = UserSearch;
+exports.UserShield = UserShield;
 exports.UserSquare = SquareUser;
 exports.UserSquare2 = SquareUserRound;
 exports.UserStar = UserStar;
@@ -36792,13 +42700,16 @@ exports.UserX = UserX;
 exports.UserX2 = UserRoundX;
 exports.Users = Users;
 exports.Users2 = UsersRound;
+exports.UsersCollaboration = UsersCollaboration;
 exports.UsersRound = UsersRound;
+exports.UsersRoundCollaboration = UsersRoundCollaboration;
 exports.Utensils = Utensils;
 exports.UtensilsCrossed = UtensilsCrossed;
 exports.UtilityPole = UtilityPole;
 exports.Van = Van;
 exports.Variable = Variable;
 exports.Vault = Vault;
+exports.VectorPolygon = VectorPolygon;
 exports.VectorSquare = VectorSquare;
 exports.Vegan = Vegan;
 exports.VenetianMask = VenetianMask;
@@ -36811,6 +42722,8 @@ exports.Video = Video;
 exports.VideoOff = VideoOff;
 exports.Videotape = Videotape;
 exports.View = View;
+exports.Virus = Virus;
+exports.VirusOff = VirusOff;
 exports.Voicemail = Voicemail;
 exports.Volleyball = Volleyball;
 exports.Volume = Volume;
@@ -36845,10 +42758,12 @@ exports.Weight = Weight;
 exports.WeightTilde = WeightTilde;
 exports.Wheat = Wheat;
 exports.WheatOff = WheatOff;
+exports.Whistle = Whistle;
 exports.WholeWord = WholeWord;
 exports.Wifi = Wifi;
 exports.WifiCog = WifiCog;
 exports.WifiHigh = WifiHigh;
+exports.WifiLock = WifiLock;
 exports.WifiLow = WifiLow;
 exports.WifiOff = WifiOff;
 exports.WifiPen = WifiPen;
@@ -36856,6 +42771,7 @@ exports.WifiSync = WifiSync;
 exports.WifiZero = WifiZero;
 exports.Wind = Wind;
 exports.WindArrowDown = WindArrowDown;
+exports.WindArrowUp = WindArrowUp;
 exports.Wine = Wine;
 exports.WineOff = WineOff;
 exports.Workflow = Workflow;

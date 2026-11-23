@@ -1,16 +1,42 @@
+import punycode from 'punycode/punycode.js';
 import { Transform } from 'stream';
 import Sax from 'sax';
 import { SVGPathData } from 'svg-pathdata';
 import svgShapesToPath from './svgshapes2svgpath.js';
-import { scale, translate, compose, fromDefinition, fromTransformAttribute, } from 'transformation-matrix';
+import { Matrix } from 'transformation-matrix-js';
 import { YError } from 'yerror';
 import debug from 'debug';
 const warn = debug('svgicons2svgfont');
 export { fileSorter } from './filesorter.js';
 export * from './iconsdir.js';
 export * from './metadata.js';
+// Transform helpers (will move elsewhere later)
+function parseTransforms(value) {
+    return value
+        .match(/(rotate|translate|scale|skewX|skewY|matrix)\s*\(([^)]*)\)\s*/g)
+        .map((transform) => transform.match(/[\w.-]+/g));
+}
 function matrixFromTransformAttribute(transformAttributeString) {
-    return compose(fromDefinition(fromTransformAttribute(transformAttributeString)));
+    const transformations = {
+        matrix: (result, ...args) => result.transform(...args),
+        translate: (result, x, y = 0) => result.translate(x, y),
+        scale: (result, x, y = x) => result.scale(x, y),
+        rotate: (result, a, x = 0, y = 0) => {
+            if (0 === x && 0 === y) {
+                result.rotateDeg(a);
+            }
+            else {
+                result.translate(x, y).rotateDeg(a).translate(-x, -y);
+            }
+        },
+        skewX: (result, a) => result.skewX((a * Math.PI) / 180),
+        skewY: (result, a) => result.skewY((a * Math.PI) / 180),
+    };
+    const result = new Matrix();
+    for (const transform of parseTransforms(transformAttributeString)) {
+        transformations[transform[0]](result, ...transform.slice(1).map(parseFloat));
+    }
+    return result;
 }
 // Rendering
 function tagShouldRender(curTag, parents) {
@@ -85,12 +111,9 @@ export class SVGIcons2SVGFontStream extends Transform {
         // Parsing each icons asynchronously
         const saxStream = Sax.createStream(true);
         const parents = [];
-        const transformStack = [];
+        const transformStack = [new Matrix()];
         function applyTransform(d) {
-            const last = transformStack[transformStack.length - 1];
-            if (!last)
-                return new SVGPathData(d);
-            return new SVGPathData(d).matrix(last.a, last.b, last.c, last.d, last.e, last.f);
+            return new SVGPathData(d).matrix(...transformStack[transformStack.length - 1].toArray());
         }
         const glyph = svgIconStream.metadata || {};
         // init width and height os they aren't undefined if <svg> isn't renderable
@@ -125,7 +148,7 @@ export class SVGIcons2SVGFontStream extends Transform {
                 const currentTransform = transformStack[transformStack.length - 1];
                 if ('undefined' !== typeof tag.attributes.transform) {
                     const transform = matrixFromTransformAttribute(tag.attributes.transform);
-                    transformStack.push(compose([currentTransform, transform].filter(Boolean)));
+                    transformStack.push(currentTransform.clone().multiply(transform));
                 }
                 else {
                     transformStack.push(currentTransform);
@@ -151,11 +174,9 @@ export class SVGIcons2SVGFontStream extends Transform {
                             'height' in tag.attributes
                                 ? parseFloat(tag.attributes.height)
                                 : height;
-                        transformStack[transformStack.length - 1] = compose([
-                            transformStack[transformStack.length - 1],
-                            translate(-dX, -dY),
-                            scale(glyph.width / width, glyph.height / height),
-                        ].filter(Boolean));
+                        transformStack[transformStack.length - 1]
+                            .translate(-dX, -dY)
+                            .scale(glyph.width / width, glyph.height / height);
                     }
                     else {
                         if ('width' in tag.attributes) {
@@ -322,21 +343,14 @@ export class SVGIcons2SVGFontStream extends Transform {
                 glyph.width = fontWidth;
             }
             const yOffset = glyph.height - this._options.descent;
-            let glyphPathTransform = {
-                a: 1,
-                b: 0,
-                c: 0,
-                d: -1,
-                e: 0,
-                f: yOffset,
-            }; // ySymmetry
+            const glyphPathTransform = new Matrix().transform(1, 0, 0, -1, 0, yOffset); // ySymmetry
             if (1 !== ratio) {
-                glyphPathTransform = compose(glyphPathTransform, scale(ratio, ratio));
+                glyphPathTransform.scale(ratio, ratio);
             }
             (glyph.paths || []).forEach((path) => {
                 glyphPath.commands.push(...path
                     .toAbs()
-                    .matrix(glyphPathTransform.a, glyphPathTransform.b, glyphPathTransform.c, glyphPathTransform.d, glyphPathTransform.e, glyphPathTransform.f).commands);
+                    .matrix(...glyphPathTransform.toArray()).commands);
             });
             const bounds = (this._options.centerHorizontally || this._options.centerVertically) &&
                 glyphPath.getBounds();
@@ -351,8 +365,9 @@ export class SVGIcons2SVGFontStream extends Transform {
             delete glyph.paths;
             const d = glyphPath.round(this._options.round).encode();
             glyph.unicode.forEach((unicode, i) => {
-                const unicodeStr = [...unicode]
-                    .map((char) => '&#x' + char.codePointAt(0).toString(16).toUpperCase() + ';')
+                const unicodeStr = punycode.ucs2
+                    .decode(unicode)
+                    .map((point) => '&#x' + point.toString(16).toUpperCase() + ';')
                     .join('');
                 this.push('    <glyph glyph-name="' +
                     glyph.name +

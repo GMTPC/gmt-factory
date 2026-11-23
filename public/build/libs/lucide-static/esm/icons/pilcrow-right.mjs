@@ -1,5 +1,5 @@
 /**
- * @license lucide-static v1.24.0 - ISC
+ * @license lucide-static v1.68.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
@@ -23,7 +23,8 @@ const PilcrowRight = `
   <path d="M14 3v11" />
   <path d="m18 14 4 4H2" />
   <path d="m22 18-4 4" />
-</svg>`;
+</svg>
+`;
 
 export { PilcrowRight as default };
 //# sourceMappingURL=pilcrow-right.mjs.map

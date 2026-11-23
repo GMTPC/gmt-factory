@@ -17,6 +17,9 @@
     @include('partials.title-meta')
 
     @include('partials.head-css')
+    @if (isset($page))
+        @inertiaHead
+    @endif
 </head>
 
 @if(Route::is('layout-mini'))

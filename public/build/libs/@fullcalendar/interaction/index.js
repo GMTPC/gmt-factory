@@ -1395,7 +1395,7 @@ class EventDragging extends Interaction {
                         };
                         let transformed = {};
                         for (let transformer of initialContext.getCurrentData().pluginHooks.eventDropTransformers) {
-                            Object.assign(transformed, transformer(validMutation, initialContext));
+                            Object.assign(transformed, transformer(validMutation, initialContext, eventDef));
                         }
                         initialContext.emitter.trigger('eventDrop', Object.assign(Object.assign(Object.assign({}, eventChangeArg), transformed), { el: ev.subjectEl, delta: validMutation.datesDelta, jsEvent: ev.origEvent, view: initialView }));
                         initialContext.emitter.trigger('eventChange', eventChangeArg);

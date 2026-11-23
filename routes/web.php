@@ -1,13 +1,21 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
+use App\Models\Master\MasterProductSpec;
+use App\Http\Middleware\RequireAuthentication;
 use Illuminate\Support\Facades\Route;
 
+require __DIR__.'/web/cut-board.php';
+require __DIR__.'/web/product-catalog.php';
+
+Route::middleware(RequireAuthentication::class)->group(function () {
+
 Route::get('/', function () {
-    return view('index');
+    return redirect()->route('wms.cut-boards');
 })->name('index');
 
 Route::get('/index', function () {
-    return view('index');
+    return redirect()->route('wms.cut-boards');
 })->name('index');
 
 Route::get('/accounts-payable', function () {
@@ -534,9 +542,14 @@ Route::get('/login-illustration', function () {
     return view('login-illustration');
 })->name('login-illustration');
 
-Route::get('/login', function () {
-    return view('login');
-})->name('login');
+Route::middleware('guest')->group(function () {
+    Route::get('/login', [LoginController::class, 'create'])->name('login');
+    Route::post('/login', [LoginController::class, 'store'])->name('login.store');
+});
+
+Route::post('/logout', [LoginController::class, 'destroy'])
+    ->middleware('auth')
+    ->name('logout');
 
 Route::get('/maintenance', function () {
     return view('maintenance');
@@ -619,7 +632,17 @@ Route::get('/procurement-dashboard', function () {
 })->name('procurement-dashboard');
 
 Route::get('/products', function () {
-    return view('products');
+    $query = MasterProductSpec::query();
+
+    if (request()->filled('q')) {
+        $term = request()->string('q')->toString();
+        $query->where(fn ($builder) => $builder
+            ->where('code', 'like', "%{$term}%")
+            ->orWhere('name', 'like', "%{$term}%")
+            ->orWhere('brand', 'like', "%{$term}%"));
+    }
+
+    return view('products', ['items' => $query->orderByDesc('id')->paginate(20)->withQueryString()]);
 })->name('products');
 
 Route::get('/profile', function () {
@@ -981,3 +1004,5 @@ Route::get('/workflow-approvals', function () {
 Route::get('/workflow-requests', function () {
     return view('workflow-requests');
 })->name('workflow-requests');
+
+});

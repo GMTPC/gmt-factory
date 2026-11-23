@@ -1,5 +1,5 @@
 /**
- * @license lucide-static v1.24.0 - ISC
+ * @license lucide-static v1.68.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
@@ -28,7 +28,8 @@ const KeyboardOff = `
   <path d="M20 20H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2" />
   <path d="M6 8h.01" />
   <path d="M8 12h.01" />
-</svg>`;
+</svg>
+`;
 
 export { KeyboardOff as default };
 //# sourceMappingURL=keyboard-off.mjs.map

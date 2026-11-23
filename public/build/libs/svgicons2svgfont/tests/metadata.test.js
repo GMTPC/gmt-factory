@@ -6,7 +6,7 @@ import { YError } from 'yerror';
 import { mkdir } from 'node:fs/promises';
 import { join } from 'node:path';
 try {
-    await mkdir(join('fixtures', 'results'));
+    await mkdir(join('src', 'tests', 'results'));
 }
 catch (err) {
     // empty

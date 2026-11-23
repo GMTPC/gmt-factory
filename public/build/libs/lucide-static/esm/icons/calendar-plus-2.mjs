@@ -1,5 +1,5 @@
 /**
- * @license lucide-static v1.24.0 - ISC
+ * @license lucide-static v1.68.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
@@ -18,12 +18,12 @@ const CalendarPlus2 = `
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M8 2v4" />
-  <path d="M16 2v4" />
-  <rect width="18" height="18" x="3" y="4" rx="2" />
-  <path d="M3 10h18" />
-  <path d="M10 16h4" />
-  <path d="M12 14v4" />
+  <path d="M8 2v3" />
+  <path d="M16 2v3" />
+  <rect x="3" y="3" width="18" height="18" rx="2" />
+  <path d="M3 9h18" />
+  <path d="M10 15h4" />
+  <path d="M12 13v4" />
 </svg>
 `;
 

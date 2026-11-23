@@ -1,5 +1,5 @@
 /**
- * @license lucide-static v1.24.0 - ISC
+ * @license lucide-static v1.68.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
@@ -25,7 +25,8 @@ const CircleFadingPlus = `
   <path d="M2.83 16a10 10 0 0 0 2.43 3.4" />
   <path d="M4.636 5.235a10 10 0 0 1 .891-.857" />
   <path d="M8.644 21.42a10 10 0 0 0 7.631-.38" />
-</svg>`;
+</svg>
+`;
 
 export { CircleFadingPlus as default };
 //# sourceMappingURL=circle-fading-plus.mjs.map

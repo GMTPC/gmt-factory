@@ -856,3 +856,6 @@ controller master 8 ตัวโครงเหมือนกันหมด (i
 | | M8 | ⬜ | |
 | | M9 | ⬜ | |
 | | M10 | ⬜ | |
+| 2026-11-05 | Cut Board | กำลังทดสอบใน branch `refactor/cut-board` | สร้าง workflow ใหม่ `cut_jobs` / `cut_job_headers` / `cut_job_lines`; เก็บ Spec snapshot WIP/FG; bridge `check_csv_wh` + `check_csv_wh_index`; รักษาสูตร `interface_qr` / `tag` / `tag_date` ตาม view เดิม; ยังไม่ commit/push |
+| 2026-11-05 | Cut Board · UI ไลน์ | Build / TypeScript / tests ผ่าน | จัดภาพรวมตาม DreamsERP; เลือกชนิดสินค้าจากข้อมูลเดิมและโหลดภายหลัง; แสดงยอดเกรด A/B/C (B = ชนิดสินค้าอักขระที่ 2 เป็น `2`, C = brand `09` มีลำดับก่อน B); CSV สรุปรายการงาน; 5 tests / 18 assertions; ตรวจ L1–L4 และยอดเกรดรวมตรง FG; ยังเทียบภาพ browser ไม่ได้เพราะ Windows อยู่หน้า sign-in |
+| 2026-11-05 | Cut Board · MVC QC line | Route/controller/page ของ QC ไลน์ย้ายเข้า namespace `CutBoard`; รองรับภาพรวมไลน์, งาน/ WIP, พนักงาน, กลุ่ม, ประวัติ, สรุปรายวัน และปิดกะ; `ProductionQcController` เหลือเป็น compatibility wrapper |

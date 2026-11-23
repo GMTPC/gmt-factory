@@ -335,14 +335,21 @@ class TimeColsSlatsCoords {
         this.dateProfile = dateProfile;
         this.slotDuration = slotDuration;
     }
+    /*
+    Tries the date's own day first. When slotMaxTime extends past midnight, or slotMinTime is negative,
+    the date might only be visible within the previous or next day's column (#6394)
+    */
     safeComputeTop(date) {
         let { dateProfile } = this;
-        if (internal_cjs.rangeContainsMarker(dateProfile.currentRange, date)) {
-            let startOfDayDate = internal_cjs.startOfDay(date);
-            let timeMs = date.valueOf() - startOfDayDate.valueOf();
-            if (timeMs >= internal_cjs.asRoughMs(dateProfile.slotMinTime) &&
-                timeMs < internal_cjs.asRoughMs(dateProfile.slotMaxTime)) {
-                return this.computeTimeTop(internal_cjs.createDuration(timeMs));
+        let ownDayDate = internal_cjs.startOfDay(date);
+        let dayDates = [ownDayDate, internal_cjs.addDays(ownDayDate, -1), internal_cjs.addDays(ownDayDate, 1)];
+        for (let dayDate of dayDates) {
+            if (internal_cjs.rangeContainsMarker(dateProfile.currentRange, dayDate)) {
+                let timeMs = date.valueOf() - dayDate.valueOf();
+                if (timeMs >= internal_cjs.asRoughMs(dateProfile.slotMinTime) &&
+                    timeMs < internal_cjs.asRoughMs(dateProfile.slotMaxTime)) {
+                    return this.computeTimeTop(internal_cjs.createDuration(timeMs));
+                }
             }
         }
         return null;

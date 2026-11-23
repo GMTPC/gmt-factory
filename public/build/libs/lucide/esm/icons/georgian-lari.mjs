@@ -1,15 +1,15 @@
 /**
- * @license lucide v1.24.0 - ISC
+ * @license lucide v1.68.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
 
 const GeorgianLari = [
-  ["path", { d: "M11.5 21a7.5 7.5 0 1 1 7.35-9" }],
-  ["path", { d: "M13 12V3" }],
-  ["path", { d: "M4 21h16" }],
-  ["path", { d: "M9 12V3" }]
+  ["path", { d: "M10 10V3" }],
+  ["path", { d: "M14 10V3" }],
+  ["path", { d: "M19 13a7 7 0 10-7 7" }],
+  ["path", { d: "M5 20h14" }]
 ];
 
 export { GeorgianLari as default };

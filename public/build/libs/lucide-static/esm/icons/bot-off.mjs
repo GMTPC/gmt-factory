@@ -1,5 +1,5 @@
 /**
- * @license lucide-static v1.24.0 - ISC
+ * @license lucide-static v1.68.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
@@ -25,7 +25,8 @@ const BotOff = `
   <path d="M8 8H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 1.414-.586" />
   <path d="M9 13v2" />
   <path d="M9.67 4H12v2.33" />
-</svg>`;
+</svg>
+`;
 
 export { BotOff as default };
 //# sourceMappingURL=bot-off.mjs.map

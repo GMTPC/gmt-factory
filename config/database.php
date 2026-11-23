@@ -114,6 +114,20 @@ return [
             'trust_server_certificate' => env('DB_TRUST_SERVER_CERTIFICATE', 'true'),
         ],
 
+        'legacy' => [
+            'driver' => env('DB_LEGACY_CONNECTION', env('DB_CONNECTION', 'sqlsrv')),
+            'url' => env('DB_LEGACY_URL'),
+            'host' => env('DB_LEGACY_HOST', env('DB_HOST', 'localhost')),
+            'port' => env('DB_LEGACY_PORT', env('DB_PORT', '1433')),
+            'database' => env('DB_LEGACY_DATABASE', env('DB_DATABASE', 'laravel')),
+            'username' => env('DB_LEGACY_USERNAME', env('DB_USERNAME', 'root')),
+            'password' => env('DB_LEGACY_PASSWORD') ?: env('DB_PASSWORD', ''),
+            'charset' => env('DB_LEGACY_CHARSET', env('DB_CHARSET', 'utf8')),
+            'prefix' => '',
+            'encrypt' => env('DB_LEGACY_ENCRYPT', env('DB_ENCRYPT', 'no')),
+            'trust_server_certificate' => env('DB_LEGACY_TRUST_SERVER_CERTIFICATE', env('DB_TRUST_SERVER_CERTIFICATE', 'true')),
+        ],
+
         'bplus' => [
             'driver' => env('DB_CONNECTION_BPLUS', 'sqlsrv'),
             'url' => env('DB_URL_BPLUS'),

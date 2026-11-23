@@ -1,5 +1,5 @@
 /**
- * @license lucide-static v1.24.0 - ISC
+ * @license lucide-static v1.68.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
@@ -24,7 +24,8 @@ const SquaresSubtract = `
   <path d="M20 8a2 2 0 0 1 2 2" />
   <path d="M22 14v2" />
   <path d="M22 20a2 2 0 0 1-2 2" />
-</svg>`;
+</svg>
+`;
 
 export { SquaresSubtract as default };
 //# sourceMappingURL=squares-subtract.mjs.map

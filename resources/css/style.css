@@ -8,7 +8,7 @@ Author URL: https://themeforest.net/user/dreamstechnologies
 @import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
 
 /* 1. ALL @imports must be at the very top */
-@import "tailwindcss";
+@import "tailwindcss" source("../");
 @import "../../node_modules/preline/variants.css";
 
 /* 2. Then @plugin and @source */
@@ -1943,3 +1943,104 @@ select::-ms-expand {
 [data-theme="dark"].btn.bg-primary:hover {
     @apply text-[#fff]! 
 }
+
+/* ===== GMT · Cut Board sidebar ===== */
+/* เลขไลน์ในกรอบสี (L1–L4) แทนไอคอน */
+.sidebar .cb-line-num {
+    display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
+    width: 22px; height: 22px; border-radius: 6px;
+    background: var(--cb-line-color); color: #fff;
+    font-family: var(--font-family-primary); font-style: normal; font-size: 12px; font-weight: 700; line-height: 1;
+}
+/* ไลน์ที่เลือกอยู่: พื้นสีประจำไลน์ ตัวอักษรขาว */
+.sidebar .sidebar-menu > ul > li.cb-line-menu > a.active,
+.sidebar .sidebar-menu > ul > li.cb-line-menu > a.active:hover {
+    background-color: var(--cb-line-color); color: #fff;
+}
+.sidebar .sidebar-menu > ul > li.cb-line-menu > a.active .cb-line-num {
+    background: #fff; color: var(--cb-line-color);
+}
+/* โหมดย่อเมนู (ยังไม่ hover ขยาย): ซ่อนเมนูย่อย, ลดขอบโลโก้ให้โลโก้ไม่โดนตัด */
+@media (min-width: 992px) {
+    .mini-sidebar:not(.expand-menu) .sidebar .sidebar-menu li.submenu > ul {
+        display: none !important;
+    }
+    .mini-sidebar:not(.expand-menu) .sidebar .sidebar-logo {
+        padding-inline: 8px;
+    }
+    .mini-sidebar:not(.expand-menu) .sidebar .sidebar-menu .menu-arrow {
+        display: none;
+    }
+}
+/* ขนาดตัวอักษรเมนูใหญ่ขึ้น (อ่านง่ายบนจอหน้าไลน์) */
+.sidebar .sidebar-menu > ul > li > a,
+.sidebar .sidebar-menu > ul > li > a span {
+    font-size: 15px;
+}
+.sidebar .sidebar-menu > ul > li > a > i:not(.cb-line-num) {
+    font-size: 18px;
+}
+.sidebar .sidebar-menu > ul li.menu-title,
+.sidebar .sidebar-menu > ul li.menu-title span {
+    font-size: 14px;
+}
+.sidebar .sidebar-menu > ul li .submenu > ul li a,
+.sidebar .sidebar-menu > ul > li.submenu ul li a {
+    font-size: 14px;
+}
+.sidebar .cb-line-num {
+    width: 24px; height: 24px; font-size: 13px;
+}
+
+/* ===== GMT · HMI style (หน้าคัดบอร์ด / ภาพรวมไลน์) =====
+   ใช้คู่กับ class .hmi บน root ของหน้า และ :style="lineStyle(line)" เพื่อตั้ง --line-color */
+.hmi {
+    --hmi-mute: #4F5967;
+    --hmi-text: #1B2129;
+    --hmi-title: #0F172A;
+    --hmi-yellow: #F5B800;
+    --hmi-steel: #C9CED4;
+    font-family: var(--font-family-primary);
+    color: #1B2129;
+}
+/* สีประจำไลน์ (--line-color ตั้งจาก lineStyle() ใน resources/js/lib/cut-board-line.ts)
+   - พื้นแผงใหญ่ = สีไลน์จางๆ + ตัวอักษรเข้ม
+   - --hmi-ink = สีไลน์เข้ม ใช้กับปุ่มที่เลือก, ตัวอักษรบนป้ายเหลือง, เส้นขอบเน้น
+   ต้องประกาศซ้ำบน .line-themed เพราะ color-mix คำนวณ ณ element ที่ประกาศตัวแปร */
+.hmi,
+.hmi .line-themed {
+    --hmi-ink: color-mix(in oklab, var(--line-color, #1B2129) 62%, #0B1118);
+    --hmi-surface: color-mix(in oklab, var(--line-color, #64748B) 10%, #FFFFFF);
+    --hmi-panel: color-mix(in oklab, var(--line-color, #64748B) 16%, #FFFFFF);
+    --hmi-screen: color-mix(in oklab, var(--line-color, #64748B) 3%, #FFFFFF);
+    --hmi-line: color-mix(in oklab, var(--line-color, #64748B) 30%, #FFFFFF);
+}
+.hmi .tag { text-transform: uppercase; letter-spacing: .06em; }
+.hmi .mono { font-variant-numeric: tabular-nums; }
+.hmi .hazard { height: 8px; background: repeating-linear-gradient(-45deg, var(--hmi-yellow) 0 12px, var(--hmi-ink) 12px 24px); }
+.hmi .lamp { width: 12px; height: 12px; border-radius: 9999px; display: inline-block; flex-shrink: 0; }
+.hmi .lamp-green { background: #34D399; box-shadow: 0 0 10px #34D399; }
+.hmi .lamp-amber { background: var(--hmi-yellow); box-shadow: 0 0 8px var(--hmi-yellow); }
+.hmi .lamp-red { background: #F87171; box-shadow: 0 0 8px #F87171; }
+.hmi .lamp-off { background: #5B6673; }
+.hmi .led { font-size: 38px; font-weight: 800; line-height: 1; font-variant-numeric: tabular-nums; }
+.hmi .led-blue { color: #0369A1; }
+.hmi .led-white { color: var(--hmi-title); }
+.hmi .led-green { color: #047857; }
+.hmi .led-red { color: #DC2626; }
+.hmi .led-amber { color: #B45309; }
+.hmi .seg { height: 14px; border-radius: 2px; background: var(--hmi-line); }
+.hmi .seg-fg { background: #34D399; }
+.hmi .seg-ng { background: #F87171; }
+.hmi .tbl { width: 100%; border-collapse: collapse; font-size: 14px; }
+.hmi .tbl th {
+    text-align: left; font-weight: 600; font-size: 13px;
+    letter-spacing: .04em; text-transform: uppercase; color: #4A5563; padding: 8px 14px;
+    border-bottom: 2px solid var(--hmi-ink); background: #F1F3F5; white-space: nowrap;
+}
+.hmi .tbl td { padding: 10px 14px; border-bottom: 1px dashed var(--hmi-steel); vertical-align: middle; white-space: nowrap; }
+.hmi .tbl tr:last-child td { border-bottom: 0; }
+.hmi .field { height: 44px; width: 100%; border: 1px solid #A9B1BB; border-radius: 4px; padding: 0 10px; background-color: #fff; font-size: 15px; font-weight: 400; line-height: 1.25; color: var(--hmi-ink); }
+.hmi select.field { padding-right: 2.25rem; }
+.hmi .field:focus { outline: none; border-color: var(--hmi-ink); box-shadow: 0 0 0 3px rgba(245, 184, 0, .35); }
+.hmi .field:disabled { background: #EEF0F2; border-color: var(--hmi-steel); color: #4A5563; cursor: not-allowed; }
