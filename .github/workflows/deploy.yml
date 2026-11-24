@@ -1,0 +1,74 @@
+name: Deploy to IIS server
+
+on:
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: read
+
+concurrency:
+  group: gmt-factory-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: [self-hosted, Windows, X64]
+    steps:
+      - name: Check out master
+        uses: actions/checkout@v4
+        with:
+          path: source
+
+      - name: Build application
+        shell: powershell
+        working-directory: source
+        run: |
+          $ErrorActionPreference = 'Stop'
+          & 'C:\composer\composer.bat' install --no-dev --prefer-dist --optimize-autoloader --no-interaction
+          if ($LASTEXITCODE -ne 0) { throw 'Composer install failed.' }
+          & 'C:\Program Files\nodejs24\nodejs24\npm.cmd' ci
+          if ($LASTEXITCODE -ne 0) { throw 'npm ci failed.' }
+          & 'C:\Program Files\nodejs24\nodejs24\npm.cmd' run build
+          if ($LASTEXITCODE -ne 0) { throw 'Vite build failed.' }
+
+      - name: Deploy to IIS
+        shell: powershell
+        working-directory: source
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $app = 'C:\inetpub\wwwroot\gmt-factory'
+          $php = 'C:\Program Files\PHP\gmt-factory-8.5\php.exe'
+          $maintenanceEnabled = $false
+
+          function Invoke-Checked([string]$File, [string[]]$Arguments) {
+            & $File @Arguments
+            if ($LASTEXITCODE -ne 0) { throw "$File $Arguments failed with exit code $LASTEXITCODE." }
+          }
+
+          try {
+            Push-Location $app
+            try { Invoke-Checked $php @('artisan', 'down', '--retry=60') }
+            finally { Pop-Location }
+            $maintenanceEnabled = $true
+
+            & robocopy $PWD.Path $app /E /COPY:DAT /DCOPY:DAT /R:2 /W:2 /XD .git node_modules storage public\storage /XF .env web.config
+            if ($LASTEXITCODE -ge 8) { throw "Robocopy failed with exit code $LASTEXITCODE." }
+
+            Push-Location $app
+            try {
+              Invoke-Checked $php @('artisan', 'migrate', '--force')
+              Invoke-Checked $php @('artisan', 'optimize')
+            }
+            finally {
+              Pop-Location
+            }
+          }
+          finally {
+            if ($maintenanceEnabled) {
+              Push-Location $app
+              try { Invoke-Checked $php @('artisan', 'up') }
+              finally { Pop-Location }
+            }
+          }
