@@ -24,7 +24,9 @@ class FinishingPageController
     {
         return Inertia::render('Finishing/SelectStation', [
             // Jobs still open (status active) = Jobs currently being processed at each station.
-            'stations' => FinishingStation::query()->withCount(['jobs as active_jobs_count' => fn ($q) => $q->where('status', 'active')])
+            // Open Jobs with what they sort and who sorts it (the card shows a short list).
+            'stations' => FinishingStation::query()->with(['jobs' => fn ($q) => $q->where('status', 'active')->orderByDesc('id')
+                ->select(['id', 'station_id', 'product_type_code', 'product_type_name', 'employee_names'])])
                 ->orderBy('id')->get(),
         ]);
     }
