@@ -8,8 +8,8 @@ type Material = { id: number; code: string | null; name: string; type: string; q
 type RecorderOption = { id: number; name: string }
 type StatusEvent = { id: number; is_running: boolean; reason: string; created_at: string; user?: { name: string } | null }
 type Station = { id: number; code: string; name: string; input_material: string; output_material: string; is_machine_on: boolean; latest_status_event?: StatusEvent | null }
-type Job = { id: number; job_no: string; station_id: number; shift_date: string; shift: string; status: string; notes: string | null; production_logs_count: number; material: Material | null; employee_names?: (string | { name: string })[] | null; machine_name?: string | null; pvc_type?: string | null; raw_material_name?: string | null; inspector_name?: string | null; user?: { name: string }; recorder?: RecorderOption | null }
-const props = defineProps<{ station: Station; statusEvents: StatusEvent[]; statusReady: boolean; jobs: Job[]; shift: { shift_date: string; shift: string }; employeeOptions: string[]; recorderOptions: RecorderOption[]; machineOptions: string[]; pvcTypes: string[]; inspectors: string[]; currentUserId: number; csrf: string }>()
+type Job = { id: number; job_no: string; station_id: number; shift_date: string; shift: string; status: string; notes: string | null; production_logs_count: number; material: Material | null; employee_names?: (string | { name: string })[] | null; machine_name?: string | null; pvc_type?: string | null; raw_material_name?: string | null; raw_materials?: { name: string; quantity: number | null; unit: string | null }[] | null; product_type_code?: string | null; product_type_name?: string | null; inspector_name?: string | null; user?: { name: string }; recorder?: RecorderOption | null }
+const props = defineProps<{ station: Station; statusEvents: StatusEvent[]; statusReady: boolean; jobs: Job[]; shift: { shift_date: string; shift: string }; employeeOptions: string[]; recorderOptions: RecorderOption[]; machineOptions: string[]; pvcTypes: string[]; inspectors: string[]; currentUserId: number; stationSwitcher: { code: string; is_enabled: boolean }[]; csrf: string }>()
 const busy = ref(false)
 const showCreateJob = ref(false)
 const showStatusDialog = ref(false)
@@ -83,30 +83,26 @@ async function specifyMaterial(job: Job) {
     message.value = ''; error.value = ''; busyJob.value = job.id
     try {
         await finishingRequest(`/api/finishing/jobs/${job.id}/material`, 'PATCH', wip, props.csrf)
-        message.value = `ผูก WIP ให้ ${job.job_no} แล้ว`
+        message.value = `ผูก WIP ให้ Job ${jobLabel(job)} แล้ว`
         router.reload({ preserveScroll: true })
     } catch (e) { error.value = errorText(e) } finally { busyJob.value = null }
 }
 
 async function completeJob(job: Job) {
-    if (!window.confirm(`ปิด Job ${job.job_no}?`)) return
+    if (!window.confirm(`ปิด Job ${jobLabel(job)}?`)) return
     message.value = ''; error.value = ''; busyJob.value = job.id
     try {
         await finishingRequest(`/api/finishing/jobs/${job.id}/complete`, 'PATCH', {}, props.csrf)
-        message.value = `ปิด Job ${job.job_no} แล้ว`
+        message.value = `ปิด Job ${jobLabel(job)} แล้ว`
         router.reload({ preserveScroll: true })
     } catch (e) { error.value = errorText(e) } finally { busyJob.value = null }
 }
 
-function materialLabel(material: Material | null) {
-    if (!material) return 'ยังไม่ได้กำหนด WIP'
-    return `${material.code || material.name} · ${material.type} · คงเหลือ ${material.quantity}`
-}
 
-function jobDetails(job: Job) {
-    return [job.machine_name, job.pvc_type ? `PVC ${job.pvc_type}` : '', job.raw_material_name ? `วัตถุดิบ ${job.raw_material_name}` : '', job.recorder?.name ? `ผู้บันทึก ${job.recorder.name}` : '', job.inspector_name ? `ผู้ตรวจ ${job.inspector_name}` : '']
-        .filter(Boolean).join(' · ')
-}
+function jobLabel(job: Job) { return `${job.product_type_code ? `${job.product_type_code} · ` : ''}${formatDate(job.shift_date)} ${shiftText(job)}` }
+function wipName(job: Job) { return job.material ? `${job.material.code || job.material.name} · ${job.material.type}` : 'ยังไม่ได้กำหนด WIP' }
+function wipQty(job: Job) { return job.material ? Number(job.material.quantity).toLocaleString('th-TH', { maximumFractionDigits: 3 }) : '-' }
+function shiftText(job: Job) { return job.shift === 'day' ? 'กะเช้า' : 'กะดึก' }
 
 function formatDate(value: string) { return value.slice(0, 10) }
 function formatStatusTime(value: string) { return new Date(value).toLocaleString('th-TH', { timeZone: 'Asia/Bangkok' }) }
@@ -123,7 +119,7 @@ function employeeLabel(employee: string | { name: string }) { return typeof empl
                     <div class="flex items-center gap-3"><span class="mono rounded bg-emerald-700 px-4 py-3 text-lg font-extrabold text-white">{{ station.code }}</span><div><p class="m-0 text-xs text-[var(--hmi-mute)]">FINISHING · {{ station.input_material }}</p><h1 class="m-0 text-xl font-bold">Job · {{ station.name }}</h1><p class="m-0 mt-1 text-sm text-[var(--hmi-mute)]">สร้าง Job โดยกำหนด WIP ก่อน แล้วเปิด Job เพื่อบันทึกการแปรรูป</p></div></div>
                     <div class="flex gap-2"><Link href="/finishing/dashboard" class="rounded border border-[var(--hmi-line)] bg-white px-4 py-2 text-sm font-semibold">ผังเครื่องจักร</Link><Link :href="`/finishing/station/${station.code}/history`" class="rounded border border-[var(--hmi-line)] bg-white px-4 py-2 text-sm font-semibold">ประวัติ</Link></div>
                 </div>
-                <nav class="flex flex-wrap gap-2 border-t border-[var(--hmi-line)] px-5 py-3"><Link v-for="item in ['ST1','ST2','ST3','ST4','ST5','ST6']" :key="item" :href="`/finishing/station/${item}/jobs`" class="rounded border px-3 py-2 text-sm font-bold" :class="item === station.code ? 'border-emerald-700 bg-emerald-700 text-white' : 'border-[var(--hmi-line)] bg-white text-[var(--hmi-text)]'">{{ item }}</Link></nav>
+                <nav class="flex flex-wrap gap-2 border-t border-[var(--hmi-line)] px-5 py-3"><template v-for="item in stationSwitcher" :key="item.code"><Link v-if="item.is_enabled" :href="`/finishing/station/${item.code}/jobs`" class="rounded border px-3 py-2 text-sm font-bold" :class="item.code === station.code ? 'border-emerald-700 bg-emerald-700 text-white' : 'border-[var(--hmi-line)] bg-white text-[var(--hmi-text)]'">{{ item.code }}</Link><span v-else class="cursor-not-allowed rounded border border-dashed border-slate-300 px-3 py-2 text-sm font-bold text-slate-400" title="ยังไม่เปิดใช้">{{ item.code }}</span></template></nav>
             </header>
 
             <div v-if="message" role="status" class="rounded border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-800">{{ message }}</div>
@@ -231,28 +227,41 @@ function employeeLabel(employee: string | { name: string }) { return typeof empl
                 <div class="flex items-center justify-between gap-3 py-1 xl:bg-[var(--hmi-panel)] xl:px-4 xl:py-3"><div><h2 class="m-0 font-bold">รายการ Job · {{ station.code }}</h2><p class="m-0 text-xs text-[var(--hmi-mute)]">เปิด Job เพื่อทำงานกับ WIP ที่กำหนดไว้</p></div><span class="shrink-0 rounded bg-amber-400 px-2 py-1 text-xs font-extrabold">{{ jobs.length }} JOB</span></div>
                 <div class="grid gap-3 pt-2 xl:hidden">
                     <article v-for="job in jobs" :key="job.id" class="min-w-0 overflow-hidden rounded-md border border-[var(--hmi-line)] bg-white shadow-sm">
-                        <div class="flex flex-wrap items-start justify-between gap-2 bg-[var(--hmi-panel)] px-4 py-3">
-                            <div class="min-w-0"><p class="m-0 text-xs font-bold text-[var(--hmi-mute)]">JOB NO.</p><h3 class="m-0 mt-1 break-all text-base font-bold text-[var(--hmi-title)]">{{ job.job_no }}</h3></div>
+                        <div class="flex items-start justify-between gap-2 bg-[var(--hmi-panel)] px-4 py-3">
+                            <div class="min-w-0"><p class="m-0 text-xs text-[var(--hmi-mute)]">{{ formatDate(job.shift_date) }} · {{ shiftText(job) }}</p><h3 class="m-0 mt-0.5 break-words text-base font-bold text-[var(--hmi-title)]"><template v-if="job.product_type_code"><span class="mono">{{ job.product_type_code }}</span>{{ job.product_type_name ? ` · ${job.product_type_name}` : '' }}</template><span v-else class="font-semibold text-amber-700">สินค้า: กำหนดจาก Tag แรก</span></h3></div>
                             <span class="shrink-0 rounded-full px-3 py-1 text-xs font-bold" :class="job.status === 'active' ? 'bg-emerald-100 text-emerald-800' : 'bg-slate-200 text-slate-700'">{{ job.status === 'active' ? 'กำลังทำงาน' : 'ปิดแล้ว' }}</span>
                         </div>
-                        <div class="space-y-3 px-4 py-3 text-sm">
-                            <div><p class="m-0 text-xs font-semibold text-[var(--hmi-mute)]">WIP ประจำ Job</p><p class="m-0 mt-1 break-words font-semibold">{{ materialLabel(job.material) }}</p></div>
-                            <p v-if="job.employee_names?.length" class="m-0 break-words text-[var(--hmi-mute)]"><strong class="text-[var(--hmi-text)]">พนักงาน:</strong> {{ job.employee_names.map(employeeLabel).join(', ') }}</p>
-                            <p v-if="jobDetails(job)" class="m-0 break-words text-[var(--hmi-mute)]">{{ jobDetails(job) }}</p>
-                            <dl class="grid grid-cols-2 gap-x-4 gap-y-2 border-t border-[var(--hmi-line)] pt-3"><div><dt class="text-xs text-[var(--hmi-mute)]">วันที่</dt><dd class="m-0 font-semibold">{{ formatDate(job.shift_date) }}</dd></div><div><dt class="text-xs text-[var(--hmi-mute)]">กะ</dt><dd class="m-0 font-semibold">{{ job.shift === 'day' ? 'กะเช้า' : 'กะดึก' }}</dd></div><div><dt class="text-xs text-[var(--hmi-mute)]">ผู้สร้าง</dt><dd class="m-0 break-words font-semibold">{{ job.user?.name || '-' }}</dd></div><div><dt class="text-xs text-[var(--hmi-mute)]">รายการ</dt><dd class="m-0 font-semibold">{{ job.production_logs_count }}</dd></div></dl>
-                            <div v-if="job.status === 'active' && !job.material" class="grid gap-2 border-t border-[var(--hmi-line)] pt-3"><input v-model="assignmentFor(job.id).wip_type" class="w-full rounded border-slate-300 text-sm" placeholder="ประเภท WIP" /><input v-model="assignmentFor(job.id).wip_code" class="w-full rounded border-slate-300 text-sm" placeholder="รหัส / Lot" /><input v-model="assignmentFor(job.id).wip_name" class="w-full rounded border-slate-300 text-sm" placeholder="ชื่อ / รายละเอียด WIP" /><button :disabled="busyJob === job.id || !assignmentFor(job.id).wip_type || !assignmentFor(job.id).wip_name" class="min-h-10 rounded bg-emerald-700 px-3 py-2 font-bold text-white disabled:opacity-50" @click="specifyMaterial(job)">ระบุ WIP</button></div>
-                        </div>
+                        <dl class="m-0 grid grid-cols-2 gap-x-4 gap-y-3 px-4 py-3 text-sm">
+                            <div><dt class="text-xs text-[var(--hmi-mute)]">WIP</dt><dd class="m-0 break-words font-semibold">{{ wipName(job) }}</dd></div>
+                            <div><dt class="text-xs text-[var(--hmi-mute)]">คงเหลือ / รายการ</dt><dd class="m-0 font-semibold"><span class="mono">{{ wipQty(job) }}</span> · {{ job.production_logs_count }} รายการ</dd></div>
+                            <div class="col-span-2"><dt class="text-xs text-[var(--hmi-mute)]">พนักงาน</dt><dd class="m-0 break-words font-semibold">{{ job.employee_names?.length ? job.employee_names.map(employeeLabel).join(', ') : '-' }}</dd></div>
+                            <div><dt class="text-xs text-[var(--hmi-mute)]">ผู้บันทึก</dt><dd class="m-0 break-words font-semibold">{{ job.recorder?.name || '-' }}</dd></div>
+                            <div><dt class="text-xs text-[var(--hmi-mute)]">ผู้ตรวจ</dt><dd class="m-0 font-semibold">{{ job.inspector_name || '-' }}</dd></div>
+                        </dl>
+                        <div v-if="job.status === 'active' && !job.material" class="grid gap-2 border-t border-[var(--hmi-line)] px-4 py-3 text-sm"><input v-model="assignmentFor(job.id).wip_type" class="w-full rounded border-slate-300 text-sm" placeholder="ประเภท WIP" /><input v-model="assignmentFor(job.id).wip_code" class="w-full rounded border-slate-300 text-sm" placeholder="รหัส / Lot" /><input v-model="assignmentFor(job.id).wip_name" class="w-full rounded border-slate-300 text-sm" placeholder="ชื่อ / รายละเอียด WIP" /><button :disabled="busyJob === job.id || !assignmentFor(job.id).wip_type || !assignmentFor(job.id).wip_name" class="min-h-10 rounded bg-emerald-700 px-3 py-2 font-bold text-white disabled:opacity-50" @click="specifyMaterial(job)">ระบุ WIP</button></div>
                         <div class="grid gap-2 border-t border-[var(--hmi-line)] px-4 py-3" :class="job.status === 'active' ? 'grid-cols-2' : 'grid-cols-1'">
-                            <p v-if="job.status === 'active' && (!job.material || Number(job.material.quantity) <= 0)" class="col-span-full m-0 rounded bg-amber-50 px-3 py-2 text-center text-xs font-semibold text-amber-800">{{ job.material ? 'รับ WIP ก่อนบันทึกผลผลิต' : 'กำหนด WIP ก่อนบันทึกผลผลิต' }}</p>
+                            <p v-if="job.status === 'active' && !job.material" class="col-span-full m-0 rounded bg-amber-50 px-3 py-2 text-center text-xs font-semibold text-amber-800">กำหนด WIP ก่อนบันทึกผลผลิต</p>
                             <Link :href="`/finishing/station/${station.code}/jobs/${job.id}`" class="flex min-h-10 items-center justify-center rounded bg-emerald-800 px-3 py-2 font-bold text-white">เปิด Job ›</Link>
                             <button v-if="job.status === 'active'" :disabled="busyJob === job.id" class="min-h-10 rounded border border-red-300 px-3 py-2 font-bold text-red-700 disabled:opacity-50" @click="completeJob(job)">ปิด Job</button>
                         </div>
                     </article>
                     <p v-if="!jobs.length" class="m-0 py-8 text-center text-sm text-[var(--hmi-mute)]">ยังไม่มี Job ของสถานีนี้</p>
                 </div>
-                <div class="hidden overflow-x-auto xl:block"><table class="tbl min-w-[1000px]"><thead><tr><th>Job No.</th><th>WIP ประจำ Job</th><th>วันที่</th><th>กะ</th><th>ผู้สร้าง</th><th>รายการ</th><th>สถานะ</th><th>จัดการ</th></tr></thead><tbody>
-                    <tr v-for="job in jobs" :key="job.id"><td class="font-bold">{{ job.job_no }}</td><td class="min-w-64">{{ materialLabel(job.material) }}<div v-if="job.employee_names?.length" class="mt-1 text-xs text-slate-600">พนักงาน: {{ job.employee_names.map(employeeLabel).join(', ') }}</div><div v-if="jobDetails(job)" class="mt-1 text-xs text-slate-600">{{ jobDetails(job) }}</div><div v-if="job.status === 'active' && !job.material" class="mt-2 grid min-w-[420px] grid-cols-2 gap-2"><input v-model="assignmentFor(job.id).wip_type" class="rounded border-slate-300 text-sm" placeholder="ประเภท WIP" /><input v-model="assignmentFor(job.id).wip_code" class="rounded border-slate-300 text-sm" placeholder="รหัส / Lot" /><input v-model="assignmentFor(job.id).wip_name" class="rounded border-slate-300 text-sm" placeholder="ชื่อ / รายละเอียด WIP" /><button :disabled="busyJob === job.id || !assignmentFor(job.id).wip_type || !assignmentFor(job.id).wip_name" class="rounded bg-emerald-700 px-3 py-2 text-xs font-bold text-white disabled:opacity-50" @click="specifyMaterial(job)">ระบุ WIP</button></div></td><td>{{ formatDate(job.shift_date) }}</td><td>{{ job.shift === 'day' ? 'กะเช้า' : 'กะดึก' }}</td><td>{{ job.user?.name || '-' }}</td><td>{{ job.production_logs_count }}</td><td><span class="rounded-full px-3 py-1 text-xs font-bold" :class="job.status === 'active' ? 'bg-emerald-100 text-emerald-800' : 'bg-slate-200 text-slate-700'">{{ job.status === 'active' ? 'กำลังทำงาน' : 'ปิดแล้ว' }}</span></td><td class="whitespace-nowrap"><Link :href="`/finishing/station/${station.code}/jobs/${job.id}`" class="rounded bg-emerald-800 px-3 py-2 text-xs font-bold text-white">เปิด Job ›</Link><span v-if="job.status === 'active' && (!job.material || Number(job.material.quantity) <= 0)" class="ml-2 text-xs text-amber-700">{{ job.material ? 'รับ WIP ก่อนบันทึกผลผลิต' : 'กำหนด WIP ก่อนบันทึกผลผลิต' }}</span><button v-if="job.status === 'active'" :disabled="busyJob === job.id" class="ml-2 rounded border border-red-300 px-3 py-2 text-xs font-bold text-red-700 disabled:opacity-50" @click="completeJob(job)">ปิด Job</button></td></tr>
-                    <tr v-if="!jobs.length"><td colspan="8" class="py-10 text-center text-slate-500">ยังไม่มี Job ของสถานีนี้</td></tr>
+                <div class="hidden overflow-x-auto xl:block"><table class="tbl min-w-[1150px]"><thead><tr><th class="w-px">จัดการ</th><th>สินค้า</th><th>WIP</th><th class="text-right">คงเหลือ</th><th>พนักงาน</th><th>ผู้บันทึก</th><th>ผู้ตรวจ</th><th>วันที่</th><th>กะ</th><th class="text-right">รายการ</th><th>สถานะ</th></tr></thead><tbody>
+                    <tr v-for="job in jobs" :key="job.id" class="align-top">
+                        <td class="whitespace-nowrap"><Link :href="`/finishing/station/${station.code}/jobs/${job.id}`" class="rounded bg-emerald-800 px-3 py-2 text-xs font-bold text-white">เปิด Job ›</Link><button v-if="job.status === 'active'" :disabled="busyJob === job.id" class="ml-2 rounded border border-red-300 px-3 py-2 text-xs font-bold text-red-700 disabled:opacity-50" @click="completeJob(job)">ปิด Job</button><div v-if="job.status === 'active' && !job.material" class="mt-1 text-xs text-amber-700">กำหนด WIP ก่อนบันทึกผลผลิต</div></td>
+                        <td class="min-w-48"><template v-if="job.product_type_code"><strong class="mono">{{ job.product_type_code }}</strong><div v-if="job.product_type_name" class="text-xs text-slate-600">{{ job.product_type_name }}</div></template><span v-else class="text-xs font-semibold text-amber-700">กำหนดจาก Tag แรก</span></td>
+                        <td class="whitespace-nowrap">{{ wipName(job) }}<div v-if="job.status === 'active' && !job.material" class="mt-2 grid min-w-[420px] grid-cols-2 gap-2"><input v-model="assignmentFor(job.id).wip_type" class="rounded border-slate-300 text-sm" placeholder="ประเภท WIP" /><input v-model="assignmentFor(job.id).wip_code" class="rounded border-slate-300 text-sm" placeholder="รหัส / Lot" /><input v-model="assignmentFor(job.id).wip_name" class="rounded border-slate-300 text-sm" placeholder="ชื่อ / รายละเอียด WIP" /><button :disabled="busyJob === job.id || !assignmentFor(job.id).wip_type || !assignmentFor(job.id).wip_name" class="rounded bg-emerald-700 px-3 py-2 text-xs font-bold text-white disabled:opacity-50" @click="specifyMaterial(job)">ระบุ WIP</button></div></td>
+                        <td class="mono text-right">{{ wipQty(job) }}</td>
+                        <td class="min-w-48 text-sm"><div v-for="name in (job.employee_names ?? []).map(employeeLabel)" :key="name">{{ name }}</div><span v-if="!job.employee_names?.length">-</span></td>
+                        <td>{{ job.recorder?.name || '-' }}</td>
+                        <td>{{ job.inspector_name || '-' }}</td>
+                        <td class="whitespace-nowrap">{{ formatDate(job.shift_date) }}</td>
+                        <td class="whitespace-nowrap">{{ shiftText(job) }}</td>
+                        <td class="mono text-right">{{ job.production_logs_count }}</td>
+                        <td><span class="whitespace-nowrap rounded-full px-3 py-1 text-xs font-bold" :class="job.status === 'active' ? 'bg-emerald-100 text-emerald-800' : 'bg-slate-200 text-slate-700'">{{ job.status === 'active' ? 'กำลังทำงาน' : 'ปิดแล้ว' }}</span></td>
+                    </tr>
+                    <tr v-if="!jobs.length"><td colspan="11" class="py-10 text-center text-slate-500">ยังไม่มี Job ของสถานีนี้</td></tr>
                 </tbody></table></div>
             </section>
         </main>

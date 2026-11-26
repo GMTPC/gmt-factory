@@ -2,10 +2,9 @@
 
 namespace Modules\Finishing\App\Services;
 
-use App\Services\CutBoard\TagCode;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\ValidationException;
-use InvalidArgumentException;
+use Modules\Finishing\App\Models\FinishingJob;
 use Modules\Finishing\App\Models\FinishingMaterial;
 use Modules\Finishing\App\Models\ProductionLog;
 
@@ -94,29 +93,24 @@ class ProductionService
             $log->save();
             $log->delete();
 
+            // A wrong first tag must not lock the Job forever: unlock when nothing active is left.
+            if ($log->job_id && ! ProductionLog::query()->where('job_id', $log->job_id)->where('status', '!=', 'cancelled')->exists()) {
+                FinishingJob::query()->whereKey($log->job_id)->update(['product_type_code' => null, 'product_type_name' => null]);
+            }
+
             return $log;
         });
     }
 
     /**
-     * Build the WIP tag for confirmed output so the next station can scan it like any other WIP pallet.
-     * The source SKU (brand + product type) is kept; the lot becomes the Finishing lot
-     * (yymmdd + A/B shift + sequence) and the quantity becomes the output quantity.
+     * Finishing WIP tag, same format as the AppSheet Finishing tag:
+     *   lot  = yymmdd + shift letter (A = day, B = night) + 3-digit sequence  e.g. 261123A002 (barcode)
+     *   code = lot + quantity (3 digits)                                       e.g. 261123A002100 (QR)
      *
-     * @return array{0: ?string, 1: ?string} [tag code, lot]
+     * @return array{0: string, 1: string} [tag code, lot]
      */
     private function outputTag(ProductionLog $log, float $output): array
     {
-        $scanCode = DB::table('finishing_wip_receipts')->where('production_log_id', $log->id)->value('scan_code');
-        if (! $scanCode) {
-            return [null, null];
-        }
-        try {
-            $source = TagCode::parse((string) $scanCode);
-        } catch (InvalidArgumentException) {
-            return [null, null];
-        }
-
         $prefix = $log->shift_date->format('ymd').($log->shift === 'night' ? 'B' : 'A');
         $lastSequence = (int) ProductionLog::withTrashed()->where('output_lot', 'like', $prefix.'%')->lockForUpdate()
             ->pluck('output_lot')->map(fn ($lot) => (int) substr((string) $lot, -3))->max();
@@ -126,13 +120,10 @@ class ProductionService
         }
         $lot = $prefix.str_pad((string) $sequence, 3, '0', STR_PAD_LEFT);
 
-        $wholeQty = floor($output) === $output && $output >= 1 && $output <= 999;
-        if ($source->format === 'legacy_wip' && $wholeQty) {
-            $code = $source->skuCode.$lot.str_pad((string) (int) $output, 3, '0', STR_PAD_LEFT);
-        } else {
-            $qty = rtrim(rtrim(number_format($output, 3, '.', ''), '0'), '.');
-            $code = sprintf('SKUCODE:%s.LOT:%s.QTY:%s.L:%s', $source->skuCode, $lot, $qty, $source->line);
-        }
+        $qty = floor($output) === $output
+            ? str_pad((string) (int) $output, 3, '0', STR_PAD_LEFT)
+            : rtrim(rtrim(number_format($output, 3, '.', ''), '0'), '.');
+        $code = $lot.$qty;
         if (DB::table('finishing_wip_receipts')->where('scan_code', $code)->exists()) {
             throw ValidationException::withMessages(['status' => 'Tag WIP '.$code.' ซ้ำกับ Tag ที่รับเข้าแล้ว']);
         }

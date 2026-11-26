@@ -13,6 +13,8 @@ class FinishingStation extends Model
 
     protected $guarded = ['id'];
 
+    protected $appends = ['is_enabled'];
+
     protected function casts(): array
     {
         return ['is_final' => 'boolean', 'is_machine_on' => 'boolean'];
@@ -46,6 +48,12 @@ class FinishingStation extends Model
     public function latestStatusEvent(): HasOne
     {
         return $this->hasOne(FinishingStationStatusEvent::class, 'station_id')->latestOfMany();
+    }
+
+    /** False for stations listed in finishing.disabled_stations ("ยังไม่เปิดใช้"). */
+    public function getIsEnabledAttribute(): bool
+    {
+        return ! in_array($this->code, config('finishing.disabled_stations', []), true);
     }
 
     /** Machines allowed when opening a Job at this station (falls back to every machine). */

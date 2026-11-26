@@ -15,7 +15,7 @@ class FinishingJob extends Model
 
     protected function casts(): array
     {
-        return ['shift_date' => 'date', 'employee_names' => 'array'];
+        return ['shift_date' => 'date', 'employee_names' => 'array', 'raw_materials' => 'array', 'completed_at' => 'datetime'];
     }
 
     public function station(): BelongsTo

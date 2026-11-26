@@ -87,6 +87,12 @@
                     </a>
                 </li>
                 <li>
+                    <a href="{{ route('finishing.daily') }}" class="{{ request()->routeIs('finishing.daily') ? 'active' : '' }}">
+                        <i class="ph-duotone ph-calendar-check"></i>
+                        <span>สรุปการคัดตามวัน</span>
+                    </a>
+                </li>
+                <li>
                     <a href="{{ route('finishing.reports') }}" class="{{ request()->routeIs('finishing.reports') ? 'active' : '' }}">
                         <i class="ph-duotone ph-file-text"></i>
                         <span>รายงาน Finishing</span>

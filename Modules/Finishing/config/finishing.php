@@ -46,15 +46,21 @@ return [
         'trim',
         explode(',', (string) env('FINISHING_PVC_TYPES', 'ขาวผ่อง,ลามิเนต,ฟอยล์อบกันร้อน')),
     ))),
+    // Stations shown as "ยังไม่เปิดใช้": visible on the map, but no Jobs / scans / start-stop.
+    'disabled_stations' => array_values(array_filter(array_map(
+        'trim',
+        explode(',', (string) env('FINISHING_DISABLED_STATIONS', 'ST3,ST4,ST5,ST6')),
+    ))),
     // Per-station limits for the "open Job" form. Stations not listed get every machine / PVC type.
     'station_job_options' => [
         'ST1' => [
             'machines' => ['เครื่องเคลือบขาวผ่อง'],
             'pvc_types' => ['ขาวผ่อง'],
         ],
-        // ST2 works exactly like ST1 (scan WIP tag -> weight -> new WIP tag) on the PVC coating machine.
+        // ST1 = ขาวผ่อง only. ST2 = เคลือบ PVC: same flow as ST1 on the PVC coating machine, PVC finishes only.
         'ST2' => [
             'machines' => ['เครื่องเคลือบ PVC'],
+            'pvc_types' => ['ลามิเนต', 'ฟอยล์อบกันร้อน'],
         ],
     ],
     'raw_materials' => [
@@ -76,6 +82,11 @@ return [
         'กาว EI 8108/M6',
         'กาว PVCGLUE จีน',
     ],
+    // Units offered when recording how much of a raw material a Job used.
+    'raw_material_units' => array_values(array_filter(array_map(
+        'trim',
+        explode(',', (string) env('FINISHING_RAW_MATERIAL_UNITS', 'กก.,ม้วน,เมตร,แผ่น,ลิตร,ถุง,ถัง')),
+    ))),
     'job_inspectors' => array_values(array_filter(array_map(
         'trim',
         explode(',', (string) env('FINISHING_JOB_INSPECTORS', 'คุณแบงค์,คุณเหน่ง')),

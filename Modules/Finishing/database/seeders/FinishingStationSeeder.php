@@ -11,7 +11,7 @@ class FinishingStationSeeder extends Seeder
     {
         $stations = [
             ['code' => 'ST1', 'name' => 'ขาวผ่อง (แปรรูป)', 'input_material' => 'วิบ', 'output_material' => 'เว็บขาวผ่อง', 'is_final' => false],
-            ['code' => 'ST2', 'name' => 'PVC ติดฟอยล์', 'input_material' => 'แผ่น PVC', 'output_material' => 'PVC เว็บ', 'is_final' => false],
+            ['code' => 'ST2', 'name' => 'เคลือบ PVC', 'input_material' => 'แผ่น PVC', 'output_material' => 'PVC เว็บ', 'is_final' => false],
             ['code' => 'ST3', 'name' => 'ตัดขาวผ่อง', 'input_material' => 'เว็บขาวผ่อง', 'output_material' => 'วิป', 'is_final' => false],
             ['code' => 'ST4', 'name' => 'ตัด PVC', 'input_material' => 'PVC เว็บ', 'output_material' => 'วิป', 'is_final' => true],
             ['code' => 'ST5', 'name' => 'ทาสี / ปุลาย', 'input_material' => 'วิบ', 'output_material' => 'วิป', 'is_final' => false],

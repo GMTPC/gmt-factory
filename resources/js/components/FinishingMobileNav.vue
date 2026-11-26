@@ -25,7 +25,8 @@ onMounted(() => {
 onUnmounted(() => document.body.classList.remove('has-finishing-nav'))
 
 const items = computed(() => [
-    { key: 'stations', label: 'สถานี', icon: 'ph-squares-four', href: '/finishing', active: path.value === '/finishing' },
+    // ?choose=1 stops SelectStation from auto-redirecting to the remembered station.
+    { key: 'stations', label: 'สถานี', icon: 'ph-squares-four', href: '/finishing?choose=1', active: path.value === '/finishing' },
     {
         key: 'jobs', label: station.value ? `Job ${station.value}` : 'Job', icon: 'ph-clipboard-text',
         href: station.value ? `/finishing/station/${station.value}/jobs` : '/finishing',

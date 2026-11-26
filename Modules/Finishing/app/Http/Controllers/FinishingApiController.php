@@ -20,6 +20,7 @@ use Modules\Finishing\App\Models\FinishingMaterial;
 use Modules\Finishing\App\Models\FinishingStation;
 use Modules\Finishing\App\Models\ProductionLog;
 use Modules\Finishing\App\Services\ProductionService;
+use Modules\Finishing\App\Services\DowntimeReportService;
 use Modules\Finishing\App\Services\ShiftService;
 
 class FinishingApiController
@@ -39,6 +40,7 @@ class FinishingApiController
     {
         $request->validate(['station_id' => ['required', 'integer', 'exists:finishing_stations,id']]);
         $station = FinishingStation::query()->findOrFail($request->integer('station_id'));
+        $this->assertStationEnabled($station);
         $data = $request->validate([
             'station_id' => ['required', 'exists:finishing_stations,id'],
             'employee_names' => ['required', 'array', 'min:1'],
@@ -110,6 +112,7 @@ class FinishingApiController
         if ($job->status !== 'active' || ! $job->material_id) {
             throw ValidationException::withMessages(['job' => 'Job ต้องเปิดอยู่และระบุประเภท WIP ก่อนรับเข้า']);
         }
+        $this->assertStationEnabled(FinishingStation::query()->findOrFail($job->station_id));
         $data = $request->validate([
             'raw_scan_code' => ['required', 'string', 'max:255'],
         ]);
@@ -148,6 +151,7 @@ class FinishingApiController
     {
         $data = $request->validate(['raw_scan_code' => ['required', 'string', 'max:255']]);
         $scanCode = Str::upper(trim($data['raw_scan_code']));
+        $this->assertStationEnabled(FinishingStation::query()->findOrFail($job->station_id));
         if ($job->status !== 'active' || ! $job->material_id) {
             throw ValidationException::withMessages(['job' => 'Job ต้องเปิดอยู่และกำหนด WIP ก่อนสแกนแปรรูป']);
         }
@@ -156,12 +160,15 @@ class FinishingApiController
         if ($receipt) {
             $this->assertReceiptUsable($receipt, $job);
         }
+        $productType = $this->productType($scanCode);
+        $this->assertJobProductType($job, $productType);
 
         return response()->json([
             'scan_code' => $scanCode,
             'quantity_in' => $quantity,
             'quantity_out' => $quantity,
-            ...$this->productType($scanCode),
+            ...$productType,
+            'sets_job_product_type' => ! $job->product_type_code,
         ]);
     }
 
@@ -170,7 +177,6 @@ class FinishingApiController
         $data = $request->validate([
             'raw_scan_code' => ['required', 'string', 'max:255'],
             'weight_kg' => ['required', 'numeric', 'gt:0', 'max:999999'],
-            'raw_material_name' => ['required', 'string', 'max:255', Rule::in(config('finishing.raw_materials', []))],
             'ft_count' => ['nullable', 'numeric', 'gte:0'],
             'sub_type' => ['nullable', Rule::in(['single', 'double'])],
             'has_labeling' => ['sometimes', 'boolean'],
@@ -180,8 +186,6 @@ class FinishingApiController
             'weight_kg.numeric' => 'น้ำหนักต้องเป็นตัวเลข',
             'weight_kg.gt' => 'น้ำหนักต้องมากกว่า 0',
             'weight_kg.max' => 'น้ำหนักเกินค่าที่รับได้',
-            'raw_material_name.required' => 'กรุณาเลือกวัตถุดิบ',
-            'raw_material_name.in' => 'วัตถุดิบไม่อยู่ในรายการ',
         ]);
         $scanCode = Str::upper(trim($data['raw_scan_code']));
         if ($scanCode === '') {
@@ -196,7 +200,12 @@ class FinishingApiController
                 throw ValidationException::withMessages(['job' => 'Job ต้องเปิดอยู่และกำหนด WIP ก่อนสแกนแปรรูป']);
             }
             $station = FinishingStation::query()->findOrFail($job->station_id);
+            $this->assertStationEnabled($station);
             $this->validateLogRules($station, $data + ['quantity_in' => $quantity, 'quantity_out' => $quantity, 'defect_count' => 0]);
+            $this->assertJobProductType($job, $productType);
+            if (! $job->product_type_code && $productType['product_type_code']) {
+                $job->update($productType);
+            }
 
             $material = FinishingMaterial::query()->lockForUpdate()->findOrFail($job->material_id);
             $receipt = DB::table('finishing_wip_receipts')->where('scan_code', $scanCode)->lockForUpdate()->first();
@@ -234,7 +243,6 @@ class FinishingApiController
                 'has_labeling' => $data['has_labeling'] ?? false,
                 'notes' => $data['notes'] ?? null,
                 'weight_kg' => $data['weight_kg'],
-                'raw_material_name' => $data['raw_material_name'],
                 'product_type_code' => $productType['product_type_code'],
                 'product_type_name' => $productType['product_type_name'],
                 'status' => 'draft',
@@ -250,6 +258,51 @@ class FinishingApiController
         return response()->json($log->load(['job', 'station', 'material', 'user']), 201);
     }
 
+    /** After a tag is issued only its weight may be corrected; reprinting the tag shows the new weight. */
+    public function updateLogWeight(Request $request, ProductionLog $productionLog): JsonResponse
+    {
+        $data = $request->validate(['weight_kg' => ['required', 'numeric', 'gt:0', 'max:999999']], [
+            'weight_kg.required' => 'กรุณากรอกน้ำหนัก (กก.)',
+            'weight_kg.numeric' => 'น้ำหนักต้องเป็นตัวเลข',
+            'weight_kg.gt' => 'น้ำหนักต้องมากกว่า 0',
+        ]);
+        if ($productionLog->status === 'cancelled') {
+            throw ValidationException::withMessages(['weight_kg' => 'รายการนี้ถูกยกเลิกแล้ว แก้ไขไม่ได้']);
+        }
+        $this->assertJobOpen($productionLog->job_id, 'weight_kg');
+        $this->assertStationEnabled(FinishingStation::query()->findOrFail($productionLog->station_id));
+        $productionLog->update(['weight_kg' => $data['weight_kg']]);
+
+        return response()->json($productionLog->fresh());
+    }
+
+    /** Raw materials are recorded for the whole Job (not per pallet) and can be changed at any time. */
+    public function updateJobRawMaterials(Request $request, FinishingJob $job): JsonResponse
+    {
+        $this->assertStationEnabled(FinishingStation::query()->findOrFail($job->station_id));
+        $this->assertJobOpen($job->id, 'raw_materials');
+        $data = $request->validate([
+            'raw_materials' => ['present', 'array'],
+            'raw_materials.*.name' => ['required', 'string', 'distinct', Rule::in(config('finishing.raw_materials', []))],
+            'raw_materials.*.quantity' => ['nullable', 'numeric', 'gte:0', 'max:99999999'],
+            'raw_materials.*.unit' => ['nullable', 'string', Rule::in(config('finishing.raw_material_units', []))],
+        ], [
+            'raw_materials.*.name.in' => 'วัตถุดิบไม่อยู่ในรายการ',
+            'raw_materials.*.name.distinct' => 'เลือกวัตถุดิบซ้ำ',
+            'raw_materials.*.quantity.numeric' => 'จำนวนวัตถุดิบต้องเป็นตัวเลข',
+            'raw_materials.*.quantity.gte' => 'จำนวนวัตถุดิบต้องไม่ติดลบ',
+            'raw_materials.*.unit.in' => 'หน่วยไม่อยู่ในรายการ',
+        ]);
+        $items = collect($data['raw_materials'])->map(fn (array $item) => [
+            'name' => $item['name'],
+            'quantity' => isset($item['quantity']) && $item['quantity'] !== '' ? (float) $item['quantity'] : null,
+            'unit' => $item['unit'] ?? null,
+        ])->values()->all();
+        $job->update(['raw_materials' => $items]);
+
+        return response()->json($job->fresh());
+    }
+
     public function completeJob(FinishingJob $job): JsonResponse
     {
         if ($job->status !== 'active') {
@@ -258,7 +311,7 @@ class FinishingApiController
         if ($job->productionLogs()->where('status', 'draft')->exists()) {
             throw ValidationException::withMessages(['status' => 'ยืนยันหรือยกเลิกรายการ draft ก่อนปิด Job']);
         }
-        $job->update(['status' => 'completed']);
+        $job->update(['status' => 'completed', 'completed_at' => now()]);
 
         return response()->json($job->fresh()->loadCount('productionLogs'));
     }
@@ -370,6 +423,7 @@ class FinishingApiController
         if ($productionLog->status !== 'draft') {
             throw ValidationException::withMessages(['status' => 'แก้ไขได้เฉพาะรายการ draft']);
         }
+        $this->assertJobOpen($productionLog->job_id, 'status');
         $data = $request->validate([
             'material_id' => ['sometimes', 'exists:finishing_materials,id'],
             'quantity_in' => ['sometimes', 'numeric', 'gt:0'],
@@ -403,6 +457,8 @@ class FinishingApiController
 
     public function cancelLog(ProductionLog $productionLog, ProductionService $service): JsonResponse
     {
+        $this->assertJobOpen($productionLog->job_id, 'status');
+
         return response()->json($service->cancel($productionLog));
     }
 
@@ -443,6 +499,7 @@ class FinishingApiController
     public function toggleMachine(Request $request, FinishingStation $station): JsonResponse
     {
         abort_unless(Schema::hasTable('finishing_station_status_events'), 503, 'ระบบสถานะสถานียังไม่พร้อมใช้งาน');
+        $this->assertStationEnabled($station);
         $data = $request->validate([
             'is_machine_on' => ['required', 'boolean'],
             'reason' => ['required', 'string', 'min:2', 'max:500'],
@@ -497,6 +554,24 @@ class FinishingApiController
             $rows[] = [$log->shift_date->format('Y-m-d'), $log->shift, $log->station?->name, $log->user?->name, $log->material?->code ?: $log->material?->name, $log->quantity_in, $log->quantity_out, $log->defect_count, $log->ft_count, $log->sub_type, $log->status];
         }
 
+        return $this->xlsxDownload($rows, 'Finishing', 'finishing-production.xlsx');
+    }
+
+    public function exportDowntimeReport(Request $request, DowntimeReportService $downtime)
+    {
+        $filters = $request->validate(['date_from' => ['nullable', 'date'], 'date_to' => ['nullable', 'date'], 'station_id' => ['nullable', 'integer']]);
+        $report = $downtime->build($filters['date_from'] ?? null, $filters['date_to'] ?? null, isset($filters['station_id']) ? (int) $filters['station_id'] : null);
+        $rows = [['สถานี', 'ชื่อสถานี', 'หยุดเมื่อ', 'เดินต่อเมื่อ', 'เวลาหยุด (นาที)', 'เหตุผลหยุด', 'ผู้กดหยุด', 'เหตุผลเริ่ม', 'ผู้กดเริ่ม']];
+        foreach ($report['periods'] as $period) {
+            $rows[] = [$period['station_code'], $period['station_name'], $period['stopped_at_text'], $period['ongoing'] ? 'ยังหยุดอยู่' : $period['resumed_at_text'], $period['minutes'], $period['reason'], $period['stopped_by'], $period['resume_reason'], $period['resumed_by']];
+        }
+
+        return $this->xlsxDownload($rows, 'Downtime', 'finishing-downtime.xlsx');
+    }
+
+    /** @param list<list<scalar|null>> $rows first row is the header */
+    private function xlsxDownload(array $rows, string $sheetName, string $fileName)
+    {
         $lastColumn = $this->excelColumn(count($rows[0]));
         $sheetRows = '';
         foreach ($rows as $rowIndex => $row) {
@@ -516,7 +591,7 @@ class FinishingApiController
         }
 
         $sheet = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
-            .'<worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><dimension ref="A1:'.$lastColumn.count($rows).'"/><sheetViews><sheetView workbookViewId="0"/></sheetViews><sheetFormatPr defaultRowHeight="18"/><cols><col min="1" max="11" width="20" customWidth="1"/></cols><sheetData>'.$sheetRows.'</sheetData></worksheet>';
+            .'<worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><dimension ref="A1:'.$lastColumn.count($rows).'"/><sheetViews><sheetView workbookViewId="0"/></sheetViews><sheetFormatPr defaultRowHeight="18"/><cols><col min="1" max="'.count($rows[0]).'" width="20" customWidth="1"/></cols><sheetData>'.$sheetRows.'</sheetData></worksheet>';
         $styles = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
             .'<styleSheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><fonts count="2"><font><sz val="11"/><name val="Arial"/></font><font><b/><sz val="11"/><color rgb="FFFFFFFF"/><name val="Arial"/></font></fonts><fills count="3"><fill><patternFill patternType="none"/></fill><fill><patternFill patternType="gray125"/></fill><fill><patternFill patternType="solid"><fgColor rgb="FF00855A"/><bgColor indexed="64"/></patternFill></fill></fills><borders count="1"><border><left/><right/><top/><bottom/><diagonal/></border></borders><cellStyleXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0"/></cellStyleXfs><cellXfs count="2"><xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0"/><xf numFmtId="0" fontId="1" fillId="2" borderId="0" xfId="0" applyFont="1" applyFill="1"/></cellXfs></styleSheet>';
         $path = tempnam(sys_get_temp_dir(), 'finishing-');
@@ -526,13 +601,13 @@ class FinishingApiController
         }
         $zip->addFromString('[Content_Types].xml', '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/><Override PartName="/xl/worksheets/sheet1.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/><Override PartName="/xl/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml"/></Types>');
         $zip->addFromString('_rels/.rels', '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/></Relationships>');
-        $zip->addFromString('xl/workbook.xml', '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><sheets><sheet name="Finishing" sheetId="1" r:id="rId1"/></sheets></workbook>');
+        $zip->addFromString('xl/workbook.xml', '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><sheets><sheet name="'.e($sheetName).'" sheetId="1" r:id="rId1"/></sheets></workbook>');
         $zip->addFromString('xl/_rels/workbook.xml.rels', '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet1.xml"/><Relationship Id="rId2" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/></Relationships>');
         $zip->addFromString('xl/worksheets/sheet1.xml', $sheet);
         $zip->addFromString('xl/styles.xml', $styles);
         $zip->close();
 
-        return response()->download($path, 'finishing-production.xlsx', ['Content-Type' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'])->deleteFileAfterSend(true);
+        return response()->download($path, $fileName, ['Content-Type' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'])->deleteFileAfterSend(true);
     }
 
     private function excelColumn(int $number): string
@@ -586,6 +661,34 @@ class FinishingApiController
         }
 
         return (float) $tagCode->qty;
+    }
+
+    /** A finished Job (จบงาน) is locked: its tags, weights and raw materials can no longer change. */
+    private function assertJobOpen(?int $jobId, string $field): void
+    {
+        if ($jobId && FinishingJob::query()->whereKey($jobId)->where('status', 'completed')->exists()) {
+            throw ValidationException::withMessages([$field => 'Job นี้จบงานแล้ว แก้ไขไม่ได้']);
+        }
+    }
+
+    private function assertStationEnabled(FinishingStation $station): void
+    {
+        if (! $station->is_enabled) {
+            throw ValidationException::withMessages(['station_id' => "สถานี {$station->code} ยังไม่เปิดใช้งาน"]);
+        }
+    }
+
+    /** One Job = one product type: every tag must match the type set by the Job's first tag. */
+    private function assertJobProductType(FinishingJob $job, array $productType): void
+    {
+        $jobType = $job->product_type_code;
+        $tagType = $productType['product_type_code'] ?? null;
+        if (! $jobType || ! $tagType || strtoupper($jobType) === strtoupper($tagType)) {
+            return;
+        }
+        $label = fn (string $code, ?string $name) => $name ? "{$code} ({$name})" : $code;
+        throw ValidationException::withMessages(['raw_scan_code' => 'Tag นี้เป็นสินค้า '.$label($tagType, $productType['product_type_name'] ?? null)
+            .' แต่ Job นี้เป็นสินค้า '.$label($jobType, $job->product_type_name).' · 1 Job ได้ 1 ประเภทสินค้า กรุณาเปิด Job ใหม่']);
     }
 
     private function assertReceiptUsable(object $receipt, FinishingJob $job): void

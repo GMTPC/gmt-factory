@@ -11,6 +11,7 @@ Route::middleware(['web', RequireAuthentication::class])->prefix('api/finishing'
     Route::post('/jobs/{job}/wip-stock', [FinishingApiController::class, 'receiveJobWip'])->name('jobs.wip-stock');
     Route::get('/jobs/{job}/scan-preview', [FinishingApiController::class, 'previewJobScan'])->name('jobs.scan-preview');
     Route::post('/jobs/{job}/scan', [FinishingApiController::class, 'scanJobWip'])->name('jobs.scan');
+    Route::put('/jobs/{job}/raw-materials', [FinishingApiController::class, 'updateJobRawMaterials'])->name('jobs.raw-materials');
     Route::patch('/jobs/{job}/complete', [FinishingApiController::class, 'completeJob'])->name('jobs.complete');
 
     Route::get('/stations', [FinishingApiController::class, 'stations'])->name('stations.index');
@@ -26,6 +27,7 @@ Route::middleware(['web', RequireAuthentication::class])->prefix('api/finishing'
     Route::post('/production-logs', [FinishingApiController::class, 'storeLog'])->name('production-logs.store');
     Route::get('/production-logs/{productionLog}', [FinishingApiController::class, 'showLog'])->name('production-logs.show');
     Route::patch('/production-logs/{productionLog}', [FinishingApiController::class, 'updateLog'])->name('production-logs.update');
+    Route::patch('/production-logs/{productionLog}/weight', [FinishingApiController::class, 'updateLogWeight'])->name('production-logs.weight');
     Route::patch('/production-logs/{productionLog}/confirm', [FinishingApiController::class, 'confirmLog'])->name('production-logs.confirm');
     Route::patch('/production-logs/{productionLog}/cancel', [FinishingApiController::class, 'cancelLog'])->name('production-logs.cancel');
     Route::put('/production-logs/{productionLog}/defects', [FinishingApiController::class, 'saveDefectEntries'])->name('production-logs.defects');
@@ -35,4 +37,5 @@ Route::middleware(['web', RequireAuthentication::class])->prefix('api/finishing'
     Route::get('/reports/daily', [FinishingApiController::class, 'dailyReport'])->name('reports.daily');
     Route::get('/reports/defects', [FinishingApiController::class, 'defectReport'])->name('reports.defects');
     Route::get('/reports/export', [FinishingApiController::class, 'exportReport'])->name('reports.export');
+    Route::get('/reports/downtime-export', [FinishingApiController::class, 'exportDowntimeReport'])->name('reports.downtime-export');
 });

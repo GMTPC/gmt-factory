@@ -3,6 +3,7 @@ import { Link, usePage } from '@inertiajs/vue3'
 import { computed } from 'vue'
 import { lineFromUrl, lineStyle } from '@/lib/cut-board-line'
 import FinishingMobileNav from '@/components/FinishingMobileNav.vue'
+import ToastStack from '@/components/ToastStack.vue'
 
 const page = usePage()
 const currentLine = computed(() => lineFromUrl(page.url))
@@ -38,7 +39,7 @@ withDefaults(defineProps<{
                 <h1 class="text-2xl font-semibold text-slate-900">{{ title }}</h1>
             </div>
             <nav v-if="isFinishing" class="hidden flex-wrap gap-2 text-sm md:flex">
-                <Link href="/finishing" class="rounded-lg border border-slate-200 bg-white px-3 py-2 text-slate-700 hover:bg-slate-50">เลือกสถานี</Link>
+                <Link href="/finishing?choose=1" class="rounded-lg border border-slate-200 bg-white px-3 py-2 text-slate-700 hover:bg-slate-50">เลือกสถานี</Link>
                 <Link href="/finishing/dashboard" class="rounded-lg border border-slate-200 bg-white px-3 py-2 text-slate-700 hover:bg-slate-50">ผังเครื่องจักร</Link>
                 <Link href="/finishing/reports" class="rounded-lg border border-slate-200 bg-white px-3 py-2 text-slate-700 hover:bg-slate-50">รายงาน</Link>
             </nav>
@@ -60,4 +61,5 @@ withDefaults(defineProps<{
         <slot />
     </div>
     <FinishingMobileNav v-if="isFinishing" />
+    <ToastStack />
 </template>
