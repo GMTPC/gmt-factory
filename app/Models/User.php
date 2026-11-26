@@ -34,4 +34,12 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    /** Finishing department staff: Finishing-only menu, home goes to the Finishing dashboard. */
+    public function isFinishingDepartment(): bool
+    {
+        $department = mb_strtolower(trim((string) $this->department));
+
+        return $department !== '' && in_array($department, config('finishing.departments', []), true);
+    }
 }

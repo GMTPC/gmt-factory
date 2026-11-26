@@ -12,13 +12,13 @@ require __DIR__.'/web/product-catalog.php';
 
 Route::middleware(RequireAuthentication::class)->group(function () {
 
-Route::get('/', function () {
-    return redirect()->route('wms.cut-boards');
-})->name('index');
+$homeRedirect = fn () => request()->user()?->isFinishingDepartment()
+    ? redirect()->route('finishing.overview')
+    : redirect()->route('wms.cut-boards');
 
-Route::get('/index', function () {
-    return redirect()->route('wms.cut-boards');
-})->name('index');
+Route::get('/', $homeRedirect)->name('index');
+
+Route::get('/index', $homeRedirect)->name('index');
 
 Route::get('/accounts-payable', function () {
     return view('accounts-payable');

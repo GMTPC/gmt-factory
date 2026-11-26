@@ -475,7 +475,7 @@ function shiftLabel(value: string) { return value === 'day' ? 'กะเช้�
                         <div class="flex gap-2 border-t border-slate-200 p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
                             <button type="button" class="min-h-11 flex-1 rounded border border-slate-300 px-4 font-semibold" @click="tagPreview = null">ปิด</button>
                             <button v-if="!touchOnly" type="button" class="flex min-h-11 flex-[2] items-center justify-center gap-2 rounded bg-emerald-700 px-4 font-bold text-white" @click="printTag"><i class="ph ph-printer text-lg" aria-hidden="true"></i>พิมพ์ Tag</button>
-                            <button v-else type="button" :disabled="tagPrinting" class="flex min-h-11 flex-[2] items-center justify-center gap-2 rounded bg-emerald-700 px-4 font-bold text-white disabled:opacity-60" @click="printTag"><i class="ph ph-printer text-lg" aria-hidden="true"></i>{{ tagPrinting ? 'กำลังเตรียมพิมพ์...' : 'พิมพ์ Tag' }}</button>
+                            <button v-else type="button" :disabled="tagPrinting" class="flex min-h-11 flex-[2] items-center justify-center gap-2 rounded bg-emerald-700 px-4 font-bold text-white disabled:opacity-60" @click="printTag"><i class="ph ph-file-pdf text-lg" aria-hidden="true"></i>เปิด PDF เพื่อพิมพ์</button>
                         </div>
                     </div>
                 </div>

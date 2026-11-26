@@ -6,6 +6,7 @@ use Modules\Finishing\App\Http\Controllers\FinishingPageController;
 
 Route::middleware(['web', RequireAuthentication::class])->prefix('finishing')->name('finishing.')->group(function () {
     Route::get('/', [FinishingPageController::class, 'selectStation'])->name('stations.index');
+    Route::get('/overview', [FinishingPageController::class, 'overview'])->name('overview');
     Route::get('/dashboard', [FinishingPageController::class, 'dashboard'])->name('dashboard');
     Route::get('/reports', [FinishingPageController::class, 'reports'])->name('reports');
     Route::get('/daily', [FinishingPageController::class, 'dailySummary'])->name('daily');

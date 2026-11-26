@@ -61,8 +61,14 @@ export async function printHtml(url: string): Promise<void> {
     window.print()
 }
 
-/** Print a Finishing tag: PDF in a hidden frame on desktop, in-page HTML straight to the print dialog on phones. */
+/**
+ * Print a Finishing tag: PDF in a hidden frame on desktop; on phones open the mPDF PDF in a new tab.
+ * (In-page HTML printing via printHtml() printed blank pages on the Android handheld, so it is not used for now.)
+ */
 export async function printTag(tagUrl: string): Promise<void> {
-    if (isTouchOnly()) return printHtml(`${tagUrl}-print`)
+    if (isTouchOnly()) {
+        window.open(tagUrl, '_blank', 'noopener')
+        return
+    }
     printPdf(tagUrl)
 }

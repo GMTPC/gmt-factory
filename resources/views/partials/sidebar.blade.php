@@ -2,13 +2,13 @@
 <aside class="sidebar" id="sidebar">
     <div class="sidebar-logo">
         <div class="flex items-center">
-            <a href="{{ url('cut-boards') }}" class="logo logo-normal">
+            <a href="{{ url('/') }}" class="logo logo-normal">
                 <img src="{{ asset('Login_v1/images/img-02.png') }}" class="max-h-10 max-w-40 object-contain" alt="Gypman Tech Logo">
             </a>
-            <a href="{{ url('cut-boards') }}" class="logo-small">
+            <a href="{{ url('/') }}" class="logo-small">
                 <img src="{{ asset('Login_v1/images/img-02.png') }}" class="max-h-10 max-w-10 object-contain" alt="Gypman Tech Logo">
             </a>
-            <a href="{{ url('cut-boards') }}" class="dark-logo">
+            <a href="{{ url('/') }}" class="dark-logo">
                 <img src="{{ asset('Login_v1/images/img-02.png') }}" class="max-h-10 max-w-40 object-contain" alt="Gypman Tech Logo">
             </a>
         </div>
@@ -25,6 +25,8 @@
     <div class="sidebar-inner" data-simplebar>
         <div id="sidebar-menu" class="sidebar-menu">
             <ul role="menu" aria-label="เมนู Cut Board">
+                @php($finishingOnly = (bool) auth()->user()?->isFinishingDepartment())
+                @unless ($finishingOnly)
                 @php($canManageUsers = in_array(strtolower((string) auth()->user()?->username), config('cutboard.manager_usernames', ['manager']), true))
                 @php($isMasterMenuActive = request()->routeIs('products') || request()->routeIs('master-product-specs.*') || request()->routeIs('master-product-groups.*') || request()->routeIs('master-brands.*') || request()->routeIs('master-edges.*') || request()->routeIs('master-faces.*') || request()->routeIs('master-sheet-types.*') || request()->routeIs('master-sizes.*') || request()->routeIs('master-thicknesses.*') || request()->routeIs('master-users.*'))
                 <li class="submenu {{ $isMasterMenuActive ? 'open' : '' }}">
@@ -72,8 +74,9 @@
                         <span>BX Print</span>
                     </a>
                 </li>
+                @endunless
                 @php($isFinishingActive = request()->routeIs('finishing.*'))
-                <li class="menu-title mt-3" aria-disabled="true"><span>Finishing Production</span></li>
+                <li class="menu-title {{ $finishingOnly ? '' : 'mt-3' }}" aria-disabled="true"><span>Finishing Production</span></li>
                 <li>
                     <a href="{{ route('finishing.stations.index') }}" class="{{ request()->routeIs('finishing.stations.*', 'finishing.station.record') ? 'active' : '' }}">
                         <i class="ph-duotone ph-factory"></i>
@@ -81,9 +84,15 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('finishing.dashboard') }}" class="{{ request()->routeIs('finishing.dashboard') ? 'active' : '' }}">
+                    <a href="{{ route('finishing.overview') }}" class="{{ request()->routeIs('finishing.overview') ? 'active' : '' }}">
                         <i class="ph-duotone ph-chart-line-up"></i>
                         <span>Dashboard Finishing</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('finishing.dashboard') }}" class="{{ request()->routeIs('finishing.dashboard') ? 'active' : '' }}">
+                        <i class="ph-duotone ph-flow-arrow"></i>
+                        <span>ผังเครื่องจักร</span>
                     </a>
                 </li>
                 <li>
@@ -98,6 +107,7 @@
                         <span>รายงาน Finishing</span>
                     </a>
                 </li>
+                @unless ($finishingOnly)
                 @php($activeCutBoardLine = request()->routeIs('cut-board.lines.*') ? request()->route('line') : null)
                 @php($activeCutBoardPanel = request()->route('section') ?? (request()->routeIs('cut-board.lines.history') ? 'history' : null))
                 @php($cutBoardLineColors = ['L1' => '#059669', 'L2' => '#d97706', 'L3' => '#0369a1', 'L4' => '#7c3aed'])
@@ -133,6 +143,7 @@
                         </a>
                     </li>
                 @endforeach
+                @endunless
             </ul>
         </div>
     </div>

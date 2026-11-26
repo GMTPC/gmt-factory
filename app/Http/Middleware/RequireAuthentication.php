@@ -36,6 +36,15 @@ class RequireAuthentication
             return redirect()->route('login');
         }
 
+        // Finishing department staff only use the Finishing module.
+        if ($request->user()->isFinishingDepartment() && ! $request->routeIs('finishing.*', 'api.finishing.*', 'index', 'logout')) {
+            if ($request->expectsJson() || ! $request->isMethod('GET')) {
+                abort(403, 'แผนกฟินิชชิ่งใช้งานได้เฉพาะเมนู Finishing');
+            }
+
+            return redirect()->route('finishing.overview');
+        }
+
         return $next($request);
     }
 }

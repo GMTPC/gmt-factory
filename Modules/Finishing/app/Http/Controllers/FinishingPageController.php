@@ -397,6 +397,95 @@ class FinishingPageController
         return Inertia::render('Finishing/StationHistory', ['station' => $stationModel, 'logs' => $logs, 'filters' => $filters]);
     }
 
+    /** Finishing home: today's production at a glance (by Job date, same as the daily summary). */
+    public function overview(): Response
+    {
+        $tz = config('finishing.timezone', 'Asia/Bangkok');
+        $today = now($tz)->toDateString();
+        $statusReady = Schema::hasTable('finishing_station_status_events');
+        $stationsQuery = FinishingStation::query()->with(['jobs' => fn ($q) => $q->where('status', 'active')->orderByDesc('id')
+            ->select(['id', 'station_id', 'status', 'shift_date', 'shift', 'product_type_code', 'product_type_name', 'employee_names', 'inspector_name', 'created_at'])
+            ->withCount(['productionLogs as tag_count' => fn ($logs) => $logs->where('status', 'confirmed')])])->orderBy('id');
+        if ($statusReady) {
+            $stationsQuery->with('latestStatusEvent.user');
+        }
+        $stations = $stationsQuery->get();
+
+        $logs = ProductionLog::query()->with(['station:id,code', 'user:id,name'])
+            ->where('status', 'confirmed')->whereDate('shift_date', $today)->orderByDesc('id')
+            ->get(['id', 'station_id', 'job_id', 'user_id', 'shift', 'quantity_in', 'quantity_out', 'defect_count', 'weight_kg', 'output_lot', 'output_tag_code', 'output_material_id', 'product_type_code', 'product_type_name', 'created_at']);
+        $downtime = app(DowntimeReportService::class)->build($today, $today, null);
+        $sum = fn ($rows, string $field) => round((float) $rows->sum($field), 3);
+
+        return Inertia::render('Finishing/Overview', [
+            'date' => $today,
+            'shift' => app(ShiftService::class)->current(),
+            'kpis' => [
+                'active_jobs' => $stations->sum(fn ($station) => $station->jobs->count()),
+                'tags' => $logs->count(),
+                'quantity_in' => $sum($logs, 'quantity_in'),
+                'quantity_out' => $sum($logs, 'quantity_out'),
+                'weight_kg' => $sum($logs, 'weight_kg'),
+                'defects' => $sum($logs, 'defect_count'),
+                'running' => $stations->where('is_enabled', true)->where('is_machine_on', true)->count(),
+                'enabled' => $stations->where('is_enabled', true)->count(),
+                'downtime_minutes' => $downtime['total_minutes'],
+                'stops' => $downtime['stop_count'],
+            ],
+            'stations' => $stations->map(fn (FinishingStation $station) => [
+                'id' => $station->id,
+                'code' => $station->code,
+                'name' => $station->name,
+                'is_enabled' => $station->is_enabled,
+                'is_machine_on' => (bool) $station->is_machine_on,
+                'status_reason' => $statusReady ? $station->latestStatusEvent?->reason : null,
+                'status_since' => $statusReady ? $station->latestStatusEvent?->created_at?->toIso8601String() : null,
+                'jobs' => $station->jobs->map(fn (FinishingJob $job) => [
+                    'id' => $job->id,
+                    'shift' => $job->shift,
+                    'shift_date' => $job->shift_date?->toDateString(),
+                    'product_type_code' => $job->product_type_code,
+                    'product_type_name' => $job->product_type_name,
+                    'employees' => collect($job->employee_names ?? [])->map(fn ($item) => is_array($item) ? ($item['name'] ?? '') : (string) $item)->filter()->values(),
+                    'inspector_name' => $job->inspector_name,
+                    'tag_count' => (int) $job->tag_count,
+                    'started_at' => $job->created_at?->copy()->timezone($tz)->format('H:i'),
+                ])->values(),
+                'today_tags' => $logs->where('station_id', $station->id)->count(),
+                'today_quantity_out' => $sum($logs->where('station_id', $station->id), 'quantity_out'),
+                'today_weight_kg' => $sum($logs->where('station_id', $station->id), 'weight_kg'),
+                'today_downtime_minutes' => collect($downtime['byStation'])->firstWhere('station_code', $station->code)['minutes'] ?? 0,
+            ])->values(),
+            'byProduct' => $logs->groupBy(fn ($log) => $log->product_type_code ?: '-')->map(fn ($rows, $code) => [
+                'code' => $code,
+                'name' => $rows->first()->product_type_name,
+                'tags' => $rows->count(),
+                'quantity_out' => $sum($rows, 'quantity_out'),
+                'weight_kg' => $sum($rows, 'weight_kg'),
+            ])->sortByDesc('quantity_out')->values(),
+            'byShift' => collect(['day', 'night'])->map(fn ($shift) => [
+                'shift' => $shift,
+                'tags' => $logs->where('shift', $shift)->count(),
+                'quantity_out' => $sum($logs->where('shift', $shift), 'quantity_out'),
+                'weight_kg' => $sum($logs->where('shift', $shift), 'weight_kg'),
+            ]),
+            'recent' => $logs->take(10)->map(fn (ProductionLog $log) => [
+                'id' => $log->id,
+                'job_id' => $log->job_id,
+                'station_code' => $log->station?->code,
+                'time' => $log->created_at?->copy()->timezone($tz)->format('H:i'),
+                'product_type_code' => $log->product_type_code,
+                'lot' => $log->output_lot,
+                'tag_code' => $log->output_tag_code,
+                'quantity_out' => (float) $log->quantity_out,
+                'weight_kg' => $log->weight_kg !== null ? (float) $log->weight_kg : null,
+                'recorded_by' => $log->user?->name,
+                'tag_url' => $log->output_material_id ? route('finishing.production.tag', ['productionLog' => $log->id]) : null,
+            ])->values(),
+            'downtime' => array_slice($downtime['periods'], 0, 8),
+        ]);
+    }
+
     public function dashboard(): Response
     {
         $today = now(config('finishing.timezone', config('app.timezone')))->toDateString();

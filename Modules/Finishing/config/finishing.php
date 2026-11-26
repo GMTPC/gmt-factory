@@ -6,6 +6,11 @@ return [
         'day' => ['starts_at' => '08:00', 'ends_at' => '17:00'],
         'night' => ['starts_at' => '17:00', 'ends_at' => '08:00'],
     ],
+    // Users in these departments (users.department, case-insensitive) see only the Finishing menu and land on the Finishing dashboard.
+    'departments' => array_values(array_filter(array_map(
+        fn (string $name) => mb_strtolower(trim($name)),
+        explode(',', (string) env('FINISHING_DEPARTMENTS', 'ฟินิชชิ่ง,Finishing')),
+    ))),
     'admin_usernames' => array_values(array_filter(array_map(
         'strtolower',
         explode(',', (string) env('FINISHING_ADMIN_USERNAMES', 'manager')),
