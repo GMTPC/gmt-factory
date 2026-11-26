@@ -14,6 +14,10 @@ Route::middleware(['web', RequireAuthentication::class])->prefix('api/finishing'
     Route::put('/jobs/{job}/raw-materials', [FinishingApiController::class, 'updateJobRawMaterials'])->name('jobs.raw-materials');
     Route::patch('/jobs/{job}/complete', [FinishingApiController::class, 'completeJob'])->name('jobs.complete');
 
+    Route::post('/employees', [FinishingApiController::class, 'storeEmployee'])->name('employees.store');
+    Route::patch('/employees/{employee}', [FinishingApiController::class, 'updateEmployee'])->name('employees.update');
+    Route::delete('/employees/{employee}', [FinishingApiController::class, 'destroyEmployee'])->name('employees.destroy');
+
     Route::get('/stations', [FinishingApiController::class, 'stations'])->name('stations.index');
     Route::get('/stations/{station}', [FinishingApiController::class, 'station'])->name('stations.show');
     Route::patch('/stations/{station}/machine', [FinishingApiController::class, 'toggleMachine'])->name('stations.machine');

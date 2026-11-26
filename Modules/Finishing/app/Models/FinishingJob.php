@@ -38,6 +38,12 @@ class FinishingJob extends Model
         return $this->belongsTo(FinishingMaterial::class, 'material_id');
     }
 
+    /** Who worked on this Job and when (for employee processing hours). */
+    public function workers(): HasMany
+    {
+        return $this->hasMany(FinishingJobEmployee::class, 'job_id');
+    }
+
     public function productionLogs(): HasMany
     {
         return $this->hasMany(ProductionLog::class, 'job_id');

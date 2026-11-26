@@ -28,7 +28,7 @@
                 @php($finishingOnly = (bool) auth()->user()?->isFinishingDepartment())
                 @unless ($finishingOnly)
                 @php($canManageUsers = in_array(strtolower((string) auth()->user()?->username), config('cutboard.manager_usernames', ['manager']), true))
-                @php($isMasterMenuActive = request()->routeIs('products') || request()->routeIs('master-product-specs.*') || request()->routeIs('master-product-groups.*') || request()->routeIs('master-brands.*') || request()->routeIs('master-edges.*') || request()->routeIs('master-faces.*') || request()->routeIs('master-sheet-types.*') || request()->routeIs('master-sizes.*') || request()->routeIs('master-thicknesses.*') || request()->routeIs('master-users.*'))
+                @php($isMasterMenuActive = request()->routeIs('products') || request()->routeIs('master-product-specs.*') || request()->routeIs('master-product-groups.*') || request()->routeIs('master-brands.*') || request()->routeIs('master-edges.*') || request()->routeIs('master-faces.*') || request()->routeIs('master-sheet-types.*') || request()->routeIs('master-sizes.*') || request()->routeIs('master-thicknesses.*') || request()->routeIs('master-users.*') || request()->routeIs('system.*'))
                 <li class="submenu {{ $isMasterMenuActive ? 'open' : '' }}">
                     <a href="{{ route('products') }}" data-navigate-submenu="true" class="{{ $isMasterMenuActive ? 'active subdrop' : '' }}" aria-expanded="{{ $isMasterMenuActive ? 'true' : 'false' }}">
                         <i class="ph-duotone ph-database"></i>
@@ -41,6 +41,7 @@
                         <li><a href="{{ route('master-product-groups.index') }}" class="{{ request()->routeIs('master-product-groups.*') ? 'active' : '' }}">Product Groups</a></li>
                         @if ($canManageUsers)
                             <li><a href="{{ route('master-users.index') }}" class="{{ request()->routeIs('master-users.*') ? 'active' : '' }}">Users</a></li>
+                            <li><a href="{{ route('system.deploy') }}" class="{{ request()->routeIs('system.deploy') ? 'active' : '' }}">Deploy Status</a></li>
                         @endif
                         @foreach ([
                             'master-brands' => 'Brands',
@@ -99,6 +100,12 @@
                     <a href="{{ route('finishing.daily') }}" class="{{ request()->routeIs('finishing.daily') ? 'active' : '' }}">
                         <i class="ph-duotone ph-calendar-check"></i>
                         <span>สรุปการคัดตามวัน</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('finishing.employees') }}" class="{{ request()->routeIs('finishing.employees') ? 'active' : '' }}">
+                        <i class="ph-duotone ph-users-three"></i>
+                        <span>พนักงาน Finishing</span>
                     </a>
                 </li>
                 <li>

@@ -202,7 +202,7 @@ function employeeLabel(employee: string | { name: string }) { return typeof empl
                                     <label v-for="employee in filteredEmployees" :key="employee" class="flex cursor-pointer items-center gap-3 rounded px-3 py-2 hover:bg-[var(--hmi-panel)]"><input v-model="form.employee_names" type="checkbox" :value="employee" class="rounded border-slate-400 text-red-600 focus:ring-red-500" /><span>{{ employee }}</span></label>
                                     <p v-if="!filteredEmployees.length" class="m-0 px-3 py-4 text-center text-[var(--hmi-mute)]">ไม่พบรายชื่อพนักงาน</p>
                                 </div>
-                                <div class="flex items-center justify-between border-t border-[var(--hmi-line)] bg-[var(--hmi-panel)] px-3 py-2"><button type="button" class="font-semibold text-[var(--hmi-text)]" @click="form.employee_names = []">ล้างค่า</button><button type="button" class="font-bold text-red-700" @click="showEmployeeDropdown = false; employeeSearch = ''">เสร็จ</button></div>
+                                <div class="flex items-center justify-between border-t border-[var(--hmi-line)] bg-[var(--hmi-panel)] px-3 py-2"><button type="button" class="font-semibold text-[var(--hmi-text)]" @click="form.employee_names = []">ล้างค่า</button><Link href="/finishing/employees" class="text-xs font-semibold text-emerald-800 underline">จัดการรายชื่อพนักงาน ›</Link><button type="button" class="font-bold text-red-700" @click="showEmployeeDropdown = false; employeeSearch = ''">เสร็จ</button></div>
                             </div>
                         </template>
                         <p v-else class="m-0 rounded border border-amber-300 bg-amber-50 p-3 text-amber-800">ยังไม่มีรายชื่อพนักงาน</p>

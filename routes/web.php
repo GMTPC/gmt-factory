@@ -971,6 +971,7 @@ Route::get('/user-management', function () {
     return view('user-management');
 })->name('user-management');
 
+Route::get('/system/deploy', \App\Http\Controllers\System\DeployStatusController::class)->name('system.deploy');
 Route::get('/master/users', [UserController::class, 'index'])->name('master-users.index');
 Route::post('/master/users', [UserController::class, 'store'])->name('master-users.store');
 Route::get('/master/users/{user}/edit', [UserController::class, 'edit'])->name('master-users.edit');

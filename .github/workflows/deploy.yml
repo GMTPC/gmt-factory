@@ -36,6 +36,12 @@ jobs:
       - name: Deploy to IIS
         shell: powershell
         working-directory: source
+        env:
+          DEPLOY_SHA: ${{ github.sha }}
+          DEPLOY_RUN_NUMBER: ${{ github.run_number }}
+          DEPLOY_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          DEPLOY_ACTOR: ${{ github.actor }}
+          DEPLOY_MESSAGE: ${{ github.event.head_commit.message }}
         run: |
           $ErrorActionPreference = 'Stop'
           $app = 'C:\inetpub\wwwroot\gmt-factory'
@@ -63,6 +69,19 @@ jobs:
               Invoke-Checked $php @('artisan', 'event:clear')
               Invoke-Checked $php @('artisan', 'view:clear')
               Invoke-Checked $php @('artisan', 'config:cache')
+
+              # Shown on /system/deploy so anyone can check which commit this server runs.
+              $info = [ordered]@{
+                sha = $env:DEPLOY_SHA
+                run_number = [int]$env:DEPLOY_RUN_NUMBER
+                run_url = $env:DEPLOY_RUN_URL
+                actor = $env:DEPLOY_ACTOR
+                message = ($env:DEPLOY_MESSAGE -split "`n")[0]
+                deployed_at = (Get-Date).ToUniversalTime().ToString('o')
+              }
+              $infoPath = Join-Path $app 'storage\app\deploy-info.json'
+              New-Item -ItemType Directory -Force -Path (Split-Path $infoPath) | Out-Null
+              [System.IO.File]::WriteAllText($infoPath, ($info | ConvertTo-Json), (New-Object System.Text.UTF8Encoding($false)))
             }
             finally {
               Pop-Location

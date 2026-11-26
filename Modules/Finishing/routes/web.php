@@ -10,6 +10,7 @@ Route::middleware(['web', RequireAuthentication::class])->prefix('finishing')->n
     Route::get('/dashboard', [FinishingPageController::class, 'dashboard'])->name('dashboard');
     Route::get('/reports', [FinishingPageController::class, 'reports'])->name('reports');
     Route::get('/daily', [FinishingPageController::class, 'dailySummary'])->name('daily');
+    Route::get('/employees', [FinishingPageController::class, 'employees'])->name('employees');
     Route::get('/daily/export', [FinishingPageController::class, 'exportDaily'])->name('daily.export');
     Route::get('/jobs/{job}/export', [FinishingPageController::class, 'exportJob'])->whereNumber('job')->name('jobs.export');
     Route::get('/station/{station}/record', [FinishingPageController::class, 'stationJobs'])->where('station', 'ST[1-6]')->name('station.record');

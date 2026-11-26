@@ -35,4 +35,11 @@ return [
         ],
     ],
 
+    // Deploy status page (/system/deploy): read-only GitHub Actions access.
+    'github' => [
+        'token' => env('GITHUB_DEPLOY_TOKEN'),
+        'repository' => env('GITHUB_REPOSITORY', 'GMTPC/gmt-factory'),
+        'deploy_workflow' => env('GITHUB_DEPLOY_WORKFLOW', 'deploy.yml'),
+    ],
+
 ];

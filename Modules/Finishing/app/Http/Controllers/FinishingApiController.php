@@ -15,7 +15,9 @@ use InvalidArgumentException;
 use Throwable;
 use App\Models\Master\ProductTypeEmployee;
 use App\Models\User;
+use Modules\Finishing\App\Models\FinishingEmployee;
 use Modules\Finishing\App\Models\FinishingJob;
+use Modules\Finishing\App\Models\FinishingJobEmployee;
 use Modules\Finishing\App\Models\FinishingMaterial;
 use Modules\Finishing\App\Models\FinishingStation;
 use Modules\Finishing\App\Models\ProductionLog;
@@ -44,7 +46,7 @@ class FinishingApiController
         $data = $request->validate([
             'station_id' => ['required', 'exists:finishing_stations,id'],
             'employee_names' => ['required', 'array', 'min:1'],
-            'employee_names.*' => ['required', 'string', 'max:255', 'distinct', Rule::in(config('finishing.job_employees', []))],
+            'employee_names.*' => ['required', 'string', 'max:255', 'distinct', Rule::in(FinishingEmployee::options())],
             'machine_name' => ['required', 'string', 'max:120', Rule::in($station->jobMachineOptions())],
             'pvc_type' => ['required', 'string', 'max:100', Rule::in($station->jobPvcTypes())],
             'raw_material_name' => ['nullable', 'string', 'max:255', Rule::in(config('finishing.raw_materials', []))],
@@ -66,7 +68,7 @@ class FinishingApiController
                 'wip_type' => $station->input_material,
             ]);
 
-            return FinishingJob::query()->create([
+            $job = FinishingJob::query()->create([
                 'job_no' => sprintf('FN-%s-%s-%s', str_replace('-', '', $date), $station->code, Str::upper(Str::random(4))),
                 'station_id' => $station->id,
                 'material_id' => $material->id,
@@ -81,7 +83,10 @@ class FinishingApiController
                 'shift' => $shift,
                 'status' => 'active',
                 'notes' => $data['notes'] ?? null,
-            ])->load(['user', 'recorder', 'material'])->loadCount('productionLogs');
+            ]);
+            FinishingJobEmployee::startForJob($job, $employeeNames);
+
+            return $job->load(['user', 'recorder', 'material'])->loadCount('productionLogs');
         });
 
         return response()->json($job, 201);
@@ -258,6 +263,53 @@ class FinishingApiController
         return response()->json($log->load(['job', 'station', 'material', 'user']), 201);
     }
 
+    /** Staff master (พนักงาน Finishing): add / rename / activate. Jobs keep the names they were saved with. */
+    public function storeEmployee(Request $request): JsonResponse
+    {
+        $data = $this->validateEmployee($request);
+        $employee = FinishingEmployee::query()->create($data + ['is_active' => true]);
+
+        return response()->json($employee, 201);
+    }
+
+    public function updateEmployee(Request $request, FinishingEmployee $employee): JsonResponse
+    {
+        $data = $request->has('name') ? $this->validateEmployee($request, $employee) : [];
+        $data += $request->validate(['is_active' => ['sometimes', 'boolean']]);
+        $employee->update($data);
+
+        return response()->json($employee->fresh());
+    }
+
+    public function destroyEmployee(FinishingEmployee $employee): JsonResponse
+    {
+        $employee->delete();
+
+        return response()->json(['deleted' => true]);
+    }
+
+    private function validateEmployee(Request $request, ?FinishingEmployee $current = null): array
+    {
+        $data = $request->validate([
+            'name' => ['required', 'string', 'max:150'],
+            'nickname' => ['nullable', 'string', 'max:50'],
+        ], [
+            'name.required' => 'กรุณากรอกชื่อ-นามสกุล',
+            'name.max' => 'ชื่อยาวเกิน 150 ตัวอักษร',
+            'nickname.max' => 'ชื่อเล่นยาวเกิน 50 ตัวอักษร',
+        ]);
+        $data['name'] = trim(preg_replace('/\s+/u', ' ', $data['name']) ?? '');
+        $data['nickname'] = isset($data['nickname']) && trim($data['nickname']) !== '' ? trim($data['nickname']) : null;
+        $display = FinishingEmployee::displayName($data['name'], $data['nickname']);
+        $taken = FinishingEmployee::query()->where('display_name', $display)
+            ->when($current, fn ($q) => $q->whereKeyNot($current->id))->exists();
+        if ($taken) {
+            throw ValidationException::withMessages(['name' => "มีพนักงาน \"{$display}\" อยู่แล้ว"]);
+        }
+
+        return $data;
+    }
+
     /** After a tag is issued only its weight may be corrected; reprinting the tag shows the new weight. */
     public function updateLogWeight(Request $request, ProductionLog $productionLog): JsonResponse
     {
@@ -311,7 +363,11 @@ class FinishingApiController
         if ($job->productionLogs()->where('status', 'draft')->exists()) {
             throw ValidationException::withMessages(['status' => 'ยืนยันหรือยกเลิกรายการ draft ก่อนปิด Job']);
         }
-        $job->update(['status' => 'completed', 'completed_at' => now()]);
+        $completedAt = now();
+        DB::transaction(function () use ($job, $completedAt): void {
+            $job->update(['status' => 'completed', 'completed_at' => $completedAt]);
+            FinishingJobEmployee::endForJob($job, $completedAt);
+        });
 
         return response()->json($job->fresh()->loadCount('productionLogs'));
     }

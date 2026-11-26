@@ -10,7 +10,9 @@ use App\Models\User;
 use App\Services\CutBoard\TagCode;
 use Inertia\Inertia;
 use Inertia\Response;
+use Modules\Finishing\App\Models\FinishingEmployee;
 use Modules\Finishing\App\Models\FinishingJob;
+use Modules\Finishing\App\Models\FinishingJobEmployee;
 use Modules\Finishing\App\Models\FinishingStation;
 use Modules\Finishing\App\Models\ProductionLog;
 use Modules\Finishing\App\Services\BplusExportService;
@@ -49,7 +51,7 @@ class FinishingPageController
             'statusReady' => $statusReady,
             'jobs' => $jobs,
             'shift' => $shift,
-            'employeeOptions' => config('finishing.job_employees', []),
+            'employeeOptions' => FinishingEmployee::options(),
             'recorderOptions' => User::query()->orderBy('name')->get(['id', 'name']),
             'machineOptions' => $station->jobMachineOptions(),
             'pvcTypes' => $station->jobPvcTypes(),
@@ -117,6 +119,30 @@ class FinishingPageController
         return response($pdf, 200, [
             'Content-Type' => 'application/pdf',
             'Content-Disposition' => 'inline; filename="'.$fileName.'.pdf"',
+        ]);
+    }
+
+    /** Master: Finishing staff that can be picked when opening a Job. */
+    public function employees(): Response
+    {
+        $tz = config('finishing.timezone', 'Asia/Bangkok');
+        $today = now($tz)->startOfDay();
+        $month = now($tz)->startOfMonth();
+        $hasStints = Schema::hasTable('finishing_job_employees');
+        $todayMinutes = $hasStints ? FinishingJobEmployee::minutesByEmployee($today->copy()->utc(), $today->copy()->addDay()->utc()) : collect();
+        $monthMinutes = $hasStints ? FinishingJobEmployee::minutesByEmployee($month->copy()->utc(), $month->copy()->addMonth()->utc()) : collect();
+        $working = $hasStints ? FinishingJobEmployee::query()->whereNull('ended_at')->whereNotNull('employee_id')->pluck('employee_id')->unique()->flip() : collect();
+
+        return Inertia::render('Finishing/Employees', [
+            'employees' => FinishingEmployee::query()->orderByDesc('is_active')->orderBy('name')
+                ->get(['id', 'name', 'nickname', 'display_name', 'is_active', 'updated_at'])
+                ->map(fn (FinishingEmployee $employee) => $employee->toArray() + [
+                    'minutes_today' => (float) ($todayMinutes[$employee->id] ?? 0),
+                    'minutes_month' => (float) ($monthMinutes[$employee->id] ?? 0),
+                    'working_now' => $working->has($employee->id),
+                ]),
+            'monthLabel' => $month->locale('th')->translatedFormat('F').' '.($month->year + 543),
+            'csrf' => csrf_token(),
         ]);
     }
 
