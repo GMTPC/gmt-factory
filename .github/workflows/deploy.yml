@@ -58,6 +58,7 @@ jobs:
 
             Push-Location $app
             try {
+              Invoke-Checked $php @('artisan', 'config:clear')
               Invoke-Checked $php @('artisan', 'migrate', '--force')
               Invoke-Checked $php @('artisan', 'optimize')
             }
