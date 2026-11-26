@@ -10,7 +10,7 @@ permissions:
 
 concurrency:
   group: gmt-factory-production
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   deploy:
@@ -58,8 +58,11 @@ jobs:
 
             Push-Location $app
             try {
-              Invoke-Checked $php @('artisan', 'migrate', '--force')
-              Invoke-Checked $php @('artisan', 'optimize')
+              Invoke-Checked $php @('artisan', 'config:clear')
+              Invoke-Checked $php @('artisan', 'route:clear')
+              Invoke-Checked $php @('artisan', 'event:clear')
+              Invoke-Checked $php @('artisan', 'view:clear')
+              Invoke-Checked $php @('artisan', 'config:cache')
             }
             finally {
               Pop-Location
