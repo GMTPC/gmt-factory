@@ -191,7 +191,7 @@
             <a href="#" class="hs-dropdown-toggle relative flex items-center gap-2 justify-center rounded-full lg:ms-2" aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
                 <span class="hidden sm:block text-end">
                     <span class="block text-sm font-semibold text-title leading-tight">{{ auth()->user()->username }}</span>
-                    <span class="block text-[11px] text-default leading-tight">{{ auth()->user()->department }}</span>
+                    <span class="block text-[11px] text-default leading-tight">{{ auth()->user()->department }}@if (auth()->user()->position) · {{ auth()->user()->position }}@endif</span>
                 </span>
                 <div class="size-8 rounded-full overflow-hidden border border-border-color">
                     <img src="{{URL::asset('build/img/avatar/avatar-01.jpg')}}" class="size-full object-cover" alt="user-image">
@@ -205,6 +205,7 @@
                     <div>
                         <p class="font-semibold text-title mb-1">{{ auth()->user()->username }}</p>
                         <p class="text-[13px] mb-0">Department: {{ auth()->user()->department }}</p>
+                        @if (auth()->user()->position)<p class="text-[13px] mb-0">Position: {{ auth()->user()->position }}</p>@endif
                     </div>
                 </div>
                 <div class="py-3 space-y-1">
@@ -447,7 +448,7 @@
                 <a href="#" class="hs-dropdown-toggle relative flex items-center gap-2 justify-center rounded-full lg:ms-2" aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
                     <span class="hidden sm:block text-end">
                         <span class="block text-sm font-semibold text-title leading-tight">{{ auth()->user()->username }}</span>
-                        <span class="block text-[11px] text-default leading-tight">{{ auth()->user()->department }}</span>
+                        <span class="block text-[11px] text-default leading-tight">{{ auth()->user()->department }}@if (auth()->user()->position) · {{ auth()->user()->position }}@endif</span>
                     </span>
                     <div class="size-8 rounded-full overflow-hidden border border-border-color">
                         <img src="{{URL::asset('build/img/avatar/avatar-01.jpg')}}" class="size-full object-cover" alt="user-image">
@@ -461,6 +462,7 @@
                         <div>
                             <p class="font-semibold text-title mb-1">{{ auth()->user()->username }}</p>
                             <p class="text-[13px] mb-0">Department: {{ auth()->user()->department }}</p>
+                            @if (auth()->user()->position)<p class="text-[13px] mb-0">Position: {{ auth()->user()->position }}</p>@endif
                         </div>
                     </div>
                     <div class="py-3 space-y-1">

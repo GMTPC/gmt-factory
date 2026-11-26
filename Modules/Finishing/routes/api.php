@@ -9,6 +9,8 @@ Route::middleware(['web', RequireAuthentication::class])->prefix('api/finishing'
     Route::post('/jobs', [FinishingApiController::class, 'createJob'])->name('jobs.store');
     Route::patch('/jobs/{job}/material', [FinishingApiController::class, 'assignJobMaterial'])->name('jobs.material');
     Route::post('/jobs/{job}/wip-stock', [FinishingApiController::class, 'receiveJobWip'])->name('jobs.wip-stock');
+    Route::get('/jobs/{job}/scan-preview', [FinishingApiController::class, 'previewJobScan'])->name('jobs.scan-preview');
+    Route::post('/jobs/{job}/scan', [FinishingApiController::class, 'scanJobWip'])->name('jobs.scan');
     Route::patch('/jobs/{job}/complete', [FinishingApiController::class, 'completeJob'])->name('jobs.complete');
 
     Route::get('/stations', [FinishingApiController::class, 'stations'])->name('stations.index');

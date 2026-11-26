@@ -11,5 +11,6 @@ Route::middleware(['web', RequireAuthentication::class])->prefix('finishing')->n
     Route::get('/station/{station}/record', [FinishingPageController::class, 'stationJobs'])->where('station', 'ST[1-6]')->name('station.record');
     Route::get('/station/{station}/jobs', [FinishingPageController::class, 'stationJobs'])->where('station', 'ST[1-6]')->name('station.jobs');
     Route::get('/station/{station}/jobs/{job}', [FinishingPageController::class, 'recordJob'])->where('station', 'ST[1-6]')->name('station.jobs.show');
+    Route::get('/production-logs/{productionLog}/tag', [FinishingPageController::class, 'printProductionTag'])->whereNumber('productionLog')->name('production.tag');
     Route::get('/station/{station}/history', [FinishingPageController::class, 'history'])->where('station', 'ST[1-6]')->name('station.history');
 });

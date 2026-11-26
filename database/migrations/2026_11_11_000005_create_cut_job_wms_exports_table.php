@@ -11,6 +11,10 @@ return new class extends Migration
 
     public function up(): void
     {
+        if (Schema::connection($this->connection)->hasTable('cut_job_wms_exports')) {
+            return;
+        }
+
         Schema::connection($this->connection)->create('cut_job_wms_exports', function (Blueprint $table): void {
             $table->id();
             // cut_job_line_id owns the cascading relation; cut_job_id is indexed to avoid
@@ -83,6 +87,6 @@ return new class extends Migration
 
     public function down(): void
     {
-        Schema::connection($this->connection)->dropIfExists('cut_job_wms_exports');
+        // Existing export records may have been imported before this migration was recorded.
     }
 };

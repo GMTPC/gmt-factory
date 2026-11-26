@@ -50,6 +50,7 @@ class TagCodeTest extends TestCase
     public static function legacy_wip_barcodes(): array
     {
         return [
+            'Finishing WIP B4 pallet' => ['B494-A10109261114B657100', 'B494-A10109', '261114B657', '100', '4'],
             'W4 pallet' => ['W499-A40109261030A001100', 'W499-A40109', '261030A001', '100', '4'],
             'B4 pallet with lettered sequence' => ['B499-A40109261104BB03077', 'B499-A40109', '261104BB03', '077', '4'],
             'W3 pallet' => ['W399-A10109261105A659100', 'W399-A10109', '261105A659', '100', '3'],

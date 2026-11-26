@@ -10,28 +10,31 @@ return new class extends Migration
 
     public function up(): void
     {
-        Schema::connection($this->connection)->table('cut_jobs', function (Blueprint $table): void {
-            $table->unsignedBigInteger('legacy_scan_index')->nullable();
-        });
+        $schema = Schema::connection($this->connection);
 
-        Schema::connection($this->connection)->table('cut_job_lines', function (Blueprint $table): void {
-            $table->unsignedBigInteger('legacy_ccw_id')->nullable();
-            $table->unsignedBigInteger('legacy_scan_index')->nullable();
-            $table->string('wms_status', 30)->default('pending');
-            $table->string('wms_reference', 255)->nullable();
-            $table->index(['wms_status', 'receive_status']);
-        });
+        if (! $schema->hasColumn('cut_jobs', 'legacy_scan_index')) {
+            $schema->table('cut_jobs', fn (Blueprint $table) => $table->unsignedBigInteger('legacy_scan_index')->nullable());
+        }
+
+        if (! $schema->hasColumn('cut_job_lines', 'legacy_ccw_id')) {
+            $schema->table('cut_job_lines', fn (Blueprint $table) => $table->unsignedBigInteger('legacy_ccw_id')->nullable());
+        }
+        if (! $schema->hasColumn('cut_job_lines', 'legacy_scan_index')) {
+            $schema->table('cut_job_lines', fn (Blueprint $table) => $table->unsignedBigInteger('legacy_scan_index')->nullable());
+        }
+        if (! $schema->hasColumn('cut_job_lines', 'wms_status')) {
+            $schema->table('cut_job_lines', fn (Blueprint $table) => $table->string('wms_status', 30)->default('pending'));
+        }
+        if (! $schema->hasColumn('cut_job_lines', 'wms_reference')) {
+            $schema->table('cut_job_lines', fn (Blueprint $table) => $table->string('wms_reference', 255)->nullable());
+        }
+        if (! $schema->hasIndex('cut_job_lines', 'cut_job_lines_wms_status_receive_status_index')) {
+            $schema->table('cut_job_lines', fn (Blueprint $table) => $table->index(['wms_status', 'receive_status']));
+        }
     }
 
     public function down(): void
     {
-        Schema::connection($this->connection)->table('cut_job_lines', function (Blueprint $table): void {
-            $table->dropIndex(['wms_status', 'receive_status']);
-            $table->dropColumn(['legacy_ccw_id', 'legacy_scan_index', 'wms_status', 'wms_reference']);
-        });
-
-        Schema::connection($this->connection)->table('cut_jobs', function (Blueprint $table): void {
-            $table->dropColumn('legacy_scan_index');
-        });
+        // Imported columns can predate the migration ledger. Preserve them.
     }
 };

@@ -10,18 +10,20 @@ return new class extends Migration
 
     public function up(): void
     {
-        Schema::connection($this->connection)->table('cut_job_lines', function (Blueprint $table): void {
-            $table->unsignedBigInteger('employee_group_id')->nullable();
-            $table->string('employee_group_name', 255)->nullable();
-            $table->index('employee_group_id');
-        });
+        $schema = Schema::connection($this->connection);
+        if (! $schema->hasColumn('cut_job_lines', 'employee_group_id')) {
+            $schema->table('cut_job_lines', fn (Blueprint $table) => $table->unsignedBigInteger('employee_group_id')->nullable());
+        }
+        if (! $schema->hasColumn('cut_job_lines', 'employee_group_name')) {
+            $schema->table('cut_job_lines', fn (Blueprint $table) => $table->string('employee_group_name', 255)->nullable());
+        }
+        if (! $schema->hasIndex('cut_job_lines', 'cut_job_lines_employee_group_id_index')) {
+            $schema->table('cut_job_lines', fn (Blueprint $table) => $table->index('employee_group_id'));
+        }
     }
 
     public function down(): void
     {
-        Schema::connection($this->connection)->table('cut_job_lines', function (Blueprint $table): void {
-            $table->dropIndex(['employee_group_id']);
-            $table->dropColumn(['employee_group_id', 'employee_group_name']);
-        });
+        // Imported columns can predate the migration ledger. Preserve them.
     }
 };

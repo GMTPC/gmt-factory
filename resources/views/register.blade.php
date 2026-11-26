@@ -1,63 +1,57 @@
 @extends('layouts.authlayout')
 @section('content')
 
-    <!-- Start Signup -->
-    <div class="bg-white border border-border-color rounded-md shadow-sm w-full max-w-md sm:p-8 p-5">
-        <div class="text-center mb-6">
-            <div class="invoice-logo block dark:hidden">
-                <a href="{{url('index')}}"><img src="{{URL::asset('build/img/logo.svg')}}" class="h-10 mx-auto mb-4" alt="logo"></a>
-            </div>
-            <div class="invoice-logo-white hidden dark:block">
-                <a href="{{url('index')}}"><img src="{{URL::asset('build/img/logo-white.svg')}}" class="h-10 mx-auto mb-4" alt="logo"></a>
-            </div>
-            <h1 class="text-xl font-bold text-title mb-1">Create Account</h1>
-            <p class="text-sm text-default mb-0">Sign up to get started with Dreams ERP</p>
+<div class="bg-white border border-border-color rounded-md shadow-sm w-full max-w-md sm:p-8 p-5">
+    <div class="text-center mb-6">
+        <div class="invoice-logo block dark:hidden">
+            <a href="{{ route('login') }}"><img src="{{ asset('Login_v1/images/img-02.png') }}" class="h-20 max-w-full object-contain mx-auto mb-4" alt="Gypman Tech logo"></a>
         </div>
-        <form class="space-y-4" action="{{url('login')}}">
-            <div class="grid grid-cols-2 gap-2">
-                <div>
-                    <label class="text-sm font-semibold text-gray-900 mb-1 block">First Name</label>
-                    <input type="text" class="w-full px-3 py-2.5 text-sm border border-border-color rounded-md bg-white focus:outline-none focus:ring-0">
-                </div>
-                <div>
-                    <label class="text-sm font-semibold text-gray-900 mb-1 block">Last Name</label>
-                    <input type="text" class="w-full px-3 py-2.5 text-sm border border-border-color rounded-md bg-white focus:outline-none focus:ring-0">
-                </div>
-            </div>
-            <div>
-                <label class="text-sm font-semibold text-gray-900 mb-1 block">Email Address</label>
-                <input type="email" class="w-full px-3 py-2.5 text-sm border border-border-color rounded-md bg-white focus:outline-none focus:ring-0">
-            </div>
-            <div>
-                <label class="text-sm font-semibold text-gray-900 mb-1 block">Password</label>
-                <div class="relative">
-                    <input id="hs-toggle-password3" type="password" class="form-input form-input-icon w-full px-3 py-2.5 text-sm border border-border-color rounded-md bg-white focus:outline-none focus:border-border-color focus:ring-0 h-10" placeholder="************" value="">
-                    <span class="absolute start-0 top-2 ms-3"><i class="icon icon-lock"></i></span>
-                    <button type="button" data-hs-toggle-password="{ &quot;target&quot;: &quot;#hs-toggle-password3&quot; }" class="absolute inset-y-0 end-0 flex items-center z-20 px-3 cursor-pointer rounded-e-md focus:outline-hidden focus:text-blue-600">
-                        <i class="icon icon-eye hidden hs-password-active:block"></i>
-                        <i class="icon icon-eye-off hs-password-active:hidden"></i>
-                    </button>
-                </div>
-            </div>
-            <div>
-                <label class="text-sm font-semibold text-gray-900 mb-1 block">Confirm Password</label>
-                <div class="relative">
-                    <input id="hs-toggle-password4" type="password" class="form-input form-input-icon w-full px-3 py-2.5 text-sm border border-border-color rounded-md bg-white focus:outline-none focus:border-border-color focus:ring-0 h-10" placeholder="************" value="">
-                    <span class="absolute start-0 top-2 ms-3"><i class="icon icon-lock"></i></span>
-                    <button type="button" data-hs-toggle-password="{ &quot;target&quot;: &quot;#hs-toggle-password4&quot; }" class="absolute inset-y-0 end-0 flex items-center z-20 px-3 cursor-pointer rounded-e-md focus:outline-hidden focus:text-blue-600">
-                        <i class="icon icon-eye hidden hs-password-active:block"></i>
-                        <i class="icon icon-eye-off hs-password-active:hidden"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="flex items-start gap-2">
-                <input type="checkbox" class="size-4 rounded border-border-color mt-0.5" id="terms">
-                <label for="terms" class="text-sm text-default">I agree to <a href="#" class="text-primary hover:underline">Terms of Service</a> and <a href="#" class="text-primary hover:underline">Privacy Policy</a></label>
-            </div>
-            <button type="submit" class="w-full bg-dark text-white py-2.5 rounded-md text-sm font-semibold hover:bg-primary-hover cursor-pointer">Create Account</button>
-            <p class="text-center text-sm text-default mb-0">Already have an account? <a href="{{url('login')}}" class="text-primary hover:underline">Sign in</a></p>
-        </form>
+        <div class="invoice-logo-white hidden dark:block">
+            <a href="{{ route('login') }}"><img src="{{ asset('Login_v1/images/img-02.png') }}" class="h-20 max-w-full object-contain mx-auto mb-4" alt="Gypman Tech logo"></a>
+        </div>
+        <h1 class="text-xl font-bold text-title mb-1">สมัครสมาชิก</h1>
+        <p class="text-sm text-default mb-0">สร้างบัญชีเพื่อเข้าใช้งานระบบ</p>
     </div>
-    <!-- End Signup -->
+
+    <form class="space-y-4" action="{{ route('register.store') }}" method="POST">
+        @csrf
+        <div>
+            <label for="name" class="text-sm font-semibold text-gray-900 mb-1 block">ชื่อ-นามสกุล</label>
+            <input id="name" name="name" type="text" value="{{ old('name') }}" autocomplete="name" required autofocus class="w-full px-3 py-2.5 text-sm border border-border-color rounded-md bg-white focus:outline-none focus:ring-0 @error('name') border-red-500 @enderror">
+            @error('name')<p class="mt-1 text-sm text-red-600">{{ $message }}</p>@enderror
+        </div>
+        <div>
+            <label for="username" class="text-sm font-semibold text-gray-900 mb-1 block">ชื่อผู้ใช้งาน</label>
+            <input id="username" name="username" type="text" value="{{ old('username') }}" maxlength="50" autocomplete="username" required class="w-full px-3 py-2.5 text-sm border border-border-color rounded-md bg-white focus:outline-none focus:ring-0 @error('username') border-red-500 @enderror">
+            @error('username')<p class="mt-1 text-sm text-red-600">{{ $message }}</p>@enderror
+        </div>
+        <div>
+            <label for="email" class="text-sm font-semibold text-gray-900 mb-1 block">อีเมล</label>
+            <input id="email" name="email" type="email" value="{{ old('email') }}" autocomplete="email" required class="w-full px-3 py-2.5 text-sm border border-border-color rounded-md bg-white focus:outline-none focus:ring-0 @error('email') border-red-500 @enderror">
+            @error('email')<p class="mt-1 text-sm text-red-600">{{ $message }}</p>@enderror
+        </div>
+        <div>
+            <label for="department" class="text-sm font-semibold text-gray-900 mb-1 block">แผนก</label>
+            <input id="department" name="department" type="text" value="{{ old('department') }}" maxlength="100" autocomplete="organization" required class="w-full px-3 py-2.5 text-sm border border-border-color rounded-md bg-white focus:outline-none focus:ring-0 @error('department') border-red-500 @enderror">
+            @error('department')<p class="mt-1 text-sm text-red-600">{{ $message }}</p>@enderror
+        </div>
+        <div>
+            <label for="position" class="text-sm font-semibold text-gray-900 mb-1 block">ตำแหน่ง</label>
+            <input id="position" name="position" type="text" value="{{ old('position') }}" maxlength="100" autocomplete="organization-title" required class="w-full px-3 py-2.5 text-sm border border-border-color rounded-md bg-white focus:outline-none focus:ring-0 @error('position') border-red-500 @enderror">
+            @error('position')<p class="mt-1 text-sm text-red-600">{{ $message }}</p>@enderror
+        </div>
+        <div>
+            <label for="password" class="text-sm font-semibold text-gray-900 mb-1 block">รหัสผ่าน (อย่างน้อย 8 ตัวอักษร)</label>
+            <input id="password" name="password" type="password" autocomplete="new-password" required minlength="8" class="w-full px-3 py-2.5 text-sm border border-border-color rounded-md bg-white focus:outline-none focus:ring-0 @error('password') border-red-500 @enderror">
+            @error('password')<p class="mt-1 text-sm text-red-600">{{ $message }}</p>@enderror
+        </div>
+        <div>
+            <label for="password_confirmation" class="text-sm font-semibold text-gray-900 mb-1 block">ยืนยันรหัสผ่าน</label>
+            <input id="password_confirmation" name="password_confirmation" type="password" autocomplete="new-password" required minlength="8" class="w-full px-3 py-2.5 text-sm border border-border-color rounded-md bg-white focus:outline-none focus:ring-0">
+        </div>
+        <button type="submit" class="w-full bg-dark text-white py-2.5 rounded-md text-sm font-semibold hover:bg-primary-hover cursor-pointer">สมัครสมาชิก</button>
+        <p class="text-center text-sm text-default mb-0">มีบัญชีอยู่แล้ว? <a href="{{ route('login') }}" class="text-primary hover:underline">เข้าสู่ระบบ</a></p>
+    </form>
+</div>
 
 @endsection

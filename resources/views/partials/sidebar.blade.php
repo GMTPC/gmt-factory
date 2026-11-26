@@ -25,7 +25,8 @@
     <div class="sidebar-inner" data-simplebar>
         <div id="sidebar-menu" class="sidebar-menu">
             <ul role="menu" aria-label="เมนู Cut Board">
-                @php($isMasterMenuActive = request()->routeIs('products') || request()->routeIs('master-product-specs.*') || request()->routeIs('master-product-groups.*') || request()->routeIs('master-brands.*') || request()->routeIs('master-edges.*') || request()->routeIs('master-faces.*') || request()->routeIs('master-sheet-types.*') || request()->routeIs('master-sizes.*') || request()->routeIs('master-thicknesses.*'))
+                @php($canManageUsers = in_array(strtolower((string) auth()->user()?->username), config('cutboard.manager_usernames', ['manager']), true))
+                @php($isMasterMenuActive = request()->routeIs('products') || request()->routeIs('master-product-specs.*') || request()->routeIs('master-product-groups.*') || request()->routeIs('master-brands.*') || request()->routeIs('master-edges.*') || request()->routeIs('master-faces.*') || request()->routeIs('master-sheet-types.*') || request()->routeIs('master-sizes.*') || request()->routeIs('master-thicknesses.*') || request()->routeIs('master-users.*'))
                 <li class="submenu {{ $isMasterMenuActive ? 'open' : '' }}">
                     <a href="{{ route('products') }}" data-navigate-submenu="true" class="{{ $isMasterMenuActive ? 'active subdrop' : '' }}" aria-expanded="{{ $isMasterMenuActive ? 'true' : 'false' }}">
                         <i class="ph-duotone ph-database"></i>
@@ -36,6 +37,9 @@
                         <li><a href="{{ route('products') }}" class="{{ request()->routeIs('products') ? 'active' : '' }}">Products</a></li>
                         <li><a href="{{ route('master-product-specs.index') }}" class="{{ request()->routeIs('master-product-specs.*') ? 'active' : '' }}">Product Specifications</a></li>
                         <li><a href="{{ route('master-product-groups.index') }}" class="{{ request()->routeIs('master-product-groups.*') ? 'active' : '' }}">Product Groups</a></li>
+                        @if ($canManageUsers)
+                            <li><a href="{{ route('master-users.index') }}" class="{{ request()->routeIs('master-users.*') ? 'active' : '' }}">Users</a></li>
+                        @endif
                         @foreach ([
                             'master-brands' => 'Brands',
                             'master-edges' => 'Edges',

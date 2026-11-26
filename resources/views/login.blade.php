@@ -43,6 +43,7 @@
             <label for="remember" class="text-sm text-default">จดจำการเข้าสู่ระบบ</label>
         </div>
         <button type="submit" class="w-full bg-dark text-white py-2.5 rounded-md text-sm font-semibold hover:bg-primary-hover cursor-pointer">เข้าสู่ระบบ</button>
+        <p class="text-center text-sm text-default mb-0">ยังไม่มีบัญชี? <a href="{{ route('register') }}" class="text-primary hover:underline">สมัครสมาชิก</a></p>
     </form>
 </div>
 

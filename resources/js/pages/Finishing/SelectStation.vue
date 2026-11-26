@@ -4,11 +4,13 @@ import { onMounted, ref } from 'vue'
 import AppLayout from '@/layouts/AppLayout.vue'
 
 type Station = { id: number; code: string; name: string; input_material: string; output_material: string; is_final: boolean }
-defineProps<{ stations: Station[] }>()
+const props = defineProps<{ stations: Station[] }>()
 const page = usePage()
 const remembered = ref('')
 onMounted(() => {
-    remembered.value = localStorage.getItem('finishing.station') ?? ''
+    const savedStation = localStorage.getItem('finishing.station') ?? ''
+    remembered.value = props.stations.some((station) => station.code === savedStation) ? savedStation : ''
+    if (savedStation && !remembered.value) localStorage.removeItem('finishing.station')
     if (remembered.value && !new URLSearchParams(window.location.search).has('choose')) {
         router.visit(`/finishing/station/${remembered.value}/jobs`, { replace: true })
     }

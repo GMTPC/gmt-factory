@@ -9,11 +9,11 @@ services:
       # ใช้ key เดียวกับ .env บนเครื่อง เพื่อไม่ให้ session/cookie หลุดทุกครั้งที่ recreate container
       APP_KEY: "${APP_KEY:?APP_KEY must be set in .env}"
       APP_URL: http://localhost:8088
-      DB_CONNECTION: sqlsrv
-      DB_HOST: host.docker.internal
-      DB_PORT: "1434"
-      DB_DATABASE: gypman-tech
-      DB_USERNAME: sa
+      DB_CONNECTION: "${DB_CONNECTION:-sqlsrv}"
+      DB_HOST: "${DB_HOST:?DB_HOST must be set in .env}"
+      DB_PORT: "${DB_PORT:-1433}"
+      DB_DATABASE: "${DB_DATABASE:?DB_DATABASE must be set in .env}"
+      DB_USERNAME: "${DB_USERNAME:?DB_USERNAME must be set in .env}"
       DB_PASSWORD: "${DB_PASSWORD}"
       DB_CONNECTION_BPLUS: sqlsrv
       DB_HOST_BPLUS: mssql-249

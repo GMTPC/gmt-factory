@@ -10,23 +10,17 @@ return new class extends Migration
 
     public function up(): void
     {
-        Schema::connection($this->connection)->table('cut_jobs', function (Blueprint $table): void {
-            $table->unsignedBigInteger('legacy_cswi_id')->nullable();
-        });
-
-        Schema::connection($this->connection)->table('cut_job_lines', function (Blueprint $table): void {
-            $table->unsignedBigInteger('legacy_cswi_id')->nullable();
-        });
+        $schema = Schema::connection($this->connection);
+        if (! $schema->hasColumn('cut_jobs', 'legacy_cswi_id')) {
+            $schema->table('cut_jobs', fn (Blueprint $table) => $table->unsignedBigInteger('legacy_cswi_id')->nullable());
+        }
+        if (! $schema->hasColumn('cut_job_lines', 'legacy_cswi_id')) {
+            $schema->table('cut_job_lines', fn (Blueprint $table) => $table->unsignedBigInteger('legacy_cswi_id')->nullable());
+        }
     }
 
     public function down(): void
     {
-        Schema::connection($this->connection)->table('cut_job_lines', function (Blueprint $table): void {
-            $table->dropColumn('legacy_cswi_id');
-        });
-
-        Schema::connection($this->connection)->table('cut_jobs', function (Blueprint $table): void {
-            $table->dropColumn('legacy_cswi_id');
-        });
+        // Imported columns can predate the migration ledger. Preserve them.
     }
 };

@@ -15,7 +15,7 @@ class FinishingJob extends Model
 
     protected function casts(): array
     {
-        return ['shift_date' => 'date'];
+        return ['shift_date' => 'date', 'employee_names' => 'array'];
     }
 
     public function station(): BelongsTo
@@ -26,6 +26,11 @@ class FinishingJob extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function recorder(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'recorder_user_id');
     }
 
     public function material(): BelongsTo

@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Master\UserController;
 use App\Models\Master\MasterProductSpec;
 use App\Http\Middleware\RequireAuthentication;
 use Illuminate\Support\Facades\Route;
@@ -545,6 +547,10 @@ Route::get('/login-illustration', function () {
 Route::middleware('guest')->group(function () {
     Route::get('/login', [LoginController::class, 'create'])->name('login');
     Route::post('/login', [LoginController::class, 'store'])->name('login.store');
+    Route::get('/register', [RegisterController::class, 'create'])->name('register');
+    Route::post('/register', [RegisterController::class, 'store'])
+        ->middleware('throttle:6,1')
+        ->name('register.store');
 });
 
 Route::post('/logout', [LoginController::class, 'destroy'])
@@ -732,10 +738,6 @@ Route::get('/register-cover', function () {
 Route::get('/register-illustration', function () {
     return view('register-illustration');
 })->name('register-illustration');
-
-Route::get('/register', function () {
-    return view('register');
-})->name('register');
 
 Route::get('/reset-password-cover', function () {
     return view('reset-password-cover');
@@ -968,6 +970,12 @@ Route::get('/units', function () {
 Route::get('/user-management', function () {
     return view('user-management');
 })->name('user-management');
+
+Route::get('/master/users', [UserController::class, 'index'])->name('master-users.index');
+Route::post('/master/users', [UserController::class, 'store'])->name('master-users.store');
+Route::get('/master/users/{user}/edit', [UserController::class, 'edit'])->name('master-users.edit');
+Route::put('/master/users/{user}', [UserController::class, 'update'])->name('master-users.update');
+Route::delete('/master/users/{user}', [UserController::class, 'destroy'])->name('master-users.destroy');
 
 Route::get('/vendors', function () {
     return view('vendors');

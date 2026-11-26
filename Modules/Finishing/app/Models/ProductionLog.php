@@ -23,6 +23,7 @@ class ProductionLog extends Model
             'quantity_out' => 'decimal:3',
             'defect_count' => 'decimal:3',
             'ft_count' => 'decimal:3',
+            'weight_kg' => 'decimal:3',
             'has_labeling' => 'boolean',
         ];
     }

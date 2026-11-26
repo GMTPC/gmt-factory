@@ -3,14 +3,16 @@
 namespace Modules\Finishing\App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
+use App\Models\User;
 use Inertia\Inertia;
 use Inertia\Response;
 use Modules\Finishing\App\Models\FinishingJob;
 use Modules\Finishing\App\Models\FinishingStation;
 use Modules\Finishing\App\Models\ProductionLog;
 use Modules\Finishing\App\Services\ShiftService;
+use Mccarlosen\LaravelMpdf\Facades\LaravelMpdf as PDF;
 
 class FinishingPageController
 {
@@ -23,35 +25,53 @@ class FinishingPageController
 
     public function stationJobs(string $station): Response
     {
-        $station = FinishingStation::query()->where('code', $station)->firstOrFail();
+        $statusReady = Schema::hasTable('finishing_station_status_events');
+        $stationQuery = FinishingStation::query();
+        if ($statusReady) {
+            $stationQuery->with('latestStatusEvent.user');
+        }
+        $station = $stationQuery->where('code', $station)->firstOrFail();
         $shift = app(ShiftService::class)->current();
-        $jobs = FinishingJob::query()->with(['user', 'material'])->withCount('productionLogs')
+        $jobs = FinishingJob::query()->with(['user', 'recorder', 'material'])->withCount('productionLogs')
             ->where('station_id', $station->id)->orderByDesc('id')->limit(100)->get();
         return Inertia::render('Finishing/StationJobs', [
             'station' => $station,
+            'statusEvents' => $statusReady ? $station->statusEvents()->with('user')->orderByDesc('id')->limit(10)->get() : [],
+            'statusReady' => $statusReady,
             'jobs' => $jobs,
             'shift' => $shift,
+            'employeeOptions' => config('finishing.job_employees', []),
+            'recorderOptions' => User::query()->orderBy('name')->get(['id', 'name']),
+            'machineOptions' => $station->jobMachineOptions(),
+            'pvcTypes' => $station->jobPvcTypes(),
+            'inspectors' => config('finishing.job_inspectors', []),
+            'currentUserId' => (int) request()->user()->id,
             'csrf' => csrf_token(),
         ]);
     }
 
-    public function recordJob(string $station, FinishingJob $job): Response|RedirectResponse
+    public function recordJob(string $station, FinishingJob $job): Response
     {
         $station = FinishingStation::query()->where('code', $station)->firstOrFail();
         abort_unless((int) $job->station_id === (int) $station->id, 404);
         $shift = app(ShiftService::class)->current();
         $job->load(['user', 'material'])->loadCount('productionLogs');
-        if ($job->status === 'active' && (! $job->material || (float) $job->material->quantity <= 0)) {
-            return to_route('finishing.station.jobs', ['station' => $station->code]);
-        }
-        $materials = $job->material && $job->status === 'active' && (float) $job->material->quantity > 0
+        $materials = $job->material && $job->status === 'active'
             ? collect([$job->material])
             : collect();
         $logs = ProductionLog::query()->with(['job', 'material', 'outputMaterial', 'user'])
             ->where('station_id', $station->id)->where('job_id', $job->id)
             ->orderByDesc('id')->limit(50)->get();
-        $logs->each(function (ProductionLog $log): void {
+        $scanCodes = Schema::hasColumn('finishing_wip_receipts', 'production_log_id')
+            ? DB::table('finishing_wip_receipts')->whereIn('production_log_id', $logs->pluck('id'))
+                ->pluck('scan_code', 'production_log_id')
+            : collect();
+        $logs->each(function (ProductionLog $log) use ($scanCodes): void {
             $log->setAttribute('defect_details', DB::table('finishing_defect_entries')->where('production_log_id', $log->id)->get());
+            $log->setAttribute('scan_code', $scanCodes->get($log->id));
+            if ($log->status === 'confirmed' && $log->output_material_id) {
+                $log->setAttribute('tag_url', route('finishing.production.tag', ['productionLog' => $log->id]));
+            }
         });
 
         return Inertia::render('Finishing/StationRecord', [
@@ -62,9 +82,22 @@ class FinishingPageController
             'logs' => $logs,
             'shift' => $shift,
             'isAdmin' => $this->isAdmin(request()),
+            'rawMaterials' => config('finishing.raw_materials', []),
             'defectTypes' => DB::table('finishing_defect_types')->where('is_active', true)->where(fn ($q) => $q->whereNull('station_id')->orWhere('station_id', $station->id))->orderBy('name')->get(),
             'csrf' => csrf_token(),
         ]);
+    }
+
+    public function printProductionTag(ProductionLog $productionLog)
+    {
+        abort_unless($productionLog->status === 'confirmed' && $productionLog->output_material_id, 404);
+        $productionLog->load(['station', 'job', 'material', 'outputMaterial', 'user']);
+        $productionLog->setAttribute('scan_code', DB::table('finishing_wip_receipts')
+            ->where('production_log_id', $productionLog->id)->value('scan_code'));
+        $fileName = $productionLog->output_lot ?: 'FIN-'.$productionLog->station->code.'-'.$productionLog->id;
+
+        return PDF::loadView('finishing.production-tag', ['log' => $productionLog], [], ['format' => 'A4'])
+            ->stream($fileName.'.pdf');
     }
 
     public function history(Request $request, string $station): Response
@@ -88,7 +121,12 @@ class FinishingPageController
     public function dashboard(): Response
     {
         $today = now(config('finishing.timezone', config('app.timezone')))->toDateString();
-        $stations = FinishingStation::query()->withCount([
+        $statusReady = Schema::hasTable('finishing_station_status_events');
+        $stationsQuery = FinishingStation::query();
+        if ($statusReady) {
+            $stationsQuery->with('latestStatusEvent.user');
+        }
+        $stations = $stationsQuery->withCount([
             'productionLogs as today_logs' => fn ($q) => $q->whereDate('shift_date', $today)->where('status', 'confirmed'),
         ])->withSum([
             'productionLogs as today_quantity_out' => fn ($q) => $q->whereDate('shift_date', $today)->where('status', 'confirmed'),
@@ -106,7 +144,7 @@ class FinishingPageController
             $output = (float) ($station->today_quantity_out ?? 0);
             return $output > 0 && ((float) ($station->today_defects ?? 0) / $output) * 100 >= $threshold;
         })->values();
-        return Inertia::render('Finishing/Dashboard', ['stations' => $stations, 'recent' => $recent, 'byShift' => $byShift, 'date' => $today, 'alerts' => $alerts, 'csrf' => csrf_token(), 'isAdmin' => $this->isAdmin(request())]);
+        return Inertia::render('Finishing/Dashboard', ['stations' => $stations, 'recent' => $recent, 'byShift' => $byShift, 'date' => $today, 'alerts' => $alerts, 'csrf' => csrf_token(), 'statusReady' => $statusReady]);
     }
 
     public function reports(Request $request): Response

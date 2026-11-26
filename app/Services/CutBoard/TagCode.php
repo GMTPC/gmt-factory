@@ -22,7 +22,7 @@ final readonly class TagCode
         // Legacy WIP barcode: W/B + source line + brand + '-' + product spec + date + shift + sequence + qty.
         // B codes are retained/holding pallets and the old L3 workflow accepts B4 as well as W4.
         // The 3-char sequence may contain letters on B codes (e.g. B499-A40109261104B·B03·077 = 77 sheets).
-        if (preg_match('/^[WB]([1-4])(\d{2})-([A-Z0-9]{6})(\d{6})([A-Z])([A-Z0-9]{3})(\d{3})$/', $barcode, $matches) === 1) {
+        if (preg_match('/^[WB]([1-4])([A-Z0-9]{2})-([A-Z0-9]{6})(\d{6})([A-Z])([A-Z0-9]{3})(\d{3})$/', $barcode, $matches) === 1) {
             return new self(
                 skuCode: substr($barcode, 0, 11),
                 lot: substr($barcode, 11, 10),

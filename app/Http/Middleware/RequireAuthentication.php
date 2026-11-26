@@ -22,6 +22,7 @@ class RequireAuthentication
             'reset-password-cover',
             'reset-password-illustration',
             'register',
+            'register.store',
             'register-cover',
             'register-illustration',
             'email-verification',

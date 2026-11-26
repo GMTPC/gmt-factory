@@ -2,13 +2,19 @@
 
 namespace Modules\Finishing\App\Http\Controllers;
 
+use App\Services\CutBoard\TagCode;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Str;
+use InvalidArgumentException;
+use Throwable;
+use App\Models\Master\ProductTypeEmployee;
+use App\Models\User;
 use Modules\Finishing\App\Models\FinishingJob;
 use Modules\Finishing\App\Models\FinishingMaterial;
 use Modules\Finishing\App\Models\FinishingStation;
@@ -31,31 +37,49 @@ class FinishingApiController
 
     public function createJob(Request $request): JsonResponse
     {
+        $request->validate(['station_id' => ['required', 'integer', 'exists:finishing_stations,id']]);
+        $station = FinishingStation::query()->findOrFail($request->integer('station_id'));
         $data = $request->validate([
             'station_id' => ['required', 'exists:finishing_stations,id'],
-            'wip_type' => ['required', 'string', 'max:50'],
-            'wip_name' => ['required', 'string', 'max:255'], 'wip_code' => ['nullable', 'string', 'max:100'],
-            'shift_date' => ['nullable', 'date'], 'shift' => ['nullable', Rule::in(['day', 'night'])],
+            'employee_names' => ['required', 'array', 'min:1'],
+            'employee_names.*' => ['required', 'string', 'max:255', 'distinct', Rule::in(config('finishing.job_employees', []))],
+            'machine_name' => ['required', 'string', 'max:120', Rule::in($station->jobMachineOptions())],
+            'pvc_type' => ['required', 'string', 'max:100', Rule::in($station->jobPvcTypes())],
+            'raw_material_name' => ['nullable', 'string', 'max:255', Rule::in(config('finishing.raw_materials', []))],
+            'recorder_user_id' => ['required', 'integer', 'exists:users,id'],
+            'inspector_name' => ['required', 'string', 'max:120', Rule::in(config('finishing.job_inspectors', []))],
+            'wip_code' => ['nullable', 'string', 'max:100'],
+            'shift_date' => ['required', 'date'], 'shift' => ['required', Rule::in(['day', 'night'])],
             'notes' => ['nullable', 'string', 'max:2000'],
         ]);
-        $station = FinishingStation::query()->findOrFail($data['station_id']);
-        $currentShift = app(ShiftService::class)->current();
-        $date = $data['shift_date'] ?? $currentShift['shift_date'];
-        $shift = $data['shift'] ?? $currentShift['shift'];
+        $employeeNames = array_values($data['employee_names']);
+        $recorder = User::query()->findOrFail($data['recorder_user_id']);
+        $date = $data['shift_date'];
+        $shift = $data['shift'];
 
-        $job = DB::transaction(function () use ($data, $station, $date, $shift, $request) {
-            $material = $this->createJobWip($station, $data);
+        $job = DB::transaction(function () use ($data, $station, $date, $shift, $request, $employeeNames, $recorder) {
+            $material = $this->createJobWip($station, [
+                'wip_code' => $data['wip_code'] ?? null,
+                'wip_name' => $data['pvc_type'],
+                'wip_type' => $station->input_material,
+            ]);
 
             return FinishingJob::query()->create([
                 'job_no' => sprintf('FN-%s-%s-%s', str_replace('-', '', $date), $station->code, Str::upper(Str::random(4))),
                 'station_id' => $station->id,
                 'material_id' => $material->id,
                 'user_id' => $request->user()->id,
+                'recorder_user_id' => $recorder->id,
+                'employee_names' => $employeeNames,
+                'machine_name' => $data['machine_name'],
+                'pvc_type' => $data['pvc_type'],
+                'raw_material_name' => $data['raw_material_name'] ?? null,
+                'inspector_name' => $data['inspector_name'],
                 'shift_date' => $date,
                 'shift' => $shift,
                 'status' => 'active',
                 'notes' => $data['notes'] ?? null,
-            ])->load(['user', 'material'])->loadCount('productionLogs');
+            ])->load(['user', 'recorder', 'material'])->loadCount('productionLogs');
         });
 
         return response()->json($job, 201);
@@ -86,15 +110,144 @@ class FinishingApiController
         if ($job->status !== 'active' || ! $job->material_id) {
             throw ValidationException::withMessages(['job' => 'Job ต้องเปิดอยู่และระบุประเภท WIP ก่อนรับเข้า']);
         }
-        $data = $request->validate(['quantity' => ['required', 'numeric', 'gt:0']]);
+        $data = $request->validate([
+            'raw_scan_code' => ['required', 'string', 'max:255'],
+        ]);
+        $scanCode = Str::upper(trim($data['raw_scan_code']));
+        if ($scanCode === '') {
+            throw ValidationException::withMessages(['raw_scan_code' => 'กรุณาสแกนบาร์โค้ด WIP']);
+        }
+        $quantity = $this->wipBarcodeQuantity($scanCode);
 
-        return DB::transaction(function () use ($job, $data) {
+        return DB::transaction(function () use ($job, $request, $scanCode, $quantity) {
+            $job = FinishingJob::query()->lockForUpdate()->findOrFail($job->id);
+            if ($job->status !== 'active' || ! $job->material_id) {
+                throw ValidationException::withMessages(['job' => 'Job ต้องเปิดอยู่และระบุประเภท WIP ก่อนรับเข้า']);
+            }
+            if (DB::table('finishing_wip_receipts')->where('scan_code', $scanCode)->exists()) {
+                throw ValidationException::withMessages(['raw_scan_code' => 'บาร์โค้ด WIP นี้รับเข้าแล้ว']);
+            }
             $material = FinishingMaterial::query()->lockForUpdate()->findOrFail($job->material_id);
-            $material->increment('quantity', $data['quantity']);
+            DB::table('finishing_wip_receipts')->insert([
+                'job_id' => $job->id,
+                'material_id' => $material->id,
+                'user_id' => $request->user()->id,
+                'scan_code' => $scanCode,
+                'quantity' => $quantity,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+            $material->increment('quantity', $quantity);
             $material->update(['status' => 'pending']);
 
             return response()->json($job->fresh(['user', 'material'])->loadCount('productionLogs'));
         });
+    }
+
+    public function previewJobScan(Request $request, FinishingJob $job): JsonResponse
+    {
+        $data = $request->validate(['raw_scan_code' => ['required', 'string', 'max:255']]);
+        $scanCode = Str::upper(trim($data['raw_scan_code']));
+        if ($job->status !== 'active' || ! $job->material_id) {
+            throw ValidationException::withMessages(['job' => 'Job ต้องเปิดอยู่และกำหนด WIP ก่อนสแกนแปรรูป']);
+        }
+        $quantity = $this->wipBarcodeQuantity($scanCode);
+        $receipt = DB::table('finishing_wip_receipts')->where('scan_code', $scanCode)->first();
+        if ($receipt) {
+            $this->assertReceiptUsable($receipt, $job);
+        }
+
+        return response()->json([
+            'scan_code' => $scanCode,
+            'quantity_in' => $quantity,
+            'quantity_out' => $quantity,
+            ...$this->productType($scanCode),
+        ]);
+    }
+
+    public function scanJobWip(Request $request, FinishingJob $job, ProductionService $service): JsonResponse
+    {
+        $data = $request->validate([
+            'raw_scan_code' => ['required', 'string', 'max:255'],
+            'weight_kg' => ['required', 'numeric', 'gt:0', 'max:999999'],
+            'raw_material_name' => ['required', 'string', 'max:255', Rule::in(config('finishing.raw_materials', []))],
+            'ft_count' => ['nullable', 'numeric', 'gte:0'],
+            'sub_type' => ['nullable', Rule::in(['single', 'double'])],
+            'has_labeling' => ['sometimes', 'boolean'],
+            'notes' => ['nullable', 'string', 'max:2000'],
+        ], [
+            'weight_kg.required' => 'กรุณากรอกน้ำหนัก WIP ออก (กก.)',
+            'weight_kg.numeric' => 'น้ำหนักต้องเป็นตัวเลข',
+            'weight_kg.gt' => 'น้ำหนักต้องมากกว่า 0',
+            'weight_kg.max' => 'น้ำหนักเกินค่าที่รับได้',
+            'raw_material_name.required' => 'กรุณาเลือกวัตถุดิบ',
+            'raw_material_name.in' => 'วัตถุดิบไม่อยู่ในรายการ',
+        ]);
+        $scanCode = Str::upper(trim($data['raw_scan_code']));
+        if ($scanCode === '') {
+            throw ValidationException::withMessages(['raw_scan_code' => 'กรุณาสแกนบาร์โค้ด WIP']);
+        }
+        $quantity = $this->wipBarcodeQuantity($scanCode);
+        $productType = $this->productType($scanCode);
+
+        $log = DB::transaction(function () use ($job, $request, $scanCode, $quantity, $productType, $data, $service): ProductionLog {
+            $job = FinishingJob::query()->lockForUpdate()->findOrFail($job->id);
+            if ($job->status !== 'active' || ! $job->material_id) {
+                throw ValidationException::withMessages(['job' => 'Job ต้องเปิดอยู่และกำหนด WIP ก่อนสแกนแปรรูป']);
+            }
+            $station = FinishingStation::query()->findOrFail($job->station_id);
+            $this->validateLogRules($station, $data + ['quantity_in' => $quantity, 'quantity_out' => $quantity, 'defect_count' => 0]);
+
+            $material = FinishingMaterial::query()->lockForUpdate()->findOrFail($job->material_id);
+            $receipt = DB::table('finishing_wip_receipts')->where('scan_code', $scanCode)->lockForUpdate()->first();
+            if ($receipt) {
+                $this->assertReceiptUsable($receipt, $job);
+                if ((float) $material->quantity < $quantity) {
+                    throw ValidationException::withMessages(['raw_scan_code' => 'ยอด WIP ของบาร์โค้ดนี้ไม่พอสำหรับบันทึกผลผลิต']);
+                }
+            } else {
+                DB::table('finishing_wip_receipts')->insert([
+                    'job_id' => $job->id,
+                    'material_id' => $material->id,
+                    'user_id' => $request->user()->id,
+                    'scan_code' => $scanCode,
+                    'quantity' => $quantity,
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ]);
+                $material->increment('quantity', $quantity);
+                $material->update(['status' => 'pending']);
+            }
+
+            $log = ProductionLog::query()->create([
+                'job_id' => $job->id,
+                'station_id' => $job->station_id,
+                'material_id' => $material->id,
+                'user_id' => $request->user()->id,
+                'shift_date' => $job->shift_date,
+                'shift' => $job->shift,
+                'quantity_in' => $quantity,
+                'quantity_out' => $quantity,
+                'defect_count' => 0,
+                'ft_count' => $data['ft_count'] ?? null,
+                'sub_type' => $data['sub_type'] ?? null,
+                'has_labeling' => $data['has_labeling'] ?? false,
+                'notes' => $data['notes'] ?? null,
+                'weight_kg' => $data['weight_kg'],
+                'raw_material_name' => $data['raw_material_name'],
+                'product_type_code' => $productType['product_type_code'],
+                'product_type_name' => $productType['product_type_name'],
+                'status' => 'draft',
+            ]);
+            DB::table('finishing_wip_receipts')->where('scan_code', $scanCode)
+                ->update(['production_log_id' => $log->id, 'updated_at' => now()]);
+
+            return $service->confirm($log);
+        });
+
+        $log->setAttribute('scan_code', $scanCode);
+        $log->setAttribute('tag_url', route('finishing.production.tag', ['productionLog' => $log->id]));
+        return response()->json($log->load(['job', 'station', 'material', 'user']), 201);
     }
 
     public function completeJob(FinishingJob $job): JsonResponse
@@ -217,9 +370,6 @@ class FinishingApiController
         if ($productionLog->status !== 'draft') {
             throw ValidationException::withMessages(['status' => 'แก้ไขได้เฉพาะรายการ draft']);
         }
-        if (! $productionLog->job || $productionLog->job->status !== 'active' || (int) $productionLog->job->material_id !== (int) ($data['material_id'] ?? $productionLog->material_id)) {
-            throw ValidationException::withMessages(['job_id' => 'ต้องมี Job ที่ยังเปิดอยู่ก่อนแก้ไขรายการ']);
-        }
         $data = $request->validate([
             'material_id' => ['sometimes', 'exists:finishing_materials,id'],
             'quantity_in' => ['sometimes', 'numeric', 'gt:0'],
@@ -227,6 +377,15 @@ class FinishingApiController
             'ft_count' => ['nullable', 'numeric', 'gte:0'], 'sub_type' => ['nullable', Rule::in(['single', 'double'])],
             'has_labeling' => ['sometimes', 'boolean'], 'notes' => ['nullable', 'string', 'max:2000'],
         ]);
+        if (! $productionLog->job || $productionLog->job->status !== 'active' || (int) $productionLog->job->material_id !== (int) ($data['material_id'] ?? $productionLog->material_id)) {
+            throw ValidationException::withMessages(['job_id' => 'ต้องมี Job ที่ยังเปิดอยู่ก่อนแก้ไขรายการ']);
+        }
+        $receipt = Schema::hasColumn('finishing_wip_receipts', 'production_log_id')
+            ? DB::table('finishing_wip_receipts')->where('production_log_id', $productionLog->id)->first()
+            : null;
+        if ($receipt && abs((float) ($data['quantity_in'] ?? $productionLog->quantity_in) - (float) $receipt->quantity) > 0.0001) {
+            throw ValidationException::withMessages(['quantity_in' => 'จำนวนรับเข้าของรายการสแกนต้องตรงกับบาร์โค้ด']);
+        }
         $station = $productionLog->station;
         $material = FinishingMaterial::query()->findOrFail($data['material_id'] ?? $productionLog->material_id);
         if ((int) $material->station_id !== (int) $station->id) {
@@ -283,10 +442,34 @@ class FinishingApiController
 
     public function toggleMachine(Request $request, FinishingStation $station): JsonResponse
     {
-        $this->authorizeManager($request);
-        $data = $request->validate(['is_machine_on' => ['required', 'boolean']]);
-        $station->update($data);
-        return response()->json($station->fresh());
+        abort_unless(Schema::hasTable('finishing_station_status_events'), 503, 'ระบบสถานะสถานียังไม่พร้อมใช้งาน');
+        $data = $request->validate([
+            'is_machine_on' => ['required', 'boolean'],
+            'reason' => ['required', 'string', 'min:2', 'max:500'],
+        ]);
+        $reason = trim($data['reason']);
+        if ($reason === '') {
+            throw ValidationException::withMessages(['reason' => 'กรุณาระบุเหตุผล']);
+        }
+
+        $updated = DB::transaction(function () use ($station, $data, $reason, $request): FinishingStation {
+            $lockedStation = FinishingStation::query()->lockForUpdate()->findOrFail($station->id);
+            $isRunning = (bool) $data['is_machine_on'];
+            if ($lockedStation->is_machine_on === $isRunning) {
+                throw ValidationException::withMessages(['is_machine_on' => 'สถานีอยู่ในสถานะนี้แล้ว']);
+            }
+
+            $lockedStation->update(['is_machine_on' => $isRunning]);
+            $lockedStation->statusEvents()->create([
+                'is_running' => $isRunning,
+                'reason' => $reason,
+                'user_id' => $request->user()->id,
+            ]);
+
+            return $lockedStation;
+        });
+
+        return response()->json($updated->fresh()->load('latestStatusEvent.user'));
     }
 
     public function dashboard(): JsonResponse
@@ -389,9 +572,51 @@ class FinishingApiController
         if ((float) ($data['quantity_out'] ?? 0) + (float) ($data['defect_count'] ?? 0) > (float) ($data['quantity_in'] ?? 0)) {
             throw ValidationException::withMessages(['quantity_out' => 'ยอดผลิตรวมยอดเสียต้องไม่เกินยอดรับเข้า']);
         }
-        if ($station->code === 'ST2' && empty($data['sub_type'])) {
-            throw ValidationException::withMessages(['sub_type' => 'สถานี PVC ต้องเลือกประเภทการเคลือบ']);
+    }
+
+    private function wipBarcodeQuantity(string $scanCode): float
+    {
+        try {
+            $tagCode = TagCode::parse($scanCode);
+        } catch (InvalidArgumentException $exception) {
+            throw ValidationException::withMessages(['raw_scan_code' => $exception->getMessage()]);
         }
+        if (preg_match('/^\d{1,15}(?:\.\d{1,3})?$/', $tagCode->qty) !== 1 || (float) $tagCode->qty <= 0) {
+            throw ValidationException::withMessages(['raw_scan_code' => 'บาร์โค้ด WIP นี้ไม่มีจำนวนที่ถูกต้อง']);
+        }
+
+        return (float) $tagCode->qty;
+    }
+
+    private function assertReceiptUsable(object $receipt, FinishingJob $job): void
+    {
+        if ((int) $receipt->job_id !== (int) $job->id) {
+            throw ValidationException::withMessages(['raw_scan_code' => 'บาร์โค้ด WIP นี้ถูกใช้กับ Job อื่นแล้ว']);
+        }
+        if ($receipt->production_log_id) {
+            $previousLog = ProductionLog::withTrashed()->find($receipt->production_log_id);
+            if ($previousLog && $previousLog->status !== 'cancelled') {
+                throw ValidationException::withMessages(['raw_scan_code' => 'บาร์โค้ด WIP นี้บันทึกผลการผลิตแล้ว']);
+            }
+        }
+    }
+
+    /** @return array{product_type_code: ?string, product_type_name: ?string} */
+    private function productType(string $scanCode): array
+    {
+        $code = TagCode::parse($scanCode)->productTypeCode();
+        if ($code === '') {
+            return ['product_type_code' => null, 'product_type_name' => null];
+        }
+        try {
+            // Product type master lives in the legacy database; Finishing still works without it.
+            $name = ProductTypeEmployee::query()->where('pe_type_code', $code)->orderByDesc('pe_id')->value('pe_type_name');
+        } catch (Throwable $exception) {
+            report($exception);
+            $name = null;
+        }
+
+        return ['product_type_code' => $code, 'product_type_name' => $name ? trim((string) $name) : null];
     }
 
     private function createJobWip(FinishingStation $station, array $data): FinishingMaterial
