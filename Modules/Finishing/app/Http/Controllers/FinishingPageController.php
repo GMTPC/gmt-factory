@@ -108,8 +108,14 @@ class FinishingPageController
         $productionLog->load(['station', 'job.recorder', 'material', 'outputMaterial', 'user']);
         $fileName = $productionLog->output_lot ?: 'FIN-'.$productionLog->station->code.'-'.$productionLog->id;
 
-        return PDF::loadView('finishing.production-tag', ['tag' => $this->tagFields($productionLog)], [], ['format' => 'A4', 'margin_top' => 8, 'margin_bottom' => 8])
-            ->stream($fileName.'.pdf');
+        // Return the bytes as a normal response: ->stream() echoes the PDF itself and Laravel then fails with
+        // "headers already sent" when it sends its own response.
+        $pdf = PDF::loadView('finishing.production-tag', ['tag' => $this->tagFields($productionLog)], [], ['format' => 'A4', 'margin_top' => 8, 'margin_bottom' => 8])->output();
+
+        return response($pdf, 200, [
+            'Content-Type' => 'application/pdf',
+            'Content-Disposition' => 'inline; filename="'.$fileName.'.pdf"',
+        ]);
     }
 
     /** "สรุปการคัดตามวัน": every Job of one production date (Job shift date), with B+ CSV export per Job / per day. */
