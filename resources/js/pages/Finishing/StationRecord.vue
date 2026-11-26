@@ -98,6 +98,11 @@ function toggleKeyboard() {
 
 // Camera scan: the decoded text goes through exactly the same path as a hand-scanner (preview, then weight).
 const showCamera = ref(false)
+// A Tag has several barcodes (full code, SKU, lot); only the full WIP code / QR can be recorded.
+function isTagCode(text: string) {
+    const code = text.trim().toUpperCase()
+    return /^[WB][1-4][A-Z0-9]{2}-[A-Z0-9]{6}\d{6}[A-Z][A-Z0-9]{3}\d{3}$/.test(code) || code.includes('SKUCODE:') || /^\d{6}[AB]\d{6}$/.test(code)
+}
 function onCameraDetected(text: string) {
     showCamera.value = false
     scanCode.value = text
@@ -375,7 +380,7 @@ function shiftLabel(value: string) { return value === 'day' ? 'กะเช้�
                 <button v-else type="button" class="flex min-h-12 items-center justify-center gap-2 rounded-md border border-slate-300 bg-white px-6 font-bold text-slate-800" @click="openSummary"><i class="ph ph-clipboard-text text-xl" aria-hidden="true"></i>ดูสรุปการแปรรูป</button>
             </div>
         </main>
-    <QrCameraScanner v-if="showCamera" @detected="onCameraDetected" @close="showCamera = false; nextTick(() => scanInput?.focus())" />
+    <QrCameraScanner v-if="showCamera" :accept="isTagCode" hint="เล็งบาร์โค้ดเส้นยาวด้านบนของ Tag (หรือ QR) ให้อยู่ในกรอบ" @detected="onCameraDetected" @close="showCamera = false; nextTick(() => scanInput?.focus())" />
     <Teleport to="body">
         <div v-if="showSummary" class="fixed inset-0 z-[10000] flex items-end justify-center bg-slate-950/60 sm:items-center sm:p-4" role="presentation" @click.self="showSummary = false" @keydown.esc="showSummary = false">
             <section role="dialog" aria-modal="true" aria-label="สรุปการแปรรูป" class="flex max-h-[95vh] w-full max-w-2xl flex-col overflow-hidden rounded-t-xl bg-white shadow-2xl sm:rounded-xl">
