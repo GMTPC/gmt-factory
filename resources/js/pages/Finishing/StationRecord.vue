@@ -2,6 +2,7 @@
 import { Head, Link, router } from '@inertiajs/vue3'
 import { computed, nextTick, reactive, ref, watch } from 'vue'
 import AppLayout from '@/layouts/AppLayout.vue'
+import QrCameraScanner from '@/components/QrCameraScanner.vue'
 import { errorText, finishingRequest } from '@/lib/finishing-api'
 import { isTouchOnly, printFrame } from '@/lib/print-pdf'
 import { toast } from '@/lib/toast'
@@ -85,6 +86,14 @@ const canConfirm = computed(() => !!preview.value && preview.value.scan_code ===
 function resetNotices() { message.value = ''; error.value = '' }
 function formatQty(value: number | string) { return Number(value).toLocaleString('th-TH', { maximumFractionDigits: 3 }) }
 function productTypeText(code?: string | null, name?: string | null) { return code ? (name ? `${code} · ${name}` : code) : '-' }
+// Camera scan: the decoded text goes through exactly the same path as a hand-scanner (preview, then weight).
+const showCamera = ref(false)
+function onCameraDetected(text: string) {
+    showCamera.value = false
+    scanCode.value = text
+    onScanInput()
+    previewScan()
+}
 function onScanInput() { scanError.value = ''; preview.value = null }
 
 async function previewScan() {
@@ -301,7 +310,7 @@ function shiftLabel(value: string) { return value === 'day' ? 'กะเช้�
 
                         <div>
                             <label for="finishing-process-scan" class="mb-1 flex flex-wrap items-baseline justify-between gap-x-3 text-xs text-slate-500"><span>ยิง TAG WIP (รับเข้า)</span><span v-if="selectedJob.product_type_code">รับเฉพาะสินค้า <strong class="mono text-slate-800">{{ selectedJob.product_type_code }}</strong></span><span v-else class="text-amber-700">Tag แรกจะกำหนดประเภทสินค้าของ Job นี้ · 1 Job = 1 ประเภทสินค้า</span></label>
-                            <div class="flex min-h-14 min-w-0 items-center gap-3 rounded border-2 border-[var(--hmi-line)] bg-[var(--hmi-panel)] px-3 focus-within:border-emerald-700 focus-within:bg-white"><i class="ph ph-barcode text-2xl text-emerald-700" aria-hidden="true"></i><input id="finishing-process-scan" ref="scanInput" v-model="scanCode" autofocus autocomplete="off" maxlength="255" spellcheck="false" class="mono min-w-0 flex-1 border-0 bg-transparent p-0 text-base font-bold focus:ring-0" placeholder="สแกนหรือพิมพ์รหัส แล้วกด Enter" @keydown.enter.prevent="previewScan" @input="onScanInput" /><span v-if="previewing" class="text-xs text-[var(--hmi-mute)]">กำลังตรวจ...</span></div>
+                            <div class="flex min-h-14 min-w-0 items-center gap-3 rounded border-2 border-[var(--hmi-line)] bg-[var(--hmi-panel)] px-3 focus-within:border-emerald-700 focus-within:bg-white"><i class="ph ph-barcode text-2xl text-emerald-700" aria-hidden="true"></i><input id="finishing-process-scan" ref="scanInput" v-model="scanCode" autofocus autocomplete="off" maxlength="255" spellcheck="false" class="mono min-w-0 flex-1 border-0 bg-transparent p-0 text-base font-bold focus:ring-0" placeholder="สแกนหรือพิมพ์รหัส แล้วกด Enter" @keydown.enter.prevent="previewScan" @input="onScanInput" /><span v-if="previewing" class="text-xs text-[var(--hmi-mute)]">กำลังตรวจ...</span><button type="button" class="-mr-1 flex min-h-11 shrink-0 items-center gap-1.5 rounded-md bg-emerald-700 px-3 text-sm font-bold text-white" aria-label="สแกนด้วยกล้อง" @click="showCamera = true"><i class="ph ph-camera text-xl" aria-hidden="true"></i><span class="hidden sm:inline">กล้อง</span></button></div>
                             <p v-if="scanError" role="alert" class="mb-0 mt-2 rounded border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-800">{{ scanError }}</p>
                         </div>
 
@@ -347,6 +356,7 @@ function shiftLabel(value: string) { return value === 'day' ? 'กะเช้�
                 <button v-else type="button" class="flex min-h-12 items-center justify-center gap-2 rounded-md border border-slate-300 bg-white px-6 font-bold text-slate-800" @click="openSummary"><i class="ph ph-clipboard-text text-xl" aria-hidden="true"></i>ดูสรุปการแปรรูป</button>
             </div>
         </main>
+    <QrCameraScanner v-if="showCamera" @detected="onCameraDetected" @close="showCamera = false; nextTick(() => scanInput?.focus())" />
     <Teleport to="body">
         <div v-if="showSummary" class="fixed inset-0 z-[10000] flex items-end justify-center bg-slate-950/60 sm:items-center sm:p-4" role="presentation" @click.self="showSummary = false" @keydown.esc="showSummary = false">
             <section role="dialog" aria-modal="true" aria-label="สรุปการแปรรูป" class="flex max-h-[95vh] w-full max-w-2xl flex-col overflow-hidden rounded-t-xl bg-white shadow-2xl sm:rounded-xl">

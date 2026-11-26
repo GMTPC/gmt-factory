@@ -354,7 +354,10 @@ class FinishingPageController
     {
         $today = now(config('finishing.timezone', config('app.timezone')))->toDateString();
         $statusReady = Schema::hasTable('finishing_station_status_events');
-        $stationsQuery = FinishingStation::query();
+        // Open Jobs per station: what is being processed right now and by whom.
+        $stationsQuery = FinishingStation::query()->with(['jobs' => fn ($q) => $q->where('status', 'active')->orderByDesc('id')
+            ->select(['id', 'station_id', 'status', 'shift_date', 'shift', 'product_type_code', 'product_type_name', 'employee_names', 'inspector_name'])
+            ->withCount(['productionLogs as tag_count' => fn ($logs) => $logs->where('status', 'confirmed')])]);
         if ($statusReady) {
             $stationsQuery->with('latestStatusEvent.user');
         }

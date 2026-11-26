@@ -40,6 +40,8 @@
         "@tabler/icons-webfont": "^3.44.0",
         "@types/node": "^22.20.5",
         "@vitejs/plugin-vue": "^6.0.10",
+        "@zxing/browser": "^0.2.1",
+        "@zxing/library": "^0.23.0",
         "apexcharts": "^5.14.0",
         "baseline-browser-mapping": "^2.10.27",
         "browserslist": "^4.28.2",
