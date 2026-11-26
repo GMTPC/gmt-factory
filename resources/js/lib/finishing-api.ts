@@ -8,16 +8,21 @@ function fail(message: string, status?: number, errors?: Record<string, string[]
 }
 
 export async function finishingRequest<T>(url: string, method: string, payload: unknown, csrf: string): Promise<T> {
+    // IIS (WebDAV) answers PUT / PATCH / DELETE with 405, so send them as POST and let Laravel read the real
+    // method from X-HTTP-Method-Override (Symfony honours this header on POST requests).
+    const verb = method.toUpperCase()
+    const tunnelled = !['GET', 'HEAD', 'POST'].includes(verb)
     let response: Response
     try {
         response = await fetch(url, {
-            method,
+            method: tunnelled ? 'POST' : verb,
             credentials: 'same-origin',
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
                 'X-CSRF-TOKEN': csrf,
                 'X-Requested-With': 'XMLHttpRequest',
+                ...(tunnelled ? { 'X-HTTP-Method-Override': verb } : {}),
             },
             body: payload === undefined ? undefined : JSON.stringify(payload),
         })
