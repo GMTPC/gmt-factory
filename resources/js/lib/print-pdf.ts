@@ -33,3 +33,36 @@ export function printFrame(frame: HTMLIFrameElement | null, fallbackUrl: string)
         window.open(fallbackUrl, '_blank', 'noopener')
     }
 }
+
+/**
+ * Print server-rendered HTML in the current page (window.print) — used on phones, where a PDF would be
+ * downloaded instead of printed. The fragment brings its own @media print rules that hide everything else.
+ */
+export async function printHtml(url: string): Promise<void> {
+    const response = await fetch(url, { credentials: 'same-origin', headers: { Accept: 'text/html' } })
+    if (!response.ok) throw new Error(`โหลด Tag เพื่อพิมพ์ไม่สำเร็จ (HTTP ${response.status})`)
+    const html = await response.text()
+    let root = document.getElementById('fin-print-root')
+    if (!root) {
+        root = document.createElement('div')
+        root.id = 'fin-print-root'
+        document.body.appendChild(root)
+    }
+    root.innerHTML = html
+    document.body.classList.add('fin-printing')
+    const cleanup = () => {
+        document.body.classList.remove('fin-printing')
+        document.getElementById('fin-print-root')?.remove()
+        window.removeEventListener('afterprint', cleanup)
+    }
+    window.addEventListener('afterprint', cleanup)
+    // Let the SVG codes lay out before the print snapshot is taken.
+    await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)))
+    window.print()
+}
+
+/** Print a Finishing tag: PDF in a hidden frame on desktop, in-page HTML straight to the print dialog on phones. */
+export async function printTag(tagUrl: string): Promise<void> {
+    if (isTouchOnly()) return printHtml(`${tagUrl}-print`)
+    printPdf(tagUrl)
+}

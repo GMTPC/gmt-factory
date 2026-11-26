@@ -4,7 +4,7 @@ import { computed, nextTick, reactive, ref, watch } from 'vue'
 import AppLayout from '@/layouts/AppLayout.vue'
 import QrCameraScanner from '@/components/QrCameraScanner.vue'
 import { errorText, finishingRequest } from '@/lib/finishing-api'
-import { isTouchOnly, printFrame } from '@/lib/print-pdf'
+import { isTouchOnly, printFrame, printTag as printTagFile } from '@/lib/print-pdf'
 import { toast } from '@/lib/toast'
 
 type Station = { id: number; code: string; name: string; input_material: string; output_material: string; next_station_id: number | null; is_final: boolean }
@@ -227,7 +227,15 @@ function onTagFrameLoad() {
     const url = tagPreview.value.tag_url
     window.setTimeout(() => printFrame(tagFrame.value, url), 300)
 }
-function printTag() { if (tagPreview.value?.tag_url) printFrame(tagFrame.value, tagPreview.value.tag_url) }
+const tagPrinting = ref(false)
+async function printTag() {
+    const url = tagPreview.value?.tag_url
+    if (!url) return
+    if (!touchOnly) { printFrame(tagFrame.value, url); return }
+    // Phones: straight to the system print dialog (no PDF download).
+    tagPrinting.value = true
+    try { await printTagFile(url) } catch (e) { toast(errorText(e), 'error') } finally { tagPrinting.value = false }
+}
 function formatTime(value?: string) { return value ? new Date(value).toLocaleString('th-TH', { timeZone: 'Asia/Bangkok', dateStyle: 'short', timeStyle: 'short' }) : '-' }
 
 // Edit weight only (the rest of an issued tag is fixed).
@@ -467,7 +475,7 @@ function shiftLabel(value: string) { return value === 'day' ? 'กะเช้�
                         <div class="flex gap-2 border-t border-slate-200 p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
                             <button type="button" class="min-h-11 flex-1 rounded border border-slate-300 px-4 font-semibold" @click="tagPreview = null">ปิด</button>
                             <button v-if="!touchOnly" type="button" class="flex min-h-11 flex-[2] items-center justify-center gap-2 rounded bg-emerald-700 px-4 font-bold text-white" @click="printTag"><i class="ph ph-printer text-lg" aria-hidden="true"></i>พิมพ์ Tag</button>
-                            <a v-else :href="tagPreview.tag_url ?? '#'" target="_blank" rel="noopener" class="flex min-h-11 flex-[2] items-center justify-center gap-2 rounded bg-emerald-700 px-4 font-bold text-white"><i class="ph ph-file-pdf text-lg" aria-hidden="true"></i>เปิด PDF เพื่อพิมพ์</a>
+                            <button v-else type="button" :disabled="tagPrinting" class="flex min-h-11 flex-[2] items-center justify-center gap-2 rounded bg-emerald-700 px-4 font-bold text-white disabled:opacity-60" @click="printTag"><i class="ph ph-printer text-lg" aria-hidden="true"></i>{{ tagPrinting ? 'กำลังเตรียมพิมพ์...' : 'พิมพ์ Tag' }}</button>
                         </div>
                     </div>
                 </div>

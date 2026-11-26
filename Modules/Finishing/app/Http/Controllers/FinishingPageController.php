@@ -290,6 +290,53 @@ class FinishingPageController
         ];
     }
 
+    /** The same tag as print-ready HTML (inline SVG codes) for phones: printed in-page, no PDF download. */
+    public function printProductionTagHtml(ProductionLog $productionLog)
+    {
+        abort_unless($productionLog->status === 'confirmed' && $productionLog->output_material_id, 404);
+        $productionLog->load(['station', 'job.recorder', 'material', 'outputMaterial', 'user']);
+        $tag = $this->tagFields($productionLog);
+
+        return response()->view('finishing.production-tag-print', [
+            'tag' => $tag,
+            'qrSvg' => $this->qrSvg((string) $tag['qr']),
+            'barcodeSvg' => $this->code128Svg((string) $tag['barcode']),
+        ])->header('Cache-Control', 'no-store');
+    }
+
+    private function qrSvg(string $code): string
+    {
+        if ($code === '') {
+            return '';
+        }
+        $qr = new \Mpdf\QrCode\QrCode($code, 'M');
+        $qr->disableBorder();
+        $svg = (new \Mpdf\QrCode\Output\Svg())->output($qr, 200);
+
+        // Scalable: swap the fixed 200x200 size for a viewBox so CSS can size it in mm.
+        $svg = (string) preg_replace('/^<\?xml[^>]*>\s*/', '', $svg);
+
+        return (string) preg_replace('/width="200" height="200"/', 'viewBox="0 0 200 200"', $svg, 1);
+    }
+
+    private function code128Svg(string $code): string
+    {
+        $data = $code !== '' ? (new \Mpdf\Barcode())->getBarcodeArray($code, 'C128B') : false;
+        if (! $data) {
+            return '';
+        }
+        $x = 0;
+        $bars = '';
+        foreach ($data['bcode'] as $bar) {
+            if ($bar['t']) {
+                $bars .= '<rect x="'.$x.'" y="0" width="'.$bar['w'].'" height="40"/>';
+            }
+            $x += $bar['w'];
+        }
+
+        return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 '.$data['maxw'].' 40" preserveAspectRatio="none" shape-rendering="crispEdges" fill="#000">'.$bars.'</svg>';
+    }
+
     /** Fields of the Finishing WIP tag, laid out like the AppSheet Finishing tag. */
     private function tagFields(ProductionLog $log): array
     {

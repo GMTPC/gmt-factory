@@ -3,7 +3,7 @@ import { Head, Link, router } from '@inertiajs/vue3'
 import { computed, ref } from 'vue'
 import AppLayout from '@/layouts/AppLayout.vue'
 import { errorText, finishingRequest } from '@/lib/finishing-api'
-import { printPdf } from '@/lib/print-pdf'
+import { printTag } from '@/lib/print-pdf'
 import { toast } from '@/lib/toast'
 
 type RawMaterialUse = { name: string; quantity: number | null; unit: string | null }
@@ -98,7 +98,7 @@ async function finishJob() {
                                         <td class="mono text-right">{{ kg(item.weight_kg) }}</td>
                                         <td class="whitespace-nowrap text-sm">{{ item.date_time || '-' }}</td>
                                         <td class="text-sm">{{ item.recorded_by || '-' }}</td>
-                                        <td><button v-if="item.tag_url" type="button" class="inline-flex items-center gap-1.5 rounded bg-emerald-700 px-3 py-1.5 text-xs font-bold text-white" @click="printPdf(item.tag_url)"><i class="ph ph-printer" aria-hidden="true"></i>พิมพ์</button></td>
+                                        <td><button v-if="item.tag_url" type="button" class="inline-flex items-center gap-1.5 rounded bg-emerald-700 px-3 py-1.5 text-xs font-bold text-white" @click="printTag(item.tag_url).catch((e) => toast(errorText(e), 'error'))"><i class="ph ph-printer" aria-hidden="true"></i>พิมพ์</button></td>
                                     </tr>
                                     <tr v-if="!summary.items.length"><td colspan="11" class="py-10 text-center text-slate-500">ยังไม่มีรายการ</td></tr>
                                 </tbody>
