@@ -86,6 +86,16 @@ const canConfirm = computed(() => !!preview.value && preview.value.scan_code ===
 function resetNotices() { message.value = ''; error.value = '' }
 function formatQty(value: number | string) { return Number(value).toLocaleString('th-TH', { maximumFractionDigits: 3 }) }
 function productTypeText(code?: string | null, name?: string | null) { return code ? (name ? `${code} · ${name}` : code) : '-' }
+// Phones / handhelds: keep the soft keyboard closed on the scan field (a built-in scanner still types into it).
+const manualKeyboard = ref(false)
+const scanInputMode = computed(() => touchOnly && !manualKeyboard.value ? 'none' : 'text')
+function focusScan() { scanInput.value?.focus() }
+function toggleKeyboard() {
+    manualKeyboard.value = !manualKeyboard.value
+    scanInput.value?.blur()
+    nextTick(focusScan)
+}
+
 // Camera scan: the decoded text goes through exactly the same path as a hand-scanner (preview, then weight).
 const showCamera = ref(false)
 function onCameraDetected(text: string) {
@@ -132,7 +142,7 @@ async function scanAndConfirm() {
         resetForm()
         form.sub_type = subType
         form.has_labeling = hasLabeling
-        router.reload({ preserveScroll: true, onSuccess: () => nextTick(() => scanInput.value?.focus()) })
+        router.reload({ preserveScroll: true, onSuccess: () => nextTick(() => { if (!tagPreview.value) focusScan() }) })
     } catch (e) { scanError.value = errorText(e) } finally { busy.value = false }
 }
 function resetForm() {
@@ -209,7 +219,8 @@ const tagPreview = ref<Log | null>(null)
 const tagFrame = ref<HTMLIFrameElement | null>(null)
 const touchOnly = isTouchOnly()
 let tagAutoPrinted = false
-function openTag(log: Log) { if (!log.tag_url) return; tagAutoPrinted = false; tagPreview.value = log }
+function openTag(log: Log) { if (!log.tag_url) return; tagAutoPrinted = false; (document.activeElement as HTMLElement | null)?.blur(); tagPreview.value = log }
+watch(tagPreview, (value, previous) => { if (!value && previous) nextTick(focusScan) })
 function onTagFrameLoad() {
     if (tagAutoPrinted || !tagPreview.value?.tag_url) return
     tagAutoPrinted = true
@@ -310,7 +321,7 @@ function shiftLabel(value: string) { return value === 'day' ? 'กะเช้�
 
                         <div>
                             <label for="finishing-process-scan" class="mb-1 flex flex-wrap items-baseline justify-between gap-x-3 text-xs text-slate-500"><span>ยิง TAG WIP (รับเข้า)</span><span v-if="selectedJob.product_type_code">รับเฉพาะสินค้า <strong class="mono text-slate-800">{{ selectedJob.product_type_code }}</strong></span><span v-else class="text-amber-700">Tag แรกจะกำหนดประเภทสินค้าของ Job นี้ · 1 Job = 1 ประเภทสินค้า</span></label>
-                            <div class="flex min-h-14 min-w-0 items-center gap-3 rounded border-2 border-[var(--hmi-line)] bg-[var(--hmi-panel)] px-3 focus-within:border-emerald-700 focus-within:bg-white"><i class="ph ph-barcode text-2xl text-emerald-700" aria-hidden="true"></i><input id="finishing-process-scan" ref="scanInput" v-model="scanCode" autofocus autocomplete="off" maxlength="255" spellcheck="false" class="mono min-w-0 flex-1 border-0 bg-transparent p-0 text-base font-bold focus:ring-0" placeholder="สแกนหรือพิมพ์รหัส แล้วกด Enter" @keydown.enter.prevent="previewScan" @input="onScanInput" /><span v-if="previewing" class="text-xs text-[var(--hmi-mute)]">กำลังตรวจ...</span><button type="button" class="-mr-1 flex min-h-11 shrink-0 items-center gap-1.5 rounded-md bg-emerald-700 px-3 text-sm font-bold text-white" aria-label="สแกนด้วยกล้อง" @click="showCamera = true"><i class="ph ph-camera text-xl" aria-hidden="true"></i><span class="hidden sm:inline">กล้อง</span></button></div>
+                            <div class="flex min-h-14 min-w-0 items-center gap-3 rounded border-2 border-[var(--hmi-line)] bg-[var(--hmi-panel)] px-3 focus-within:border-emerald-700 focus-within:bg-white"><i class="ph ph-barcode text-2xl text-emerald-700" aria-hidden="true"></i><input id="finishing-process-scan" ref="scanInput" v-model="scanCode" :inputmode="scanInputMode" enterkeyhint="go" autofocus autocomplete="off" maxlength="255" spellcheck="false" class="mono min-w-0 flex-1 border-0 bg-transparent p-0 text-base font-bold focus:ring-0" placeholder="สแกนหรือพิมพ์รหัส แล้วกด Enter" @keydown.enter.prevent="previewScan" @input="onScanInput" /><span v-if="previewing" class="text-xs text-[var(--hmi-mute)]">กำลังตรวจ...</span><button v-if="touchOnly" type="button" class="flex min-h-11 shrink-0 items-center rounded-md border px-2.5 text-lg" :class="manualKeyboard ? 'border-emerald-600 bg-emerald-50 text-emerald-800' : 'border-slate-300 bg-white text-slate-600'" :aria-pressed="manualKeyboard" aria-label="เปิด/ปิดคีย์บอร์ดเพื่อพิมพ์รหัสเอง" @click="toggleKeyboard"><i class="ph ph-keyboard" aria-hidden="true"></i></button><button type="button" class="-mr-1 flex min-h-11 shrink-0 items-center gap-1.5 rounded-md bg-emerald-700 px-3 text-sm font-bold text-white" aria-label="สแกนด้วยกล้อง" @click="showCamera = true"><i class="ph ph-camera text-xl" aria-hidden="true"></i><span class="hidden sm:inline">กล้อง</span></button></div>
                             <p v-if="scanError" role="alert" class="mb-0 mt-2 rounded border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-800">{{ scanError }}</p>
                         </div>
 
