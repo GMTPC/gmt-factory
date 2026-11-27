@@ -89,6 +89,7 @@ class ProductionService
                 $input->update(['status' => 'pending']);
             }
 
+            app(WipInputService::class)->release($log->id);
             $log->status = 'cancelled';
             $log->save();
             $log->delete();
@@ -100,6 +101,64 @@ class ProductionService
 
             return $log;
         });
+    }
+
+    /**
+     * Change the sheet count of an issued output tag (e.g. 100 in -> 98 out). Sheets come from / go back to the
+     * output's own input tags, the tag code (lot + qty) is rebuilt and the tag must be printed again.
+     */
+    public function changeOutputQuantity(ProductionLog $productionLog, float $quantity): ProductionLog
+    {
+        return DB::transaction(function () use ($productionLog, $quantity) {
+            $log = ProductionLog::query()->lockForUpdate()->findOrFail($productionLog->id);
+            if ($log->status !== 'confirmed') {
+                throw ValidationException::withMessages(['quantity_out' => 'แก้จำนวนได้เฉพาะรายการที่ออก Tag แล้ว']);
+            }
+            $current = (float) $log->quantity_out;
+            if (abs($current - $quantity) < 0.0005) {
+                return $log;
+            }
+            $output = $log->output_material_id ? FinishingMaterial::query()->lockForUpdate()->find($log->output_material_id) : null;
+            $tagScanned = $log->output_tag_code
+                && DB::table('finishing_wip_receipts')->where('scan_code', $log->output_tag_code)->exists();
+            if ($tagScanned || ($output && ($output->children()->exists() || $output->productionLogs()->where('status', 'confirmed')->exists()))) {
+                throw ValidationException::withMessages(['quantity_out' => 'แก้จำนวนไม่ได้ เพราะ Tag WIP ออกนี้ถูกนำไปใช้ในขั้นตอนถัดไปแล้ว']);
+            }
+
+            app(WipInputService::class)->resize($log->id, $current, $quantity);
+
+            $delta = $quantity - $current;
+            $material = FinishingMaterial::query()->lockForUpdate()->findOrFail($log->material_id);
+            $remaining = round((float) $material->quantity - $delta, 3);
+            if ($remaining < -0.0005) {
+                throw ValidationException::withMessages(['quantity_out' => 'ยอด WIP รอแปรรูปของ Job ไม่พอ']);
+            }
+            $material->quantity = max(0, $remaining);
+            $material->status = $remaining > 0 ? 'pending' : 'completed';
+            $material->save();
+
+            $log->quantity_in = $quantity;
+            $log->quantity_out = $quantity;
+            if ($log->output_lot) {
+                $code = $log->output_lot.$this->tagQuantity($quantity);
+                if (DB::table('finishing_wip_receipts')->where('scan_code', $code)->exists()) {
+                    throw ValidationException::withMessages(['quantity_out' => 'Tag WIP '.$code.' ซ้ำกับ Tag ที่รับเข้าแล้ว']);
+                }
+                $log->output_tag_code = $code;
+            }
+            $log->save();
+            $output?->update(['quantity' => $quantity] + ($log->output_lot ? ['code' => $log->output_tag_code] : []));
+
+            return $log->fresh(['station', 'material', 'outputMaterial', 'user']);
+        });
+    }
+
+    /** Quantity part of the tag code: 3 digits (100 -> "100", 98 -> "098"). */
+    private function tagQuantity(float $quantity): string
+    {
+        return floor($quantity) === $quantity
+            ? str_pad((string) (int) $quantity, 3, '0', STR_PAD_LEFT)
+            : rtrim(rtrim(number_format($quantity, 3, '.', ''), '0'), '.');
     }
 
     /**
@@ -120,10 +179,7 @@ class ProductionService
         }
         $lot = $prefix.str_pad((string) $sequence, 3, '0', STR_PAD_LEFT);
 
-        $qty = floor($output) === $output
-            ? str_pad((string) (int) $output, 3, '0', STR_PAD_LEFT)
-            : rtrim(rtrim(number_format($output, 3, '.', ''), '0'), '.');
-        $code = $lot.$qty;
+        $code = $lot.$this->tagQuantity($output);
         if (DB::table('finishing_wip_receipts')->where('scan_code', $code)->exists()) {
             throw ValidationException::withMessages(['status' => 'Tag WIP '.$code.' ซ้ำกับ Tag ที่รับเข้าแล้ว']);
         }

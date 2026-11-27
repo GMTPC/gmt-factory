@@ -12,8 +12,8 @@ type Material = { id: number; code: string | null; name: string; type: string; q
 type Job = { id: number; job_no: string; user?: { name: string } | null; employee_names?: (string | { name: string })[] | null; machine_name?: string | null; pvc_type?: string | null; inspector_name?: string | null; recorder?: { name: string } | null; raw_material_name?: string | null; raw_materials?: RawMaterialUse[] | null; product_type_code?: string | null; product_type_name?: string | null; station_id: number; material_id: number | null; shift_date: string; shift: string; status: string; notes: string | null; production_logs_count: number; material: Material | null }
 type RawMaterialUse = { name: string; quantity: number | null; unit: string | null }
 type SummaryItem = { sequence: number; in_code: string | null; in_quantity: number; out_code: string | null; out_lot: string | null; out_quantity: number; weight_kg: number | null; time: string | null }
-type JobSummary = { items: SummaryItem[]; pending_items: { in_code: string; in_quantity: number }[]; input_tags: number; input_quantity: number; output_tags: number; quantity_in: number; quantity_out: number; defects: number; weight_kg: number; pending_quantity: number; draft_count: number; started_at: string | null; first_scan_at: string | null; last_scan_at: string | null; ended_at: string | null; is_completed: boolean; minutes: number; scan_minutes: number }
-type Log = { id: number; job_id: number; created_at?: string; sequence?: number; shift_date: string; shift: string; quantity_in: string; quantity_out: string; defect_count: string; ft_count: string | null; sub_type: string | null; has_labeling: boolean; status: string; notes: string | null; material: Material; scan_code?: string | null; tag_url?: string | null; output_material?: Material | null; user?: { name: string }; weight_kg?: string | null; raw_material_name?: string | null; product_type_code?: string | null; product_type_name?: string | null; output_tag_code?: string | null; output_lot?: string | null; defect_details?: { defect_type_id: number; quantity: string; notes: string | null }[] }
+type JobSummary = { items: SummaryItem[]; pending_items: { in_code: string; in_quantity: number; tag_quantity?: number; used?: number }[]; input_tags: number; input_quantity: number; output_tags: number; quantity_in: number; quantity_out: number; defects: number; weight_kg: number; pending_quantity: number; draft_count: number; started_at: string | null; first_scan_at: string | null; last_scan_at: string | null; ended_at: string | null; is_completed: boolean; minutes: number; scan_minutes: number }
+type Log = { id: number; job_id: number; created_at?: string; sequence?: number; shift_date: string; shift: string; quantity_in: string; quantity_out: string; defect_count: string; ft_count: string | null; sub_type: string | null; has_labeling: boolean; status: string; notes: string | null; material: Material; scan_code?: string | null; tag_url?: string | null; output_material?: Material | null; user?: { name: string }; weight_kg?: string | null; raw_material_name?: string | null; product_type_code?: string | null; product_type_name?: string | null; output_tag_code?: string | null; output_lot?: string | null; inputs?: { scan_code: string; quantity: number }[]; max_quantity_out?: number; defect_details?: { defect_type_id: number; quantity: string; notes: string | null }[] }
 const props = defineProps<{ station: Station; stations: { id: number; code: string; name: string }[]; job: Job; materials: Material[]; logs: Log[]; shift: { shift: string; shift_date: string }; isAdmin: boolean; rawMaterials: string[]; rawMaterialUnits: string[]; summary: JobSummary; defectTypes: { id: number; name: string }[]; csrf: string }>()
 const busy = ref(false)
 const message = ref('')
@@ -23,8 +23,32 @@ const scanError = ref('')
 const scanMessage = ref('')
 const scanInput = ref<HTMLInputElement | null>(null)
 const weightInput = ref<HTMLInputElement | null>(null)
-type ScanPreview = { scan_code: string; quantity_in: number; quantity_out: number; product_type_code: string | null; product_type_name: string | null; sets_job_product_type?: boolean }
-const preview = ref<ScanPreview | null>(null)
+type ScanPreview = { scan_code: string; tag_quantity: number; used: number; remaining: number; quantity_in: number; quantity_out: number; product_type_code: string | null; product_type_name: string | null; sets_job_product_type?: boolean }
+// One output tag can be made from several input tags: scan them into the batch, then enter how many came out.
+const batch = ref<ScanPreview[]>([])
+const quantityOut = ref('')
+const quantityTouched = ref(false)
+const quantityInput = ref<HTMLInputElement | null>(null)
+const available = computed(() => Math.round(batch.value.reduce((sum, item) => sum + Number(item.remaining), 0) * 1000) / 1000)
+watch(available, (value) => { if (!quantityTouched.value) quantityOut.value = value ? String(value) : '' })
+// How many sheets each input tag gives (in scan order) for the quantity entered.
+const allocation = computed(() => {
+    let left = Number(quantityOut.value) || 0
+    return batch.value.map((item) => { const take = Math.max(0, Math.min(Number(item.remaining), left)); left -= take; return take })
+})
+const quantityError = computed(() => {
+    if (!batch.value.length || quantityOut.value === '') return ''
+    const qty = Number(quantityOut.value)
+    if (!(qty > 0)) return 'จำนวน WIP ออกต้องมากกว่า 0'
+    if (qty > available.value + 0.0005) return `เกินยอด WIP รับเข้า (ได้สูงสุด ${formatQty(available.value)})`
+    const unused = allocation.value.findIndex((take) => take <= 0)
+    if (unused >= 0) return `จำนวนนี้ใช้ไม่ถึง Tag ที่ ${unused + 1} · เอา Tag นั้นออก หรือเพิ่มจำนวน`
+    return ''
+})
+const batchProduct = computed(() => batch.value[0] ?? null)
+const pendingTags = computed(() => props.summary.pending_items.filter((item) => !batch.value.some((row) => row.scan_code === item.in_code.toUpperCase())))
+function removeFromBatch(index: number) { batch.value.splice(index, 1); if (!batch.value.length) { quantityTouched.value = false; quantityOut.value = '' } focusScan() }
+function resetQuantity() { quantityTouched.value = false; quantityOut.value = available.value ? String(available.value) : '' }
 const previewing = ref(false)
 const weightKg = ref('')
 // Raw materials belong to the whole Job (not a pallet). Pick several, change any time; scanning never waits on it.
@@ -81,7 +105,7 @@ const selectedJob = computed(() => props.job)
 const form = reactive({ material_id: String(props.job.material_id ?? ''), shift_date: props.job.shift_date.slice(0, 10), shift: props.job.shift, quantity_in: '', quantity_out: '', defect_count: '0', ft_count: '', sub_type: '', has_labeling: false, notes: '' })
 const defectRows = ref<{ defect_type_id: string; quantity: string; notes: string }[]>([])
 const jobLogs = computed(() => props.logs)
-const canConfirm = computed(() => !!preview.value && preview.value.scan_code === scanCode.value.trim().toUpperCase() && Number(weightKg.value) > 0)
+const canConfirm = computed(() => batch.value.length > 0 && Number(quantityOut.value) > 0 && !quantityError.value && Number(weightKg.value) > 0)
 
 function resetNotices() { message.value = ''; error.value = '' }
 function formatQty(value: number | string) { return Number(value).toLocaleString('th-TH', { maximumFractionDigits: 3 }) }
@@ -109,39 +133,50 @@ function onCameraDetected(text: string) {
     onScanInput()
     previewScan()
 }
-function onScanInput() { scanError.value = ''; preview.value = null }
+function onScanInput() { scanError.value = '' }
 
-async function previewScan() {
+// Scan adds a tag to the batch. Enter on an empty scan field moves on to the quantity / weight.
+async function previewScan(code?: string) {
     if (busy.value || previewing.value) return
-    const barcode = scanCode.value.trim()
-    if (!barcode) { scanError.value = 'กรุณาสแกนบาร์โค้ด WIP'; scanInput.value?.focus(); return }
-    if (preview.value?.scan_code === barcode.toUpperCase()) { weightInput.value?.focus(); return }
+    const barcode = (code ?? scanCode.value).trim()
+    if (!barcode) {
+        if (batch.value.length) { (weightKg.value ? quantityInput.value : weightInput.value)?.focus(); return }
+        scanError.value = 'กรุณาสแกนบาร์โค้ด WIP'; scanInput.value?.focus(); return
+    }
+    if (batch.value.some((item) => item.scan_code === barcode.toUpperCase())) { scanError.value = 'Tag นี้อยู่ในรายการแล้ว'; scanCode.value = ''; return }
     scanError.value = ''; scanMessage.value = ''; previewing.value = true
     try {
-        preview.value = await finishingRequest<ScanPreview>(`/api/finishing/jobs/${props.job.id}/scan-preview?raw_scan_code=${encodeURIComponent(barcode)}`, 'GET', undefined, props.csrf)
+        const item = await finishingRequest<ScanPreview>(`/api/finishing/jobs/${props.job.id}/scan-preview?raw_scan_code=${encodeURIComponent(barcode)}`, 'GET', undefined, props.csrf)
+        const first = batch.value[0]
+        if (first?.product_type_code && item.product_type_code && first.product_type_code !== item.product_type_code) throw new Error(`Tag นี้เป็นสินค้า ${item.product_type_code} ไม่ตรงกับ Tag แรก (${first.product_type_code})`)
+        batch.value.push(item)
+        scanCode.value = ''
+        navigator.vibrate?.(40)
         await nextTick()
-        weightInput.value?.focus()
-    } catch (e) { preview.value = null; scanError.value = errorText(e); scanInput.value?.select() } finally { previewing.value = false }
+        focusScan()
+    } catch (e) { scanError.value = errorText(e); scanInput.value?.select() } finally { previewing.value = false }
 }
 
 async function scanAndConfirm() {
     if (busy.value) return
     if (!canConfirm.value) {
-        if (!preview.value) return previewScan()
+        if (scanCode.value.trim() || !batch.value.length) return previewScan()
+        if (quantityError.value || !(Number(quantityOut.value) > 0)) { scanError.value = quantityError.value || 'กรุณากรอกจำนวน WIP ออก'; quantityInput.value?.focus(); return }
         scanError.value = 'กรุณากรอกน้ำหนัก WIP ออก (กก.)'; weightInput.value?.focus(); return
     }
-    const current = preview.value!
+    const current = batch.value[0]
+    const codes = batch.value.map((item) => item.scan_code)
     resetNotices(); scanError.value = ''; scanMessage.value = ''; busy.value = true
     try {
         const log = await finishingRequest<Log>(`/api/finishing/jobs/${props.job.id}/scan`, 'POST', {
-            raw_scan_code: current.scan_code, weight_kg: weightKg.value,
+            inputs: codes, quantity_out: quantityOut.value, weight_kg: weightKg.value,
             ft_count: form.ft_count || null, sub_type: form.sub_type || null,
             has_labeling: form.has_labeling, notes: form.notes || null,
         }, props.csrf)
         lastTag.value = { id: log.id, code: log.output_tag_code ?? null, lot: log.output_lot ?? null, url: log.tag_url ?? null, productType: productTypeText(current.product_type_code, current.product_type_name), quantity: Number(log.quantity_out), weight: weightKg.value }
         toast(`ออก Tag WIP ${log.output_tag_code ?? ''} แล้ว`.replace('  ', ' '))
-        if (log.tag_url) openTag({ ...log, scan_code: current.scan_code })
-        scanCode.value = ''; weightKg.value = ''; preview.value = null
+        if (log.tag_url) openTag({ ...log, scan_code: codes.join(' + ') })
+        scanCode.value = ''; weightKg.value = ''; batch.value = []; quantityTouched.value = false; quantityOut.value = ''
         const subType = form.sub_type
         const hasLabeling = form.has_labeling
         resetForm()
@@ -249,20 +284,28 @@ const weightEditValue = ref('')
 const weightEditError = ref('')
 const weightEditBusy = ref(false)
 const weightEditInput = ref<HTMLInputElement | null>(null)
+const qtyEditValue = ref('')
+const qtyEditMax = computed(() => Number(weightEdit.value?.max_quantity_out ?? weightEdit.value?.quantity_out ?? 0))
+const qtyEditChanged = computed(() => !!weightEdit.value && Math.abs(Number(qtyEditValue.value) - Number(weightEdit.value.quantity_out)) > 0.0005)
 function openWeightEdit(log: Log) {
     weightEdit.value = log; weightEditValue.value = log.weight_kg != null ? Number(log.weight_kg).toFixed(2) : ''; weightEditError.value = ''
+    qtyEditValue.value = String(Number(log.quantity_out))
     nextTick(() => { weightEditInput.value?.focus(); weightEditInput.value?.select() })
 }
 async function saveWeightEdit() {
     if (!weightEdit.value || weightEditBusy.value) return
     if (!(Number(weightEditValue.value) > 0)) { weightEditError.value = 'น้ำหนักต้องมากกว่า 0'; return }
+    if (!(Number(qtyEditValue.value) > 0)) { weightEditError.value = 'จำนวน WIP ออกต้องมากกว่า 0'; return }
+    if (Number(qtyEditValue.value) > qtyEditMax.value + 0.0005) { weightEditError.value = `จำนวนเกินยอด WIP รับเข้าของรายการนี้ (ได้สูงสุด ${formatQty(qtyEditMax.value)})`; return }
     weightEditBusy.value = true; weightEditError.value = ''
     try {
-        await finishingRequest(`/api/finishing/production-logs/${weightEdit.value.id}/weight`, 'PATCH', { weight_kg: weightEditValue.value }, props.csrf)
-        message.value = `แก้น้ำหนักรายการ #${weightEdit.value.id} เป็น ${Number(weightEditValue.value).toFixed(2)} กก. แล้ว · พิมพ์ Tag ใหม่เพื่อให้น้ำหนักตรง`
-        toast(`แก้น้ำหนักเป็น ${Number(weightEditValue.value).toFixed(2)} กก. แล้ว`)
+        const log = weightEdit.value
+        const updated = await finishingRequest<Log>(`/api/finishing/production-logs/${log.id}/weight`, 'PATCH', { weight_kg: weightEditValue.value, ...(qtyEditChanged.value ? { quantity_out: qtyEditValue.value } : {}) }, props.csrf)
+        const parts = [`${formatQty(updated.quantity_out)} แผ่น`, `${Number(weightEditValue.value).toFixed(2)} กก.`]
+        message.value = `แก้รายการลำดับ ${log.sequence ?? log.id} เป็น ${parts.join(' · ')} แล้ว${qtyEditChanged.value ? ` · Tag ใหม่ ${updated.output_tag_code ?? ''}` : ''} · พิมพ์ Tag ใหม่เพื่อให้ข้อมูลตรง`
+        toast(`บันทึกแล้ว · ${parts.join(' · ')}`)
         weightEdit.value = null
-        router.reload({ only: ['logs'], preserveScroll: true })
+        router.reload({ only: ['logs', 'summary', 'job'], preserveScroll: true })
     } catch (e) { weightEditError.value = errorText(e) } finally { weightEditBusy.value = false }
 }
 function shiftLabel(value: string) { return value === 'day' ? 'กะเช้า' : 'กะดึก' }
@@ -334,20 +377,48 @@ function shiftLabel(value: string) { return value === 'day' ? 'กะเช้�
 
                         <div>
                             <label for="finishing-process-scan" class="mb-1 flex flex-wrap items-baseline justify-between gap-x-3 text-xs text-slate-500"><span>ยิง TAG WIP (รับเข้า)</span><span v-if="selectedJob.product_type_code">รับเฉพาะสินค้า <strong class="mono text-slate-800">{{ selectedJob.product_type_code }}</strong></span><span v-else class="text-amber-700">Tag แรกจะกำหนดประเภทสินค้าของ Job นี้ · 1 Job = 1 ประเภทสินค้า</span></label>
-                            <div class="flex min-h-14 min-w-0 items-center gap-3 rounded border-2 border-[var(--hmi-line)] bg-[var(--hmi-panel)] px-3 focus-within:border-emerald-700 focus-within:bg-white"><i class="ph ph-barcode text-2xl text-emerald-700" aria-hidden="true"></i><input id="finishing-process-scan" ref="scanInput" v-model="scanCode" :inputmode="scanInputMode" enterkeyhint="go" autofocus autocomplete="off" maxlength="255" spellcheck="false" class="mono min-w-0 flex-1 border-0 bg-transparent p-0 text-base font-bold focus:ring-0" placeholder="สแกนหรือพิมพ์รหัส แล้วกด Enter" @keydown.enter.prevent="previewScan" @input="onScanInput" /><span v-if="previewing" class="text-xs text-[var(--hmi-mute)]">กำลังตรวจ...</span><button v-if="touchOnly" type="button" class="flex min-h-11 shrink-0 items-center rounded-md border px-2.5 text-lg" :class="manualKeyboard ? 'border-emerald-600 bg-emerald-50 text-emerald-800' : 'border-slate-300 bg-white text-slate-600'" :aria-pressed="manualKeyboard" aria-label="เปิด/ปิดคีย์บอร์ดเพื่อพิมพ์รหัสเอง" @click="toggleKeyboard"><i class="ph ph-keyboard" aria-hidden="true"></i></button><button type="button" class="-mr-1 flex min-h-11 shrink-0 items-center gap-1.5 rounded-md bg-emerald-700 px-3 text-sm font-bold text-white" aria-label="สแกนด้วยกล้อง" @click="showCamera = true"><i class="ph ph-camera text-xl" aria-hidden="true"></i><span class="hidden sm:inline">กล้อง</span></button></div>
+                            <div class="flex min-h-14 min-w-0 items-center gap-3 rounded border-2 border-[var(--hmi-line)] bg-[var(--hmi-panel)] px-3 focus-within:border-emerald-700 focus-within:bg-white"><i class="ph ph-barcode text-2xl text-emerald-700" aria-hidden="true"></i><input id="finishing-process-scan" ref="scanInput" v-model="scanCode" :inputmode="scanInputMode" enterkeyhint="go" autofocus autocomplete="off" maxlength="255" spellcheck="false" class="mono min-w-0 flex-1 border-0 bg-transparent p-0 text-base font-bold focus:ring-0" placeholder="สแกนหรือพิมพ์รหัส แล้วกด Enter" @keydown.enter.prevent="previewScan()" @input="onScanInput" /><span v-if="previewing" class="text-xs text-[var(--hmi-mute)]">กำลังตรวจ...</span><button v-if="touchOnly" type="button" class="flex min-h-11 shrink-0 items-center rounded-md border px-2.5 text-lg" :class="manualKeyboard ? 'border-emerald-600 bg-emerald-50 text-emerald-800' : 'border-slate-300 bg-white text-slate-600'" :aria-pressed="manualKeyboard" aria-label="เปิด/ปิดคีย์บอร์ดเพื่อพิมพ์รหัสเอง" @click="toggleKeyboard"><i class="ph ph-keyboard" aria-hidden="true"></i></button><button type="button" class="-mr-1 flex min-h-11 shrink-0 items-center gap-1.5 rounded-md bg-emerald-700 px-3 text-sm font-bold text-white" aria-label="สแกนด้วยกล้อง" @click="showCamera = true"><i class="ph ph-camera text-xl" aria-hidden="true"></i><span class="hidden sm:inline">กล้อง</span></button></div>
                             <p v-if="scanError" role="alert" class="mb-0 mt-2 rounded border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-800">{{ scanError }}</p>
                         </div>
 
-                        <template v-if="preview">
-                            <dl class="m-0 grid grid-cols-2 gap-x-4 gap-y-3 border-y border-slate-200 py-3">
-                                <div class="col-span-2"><dt class="text-xs text-slate-500">รหัสสินค้า</dt><dd class="m-0 text-base"><span class="mono font-bold">{{ preview.product_type_code || '-' }}</span><template v-if="preview.product_type_name"> · {{ preview.product_type_name }}</template></dd><dd v-if="preview.sets_job_product_type && preview.product_type_code" class="m-0 mt-1 inline-block rounded bg-amber-100 px-2 py-0.5 text-xs font-semibold text-amber-900">Tag แรก · Job นี้จะเป็นสินค้า {{ preview.product_type_code }}</dd><dd v-else-if="preview.product_type_code" class="m-0 mt-1 inline-block rounded bg-emerald-100 px-2 py-0.5 text-xs font-semibold text-emerald-800">✓ ตรงกับสินค้าของ Job</dd></div>
-                                <div><dt class="text-xs text-slate-500">จำนวนแผ่น (WIP เข้า)</dt><dd class="mono m-0 text-xl font-bold">{{ formatQty(preview.quantity_in) }}</dd></div>
-                                <div><dt class="text-xs text-slate-500">จำนวนแผ่น (WIP ออก)</dt><dd class="mono m-0 text-xl font-bold">{{ formatQty(preview.quantity_out) }}</dd></div>
-                            </dl>
-                            <div>
-                                <label for="finishing-weight" class="mb-1 block text-sm font-bold">น้ำหนัก (กก.) <span class="text-red-600">*</span></label>
-                                <input id="finishing-weight" ref="weightInput" v-model="weightKg" type="number" inputmode="decimal" min="0.01" step="0.01" required class="mono min-h-14 w-full rounded border-2 border-emerald-600 text-2xl font-bold focus:border-emerald-700 focus:ring-emerald-600" placeholder="0.00" @keydown.enter.prevent="scanAndConfirm" />
+                        <div v-if="pendingTags.length" class="flex flex-wrap items-center gap-1.5 text-xs">
+                            <span class="text-slate-500">WIP รับเข้าที่ยังเหลือ:</span>
+                            <button v-for="item in pendingTags" :key="item.in_code" type="button" :disabled="previewing || busy" class="mono rounded-full border border-amber-300 bg-amber-50 px-2.5 py-1 font-semibold text-amber-900 disabled:opacity-50" :aria-label="`เพิ่ม ${item.in_code}`" @click="previewScan(item.in_code)">+ …{{ item.in_code.slice(-7) }} · เหลือ {{ formatQty(item.in_quantity) }}</button>
+                        </div>
+
+                        <template v-if="batch.length">
+                            <div class="overflow-hidden rounded border border-slate-200">
+                                <div class="flex flex-wrap items-baseline gap-x-2 border-b border-slate-200 bg-slate-50 px-3 py-2 text-sm">
+                                    <strong>WIP เข้า {{ batch.length }} Tag</strong>
+                                    <span class="text-slate-600">รวม <span class="mono font-bold text-slate-900">{{ formatQty(available) }}</span> แผ่น</span>
+                                    <span v-if="batchProduct?.product_type_code" class="ml-auto text-xs"><span class="mono font-bold">{{ batchProduct.product_type_code }}</span><span v-if="batchProduct.sets_job_product_type" class="ml-1 rounded bg-amber-100 px-1.5 py-0.5 font-semibold text-amber-900">Tag แรก · กำหนดสินค้าของ Job</span><span v-else class="ml-1 text-emerald-700">✓ ตรงกับ Job</span></span>
+                                </div>
+                                <ul class="m-0 divide-y divide-slate-100 p-0">
+                                    <li v-for="(item, index) in batch" :key="item.scan_code" class="m-0 flex list-none items-center gap-3 px-3 py-2">
+                                        <span class="mono w-5 shrink-0 text-center text-xs font-bold text-slate-400">{{ index + 1 }}</span>
+                                        <div class="min-w-0 flex-1">
+                                            <p class="mono m-0 break-all text-sm font-semibold">{{ item.scan_code }}</p>
+                                            <p class="m-0 text-xs text-slate-500">Tag {{ formatQty(item.tag_quantity) }} แผ่น<template v-if="item.used > 0"> · ใช้ไปแล้ว {{ formatQty(item.used) }} · <strong class="text-amber-800">เหลือ {{ formatQty(item.remaining) }}</strong></template></p>
+                                        </div>
+                                        <div class="shrink-0 text-right"><p class="m-0 text-[11px] text-slate-500">ใช้</p><p class="mono m-0 font-bold" :class="allocation[index] > 0 ? 'text-slate-900' : 'text-red-600'">{{ formatQty(allocation[index] ?? 0) }}</p></div>
+                                        <button type="button" class="flex size-9 shrink-0 items-center justify-center rounded-full text-slate-400 hover:bg-red-50 hover:text-red-600" :aria-label="`เอา ${item.scan_code} ออก`" @click="removeFromBatch(index)"><i class="ph ph-x text-lg" aria-hidden="true"></i></button>
+                                    </li>
+                                </ul>
+                                <p class="m-0 border-t border-slate-100 px-3 py-1.5 text-xs text-slate-500">ยิง Tag เพิ่มได้ ถ้า WIP ออก 1 Tag ทำจากหลาย Tag · ส่วนที่ไม่ได้ใช้จะเหลือไว้ใน Tag เดิม</p>
                             </div>
+                            <div class="grid grid-cols-2 gap-3">
+                                <div>
+                                    <label for="finishing-qty-out" class="mb-1 flex items-baseline justify-between text-sm font-bold"><span>จำนวน WIP ออก <span class="text-red-600">*</span></span><span class="text-xs font-normal text-slate-500">สูงสุด {{ formatQty(available) }}</span></label>
+                                    <input id="finishing-qty-out" ref="quantityInput" v-model="quantityOut" type="number" inputmode="decimal" min="0.001" :max="available" step="any" required class="mono min-h-14 w-full rounded border-2 text-2xl font-bold" :class="quantityError ? 'border-red-500 bg-red-50 focus:border-red-600 focus:ring-red-500' : 'border-emerald-600 focus:border-emerald-700 focus:ring-emerald-600'" @input="quantityTouched = true" @keydown.enter.prevent="weightInput?.focus()" />
+                                    <button v-if="quantityTouched && Number(quantityOut) !== available" type="button" class="mt-1 text-xs font-semibold text-emerald-800 underline" @click="resetQuantity">ใช้ทั้งหมด {{ formatQty(available) }}</button>
+                                </div>
+                                <div>
+                                    <label for="finishing-weight" class="mb-1 block text-sm font-bold">น้ำหนัก (กก.) <span class="text-red-600">*</span></label>
+                                    <input id="finishing-weight" ref="weightInput" v-model="weightKg" type="number" inputmode="decimal" min="0.01" step="0.01" required class="mono min-h-14 w-full rounded border-2 border-emerald-600 text-2xl font-bold focus:border-emerald-700 focus:ring-emerald-600" placeholder="0.00" @keydown.enter.prevent="scanAndConfirm" />
+                                </div>
+                            </div>
+                            <p v-if="quantityError" role="alert" class="m-0 rounded border border-red-200 bg-red-50 px-3 py-2 text-sm font-semibold text-red-800">{{ quantityError }}</p>
+                            <p v-else-if="Number(quantityOut) > 0 && Number(quantityOut) < available" class="m-0 text-xs text-amber-800">เหลือ {{ formatQty(available - Number(quantityOut)) }} แผ่นใน Tag เดิม ใช้ต่อในรอบถัดไปได้</p>
                         </template>
 
                         <div v-if="lastTag" role="status" class="rounded border border-emerald-300 bg-emerald-50 p-3 text-sm">
@@ -367,13 +438,13 @@ function shiftLabel(value: string) { return value === 'day' ? 'กะเช้�
                     <label v-if="editingLogId" class="text-sm sm:col-span-2 xl:col-span-4">หมายเหตุ<textarea v-model="form.notes" rows="1" class="mt-1 w-full rounded border-slate-300" maxlength="2000" /></label>
                     <div v-if="editingLogId && Number(form.defect_count) > 0 && defectTypes.length" class="space-y-2 rounded border border-amber-200 bg-amber-50 p-3 sm:col-span-2 xl:col-span-4"><div class="flex items-center justify-between"><strong class="text-sm">แยกประเภทของเสีย (ไม่บังคับ)</strong><button type="button" class="rounded border border-amber-400 px-3 py-1 text-xs font-bold" @click="addDefectRow">+ เพิ่มประเภท</button></div><div v-for="(row, index) in defectRows" :key="index" class="grid gap-2 sm:grid-cols-3"><select v-model="row.defect_type_id" class="rounded border-slate-300 text-sm"><option value="">เลือกประเภท</option><option v-for="type in defectTypes" :key="type.id" :value="String(type.id)">{{ type.name }}</option></select><input v-model="row.quantity" type="number" min="0.001" step="0.001" class="rounded border-slate-300 text-sm" placeholder="จำนวน" /><input v-model="row.notes" class="rounded border-slate-300 text-sm" placeholder="หมายเหตุ" /></div></div>
                     <div v-if="station.code === 'ST5'" class="rounded border border-amber-200 bg-amber-50 p-3 text-sm text-amber-900 sm:col-span-2 xl:col-span-4">สถานีทาสี/ปุลาย: กรอกยอดเสียรวมเมื่อเช็กงานปลายกะ</div>
-                    <div class="sm:col-span-2 xl:col-span-4"><button :disabled="busy || previewing || (!editingLogId && !canConfirm)" class="min-h-12 w-full rounded bg-[var(--hmi-ink)] px-5 font-bold text-white disabled:opacity-50 sm:w-auto">{{ busy ? 'กำลังบันทึก...' : editingLogId ? 'บันทึกการแก้ไข' : 'ยืนยันและออก Tag WIP' }}</button><button v-if="editingLogId" type="button" class="ml-2 min-h-11 rounded border border-slate-300 px-5 font-semibold" @click="resetForm">ยกเลิกแก้ไข</button></div>
+                    <div class="sm:col-span-2 xl:col-span-4"><button :disabled="busy || previewing || (!editingLogId && !canConfirm)" class="min-h-12 w-full rounded bg-[var(--hmi-ink)] px-5 font-bold text-white disabled:opacity-50 sm:w-auto">{{ busy ? 'กำลังบันทึก...' : editingLogId ? 'บันทึกการแก้ไข' : batch.length && Number(quantityOut) > 0 ? `ยืนยันและออก Tag WIP ${formatQty(quantityOut)} แผ่น` : 'ยืนยันและออก Tag WIP' }}</button><button v-if="editingLogId" type="button" class="ml-2 min-h-11 rounded border border-slate-300 px-5 font-semibold" @click="resetForm">ยกเลิกแก้ไข</button></div>
                 </form>
             </section>
 
             <section v-if="selectedJob" class="overflow-hidden rounded-md border border-[var(--hmi-line)] bg-white">
                 <div class="flex items-center justify-between bg-[var(--hmi-panel)] px-4 py-3"><div><h2 class="m-0 font-bold">รายการผลิต</h2><p class="m-0 break-words text-sm font-semibold text-slate-800"><template v-if="selectedJob.product_type_code"><span class="mono">{{ selectedJob.product_type_code }}</span>{{ selectedJob.product_type_name ? ` · ${selectedJob.product_type_name}` : '' }}</template><span v-else class="font-normal text-amber-700">สินค้า: กำหนดจาก Tag แรก</span></p><p class="m-0 text-xs text-[var(--hmi-mute)]">{{ jobLogs.length }} รายการ · ยืนยันแล้วออก Tag WIP และปรับ stock ทันที</p></div><span class="mono rounded-sm bg-[var(--hmi-yellow)] px-2 py-1 text-xs font-extrabold">{{ shiftLabel(selectedJob.shift) }}</span></div>
-                <div class="overflow-x-auto"><table class="tbl min-w-[1000px]"><thead><tr><th class="w-px">Tag</th><th>ลำดับ</th><th>WIP เข้า</th><th>WIP ออก</th><th>น้ำหนัก (กก.)</th><th>Tag WIP ออก</th><th>เสีย</th><th>สถานะ</th><th>บันทึกโดย</th><th>จัดการ</th></tr></thead><tbody><tr v-for="log in jobLogs" :key="log.id"><td class="whitespace-nowrap"><div class="flex gap-1.5"><a v-if="log.tag_url" :href="log.tag_url" target="_blank" rel="noopener" @click.prevent="openTag(log)" class="inline-flex min-h-9 items-center gap-1.5 rounded bg-emerald-700 px-3 text-xs font-bold text-white" :aria-label="`พิมพ์ Tag WIP ${log.output_lot || log.id}`"><i class="ph ph-printer text-base" aria-hidden="true"></i>พิมพ์</a><button v-if="log.status !== 'cancelled' && selectedJob.status === 'active'" type="button" :disabled="busy" class="inline-flex min-h-9 items-center gap-1.5 rounded border border-slate-300 bg-white px-3 text-xs font-bold text-slate-700" :aria-label="`แก้น้ำหนักรายการ #${log.id}`" @click="openWeightEdit(log)"><i class="ph ph-pencil-simple text-base" aria-hidden="true"></i>แก้ไข</button><span v-if="!log.tag_url && log.status === 'cancelled'" class="text-xs text-slate-400">-</span></div></td><td class="mono font-bold">{{ log.sequence ?? '-' }}<span v-if="log.output_lot" class="block text-[11px] font-normal text-slate-500">{{ log.output_lot.slice(6) }}</span></td><td>{{ formatQty(log.quantity_in) }}</td><td>{{ formatQty(log.quantity_out) }}</td><td>{{ log.weight_kg != null ? Number(log.weight_kg).toFixed(2) : '-' }}</td><td class="mono text-xs">{{ log.output_tag_code || log.output_material?.code || '-' }}</td><td>{{ formatQty(log.defect_count) }}</td><td><span class="rounded-full px-3 py-1 text-xs font-bold" :class="log.status === 'confirmed' ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-900'">{{ log.status }}</span></td><td>{{ log.user?.name || '-' }}</td><td class="space-x-2 whitespace-nowrap"><button v-if="log.status === 'draft' && selectedJob.status === 'active'" :disabled="busy" class="rounded border border-slate-300 px-3 py-2 text-xs font-bold" @click="editLog(log)">แก้ไขร่าง</button><button v-if="log.status === 'draft' && selectedJob.status === 'active'" :disabled="busy" class="rounded bg-emerald-700 px-3 py-2 text-xs font-bold text-white" @click="confirmLog(log)">ยืนยัน</button><button v-if="log.status !== 'cancelled' && selectedJob.status === 'active'" :disabled="busy" class="rounded border border-red-300 px-3 py-2 text-xs font-bold text-red-700" @click="cancelLog(log)">ยกเลิก</button><span v-if="selectedJob.status !== 'active'" class="inline-flex items-center gap-1 text-xs text-slate-500"><i class="ph ph-lock-simple" aria-hidden="true"></i>จบงานแล้ว</span></td></tr><tr v-if="!jobLogs.length"><td colspan="10" class="py-10 text-center text-slate-500">ยังไม่มีรายการใน Job นี้</td></tr></tbody></table></div>
+                <div class="overflow-x-auto"><table class="tbl min-w-[1000px]"><thead><tr><th class="w-px">Tag</th><th>ลำดับ</th><th>WIP เข้า</th><th>WIP ออก</th><th>น้ำหนัก (กก.)</th><th>Tag WIP ออก</th><th>เสีย</th><th>สถานะ</th><th>บันทึกโดย</th><th>จัดการ</th></tr></thead><tbody><tr v-for="log in jobLogs" :key="log.id"><td class="whitespace-nowrap"><div class="flex gap-1.5"><a v-if="log.tag_url" :href="log.tag_url" target="_blank" rel="noopener" @click.prevent="openTag(log)" class="inline-flex min-h-9 items-center gap-1.5 rounded bg-emerald-700 px-3 text-xs font-bold text-white" :aria-label="`พิมพ์ Tag WIP ${log.output_lot || log.id}`"><i class="ph ph-printer text-base" aria-hidden="true"></i>พิมพ์</a><button v-if="log.status !== 'cancelled' && selectedJob.status === 'active'" type="button" :disabled="busy" class="inline-flex min-h-9 items-center gap-1.5 rounded border border-slate-300 bg-white px-3 text-xs font-bold text-slate-700" :aria-label="`แก้จำนวน / น้ำหนักรายการ #${log.id}`" @click="openWeightEdit(log)"><i class="ph ph-pencil-simple text-base" aria-hidden="true"></i>แก้ไข</button><span v-if="!log.tag_url && log.status === 'cancelled'" class="text-xs text-slate-400">-</span></div></td><td class="mono font-bold">{{ log.sequence ?? '-' }}<span v-if="log.output_lot" class="block text-[11px] font-normal text-slate-500">{{ log.output_lot.slice(6) }}</span></td><td>{{ formatQty(log.quantity_in) }}<span v-if="(log.inputs?.length ?? 0) > 1" class="block text-[11px] text-slate-500">จาก {{ log.inputs!.length }} Tag</span><span v-for="input in (log.inputs ?? [])" :key="input.scan_code" class="mono block text-[10px] leading-tight text-slate-400" :title="input.scan_code">…{{ input.scan_code.slice(-7) }} × {{ formatQty(input.quantity) }}</span></td><td class="font-bold">{{ formatQty(log.quantity_out) }}</td><td>{{ log.weight_kg != null ? Number(log.weight_kg).toFixed(2) : '-' }}</td><td class="mono text-xs">{{ log.output_tag_code || log.output_material?.code || '-' }}</td><td>{{ formatQty(log.defect_count) }}</td><td><span class="rounded-full px-3 py-1 text-xs font-bold" :class="log.status === 'confirmed' ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-900'">{{ log.status }}</span></td><td>{{ log.user?.name || '-' }}</td><td class="space-x-2 whitespace-nowrap"><button v-if="log.status === 'draft' && selectedJob.status === 'active'" :disabled="busy" class="rounded border border-slate-300 px-3 py-2 text-xs font-bold" @click="editLog(log)">แก้ไขร่าง</button><button v-if="log.status === 'draft' && selectedJob.status === 'active'" :disabled="busy" class="rounded bg-emerald-700 px-3 py-2 text-xs font-bold text-white" @click="confirmLog(log)">ยืนยัน</button><button v-if="log.status !== 'cancelled' && selectedJob.status === 'active'" :disabled="busy" class="rounded border border-red-300 px-3 py-2 text-xs font-bold text-red-700" @click="cancelLog(log)">ยกเลิก</button><span v-if="selectedJob.status !== 'active'" class="inline-flex items-center gap-1 text-xs text-slate-500"><i class="ph ph-lock-simple" aria-hidden="true"></i>จบงานแล้ว</span></td></tr><tr v-if="!jobLogs.length"><td colspan="10" class="py-10 text-center text-slate-500">ยังไม่มีรายการใน Job นี้</td></tr></tbody></table></div>
             </section>
             <div class="flex flex-col gap-2 sm:flex-row sm:justify-end">
                 <button v-if="selectedJob.status === 'active'" type="button" class="flex min-h-14 items-center justify-center gap-2 rounded-md bg-red-600 px-8 text-lg font-extrabold text-white shadow-sm hover:bg-red-700" @click="openSummary"><i class="ph-fill ph-flag-checkered text-2xl" aria-hidden="true"></i>จบงาน</button>
@@ -414,7 +485,7 @@ function shiftLabel(value: string) { return value === 'day' ? 'กะเช้�
                     <div v-if="summary.pending_items.length">
                         <p class="m-0 mb-1 text-xs font-bold text-amber-800">รับเข้าแล้ว ยังไม่ได้แปรรูป ({{ summary.pending_items.length }})</p>
                         <ul class="m-0 divide-y divide-amber-100 rounded border border-amber-200 bg-amber-50 p-0">
-                            <li v-for="item in summary.pending_items" :key="item.in_code" class="m-0 flex list-none items-baseline justify-between gap-2 px-3 py-1.5"><span class="mono min-w-0 break-all text-xs">{{ item.in_code }}</span><span class="mono shrink-0 font-semibold">{{ formatQty(item.in_quantity) }}</span></li>
+                            <li v-for="item in summary.pending_items" :key="item.in_code" class="m-0 flex list-none items-baseline justify-between gap-2 px-3 py-1.5"><span class="mono min-w-0 break-all text-xs">{{ item.in_code }}</span><span class="mono shrink-0 font-semibold">{{ formatQty(item.in_quantity) }}<span v-if="item.used" class="font-normal text-slate-500">/{{ formatQty(item.tag_quantity ?? 0) }}</span></span></li>
                         </ul>
                     </div>
                     <div v-if="summary.defects > 0 || summary.pending_quantity > 0 || summary.draft_count > 0" class="space-y-1">
@@ -487,15 +558,24 @@ function shiftLabel(value: string) { return value === 'day' ? 'กะเช้�
             </section>
         </div>
         <div v-if="weightEdit" class="fixed inset-0 z-[10000] flex items-end justify-center bg-slate-950/50 sm:items-center sm:p-4" role="presentation" @click.self="weightEdit = null" @keydown.esc="weightEdit = null">
-            <section role="dialog" aria-modal="true" aria-label="แก้ไขน้ำหนัก" class="w-full max-w-sm overflow-hidden rounded-t-xl bg-white shadow-2xl sm:rounded-xl">
+            <section role="dialog" aria-modal="true" aria-label="แก้ไขผลที่ได้" class="w-full max-w-sm overflow-hidden rounded-t-xl bg-white shadow-2xl sm:rounded-xl">
                 <div class="flex items-center justify-between gap-3 border-b border-slate-200 px-4 py-3">
-                    <div class="min-w-0"><h2 class="m-0 text-base font-bold">แก้ไขน้ำหนัก</h2><p class="mono m-0 truncate text-xs text-slate-500">#{{ weightEdit.id }} · {{ weightEdit.output_tag_code || weightEdit.output_lot || '-' }}</p></div>
+                    <div class="min-w-0"><h2 class="m-0 text-base font-bold">แก้ไขผลที่ได้</h2><p class="mono m-0 truncate text-xs text-slate-500">#{{ weightEdit.id }} · {{ weightEdit.output_tag_code || weightEdit.output_lot || '-' }}</p></div>
                     <button type="button" class="flex size-9 items-center justify-center rounded-full text-slate-500 hover:bg-slate-100" aria-label="ปิด" @click="weightEdit = null"><i class="ph ph-x text-xl" aria-hidden="true"></i></button>
                 </div>
                 <form class="space-y-3 p-4 pb-[max(1rem,env(safe-area-inset-bottom))]" @submit.prevent="saveWeightEdit">
-                    <label class="block text-sm font-bold" for="finishing-weight-edit">น้ำหนัก (กก.)</label>
-                    <input id="finishing-weight-edit" ref="weightEditInput" v-model="weightEditValue" type="number" inputmode="decimal" min="0.01" step="0.01" required class="mono min-h-14 w-full rounded border-2 border-emerald-600 text-2xl font-bold focus:border-emerald-700 focus:ring-emerald-600" />
-                    <p class="m-0 text-xs text-slate-500">แก้ได้เฉพาะน้ำหนัก · หลังบันทึกให้พิมพ์ Tag ใหม่</p>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label class="mb-1 flex items-baseline justify-between text-sm font-bold" for="finishing-qty-edit"><span>จำนวน WIP ออก</span><span class="text-xs font-normal text-slate-500">สูงสุด {{ formatQty(qtyEditMax) }}</span></label>
+                            <input id="finishing-qty-edit" v-model="qtyEditValue" type="number" inputmode="decimal" min="0.001" :max="qtyEditMax" step="any" required class="mono min-h-14 w-full rounded border-2 text-2xl font-bold" :class="Number(qtyEditValue) > qtyEditMax + 0.0005 ? 'border-red-500 bg-red-50' : 'border-emerald-600 focus:border-emerald-700 focus:ring-emerald-600'" />
+                        </div>
+                        <div>
+                            <label class="mb-1 block text-sm font-bold" for="finishing-weight-edit">น้ำหนัก (กก.)</label>
+                            <input id="finishing-weight-edit" ref="weightEditInput" v-model="weightEditValue" type="number" inputmode="decimal" min="0.01" step="0.01" required class="mono min-h-14 w-full rounded border-2 border-emerald-600 text-2xl font-bold focus:border-emerald-700 focus:ring-emerald-600" />
+                        </div>
+                    </div>
+                    <p v-if="weightEdit.inputs?.length" class="m-0 text-xs text-slate-500">WIP เข้า: <span v-for="(input, index) in weightEdit.inputs" :key="input.scan_code" class="mono">{{ index ? ' + ' : '' }}…{{ input.scan_code.slice(-7) }} ({{ formatQty(input.quantity) }})</span></p>
+                    <p class="m-0 text-xs text-slate-500">จำนวนต้องไม่เกินยอด WIP รับเข้าของรายการนี้<template v-if="qtyEditChanged"> · <strong class="text-amber-800">รหัส Tag จะเปลี่ยนตามจำนวน</strong></template> · หลังบันทึกให้พิมพ์ Tag ใหม่</p>
                     <p v-if="weightEditError" role="alert" class="m-0 rounded border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-800">{{ weightEditError }}</p>
                     <div class="flex justify-end gap-2">
                         <button type="button" class="min-h-11 rounded border border-slate-300 px-4 font-semibold" @click="weightEdit = null">ยกเลิก</button>

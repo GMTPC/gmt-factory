@@ -22,6 +22,7 @@ use Modules\Finishing\App\Models\FinishingMaterial;
 use Modules\Finishing\App\Models\FinishingStation;
 use Modules\Finishing\App\Models\ProductionLog;
 use Modules\Finishing\App\Services\ProductionService;
+use Modules\Finishing\App\Services\WipInputService;
 use Modules\Finishing\App\Services\DowntimeReportService;
 use Modules\Finishing\App\Services\ShiftService;
 
@@ -152,7 +153,7 @@ class FinishingApiController
         });
     }
 
-    public function previewJobScan(Request $request, FinishingJob $job): JsonResponse
+    public function previewJobScan(Request $request, FinishingJob $job, WipInputService $inputs): JsonResponse
     {
         $data = $request->validate(['raw_scan_code' => ['required', 'string', 'max:255']]);
         $scanCode = Str::upper(trim($data['raw_scan_code']));
@@ -161,77 +162,121 @@ class FinishingApiController
             throw ValidationException::withMessages(['job' => 'Job ต้องเปิดอยู่และกำหนด WIP ก่อนสแกนแปรรูป']);
         }
         $quantity = $this->wipBarcodeQuantity($scanCode);
+        $used = 0.0;
         $receipt = DB::table('finishing_wip_receipts')->where('scan_code', $scanCode)->first();
         if ($receipt) {
-            $this->assertReceiptUsable($receipt, $job);
+            if ((int) $receipt->job_id !== (int) $job->id) {
+                throw ValidationException::withMessages(['raw_scan_code' => 'บาร์โค้ด WIP นี้ถูกใช้กับ Job อื่นแล้ว']);
+            }
+            $row = $inputs->receipts($job->id)->firstWhere('id', $receipt->id);
+            $quantity = (float) $receipt->quantity;
+            $used = (float) ($row->used ?? 0);
+        }
+        $remaining = round(max(0, $quantity - $used), 3);
+        if ($remaining <= 0) {
+            throw ValidationException::withMessages(['raw_scan_code' => 'บาร์โค้ด WIP นี้แปรรูปครบจำนวนแล้ว']);
         }
         $productType = $this->productType($scanCode);
         $this->assertJobProductType($job, $productType);
 
         return response()->json([
             'scan_code' => $scanCode,
-            'quantity_in' => $quantity,
-            'quantity_out' => $quantity,
+            'tag_quantity' => $quantity,
+            'used' => $used,
+            'remaining' => $remaining,
+            'received' => (bool) $receipt,
+            'quantity_in' => $remaining,
+            'quantity_out' => $remaining,
             ...$productType,
             'sets_job_product_type' => ! $job->product_type_code,
         ]);
     }
 
-    public function scanJobWip(Request $request, FinishingJob $job, ProductionService $service): JsonResponse
+    /**
+     * Process: one or more WIP tags in -> one WIP tag out.
+     * The output quantity defaults to everything the scanned tags have left and may be lower; it can never be more.
+     * Sheets not used stay on their tag (remaining) for the next output.
+     */
+    public function scanJobWip(Request $request, FinishingJob $job, ProductionService $service, WipInputService $inputs): JsonResponse
     {
+        WipInputService::assertReady();
         $data = $request->validate([
-            'raw_scan_code' => ['required', 'string', 'max:255'],
+            'inputs' => ['required_without:raw_scan_code', 'array', 'min:1', 'max:30'],
+            'inputs.*' => ['required', 'string', 'max:255'],
+            'raw_scan_code' => ['required_without:inputs', 'string', 'max:255'],
+            'quantity_out' => ['nullable', 'numeric', 'gt:0', 'max:999999'],
             'weight_kg' => ['required', 'numeric', 'gt:0', 'max:999999'],
             'ft_count' => ['nullable', 'numeric', 'gte:0'],
             'sub_type' => ['nullable', Rule::in(['single', 'double'])],
             'has_labeling' => ['sometimes', 'boolean'],
             'notes' => ['nullable', 'string', 'max:2000'],
         ], [
+            'inputs.required_without' => 'กรุณาสแกนบาร์โค้ด WIP',
+            'quantity_out.numeric' => 'จำนวน WIP ออกต้องเป็นตัวเลข',
+            'quantity_out.gt' => 'จำนวน WIP ออกต้องมากกว่า 0',
             'weight_kg.required' => 'กรุณากรอกน้ำหนัก WIP ออก (กก.)',
             'weight_kg.numeric' => 'น้ำหนักต้องเป็นตัวเลข',
             'weight_kg.gt' => 'น้ำหนักต้องมากกว่า 0',
             'weight_kg.max' => 'น้ำหนักเกินค่าที่รับได้',
         ]);
-        $scanCode = Str::upper(trim($data['raw_scan_code']));
-        if ($scanCode === '') {
+        $codes = collect($data['inputs'] ?? [$data['raw_scan_code']])
+            ->map(fn ($code) => Str::upper(trim((string) $code)))->filter()->unique()->values();
+        if ($codes->isEmpty()) {
             throw ValidationException::withMessages(['raw_scan_code' => 'กรุณาสแกนบาร์โค้ด WIP']);
         }
-        $quantity = $this->wipBarcodeQuantity($scanCode);
-        $productType = $this->productType($scanCode);
+        // Parse every tag before touching the database: quantity and product type come from the code.
+        $tags = $codes->map(fn (string $code) => ['code' => $code, 'quantity' => $this->wipBarcodeQuantity($code), 'type' => $this->productType($code)]);
+        $productType = $tags->first()['type'];
 
-        $log = DB::transaction(function () use ($job, $request, $scanCode, $quantity, $productType, $data, $service): ProductionLog {
+        $log = DB::transaction(function () use ($job, $request, $tags, $productType, $data, $service, $inputs): ProductionLog {
             $job = FinishingJob::query()->lockForUpdate()->findOrFail($job->id);
             if ($job->status !== 'active' || ! $job->material_id) {
                 throw ValidationException::withMessages(['job' => 'Job ต้องเปิดอยู่และกำหนด WIP ก่อนสแกนแปรรูป']);
             }
             $station = FinishingStation::query()->findOrFail($job->station_id);
             $this->assertStationEnabled($station);
-            $this->validateLogRules($station, $data + ['quantity_in' => $quantity, 'quantity_out' => $quantity, 'defect_count' => 0]);
             $this->assertJobProductType($job, $productType);
             if (! $job->product_type_code && $productType['product_type_code']) {
                 $job->update($productType);
             }
+            foreach ($tags as $tag) {
+                $this->assertJobProductType($job, $tag['type']);
+            }
 
             $material = FinishingMaterial::query()->lockForUpdate()->findOrFail($job->material_id);
-            $receipt = DB::table('finishing_wip_receipts')->where('scan_code', $scanCode)->lockForUpdate()->first();
-            if ($receipt) {
-                $this->assertReceiptUsable($receipt, $job);
-                if ((float) $material->quantity < $quantity) {
-                    throw ValidationException::withMessages(['raw_scan_code' => 'ยอด WIP ของบาร์โค้ดนี้ไม่พอสำหรับบันทึกผลผลิต']);
+            $receipts = [];
+            foreach ($tags as $tag) {
+                $receipt = DB::table('finishing_wip_receipts')->where('scan_code', $tag['code'])->lockForUpdate()->first();
+                if ($receipt && (int) $receipt->job_id !== (int) $job->id) {
+                    throw ValidationException::withMessages(['inputs' => 'บาร์โค้ด WIP '.$tag['code'].' ถูกใช้กับ Job อื่นแล้ว']);
                 }
-            } else {
-                DB::table('finishing_wip_receipts')->insert([
-                    'job_id' => $job->id,
-                    'material_id' => $material->id,
-                    'user_id' => $request->user()->id,
-                    'scan_code' => $scanCode,
-                    'quantity' => $quantity,
-                    'created_at' => now(),
-                    'updated_at' => now(),
-                ]);
-                $material->increment('quantity', $quantity);
-                $material->update(['status' => 'pending']);
+                if (! $receipt) {
+                    $id = DB::table('finishing_wip_receipts')->insertGetId([
+                        'job_id' => $job->id,
+                        'material_id' => $material->id,
+                        'user_id' => $request->user()->id,
+                        'scan_code' => $tag['code'],
+                        'quantity' => $tag['quantity'],
+                        'created_at' => now(),
+                        'updated_at' => now(),
+                    ]);
+                    $receipt = DB::table('finishing_wip_receipts')->where('id', $id)->first();
+                    $material->increment('quantity', $tag['quantity']);
+                    $material->update(['status' => 'pending']);
+                }
+                $receipts[] = $receipt;
             }
+
+            $used = $inputs->usedByReceipt(array_map(fn ($receipt) => $receipt->id, $receipts));
+            $available = round(collect($receipts)->sum(fn ($receipt) => max(0, (float) $receipt->quantity - (float) ($used[(int) $receipt->id] ?? 0))), 3);
+            $quantity = round((float) ($data['quantity_out'] ?? $available), 3);
+            if ($available <= 0) {
+                throw ValidationException::withMessages(['inputs' => 'Tag ที่สแกนแปรรูปครบจำนวนแล้ว']);
+            }
+            if ($quantity > $available + 0.0005) {
+                throw ValidationException::withMessages(['quantity_out' => 'จำนวน WIP ออก '.$quantity.' เกินยอด WIP รับเข้า '.$available]);
+            }
+            $this->validateLogRules($station, $data + ['quantity_in' => $quantity, 'quantity_out' => $quantity, 'defect_count' => 0]);
 
             $log = ProductionLog::query()->create([
                 'job_id' => $job->id,
@@ -252,13 +297,15 @@ class FinishingApiController
                 'product_type_name' => $productType['product_type_name'],
                 'status' => 'draft',
             ]);
-            DB::table('finishing_wip_receipts')->where('scan_code', $scanCode)
+            $inputs->allocate($log->id, $receipts, $quantity);
+            DB::table('finishing_wip_receipts')->whereIn('id', array_map(fn ($receipt) => $receipt->id, $receipts))
                 ->update(['production_log_id' => $log->id, 'updated_at' => now()]);
 
             return $service->confirm($log);
         });
 
-        $log->setAttribute('scan_code', $scanCode);
+        $log->setAttribute('scan_code', $codes->implode(' + '));
+        $log->setAttribute('inputs', $inputs->inputsByLog([$log->id])->get($log->id, []));
         $log->setAttribute('tag_url', route('finishing.production.tag', ['productionLog' => $log->id]));
         return response()->json($log->load(['job', 'station', 'material', 'user']), 201);
     }
@@ -311,19 +358,34 @@ class FinishingApiController
     }
 
     /** After a tag is issued only its weight may be corrected; reprinting the tag shows the new weight. */
-    public function updateLogWeight(Request $request, ProductionLog $productionLog): JsonResponse
+    /** Edit an issued output: weight and/or sheet count (count stays within the output's own input tags). */
+    public function updateLogWeight(Request $request, ProductionLog $productionLog, ProductionService $service): JsonResponse
     {
-        $data = $request->validate(['weight_kg' => ['required', 'numeric', 'gt:0', 'max:999999']], [
-            'weight_kg.required' => 'กรุณากรอกน้ำหนัก (กก.)',
+        $data = $request->validate([
+            'weight_kg' => ['required_without:quantity_out', 'numeric', 'gt:0', 'max:999999'],
+            'quantity_out' => ['required_without:weight_kg', 'numeric', 'gt:0', 'max:999999'],
+        ], [
+            'weight_kg.required_without' => 'กรุณากรอกน้ำหนัก (กก.)',
             'weight_kg.numeric' => 'น้ำหนักต้องเป็นตัวเลข',
             'weight_kg.gt' => 'น้ำหนักต้องมากกว่า 0',
+            'quantity_out.numeric' => 'จำนวนต้องเป็นตัวเลข',
+            'quantity_out.gt' => 'จำนวนต้องมากกว่า 0',
         ]);
         if ($productionLog->status === 'cancelled') {
             throw ValidationException::withMessages(['weight_kg' => 'รายการนี้ถูกยกเลิกแล้ว แก้ไขไม่ได้']);
         }
         $this->assertJobOpen($productionLog->job_id, 'weight_kg');
         $this->assertStationEnabled(FinishingStation::query()->findOrFail($productionLog->station_id));
-        $productionLog->update(['weight_kg' => $data['weight_kg']]);
+
+        DB::transaction(function () use ($data, $productionLog, $service): void {
+            if (isset($data['quantity_out'])) {
+                WipInputService::assertReady();
+                $service->changeOutputQuantity($productionLog, round((float) $data['quantity_out'], 3));
+            }
+            if (isset($data['weight_kg'])) {
+                ProductionLog::query()->whereKey($productionLog->id)->update(['weight_kg' => $data['weight_kg']]);
+            }
+        });
 
         return response()->json($productionLog->fresh());
     }
@@ -745,19 +807,6 @@ class FinishingApiController
         $label = fn (string $code, ?string $name) => $name ? "{$code} ({$name})" : $code;
         throw ValidationException::withMessages(['raw_scan_code' => 'Tag นี้เป็นสินค้า '.$label($tagType, $productType['product_type_name'] ?? null)
             .' แต่ Job นี้เป็นสินค้า '.$label($jobType, $job->product_type_name).' · 1 Job ได้ 1 ประเภทสินค้า กรุณาเปิด Job ใหม่']);
-    }
-
-    private function assertReceiptUsable(object $receipt, FinishingJob $job): void
-    {
-        if ((int) $receipt->job_id !== (int) $job->id) {
-            throw ValidationException::withMessages(['raw_scan_code' => 'บาร์โค้ด WIP นี้ถูกใช้กับ Job อื่นแล้ว']);
-        }
-        if ($receipt->production_log_id) {
-            $previousLog = ProductionLog::withTrashed()->find($receipt->production_log_id);
-            if ($previousLog && $previousLog->status !== 'cancelled') {
-                throw ValidationException::withMessages(['raw_scan_code' => 'บาร์โค้ด WIP นี้บันทึกผลการผลิตแล้ว']);
-            }
-        }
     }
 
     /** @return array{product_type_code: ?string, product_type_name: ?string} */

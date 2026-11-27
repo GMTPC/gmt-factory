@@ -13,6 +13,7 @@ use Inertia\Response;
 use Modules\Finishing\App\Models\FinishingEmployee;
 use Modules\Finishing\App\Models\FinishingJob;
 use Modules\Finishing\App\Models\FinishingJobEmployee;
+use Modules\Finishing\App\Services\WipInputService;
 use Modules\Finishing\App\Models\FinishingStation;
 use Modules\Finishing\App\Models\ProductionLog;
 use Modules\Finishing\App\Services\BplusExportService;
@@ -75,16 +76,18 @@ class FinishingPageController
         $logs = ProductionLog::query()->with(['job', 'material', 'outputMaterial', 'user'])
             ->where('station_id', $station->id)->where('job_id', $job->id)
             ->orderByDesc('id')->limit(50)->get();
-        $scanCodes = Schema::hasColumn('finishing_wip_receipts', 'production_log_id')
-            ? DB::table('finishing_wip_receipts')->whereIn('production_log_id', $logs->pluck('id'))
-                ->pluck('scan_code', 'production_log_id')
-            : collect();
+        $wipInputs = app(WipInputService::class);
+        $inputsByLog = $wipInputs->inputsByLog($logs->pluck('id'));
+        $receipts = $wipInputs->receipts($job->id)->keyBy('id');
         // Running number inside this Job (1 = first tag of the Job), not the database id.
         $sequence = ProductionLog::query()->where('job_id', $job->id)->orderBy('id')->pluck('id')->flip();
-        $logs->each(function (ProductionLog $log) use ($scanCodes, $sequence): void {
+        $logs->each(function (ProductionLog $log) use ($inputsByLog, $receipts, $sequence, $wipInputs): void {
+            $inputs = $inputsByLog->get($log->id, []);
             $log->setAttribute('sequence', ($sequence[$log->id] ?? 0) + 1);
             $log->setAttribute('defect_details', DB::table('finishing_defect_entries')->where('production_log_id', $log->id)->get());
-            $log->setAttribute('scan_code', $scanCodes->get($log->id));
+            $log->setAttribute('inputs', $inputs);
+            $log->setAttribute('scan_code', collect($inputs)->pluck('scan_code')->implode(' + ') ?: null);
+            $log->setAttribute('max_quantity_out', $inputs && WipInputService::ready() ? $wipInputs->maxQuantity((float) $log->quantity_out, $inputs, $receipts) : (float) $log->quantity_out);
             if ($log->status === 'confirmed' && $log->output_material_id) {
                 $log->setAttribute('tag_url', route('finishing.production.tag', ['productionLog' => $log->id]));
             }
@@ -271,9 +274,10 @@ class FinishingPageController
         $tz = config('finishing.timezone', 'Asia/Bangkok');
         $logs = ProductionLog::query()->with('user:id,name')->where('job_id', $job->id)->where('status', 'confirmed')->orderBy('id')
             ->get(['id', 'user_id', 'output_material_id', 'quantity_in', 'quantity_out', 'defect_count', 'weight_kg', 'created_at', 'output_lot', 'output_tag_code']);
-        $receipts = DB::table('finishing_wip_receipts')->where('job_id', $job->id)->orderBy('id')->get(['scan_code', 'quantity', 'production_log_id', 'created_at']);
+        $wipInputs = app(WipInputService::class);
+        $receipts = $wipInputs->receipts($job->id);
+        $inputsByLog = $wipInputs->inputsByLog($logs->pluck('id'));
         $sequence = ProductionLog::query()->where('job_id', $job->id)->orderBy('id')->pluck('id')->flip();
-        $scanByLog = $receipts->whereNotNull('production_log_id')->pluck('scan_code', 'production_log_id');
         $started = $job->created_at;
         $ended = $job->completed_at ?? ($job->status === 'completed' ? $job->updated_at : now());
         $firstScan = $logs->min('created_at');
@@ -284,7 +288,8 @@ class FinishingPageController
             // One row per processed tag: WIP in (scanned) -> WIP out (issued).
             'items' => $logs->map(fn (ProductionLog $log) => [
                 'sequence' => ($sequence[$log->id] ?? 0) + 1,
-                'in_code' => $scanByLog->get($log->id),
+                'in_code' => collect($inputsByLog->get($log->id, []))->pluck('scan_code')->implode(' + ') ?: null,
+                'inputs' => $inputsByLog->get($log->id, []),
                 'in_quantity' => (float) $log->quantity_in,
                 'out_code' => $log->output_tag_code,
                 'out_lot' => $log->output_lot,
@@ -296,9 +301,9 @@ class FinishingPageController
                 'recorded_by' => $log->user?->name,
                 'tag_url' => $log->output_material_id ? route('finishing.production.tag', ['productionLog' => $log->id]) : null,
             ])->values()->all(),
-            // Received into the Job but not (or no longer) turned into an output tag.
-            'pending_items' => $receipts->filter(fn ($receipt) => ! $receipt->production_log_id || ! $logs->contains('id', (int) $receipt->production_log_id))
-                ->map(fn ($receipt) => ['in_code' => $receipt->scan_code, 'in_quantity' => (float) $receipt->quantity])->values()->all(),
+            // Received into the Job with sheets not (yet) turned into an output tag.
+            'pending_items' => $receipts->filter(fn ($receipt) => $receipt->remaining > 0)
+                ->map(fn ($receipt) => ['in_code' => $receipt->scan_code, 'in_quantity' => (float) $receipt->remaining, 'tag_quantity' => (float) $receipt->tag_quantity, 'used' => (float) $receipt->used])->values()->all(),
             'input_tags' => $receipts->count(),
             'input_quantity' => (float) $receipts->sum('quantity'),
             'output_tags' => $logs->count(),
@@ -370,7 +375,7 @@ class FinishingPageController
     {
         $tz = config('finishing.timezone', 'Asia/Bangkok');
         $job = $log->job;
-        $scanCode = DB::table('finishing_wip_receipts')->where('production_log_id', $log->id)->value('scan_code');
+        $scanCode = collect(app(WipInputService::class)->inputsByLog([$log->id])->get($log->id, []))->value('scan_code');
         try {
             $source = $scanCode ? TagCode::parse((string) $scanCode) : null;
         } catch (InvalidArgumentException) {

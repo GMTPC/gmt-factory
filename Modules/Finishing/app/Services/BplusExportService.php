@@ -50,7 +50,8 @@ class BplusExportService
     public function download(Collection $logs, string $fileName): StreamedResponse
     {
         $tz = config('finishing.timezone', 'Asia/Bangkok');
-        $scanCodes = DB::table('finishing_wip_receipts')->whereIn('production_log_id', $logs->pluck('id'))->pluck('scan_code', 'production_log_id');
+        $scanCodes = app(WipInputService::class)->inputsByLog($logs->pluck('id'))
+            ->map(fn (array $inputs) => collect($inputs)->pluck('scan_code')->implode(' + '));
         $rows = $logs->map(fn (ProductionLog $log) => $this->row($log, $scanCodes->get($log->id), $tz));
 
         return response()->streamDownload(function () use ($rows): void {
